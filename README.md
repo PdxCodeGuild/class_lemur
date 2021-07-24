@@ -16,7 +16,7 @@ September 6th -- Labor Day
     - pete@pdxcodeguild.com
 
 - Lisa Brown, TA
-    - brown.lisa999&gmail.com
+    - brown.lisa999@gmail.com
 
 ## Capstone Dates:
 
