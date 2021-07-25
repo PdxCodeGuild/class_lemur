@@ -1,14 +1,13 @@
-# 20210517-Python-FullStack-Day
+# 20210726-Python-FullStack-Day
 Repo for the PDX Code Guild Python Full Stack day course starting 1/25/2021
 
-Class is held from **June 28th, 2021 to November 12th, 2021**
+Class is held from **July 26th, 2021 to November 5th, 2021**
 M-F 6:00 pm – 9:36 pm
 
 ![wallaby](wallaby.jpg)
 
 ### Holidays
-
-July 5th -- Independence Day  
+ 
 September 6th -- Labor Day  
 
 ### Staff
@@ -16,13 +15,13 @@ September 6th -- Labor Day
 - Pete Jones, Instructor
     - pete@pdxcodeguild.com
 
-- Will Herman, TA
-    - willherman4@gmail.com
+- Lisa Brown, TA
+    - brown.lisa999@gmail.com
 
 ## Capstone Dates:
 
 Capstone proposal due: TBA  
-Presentation Day: November 12th, 2021  
+Presentation Day: November 5th, 2021  
 
 <!-- ## JavaScript Labs Assigned:
 
@@ -50,17 +49,6 @@ Presentation Day: November 12th, 2021
 
 ## Python Labs Assigned:
 
-Lab  2: Average Numbers  
-Lab  3: Number To Phrase  
-Lab  4: Blackjack Advice  
-Lab  5: Pick 6  
-Lab  6: Credit Card Validator  
-Lab  7: Rot13  
-Lab  8: Peaks & Valleys  
-Lab  9: ARI
-Lab 10: Contact List  
-Lab 11: Searching & Sorting  
-Lab 12: ATM  
 
 <!-- #### Optional Python Labs -->
 
