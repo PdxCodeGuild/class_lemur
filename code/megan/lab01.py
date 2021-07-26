@@ -1,7 +1,7 @@
 from turtle import *
 
 penup()
-setposition(100, 100)
+setposition(90.00, 100.00)
 pendown()
 
 i = 0
@@ -11,7 +11,7 @@ while i < 100:
     i = i + 1
 
 penup()
-setposition(-15, -72)
+setposition(-15.00, -72.00)
 pendown()
 
 fillcolor('pink')
@@ -27,6 +27,5 @@ forward(200)
 left(120)
 
 end_fill()
-
 
 done()
