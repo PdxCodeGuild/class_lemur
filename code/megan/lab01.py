@@ -11,7 +11,7 @@ while i < 100:
     i = i + 1
 
 penup()
-setposition(50, 100)
+setposition(-15, -72)
 pendown()
 
 fillcolor('pink')
@@ -27,5 +27,6 @@ forward(200)
 left(120)
 
 end_fill()
+
 
 done()
