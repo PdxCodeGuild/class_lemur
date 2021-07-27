@@ -29,7 +29,7 @@ while loop_bool:
 print('You have input the following numbers:')
 list_length = len(nums)
 for i in range(list_length):
-    print(nums[i], sep=', ')
+    print(nums[i])
 
 # Loop to calculate average numbers
 total = 0
