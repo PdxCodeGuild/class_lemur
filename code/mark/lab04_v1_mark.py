@@ -44,17 +44,17 @@ def get_user_input():
                 break
     return user_number
 
-def convert_numbers_to_words(digit_phrase, user_number):
-    ones_digit = digit_phrase[user_number%10]
-    tens_digit = digit_phrase[(user_number//10) *10]
-    return tens_digit, ones_digit
-
 def main(digit_phrase):
     user_number = get_user_input()
-    tens_digit, ones_digit = convert_numbers_to_words(digit_phrase, user_number)
-    if ones_digit == 'zero':
-        print(tens_digit)
-    else:
-        print(f"{tens_digit}-{ones_digit}")
+    if user_number < 20:
+        ones_english = digit_phrase[user_number]
+        print(ones_english)
+    else: 
+        ones_english = digit_phrase[user_number%10]
+        tens_english = digit_phrase[(user_number//10) *10]
+        if ones_english == 'zero':
+            print(tens_english)
+        else:
+            print(f"{tens_english}-{ones_english}")
 
 main(digit_phrase)
