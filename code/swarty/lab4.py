@@ -11,9 +11,10 @@ V4 Convert a time given in hours and minutes to a phrase.
 
 #x=input("Enter a whole integer number to translate: ")
 
-
-x=12
+x=input("put in a mumber: ")
+x=int(x)
 numwords= {
+    0 : "zero",
     1 : "one",
     2 : "two",
     3 : "three",
@@ -41,11 +42,23 @@ numwords= {
     70 : "seventy",
     80 : "eighty",
     90 : "ninety",
+    "c" : "hundred",
+    "m" : "thousand",
+    "g" : "million",
+    "b" : "billion"
 }
 
-
-
+xstr=str(x)
+xlen=len(xstr)
+xcnt=xlen-1
 if x<=19:
-    print(f'numwords.get[x]')
-
+    print(numwords.get(x))
+else:
+    place=[]
+    wordy=""
+    for i in range(xlen):
+        place.append((x//(10**(xcnt-i)))*(10**(xcnt-i)))
+        wordy+= f'-{numwords.get(place[i])}'
+        x=x%(10**(xcnt-i))
+print("That number is "+ wordy.strip("-"))
 
