@@ -2,11 +2,14 @@
 
 from turtle import *
 #Head
+fillcolor('red')
+begin_fill()
 i = 0
 while i < 200:
     forward(2)
     left(360/200)
     i = i + 1
+end_fill()
 armlength=100
 necklength=20
 leglength=130
