@@ -20,7 +20,6 @@ print(f"average: {average_num}")
 running_sum = 0
 nums2 = []
 
-stop_words = ['done']
 # Use while loop get user input
 while True:
     
