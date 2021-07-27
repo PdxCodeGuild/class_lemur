@@ -2,6 +2,10 @@
 # Lab 3, Make Change
 # Scott Cormack
 # Python 3.9.6
+'''
+Side note: This took me way too long to figure out - I find that I tend to
+continually get ahead of myself and over engineer everything.
+'''
 
 # Prompt and get input
 print('This program will break down a currency amount into coins.')
