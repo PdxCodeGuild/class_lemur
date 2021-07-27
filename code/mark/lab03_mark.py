@@ -1,7 +1,14 @@
 import math
 
 def get_user_input():
-    user_input = float(input("Enter a dollar amount: "))
+    while True:
+        try:
+            user_input = float(input("Enter a dollar amount: "))
+        except ValueError:
+            print("Invalid entry.  Please enter a dollar amount.")
+            continue
+        else:
+            break
     number_of_pennies = math.floor(user_input * 100)
     return number_of_pennies
 
