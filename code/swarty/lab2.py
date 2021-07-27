@@ -19,4 +19,4 @@ for num in nums:
 for i in range(len(nums)):
     print(nums[i])
     total += num
-print(i+1)
+print(total/(i+1))
