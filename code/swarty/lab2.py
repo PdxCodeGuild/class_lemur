@@ -13,7 +13,7 @@ while True:
         break
     added = int(added)
     nums.append(added)
-print(nums)
+print("numbers being averaged:", nums)
 
 
 total=0
@@ -28,4 +28,4 @@ total=0
 for i in range(len(nums)):
 #    print(nums[i])
     total += nums[i]
-print(total/(i+1))
+print("average:", total/(i+1))
