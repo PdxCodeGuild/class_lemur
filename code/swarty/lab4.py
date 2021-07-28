@@ -51,14 +51,32 @@ numwords= {
 xstr=str(x)
 xlen=len(xstr)
 xcnt=xlen-1
+
 if x<=19:
     print(numwords.get(x))
+
 else:
     place=[]
-    wordy=""
+    wordy=""   
     for i in range(xlen):
-        place.append((x//(10**(xcnt-i)))*(10**(xcnt-i)))
-        wordy+= f'-{numwords.get(place[i])}'
-        x=x%(10**(xcnt-i))
+        if x>=100:
+            print(x//(10**(xcnt-i)))
+            place.append(x//(10**(xcnt-i)))
+            wordy+= f'{numwords.get(place[i])} {numwords.get("c")} '
+            x=x%(10**(xcnt-i))
+        elif x>19:
+            place.append((x//(10**(xcnt-i)))*(10**(xcnt-i)))
+            wordy+= f'{numwords.get(place[i])}-'
+            wordy.strip()
+            print(wordy)
+            x=x%(10**(xcnt-i))
+        elif x>=10:
+            if i==xcnt:
+                break
+            wordy+= f'{numwords.get(x)}'
+        else:
+            wordy+= f'{numwords.get(x)}'
+
 print("That number is "+ wordy.strip("-"))
+
 
