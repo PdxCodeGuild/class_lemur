@@ -23,17 +23,17 @@ def make_change(user_in, q, d, n, p):
     mod_d = total_p % d
     floor_n = total_p // n
     mod_n = total_p % n
-    total_change = total_p, total_q, floor_q, mod_q, floor_d,mod_d, floor_n, mod_n
+    total_change = print(f'{total_p} total pennies, {total_q} total quarters, {floor_q}, {mod_q}, {floor_d}, {mod_d}, {floor_n}, {mod_n}')
     return total_change
 
 
 total = input('how much money would you like to make change out of? ')
 total = float(total)
-
 print(make_change(total, quarter, dime, nickle, penny))
+
 
 # if total == 0:
 #     print("i see no money")
 
 # else:
-#     print(total // quater)
+   
