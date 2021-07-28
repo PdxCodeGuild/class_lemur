@@ -74,8 +74,11 @@ def digits_to_words(number):
         hundreds_digit = number // 100 
         tens_digit = number // 10 % 10
         ones_digit = number % 10
+        # Concatenate tens and ones digit to see if they are 1 - 19
         teens = int(str(tens_digit) + str(ones_digit))
-        if teens in teens_word:
+        if tens_digit == 0 and ones_digit in ones_word:
+            print(f'Your number is, {hundreds_word[hundreds_digit]}-{ones_word[ones_digit]}.')
+        elif teens in teens_word:
             print(f'Your number is, {hundreds_word[hundreds_digit]}-{teens_word[teens]}.')
         else:
             print(f'Your number is, {hundreds_word[hundreds_digit]}-{tens_word[tens_digit]}-{ones_word[ones_digit]}.')
