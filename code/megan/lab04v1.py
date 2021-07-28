@@ -1,4 +1,6 @@
 ten = {
+    0: '',
+    1: '',
     2: 'twenty',
     3: 'thirty',
     4: 'forty',
@@ -11,6 +13,7 @@ ten = {
 
 
 one = {
+    0: '',
     1: 'one',
     2: 'two',
     3: 'three', 
