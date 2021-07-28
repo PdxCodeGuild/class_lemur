@@ -21,19 +21,22 @@ copied code from lab
 
 nums = []
 
-user_num = input('input a number or type "done": ')
-user_num = int(user_num)
-nums = nums.append(user_num)
-print(type(nums))
+# print(type(user_num))
+# print(nums)
 
 
+i = True
 
-# while nums < 0:
-#     if input == 'done':
-#         print(sum(nums / len(nums)))
-#         break
-
-
+while i == True :
+    user_num = input('input a number or type "done": ') 
+    
+    if user_num == 'done':
+        print(sum(nums) / len(nums))
+        break
+    
+    user_num = int(user_num)
+    nums.append(user_num)
+    print(nums)
 
 
 
