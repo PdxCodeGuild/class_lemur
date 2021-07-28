@@ -31,4 +31,25 @@ x = int(input("Please enter a number between 0 and 99: "))
 tens = x//10
 ones = x%10
 
-print(ten[tens], one[ones])
+if x == 10:
+    print("ten")
+elif x == 11:
+    print("eleven")
+elif x == 12:
+    print("twelve")
+elif x == 13:
+    print("thirteen")
+elif x == 14:
+    print("fourteen")
+elif x == 15:
+    print("fifteen")
+elif x == 16:
+    print("sixteen")
+elif x == 17:
+    print("seventeen")
+elif x == 18:
+    print("eighteen")
+elif x == 19:
+    print("nineteen")
+else:
+    print(ten[tens], one[ones])

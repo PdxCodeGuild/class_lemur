@@ -51,4 +51,26 @@ ones = x%10
 # print(tens)
 # print(ones)
 
-print(hundred[hundreds], ten[tens], one[ones])
+if x == 10:
+    print("ten")
+elif x == 11:
+    print("eleven")
+elif x == 12:
+    print("twelve")
+elif x == 13:
+    print("thirteen")
+elif x == 14:
+    print("fourteen")
+elif x == 15:
+    print("fifteen")
+elif x == 16:
+    print("sixteen")
+elif x == 17:
+    print("seventeen")
+elif x == 18:
+    print("eighteen")
+elif x == 19:
+    print("nineteen")
+else:
+    print(hundred[hundreds], ten[tens], one[ones])
+
