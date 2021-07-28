@@ -11,8 +11,7 @@ V4 Convert a time given in hours and minutes to a phrase.
 
 #x=input("Enter a whole integer number to translate: ")
 
-x=input("put in a mumber: ")
-x=int(x)
+# Word Dictionary
 numwords= {
     0 : "zero",
     1 : "one",
@@ -48,6 +47,22 @@ numwords= {
     "b" : "billion"
 }
 
+#Roman Numeral Dictionary
+roman={
+    1 : "I",
+    5 : "V",
+    10 : "X",
+    50 : "L",
+    100 : "C",
+    500 : "D",
+    1000 : "M",
+}
+
+x=input("put in a mumber: ")
+x=int(x)
+rx=x
+
+#V2
 xstr=str(x)
 xlen=len(xstr)
 xcnt=xlen-1
@@ -60,7 +75,6 @@ else:
     wordy=""   
     for i in range(xlen):
         if x>=100:
-            print(x//(10**(xcnt-i)))
             place.append(x//(10**(xcnt-i)))
             wordy+= f'{numwords.get(place[i])} {numwords.get("c")} '
             x=x%(10**(xcnt-i))
@@ -68,7 +82,6 @@ else:
             place.append((x//(10**(xcnt-i)))*(10**(xcnt-i)))
             wordy+= f'{numwords.get(place[i])}-'
             wordy.strip()
-            print(wordy)
             x=x%(10**(xcnt-i))
         elif x>=10:
             if i==xcnt:
@@ -76,7 +89,21 @@ else:
             wordy+= f'{numwords.get(x)}'
         else:
             wordy+= f'{numwords.get(x)}'
+wordy.strip("-")
+#V3
 
-print("That number is "+ wordy.strip("-"))
+
+numeral=""
+for num in reversed(roman):
+    romplace=(rx//num)
+    rx %= num
+    if romplace != 0:
+        for i in range(romplace):
+            numeral+=str(roman.get(num))
+        romplace = 0
+
+
+# Output
+print(f"That number is {wordy}\n{numeral}")
 
 
