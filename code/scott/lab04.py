@@ -42,20 +42,43 @@ tens_word = {
 }
 
 hundreds_word = {
-    
+    1:'one-hundred',
+    2:'two-hundred',
+    3:'three-hundred',
+    4:'four-hundred',
+    5:'five-hundred',
+    6:'six-hundred',
+    7:'seven-hundred',
+    8:'eight-hundred',
+    9:'nine-hundred'
 }
 
+# Function to convert numerals to phrases
 def digits_to_words(number):
-    if number in ones_word:
+    # Find how many digits are in the number
+    digits = number
+    count = 0
+    while digits > 0:
+         digits = digits // 10
+         count += 1
+
+    if count == 1:
         print(f'Your number is, {ones_word[number]}.')
-    elif number in teens_word:
+    elif number in range(10, 19):
         print(f'Your number is, {teens_word[number]}.')
-    else:
+    elif count == 2:
         tens_digit = number // 10
         ones_digit = number % 10
         print(f'Your number is, {tens_word[tens_digit]}-{ones_word[ones_digit]}.')
-
-
+    elif count == 3:
+        hundreds_digit = number // 100 
+        tens_digit = number // 10 % 10
+        ones_digit = number % 10
+        teens = int(str(tens_digit) + str(ones_digit))
+        if teens in teens_word:
+            print(f'Your number is, {hundreds_word[hundreds_digit]}-{teens_word[teens]}.')
+        else:
+            print(f'Your number is, {hundreds_word[hundreds_digit]}-{tens_word[tens_digit]}-{ones_word[ones_digit]}.')
 
 # Prompt user and get number
 digits = int(input('Enter a number to be converted to words: '))
