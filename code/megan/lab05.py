@@ -1,5 +1,3 @@
-print("Please select three cards (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K): ")
-
 faceCards = {
     'J' : 10,
     'K' : 10,
@@ -7,21 +5,30 @@ faceCards = {
     'A' : 1
 }
 
-first = int(input("What's your first card? "))
+total = []
 
-second = int(input("What's your second card? "))
+print("Please select three cards (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K): ")
 
-third = int(input("What's your third card? "))
+first = input("What's your first card? ")
 
-total = first + second + third 
+second = input("What's your second card? ")
 
+third = input("What's your third card? ")
 
-if total < 17:
-    print(f"Your total was {total}. I think you should hit.")
-elif total >= 17 and total < 21:
-    print(f"Your total was {total}. I think you should stay.")
-elif total == 21:
-    print(f"Your total was {total}. Blackjack!")
-else:
-    print(f"Your total was {total}. Already busted!")
+# for key in faceCards.keys():
+
+if first in faceCards:
+    print(first)
+        
+
+# total = int(first) + int(second) + int(third)
+
+# if total < 17:
+#     print(f"Your total was {total}. I think you should hit.")
+# elif total >= 17 and total < 21:
+#     print(f"Your total was {total}. I think you should stay.")
+# elif total == 21:
+#     print(f"Your total was {total}. Blackjack!")
+# else:
+#     print(f"Your total was {total}. Already busted!")
 
