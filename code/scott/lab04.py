@@ -41,6 +41,10 @@ tens_word = {
     9:'ninety'
 }
 
+hundreds_word = {
+    
+}
+
 def digits_to_words(number):
     if number in ones_word:
         print(f'Your number is, {ones_word[number]}.')
