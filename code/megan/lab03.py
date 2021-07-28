@@ -1,17 +1,18 @@
-cents = float(input("Please enter a dollar amount: "))
+user_input = float(input("Please enter a dollar amount: "))
+# 1.83
+cents = user_input * 100
 
 quarter = cents // 25
-dimes = cents % 25
+cents = cents % 25
 
-dime = dimes // 10
-nickels = dimes % 10
+dimes = cents // 10
+cents = cents % 10
 
-nickel = nickels // 5
-pennies = nickels % 5
+nickels = cents // 5
+cents = cents % 5
 
-penny = cents // 1
 
 print(f"You have {quarter} quarters")
 print(f"You have {dimes} dimes")
 print(f"You have {nickels} nickles")
-print(f"You have {pennies} pennies")
+print(f"You have {cents} pennies")
