@@ -1,4 +1,6 @@
 hundred = {
+    '': '',
+    0: '',
     1: 'one hundred',
     2: 'two hundred',
     3: 'three hundred',
@@ -11,6 +13,8 @@ hundred = {
 }
 
 ten = {
+    0: '',
+    1: '',
     2: 'twenty',
     3: 'thirty',
     4: 'forty',
@@ -23,6 +27,7 @@ ten = {
 
 
 one = {
+    0: '',
     1: 'one',
     2: 'two',
     3: 'three', 
@@ -35,11 +40,11 @@ one = {
     10: 'ten'
 }
 
-# x = int(input("Please enter a number between 100 and 999: "))
-x = 460
+x = int(input("Please enter a number between 100 and 999: "))
+# x = 570
 
 hundreds = x//100
-tens = x//10
+tens = x//100
 ones = x%10
 
 # print(hundreds)
