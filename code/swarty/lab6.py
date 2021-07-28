@@ -42,4 +42,4 @@ for i in range(100):
     cost+=2
     luck,won+=num_match()
 
- print(f'You spent ${cost} and won ${won}\nYou picked correctly {luck/600}% of the time')   
+print(f'You spent ${cost} and won ${won}\nYou picked correctly {luck/600}% of the time')   
