@@ -41,36 +41,15 @@ one = {
 }
 
 x = int(input("Please enter a number between 100 and 999: "))
-# x = 570
 
 hundreds = x//100
-tens = x//100
-ones = x%10
 
-# print(hundreds)
-# print(tens)
-# print(ones)
+if hundreds > 0:
+    toSubtract = hundreds * 100 
+    newTotal = x - toSubtract 
+    tens = newTotal//10
+    ones = newTotal%10
 
-if x == 10:
-    print("ten")
-elif x == 11:
-    print("eleven")
-elif x == 12:
-    print("twelve")
-elif x == 13:
-    print("thirteen")
-elif x == 14:
-    print("fourteen")
-elif x == 15:
-    print("fifteen")
-elif x == 16:
-    print("sixteen")
-elif x == 17:
-    print("seventeen")
-elif x == 18:
-    print("eighteen")
-elif x == 19:
-    print("nineteen")
-else:
-    print(hundred[hundreds], ten[tens], one[ones])
+
+print(hundred[hundreds], ten[tens], one[ones])
 
