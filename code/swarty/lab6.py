@@ -35,4 +35,11 @@ def num_match(winning=pick6(), ticket=pick6()):
             matches+=1
     cash=prizes[matches]
     return matches, cash
-print(num_match())
+cost=0
+won=0
+luck=0
+for i in range(100):
+    cost+=2
+    luck,won+=num_match()
+
+ print(f'You spent ${cost} and won ${won}\nYou picked correctly {luck/600}% of the time')   
