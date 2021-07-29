@@ -27,14 +27,10 @@ for i in range(len(ccintegers)):
         ccintegers[i]+=ccintegers[i]
 ccsum=0
 for num in ccintegers:
-    print(num)
     if num>9:
         num-=9
-    print(num)
     ccsum+=num
 if ccsum%10 == cccheck:
     print("CC number is valid")
 else:
     print("card not valid")
-
-print(ccsum, ccintegers, cccheck)
