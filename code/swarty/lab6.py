@@ -29,7 +29,7 @@ prizes={
 def pick6():
     numbers=[]
     for i in range(6):
-        numbers.append(randint(1,99))
+        numbers.append(randint(1,20))
     return numbers
 
 def num_match(winning, ticket):
@@ -49,4 +49,4 @@ for i in range(100):
     luck+=ticket_luck
     won+=ticket_win
 
-print(f'You spent ${cost} and won ${won}\nYou picked correctly {round((luck/600),3)}% of the time')   
+print(f'You spent ${cost} and won ${won}\nYou picked correctly {round((luck/6),1)}% of the time\nYour ROI was {round(((won-cost)/cost)*100,1)}%')   
