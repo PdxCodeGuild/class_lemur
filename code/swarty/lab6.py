@@ -50,4 +50,3 @@ for i in range(100):
     won+=ticket_win
 
 print(f'You spent ${cost} and won ${won}\nYou picked correctly {round((luck/6),1)}% of the time\nYour ROI was {round(((won-cost)/cost)*100,1)}%')   
-
