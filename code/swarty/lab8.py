@@ -1,27 +1,36 @@
 """
-Lab 8 David Swartwood
+Lab 7 David Swartwood
+Let's write a function which returns whether a string containing a credit card number is valid as a boolean. The steps are as follows:
 
-Write a program that prompts the user for a string, and encodes it with ROT13. For each character, find the corresponding character, 
-add it to an output string. Notice that there are 26 letters in the English language, so encryption is the same as decryption.
-
-V2 Allow the user to input the amount of rotation used in the encryption / decryption
+Convert the input string into a list of ints
+Slice off the last digit. That is the check digit.
+Reverse the digits.
+Double every other element in the reversed list.
+Subtract nine from numbers over nine.
+Sum all values.
+Take the second digit of that sum.
+If that matches the check digit, the whole card number is valid.
 """
-letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-initial=input("Enter the phrase to encode: ")
-#initial="This is the way"                                               #test phrase
-initial=initial.lower()
-initial=list(initial)
-#encoding
-#rotation=13                                                            #V1
-rotation=int(input("Enter a number between 1-25 to set rotation: "))    #V2
-final=""
-for char in initial:
-    if char.isalpha:                                                    #watch for non alpha
-        rotindex=letters.index(char)                                    #index inital ltter to cypher
-    if rotindex >=(26-rotation):                                        #keep numbers in range
-            rotindex-=26
-        final+=(letters[rotindex+rotation])                             #apply rotation
-    else:                                                               #pass through non alpha
-        final+=(char)
 
-print(final)
+
+
+cc=input("Enter your Credit Card #: ")
+#cc=("4556737586899855")
+if len(cc) != 16:
+    cc=input("Incorrect entry \nEnter your Credit Card #: ")
+cc=list(cc)
+ccintegers=[int(num) for num in cc]
+cccheck=ccintegers.pop()
+ccintegers.reverse()
+for i in range(len(ccintegers)):
+    if i%2 ==0:
+        ccintegers[i]+=ccintegers[i]
+ccsum=0
+for num in ccintegers:
+    if num>9:
+        num-=9
+    ccsum+=num
+if ccsum%10 == cccheck:
+    print("CC number is valid")
+else:
+    print("card not valid")
