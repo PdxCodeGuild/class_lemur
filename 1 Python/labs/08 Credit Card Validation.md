@@ -1,4 +1,4 @@
-# Lab 6: Credit Card Validation
+# Lab 8: Credit Card Validation
 
 
 Let's write a function which returns whether a string containing a credit card number is valid as a boolean. The steps are as follows:
