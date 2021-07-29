@@ -38,7 +38,7 @@ average = 0
 for i in range(list_length):
     total = total + nums[i]
 
-average = total / (list_length +1)
+average = total / (list_length)
 
 # Print results
 print(f'The average of all input numbers is {average}.')
