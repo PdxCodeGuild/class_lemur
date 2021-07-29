@@ -49,8 +49,17 @@ Presentation Day: November 5th, 2021
 
 ## Python Labs Assigned:
 
+* [Lab 01 Turtle](1%20Python/labs/01%20Turtle.md)
+* [Lab 02 Average Numbers](1%20Python/labs/02%20Average%20Numbers.md)
+* [Lab 03 Make Change](1%20Python/labs/03%20Make%20Change.md)
+* [Lab 04 Number To Phrase](1%20Python/labs/04%20Number%20To%20Phrase.md)
+* [Lab 05 Blackjack Advice](1%20Python/labs/05%20Blackjack%20Advice.md)
+* [Lab 06 Pick 6](1%20Python/labs/06%20Pick%206.md)
+* [Lab 07 Mob Jackalope](1%20Python/labs/07%20Mob%20Jackalope.md)
 
-<!-- #### Optional Python Labs -->
+#### Suggested Optional Python Labs
+
+[Grading](1%20Python/labs/grading.md), [Guess The Number](1%20Python/labs/guess_the_number.md), [LCR](1%20Python/labs/LCR.md), [Mad Libs](1%20Python/labs/madlib.md), [Magic 8 Ball](1%20Python/labs/magic_8_ball.md), [Random Emoticon Generator](1%20Python/labs/random_emoticon_generator.md), [Random Password Generator](1%20Python/labs/random_password.md), [Road Trip](1%20Python/labs/road_trip.md), [Rock, Paper, Scissors](1%20Python/labs/rock_paper_scissors.md), [Simple Calculator](1%20Python/labs/simple_calculator.md), [Sock Sorter](1%20Python/labs/sock_sorter.md), [Unit Converter](1%20Python/labs/unit_converter.md)
 
 
 

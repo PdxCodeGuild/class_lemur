@@ -1,6 +1,6 @@
 
 
-# Mob Programming: Jackalope Simulator
+# Lab 7:  Jackalope Simulator –– Mob
 
 ## Version 1
 
