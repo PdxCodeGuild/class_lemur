@@ -1,41 +1,22 @@
-import string
+def credit_card_validation(card_num_string):
+    reversed_as_int = []
+    card_num_list = list(card_num_string)
+    check_digit = card_num_list.pop()
+    reversed_card_num = card_num_list[::-1]
+    for num in reversed_card_num:
+        reversed_as_int.append(int(num))
+    for i in range(0, len(reversed_as_int), 2):
+        reversed_as_int[i] *= 2
+        if reversed_as_int[i] > 9:
+            reversed_as_int[i] -= 9
+    sum_of_list = sum(reversed_as_int)
+    sum_of_list = str(sum_of_list)
+    second_digit_of_sum = sum_of_list[1]
+    if second_digit_of_sum == check_digit:
+        print("Valid!")
+    else: 
+        print("NOT Valid!")
+    
+        
 
-def get_user_input():
-    user_string = input("Enter a string to encrypt: ")
-    user_string = user_string.replace(" ", "").lower()
-    return user_string
-
-def create_alphabet_dict():
-    alphabet_dict = {}
-    alphabet_list = list(string.ascii_lowercase)
-    for i, letter  in enumerate(alphabet_list):
-        alphabet_dict[letter] = i + 1
-    return alphabet_dict
-
-def number_key_alphabet_dict(alphabet_dict):
-    new_dict = {}
-    for k,v in alphabet_dict.items():
-        new_dict[v] = k
-    return new_dict
-
-
-def ROT13(input_string, alphabet_dict, number_dict, rot_number=13):
-    input_string_list = list(input_string)
-    new_list = []
-    for letter in input_string_list:
-        num = alphabet_dict[letter]
-        new_num = num + rot_number
-        if new_num > 26:
-            new_list.append(number_dict[new_num-26])
-        else:
-            new_list.append(number_dict[new_num])
-    coded_string = "".join(new_list)
-    return coded_string
-
-def main():
-    user_string = get_user_input()
-    alphabet_dict = create_alphabet_dict()
-    number_dict = number_key_alphabet_dict(alphabet_dict)
-    print(ROT13(user_string, alphabet_dict, number_dict))
-
-main()
+credit_card_validation("455673758689985")
