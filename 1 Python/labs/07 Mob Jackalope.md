@@ -4,7 +4,7 @@
 
 ## Version 1
 
-The goal is to calculate how many years it will take for two jackalopes to create a population of 1000.
+The goal is to calculate how many years it will take for two age 0 jackalopes to create a population of 1000.
 
 - Jackalopes are reproductive from ages 4-8 and die at age 10.
 - Gestation is instantaneous. Each gestation produces two offspring.
