@@ -4,7 +4,7 @@
 # Python 3.9.6
 
 # Prompt user
-print('This is a tool to advise you on whenther you should hit or stay while playing blackjack.')
+print('This is a tool to advise you on whether you should hit or stay while playing blackjack.')
 
 # Function to gather user cards in hand
 def blackjack_hand():
