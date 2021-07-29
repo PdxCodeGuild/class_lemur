@@ -1,4 +1,5 @@
 """
+Lab 9
 Define the following functions:
 
 peaks - Returns the indices of peaks. A peak has a lower number on both the left and the right.
@@ -29,6 +30,16 @@ def valleys(downs,peak_list):
 
 #def terrain():
     
+#V2 create image
+pixels=""
+rowpixels=""
+for i in range(max(elevation),0,-1):
+    for elev in elevation:
+        pixels+=("   " if i>elev else " X ")
+    pixels+="\n"
+print(pixels)    
+
+
 
 
 

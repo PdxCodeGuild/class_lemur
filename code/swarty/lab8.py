@@ -1,5 +1,5 @@
 """
-Lab 7 David Swartwood
+Lab 8 David Swartwood
 Let's write a function which returns whether a string containing a credit card number is valid as a boolean. The steps are as follows:
 
 Convert the input string into a list of ints
