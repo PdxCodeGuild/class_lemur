@@ -1,11 +1,12 @@
 '''
 create monetary change
 '''
-
-quarter = 25
-dime = 10
-nickle = 5
-penny = 100
+coins = [
+    ('quarter', .25),
+    ('dime', .10),
+    ('nickle', .05),
+    ('penny',  .01)
+]
 
 '''
 pass in total dollar amount from input
@@ -14,22 +15,27 @@ record running sum
 divide total by 25(quarters)
 '''
 
-def make_change(user_in, q, d, n, p):
-    total_p = user_in * p #total pennies
-    total_q = user_in / q
-    floor_q = total_p // q #returned 0.0 because 1.27 cannot be divided by 25
-    mod_q = total_p % q
-    floor_d= total_p // d
-    mod_d = total_p % d
-    floor_n = total_p // n
-    mod_n = total_p % n
-    total_change = print(f'{total_p} total pennies, {total_q} total quarters, {floor_q}, {mod_q}, {floor_d}, {mod_d}, {floor_n}, {mod_n}')
-    return total_change
+def make_change(user_in):
+    pennies = user_in * 100
+    # print(round(pennies, 2))
+    
+    for coin in coins:
+        coinConvert = coin[1] * 100 # convert to pennies
+        # print(pennies)
+        coinCount =  int(pennies) // int(coinConvert) # floor divide to determine how many pennies there are
+        pennies -= coinCount * coinConvert # subtract remaining pennies from total
+        
+        total = print(f' ')
+        # print(coinCount, coinConvert)
+    return 
+    
+
+
 
 
 total = input('how much money would you like to make change out of? ')
 total = float(total)
-print(make_change(total, quarter, dime, nickle, penny))
+print(make_change(total))
 
 
 # if total == 0:
