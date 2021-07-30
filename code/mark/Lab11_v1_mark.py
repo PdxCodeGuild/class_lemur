@@ -2,8 +2,6 @@ from os import read
 import math 
 import re
 
-#text_file_to_read = "the_grinch.txt"
-#text_file_to_read = "the_golden_bird_Grimms.txt"
 text_file_list = ["the_grinch.txt", "the_golden_bird_Grimms.txt", "emporers_new_clothes.txt"]
 
 ari_scale = {
