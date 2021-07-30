@@ -43,7 +43,7 @@ def num_match(winning, ticket):
 cost=0
 won=0
 luck=0
-for i in range(100):
+for i in range(100000):
     cost+=2
     ticket_luck,ticket_win=num_match(pick6(),pick6())
     luck+=ticket_luck
