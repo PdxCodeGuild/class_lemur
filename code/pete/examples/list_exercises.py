@@ -125,47 +125,51 @@ grocery_list.pop(grocery_list.index('oranges'))
 print(grocery_list)
 
 """
-SKIP ME!!
 Remove all the mangos from too_many_mangos
+"""
+#					0			1		2			3		4				5			6			7		8
 too_many_mangos = ['apples', 'mangos', 'bananas', 'mangos', 'blueberries', 'mangos', 'oranges', 'mangos', 'mangos']
-DON'T DO THIS ONE!
-"""
+# for fruit in too_many_mangos:
+# 	if fruit == 'mangos':
+# 		too_many_mangos.remove(fruit)
+while 'mangos' in too_many_mangos:
+	too_many_mangos.remove('mangos')
+print(too_many_mangos)
+
+# """
+# Slicing mylist[start:end:step]
+# Use slicing to print out a list of the programming langagues
+# """
+
+# languages = ['Python', 'JavaScript', 'Japanese', 'English', 'Arabic', 'Greek', 'Hindi']
+# print(languages[0:2])
+# # print(languages[:2])
 
 
-"""
-Slicing mylist[start:end:step]
-Use slicing to print out a list of the programming langagues
-"""
-
-languages = ['Python', 'JavaScript', 'Japanese', 'English', 'Arabic', 'Greek', 'Hindi']
-print(languages[0:2])
-# print(languages[:2])
+# languages = ['Chinese', 'Spanish', 'Arabic', 'Python', 'JavaScript', 'C#', 'Java']
+# print(languages[3:])
 
 
-languages = ['Chinese', 'Spanish', 'Arabic', 'Python', 'JavaScript', 'C#', 'Java']
-print(languages[3:])
+# languages = ['English', 'Thai', 'French', 'German', 'Rust', 'C', 'Go', 'Assembly', 'COBOL', 'Icelandic', 'Italian']
+# print(languages[4:9])
 
 
-languages = ['English', 'Thai', 'French', 'German', 'Rust', 'C', 'Go', 'Assembly', 'COBOL', 'Icelandic', 'Italian']
-print(languages[4:9])
+# languages = ['JavaScript', 'English', 'French', 'Rust', 'Norwegian', 'Danish', 'Python']
+# print(languages[::3])
 
 
-languages = ['JavaScript', 'English', 'French', 'Rust', 'Norwegian', 'Danish', 'Python']
-print(languages[::3])
+# languages = ['Swahili', 'Go', 'Afrikaans', 'Java', 'Romansh', 'GDScript', 'Quechua']
+# print(languages[1::2])
 
 
-languages = ['Swahili', 'Go', 'Afrikaans', 'Java', 'Romansh', 'GDScript', 'Quechua']
-print(languages[1::2])
+# """
+# Use slicing to print out a list of the course sections in the order we will be covering them
+# """
+# languages_frameworks_engines_etc = ['Unity', 'Angular', 'French', 'Django Rest Framework', 'Russian', 'Lua', 'Vue', 'Pascal', 'Godot', 'JavaScript', 'Korean', 'PHP', 'Django', 'Perl', 'Dutch', 'CSS', 'Express', 'HLSL', 'HTML', 'Unreal Engine', 'Dothraki', 'Flask', 'Elvish', 'Doggo-Speak', 'Python', 'High Valyrian', 'Morse Code', 'C++']
+# print(languages_frameworks_engines_etc[-4:2:-3])
 
-
-"""
-Use slicing to print out a list of the course sections in the order we will be covering them
-"""
-languages_frameworks_engines_etc = ['Unity', 'Angular', 'French', 'Django Rest Framework', 'Russian', 'Lua', 'Vue', 'Pascal', 'Godot', 'JavaScript', 'Korean', 'PHP', 'Django', 'Perl', 'Dutch', 'CSS', 'Express', 'HLSL', 'HTML', 'Unreal Engine', 'Dothraki', 'Flask', 'Elvish', 'Doggo-Speak', 'Python', 'High Valyrian', 'Morse Code', 'C++']
-print(languages_frameworks_engines_etc[-4:2:-3])
-
-languages_frameworks_engines_etc.reverse()
-print(languages_frameworks_engines_etc)
-languages_frameworks_engines_etc.sort()
-print(languages_frameworks_engines_etc)
-print(languages_frameworks_engines_etc[::-1])
+# languages_frameworks_engines_etc.reverse()
+# print(languages_frameworks_engines_etc)
+# languages_frameworks_engines_etc.sort()
+# print(languages_frameworks_engines_etc)
+# print(languages_frameworks_engines_etc[::-1])
