@@ -1,27 +1,27 @@
-# # Exercise 1
-# teachers = [
-#     {
-#         'name': 'Pete',
-#         'city': 'Portland',
-#         'job': 'programmer',
-#         'computer': 'Mac',
-#     },
-# 	{
-# 		'name': 'Lisa',
-# 		'city': 'Portland',
-# 		'job': 'programmer',
-# 		'computer': 'windows',
-# 		'cat': 'Heather'
-# 	}
-# ]
-# keys = ['name', 'city', 'job', 'computer', 'cat']
-# for teacher in teachers:
-# 	print()
-# 	try:
-# 		for key in keys:
-# 			print(f'Their {key} is {teacher[key]}')
-# 	except KeyError:
-# 		print(f'They have no {key}')
+# Exercise 1
+teachers = [
+    {
+        'name': 'Pete',
+        'city': 'Portland',
+        'job': 'programmer',
+        'computer': 'Mac',
+    },
+	{
+		'name': 'Lisa',
+		'city': 'Portland',
+		'job': 'programmer',
+		'computer': 'windows',
+		'cat': 'Heather'
+	}
+]
+keys = ['name', 'city', 'job', 'computer', 'cat']
+for teacher in teachers:
+	print()
+	try:
+		for key in keys:
+			print(f'Their {key} is {teacher[key]}')
+	except KeyError:
+		print(f'They have no {key}')
 
 
 # Exercise 2
