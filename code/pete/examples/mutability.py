@@ -8,7 +8,7 @@ print(id(x))
 
 """Dictionaries & Lists are Mutable"""
 
-nums = [1, 2 ,3]
+nums = [1, 2, 3]
 print(nums)
 print(id(nums))
 nums.append(4)
@@ -19,5 +19,5 @@ x = ['apples', 'bananas', 'pears']
 y = x
 # y = x.copy()
 y.append('cherries')
-print(x, id(x)) # ['apples', 'bananas', 'pears', 'cherries']
-print(y, id(y)) # ['apples', 'bananas', 'pears', 'cherries']
+print(x, id(x))  # ['apples', 'bananas', 'pears', 'cherries']
+print(y, id(y))  # ['apples', 'bananas', 'pears', 'cherries']
