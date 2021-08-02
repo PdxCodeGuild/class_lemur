@@ -56,4 +56,3 @@ print(expenses)
 print(earnings)
 
 print(ROI(earnings, expenses))
-

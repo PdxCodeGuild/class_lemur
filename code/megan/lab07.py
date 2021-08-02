@@ -2,27 +2,42 @@ number = list(input("Please enter your 16 digit credit card number: "))
 
 digits = [int(i) for i in number]
 
-digits_minus_one = digits[0:15]
+check_digit = digits.pop(-1)
+print(digits)
 
-digits_reversed = digits_minus_one[::-1]
+digits_reversed = digits[::-1]
 print(digits_reversed)
- 
+
 doubled = []
+index = 0
 
 for every_other in digits_reversed:
-    if every_other % 2 == 0:
+
+    if index % 2 == 0:
         doubled.append(every_other * 2)
+    else:
+        doubled.append(every_other)
+    index += 1
 
 print(doubled)
 
-for digit in digits_reversed:
-    if digit < 9:
-        print(digit - 9)
+minus_nine = []
 
-last = sum(digits_reversed)
+for digit in doubled:
+    if digit > 9:
+        minus_nine.append(digit - 9)
+    else:
+        minus_nine.append(digit)
+
+print(minus_nine)
+
+last = sum(minus_nine)
 print(last)
 
-if 8 == digits[15]:
+final = [int(x) for x in str(last)]
+print(final)
+
+if final[1] == check_digit:
     print("This is a valid credit card number.")
 else:
     print("Sorry. This is not a valid credit card number.")
