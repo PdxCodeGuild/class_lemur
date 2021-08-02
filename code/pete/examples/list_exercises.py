@@ -2,6 +2,7 @@
 Access element from list: mylist[i]
 Given the list of seasons, print out 'summer'
 """
+from random import shuffle
 seasons = ['spring', 'summer', 'fall', 'winter']
 print(seasons[1])
 print(seasons[-3])
@@ -40,14 +41,14 @@ Loop over seasons to print out each season
 """
 seasons = ['spring', 'summer', 'fall', 'winter']
 for season in seasons:
-	print(season)
+    print(season)
 
 
 """
 Loop over seasons to print out each season using range() and len()
 """
 for i in range(len(seasons)):
-	print(seasons[i])
+    print(seasons[i])
 
 
 """
@@ -56,22 +57,22 @@ Loop over seasons2d AND the nested lists to print out each month
 """
 seasons2d = [spring, summer, fall, winter]
 for season in seasons2d:
-	# print(season)
-	for month in season:
-		print(month)
+    # print(season)
+    for month in season:
+        print(month)
 
 
 """
 Using range() and len(), loop over seasons2d to print out each month
 """
 for i in range(len(seasons2d)):
-	season = seasons2d[i]
-	for j in range(len(season)):
-		print(season[j])
+    season = seasons2d[i]
+    for j in range(len(season)):
+        print(season[j])
 
 for i in range(len(seasons2d)):
-	for j in range(len(seasons2d[i])):
-		print(seasons2d[i][j])
+    for j in range(len(seasons2d[i])):
+        print(seasons2d[i][j])
 
 """
 Inclusion: element in mylist
@@ -81,8 +82,8 @@ Use in and append to makes sure all the items_to_add are in grocery_list just on
 grocery_list = ['apples', 'bananas', 'oranges']
 items_to_add = ['bananas', 'blueberries']
 for item in items_to_add:
-	if item not in grocery_list:
-		grocery_list.append(item)
+    if item not in grocery_list:
+        grocery_list.append(item)
 print(grocery_list)
 
 """
@@ -116,9 +117,8 @@ print(fruits, vegetables)
 Index: mylist.index(element)
 Remove oranges from the randomized list with .pop()
 """
-from random import shuffle
 grocery_list = ['apples', 'bananas', 'oranges']
-shuffle(grocery_list) # grocery_list is now randomly shuffled
+shuffle(grocery_list)  # grocery_list is now randomly shuffled
 # index = grocery_list.index('oranges')
 # grocery_list.pop(index)
 grocery_list.pop(grocery_list.index('oranges'))
@@ -128,12 +128,13 @@ print(grocery_list)
 Remove all the mangos from too_many_mangos
 """
 #					0			1		2			3		4				5			6			7		8
-too_many_mangos = ['apples', 'mangos', 'bananas', 'mangos', 'blueberries', 'mangos', 'oranges', 'mangos', 'mangos']
+too_many_mangos = ['apples', 'mangos', 'bananas', 'mangos',
+                   'blueberries', 'mangos', 'oranges', 'mangos', 'mangos']
 # for fruit in too_many_mangos:
 # 	if fruit == 'mangos':
 # 		too_many_mangos.remove(fruit)
 while 'mangos' in too_many_mangos:
-	too_many_mangos.remove('mangos')
+    too_many_mangos.remove('mangos')
 print(too_many_mangos)
 
 # """

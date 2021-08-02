@@ -34,14 +34,14 @@ print(x + y, type(x + y))
 
 # lists
 print('\nlists')
-x = [1,2,3]
+x = [1, 2, 3]
 y = ['a', 'b', 'c']
 print(x, type(x))
 print(x + y, type(x + y))
 
 # dictionaries
 print('\ndictionaries')
-x = { 'a': 1, 'b': 2 }
+x = {'a': 1, 'b': 2}
 # y = { 'c': 3 }
 print(x, type(x))
 # print(x.update(y), type(x.update(y)))

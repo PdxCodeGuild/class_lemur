@@ -36,17 +36,20 @@
 stop_words = ['done', 'no', 'n', 'nah']
 user_command = ''
 while user_command not in stop_words:
-	user_command = input('have a nice day(hear message again, or type no to stop) ')
+    user_command = input(
+        'have a nice day(hear message again, or type no to stop) ')
 
 while True:
-	user_command = input('have a nice day(hear message again, or type no to stop) ')
-	if user_command in stop_words:
-		break
+    user_command = input(
+        'have a nice day(hear message again, or type no to stop) ')
+    if user_command in stop_words:
+        break
 print('program done')
 
 while True:
-	user_command = input('have a nice day(hear message again, or type no to stop) ')
-	if user_command not in stop_words:
-		continue
-	break
+    user_command = input(
+        'have a nice day(hear message again, or type no to stop) ')
+    if user_command not in stop_words:
+        continue
+    break
 print('program done')
