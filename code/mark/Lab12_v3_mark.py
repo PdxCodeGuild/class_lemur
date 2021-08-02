@@ -61,7 +61,6 @@ def update_contact(contacts, headers_list):
         if contact_to_update in contact.get("name"):
             contact[selection] = updated_value
             print(f"Contact updated: {contact}")
-
     return contacts
 
 def delete_contact(contacts):
@@ -87,6 +86,23 @@ def open_and_read(file_name):
     file.close
     return lines
 
+def open_and_write(file_name, contacts, headers):
+    with open(file_name, 'w') as file:
+        for i, header in enumerate(headers):
+            file.write(header)
+            if i < len(headers)-1:
+                file.write(',')
+        for contact in contacts:
+            values = list(contact.values())
+            file.write("\n")
+            for j,value in enumerate(values):
+                file.write(value)
+                if j < len(values)-1:
+                    file.write(',')
+    file.close()
+
+
+
 def create_contacts_list(lines, headers, contacts):
     for line in lines:
         append_contacts_list(line, headers, contacts)
@@ -110,8 +126,6 @@ def main(file_name):
     lines = open_and_read(file_name)
     headers_list, lines = headers(lines)
     create_contacts_list(lines, headers_list, contacts)
-    for contact in contacts:
-        print(contact)
     while loop_active == True:
         selection = get_user_selection()
         if selection == 1:
@@ -127,7 +141,7 @@ def main(file_name):
         else:
             raise ValueError
         loop_active = continue_or_quit()
+    open_and_write(file_name, contacts, headers_list)
     
 
 main(file_name)
-
