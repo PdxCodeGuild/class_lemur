@@ -33,7 +33,7 @@ def compare_num(ticket, winning):
 
 # Process earnings and charge for ticket
 def win_amount(win, amount):
-    amount -= 2
+    amount -= ticket_cost
     if win == 6:
         amount += 25000000
     elif win == 5:
@@ -53,7 +53,9 @@ def win_amount(win, amount):
 i = 0
 while i < num_games:
     ticket_num = gen_numbers(ticket_num, ticket_size)
+    ticket_num.sort()
     winning_num = gen_numbers(winning_num, ticket_size)
+    winning_num.sort()
     wins = compare_num(ticket_num, winning_num)
     balance = win_amount(wins, balance)
     # Wipe tickets to start over
