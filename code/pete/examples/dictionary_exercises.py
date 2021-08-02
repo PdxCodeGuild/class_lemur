@@ -41,5 +41,5 @@ miles_morales['abilities'].append('invisibility')
 print('🕷️  Miles Morales  🕷️')
 print()
 for key in miles_morales.keys():
-	print('🕸  ' + key, end='\n\t')
-	print(miles_morales[key])
+    print('🕸  ' + key, end='\n\t')
+    print(miles_morales[key])
