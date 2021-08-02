@@ -1,10 +1,13 @@
 """Helper functions for greetings"""
 
+
 def hi():
-	print('hi')
+    print('hi')
+
 
 def hello():
-	print('hello')
+    print('hello')
+
 
 def sup():
-	print("'sup")
+    print("'sup")
