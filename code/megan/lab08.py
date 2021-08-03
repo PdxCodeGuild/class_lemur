@@ -1,48 +1,44 @@
-def peak(list):
-    
-    all_peaks = []
+number = list(input("Please enter your 16 digit credit card number: "))
 
-    for i in range(1, len(list)-1):
+digits = [int(i) for i in number]
 
-        if list[i] > list[i-1] and list[i] > list[i+1]:
-            all_peaks.append(i)
-        else:
-            pass
+check_digit = digits.pop(-1)
+print(digits)
 
-    return all_peaks
-            
+digits_reversed = digits[::-1]
+print(digits_reversed)
 
-def valleys(list):
+doubled = []
+index = 0
 
-    all_valleys = []
+for every_other in digits_reversed:
 
-    for i in range(1, len(list)-1):
+    if index % 2 == 0:
+        doubled.append(every_other * 2)
+    else:
+        doubled.append(every_other)
+    index += 1
 
-        if list[i] < list[i-1] and list[i] < list[i+1]:
-            all_valleys.append(i)
-        else:
-            pass
+print(doubled)
 
-    return all_valleys
+minus_nine = []
 
-def peaks_and_valleys(list):
+for digit in doubled:
+    if digit > 9:
+        minus_nine.append(digit - 9)
+    else:
+        minus_nine.append(digit)
 
-    all_peaks_and_valleys = []
+print(minus_nine)
 
-    for i in range(1, len(list)-1):
+last = sum(minus_nine)
+print(last)
 
-        if list[i] > list[i-1] and list[i] > list[i+1]:
-            all_peaks_and_valleys.append(i)
-        elif list[i] < list[i-1] and list[i] < list[i+1]:
-            all_peaks_and_valleys.append(i)
-        else:
-            pass
-    
-    return all_peaks_and_valleys
+final = [int(x) for x in str(last)]
+print(final)
 
-data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+if final[1] == check_digit:
+    print("This is a valid credit card number.")
+else:
+    print("Sorry. This is not a valid credit card number.")
 
-print(peak(data)) 
-print(valleys(data))
-
-print(peaks_and_valleys(data))
