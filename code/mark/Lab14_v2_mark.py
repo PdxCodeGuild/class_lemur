@@ -2,7 +2,7 @@ class ATM:
     def __init__(self, balance=0, interest_rate=0.1, transactions=[]):
         self.balance = balance
         self.interest_rate = interest_rate
-        self.transactions
+        self.transactions = transactions
 
     def check_balance(self):
         """return the account balance"""
@@ -64,6 +64,7 @@ while True:
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('transactions - displays all previous deposits and withdrawals')
         print('exit     - exit the program')
     elif command == 'exit':
         break
