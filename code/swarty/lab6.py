@@ -29,7 +29,7 @@ prizes={
 def pick6():
     numbers=[]
     for i in range(6):
-        numbers.append(randint(1,20))
+        numbers.append(randint(1,99))
     return numbers
 
 def num_match(winning, ticket):
@@ -38,15 +38,15 @@ def num_match(winning, ticket):
         if winning[i]==ticket[i]:
             matches+=1
     cash=prizes[matches]
-    print(matches,cash,winning,ticket)
+    #print(matches,cash,winning,ticket)
     return matches, cash
 cost=0
 won=0
 luck=0
-for i in range(100):
+for i in range(100000):
     cost+=2
     ticket_luck,ticket_win=num_match(pick6(),pick6())
     luck+=ticket_luck
     won+=ticket_win
 
-print(f'You spent ${cost} and won ${won}\nYou picked correctly {round((luck/6),1)}% of the time\nYour ROI was {round(((won-cost)/cost)*100,1)}%')   
+print(f'You spent ${cost} and won ${won}\nYou picked correctly {round((luck/6000),1)}% of the time\nYour ROI was {round(((won-cost)/cost)*100,1)}%')   
