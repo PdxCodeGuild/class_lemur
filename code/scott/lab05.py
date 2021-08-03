@@ -29,11 +29,10 @@ def calculate(hand):
 def decide(num):
     if num < 17:
         print(f'You have {num}.  You should hit.')
-    elif num in range(17,21):
-        if num == 21:
-            print(f'You have {num}.  Blackjack!')
-        else:
-            print(f'You have {num}.  You should stay.')
+    elif num == 21:
+        print(f'You have {num}.  Blackjack!')
+    elif num >= 17:
+        print(f'You have {num}.  You should stay.')
     else:
         print(f'You have {num}.  You lost by busting.')
 
