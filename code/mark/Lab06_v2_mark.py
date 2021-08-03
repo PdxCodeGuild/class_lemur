@@ -6,8 +6,6 @@ def pick_six():
         number_list.append(random.randint(1,99))
     return number_list
 
-
-
 def num_matches(winning, ticket):
     matches = 0
     for i in range(len(winning)):
