@@ -50,6 +50,26 @@ if hundreds > 0:
     tens = newTotal//10
     ones = newTotal%10
 
-
-print(hundred[hundreds], ten[tens], one[ones])
+if x == 110:
+    print("one hundred ten")
+elif x == 111:
+    print("one hundred eleven")
+elif x == 112:
+    print("one hundred twelve")
+elif x == 113:
+    print("one hundred thirteen")
+elif x == 114:
+    print("one hundred fourteen")
+elif x == 115:
+    print("one hundred fifteen")
+elif x == 116:
+    print("one hundred sixteen")
+elif x == 117:
+    print("one hundred seventeen")
+elif x == 118:
+    print("one hundred eighteen")
+elif x == 119:
+    print("one hundred nineteen")
+else:
+    print(hundred[hundreds], ten[tens], one[ones])
 
