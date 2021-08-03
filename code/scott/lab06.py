@@ -26,14 +26,13 @@ def gen_numbers(list, num):
 # Compare ticket numbers to winning numbers
 def compare_num(ticket, winning):
     wins = 0
-    for i in ticket:
-        if i in winning:
+    for i in range(len(ticket)):
+        if ticket[i] == winning[i]:
             wins += 1
     return wins
 
 # Process earnings and charge for ticket
 def win_amount(win, amount):
-    amount -= ticket_cost
     if win == 6:
         amount += 25000000
     elif win == 5:
@@ -53,9 +52,7 @@ def win_amount(win, amount):
 i = 0
 while i < num_games:
     ticket_num = gen_numbers(ticket_num, ticket_size)
-    ticket_num.sort()
     winning_num = gen_numbers(winning_num, ticket_size)
-    winning_num.sort()
     wins = compare_num(ticket_num, winning_num)
     balance = win_amount(wins, balance)
     # Wipe tickets to start over
@@ -64,4 +61,9 @@ while i < num_games:
     i += 1
 
 # Print results
-print(f'You have earned ${balance} after playing {num_games} lottery tickets.')
+expenses = num_games * ticket_cost
+final_earnings = balance - expenses
+roi = final_earnings / expenses
+print(f'You spent a total of ${expenses}')
+print(f'Your final balance is ${balance}')
+print(f' Your ROI is: {roi}')
