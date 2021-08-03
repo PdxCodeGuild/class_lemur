@@ -56,6 +56,9 @@ Presentation Day: November 5th, 2021
 * [Lab 05 Blackjack Advice](1%20Python/labs/05%20Blackjack%20Advice.md)
 * [Lab 06 Pick 6](1%20Python/labs/06%20Pick%206.md)
 * [Lab 07 Mob Jackalope](1%20Python/labs/07%20Mob%20Jackalope.md)
+* [Lab 08 Credit Card Validation](1%20Python/labs/08%20Credit%20Card%20Validation.md)
+* [Lab 09 Peaks And Valleys](1%20Python/labs/09%20Peaks%20And%20Valleys.md)
+* [Lab 10 ROT13](1%20Python/labs/10%20ROT13.md)
 
 #### Suggested Optional Python Labs
 
