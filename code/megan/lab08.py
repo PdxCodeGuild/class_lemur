@@ -1,36 +1,48 @@
 def peak(list):
-    peak = []
+    
+    all_peaks = []
 
     for i in range(1, len(list)-1):
 
         if list[i] > list[i-1] and list[i] > list[i+1]:
-            peak.append(i)
+            all_peaks.append(i)
         else:
             pass
 
-    print(peak)
+    return all_peaks
             
 
 def valleys(list):
-    valleys = []
+
+    all_valleys = []
 
     for i in range(1, len(list)-1):
 
         if list[i] < list[i-1] and list[i] < list[i+1]:
-            valleys.append(i)
+            all_valleys.append(i)
         else:
             pass
 
-    print(valleys)
+    return all_valleys
 
-def peaks_and_valleys(list, list2):
-    return list + list2
+def peaks_and_valleys(list):
 
+    all_peaks_and_valleys = []
+
+    for i in range(1, len(list)-1):
+
+        if list[i] > list[i-1] and list[i] > list[i+1]:
+            all_peaks_and_valleys.append(i)
+        elif list[i] < list[i-1] and list[i] < list[i+1]:
+            all_peaks_and_valleys.append(i)
+        else:
+            pass
+    
+    return all_peaks_and_valleys
 
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
-peak(data) 
-valleys(data) 
+print(peak(data)) 
+print(valleys(data))
 
-# peaks_and_valleys
-
+print(peaks_and_valleys(data))
