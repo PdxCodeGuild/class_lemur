@@ -31,7 +31,7 @@ def decide(num):
         print(f'You have {num}.  You should hit.')
     elif num == 21:
         print(f'You have {num}.  Blackjack!')
-    elif num >= 17:
+    elif num >= 17 and num < 21:
         print(f'You have {num}.  You should stay.')
     else:
         print(f'You have {num}.  You lost by busting.')
