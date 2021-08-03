@@ -5,25 +5,9 @@ Jackalopes are reproductive from ages 4-8 and die at age 10.
 Gestation is instantaneous. Each gestation produces two offspring.
 Jackalopes are hermaphrodites, it takes a pair to reproduce, but any pair will do
 With these conditions in mind, we can represent our population as a list of ints.
-
-Now let's give the jackalopes distinct sexes and extend their gestation period to one year. We can
- represent each jackalope with a dictionary, thus our population will be a list of dictionaries. A
-  jackalope will have the following properties:
-
-name
-age
-sex
-whether they're pregnant
-Jackalopes can only mate with those immediately around them. Every generation Jackalopes are 
-randomly shuffled.
 """
 # h="hermafrodite"                           #V2
-# list 1 is females
-population_list = [{"name": 0, "age": 0,
-                    "pregnant": False}, {"name": 1, "age": 0}]
-# V2
-while len(population_list) < 10:
-    ...
+# population_list=[[h,0],[h,0]]              #V2
 age_list = [0, 0]
 years = 0
 while len(age_list) < 1000:
