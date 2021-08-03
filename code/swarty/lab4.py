@@ -73,6 +73,8 @@ xlen=len(xstr)
 xcnt=xlen-1
 wordy=""
 if x<=19:
+    if x == 0:
+        wordy+="zero"
     wordy+= f'{numwords.get(x)}'
 
 else:
