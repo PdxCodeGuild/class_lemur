@@ -39,14 +39,6 @@ x = ari_scale[final_ari]
 print(f"""
 --------------------------------------------------------
 The ARI for gatsby.txt is {final_ari}.
-This corresponds to a {x['grade_level']}
-that is suitable for an average person {x['ages']}.""")
+This corresponds to {x['grade_level']}
+that is suitable for an average person {x['ages']} years old.""")
 print("--------------------------------------------------------")
-
-'''
-Final product should look like:
-
-The ARI for gettysburg-address.txt is 12
-This corresponds to a 11th Grade level of difficulty
-that is suitable for an average person 16-17 years old.
-'''
