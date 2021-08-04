@@ -73,7 +73,7 @@ def digits_to_words(number):
          digits = digits // 10
          count += 1
 
-    if count == 1:
+    if count <= 1:
         print(f'Your number is, {ones_word[number]}.')
     elif number in range(10, 19):
         print(f'Your number is, {teens_word[number]}.')
