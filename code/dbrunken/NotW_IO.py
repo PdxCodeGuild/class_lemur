@@ -7,7 +7,7 @@ with the formula: 4.71(char/words) + 0.5(words/sentences) - 21.43
 import string
 import re
 
-with open('gettysburg.txt', 'r', encoding= 'utf-8') as f:
+with open('NotW.txt', 'r', encoding= 'utf-8') as f:
     book = f.read()
 # print(book)
 
@@ -15,12 +15,12 @@ def counter(file):
     from string import whitespace
     char = len(book.translate(str.maketrans('', '', string.punctuation + whitespace)))
     words = len(book.split(' '))
-    sentences = len(re.split(r'[.!?]', book))
+    sentences = len(re.split(r'\w[.!?]', book))
     print(char, words, sentences)
     # def calc_ari(char, words, sentences):
     ari = (4.71*(char/words)) + (0.5*(words/sentences)) - 21.43
     # if 
-    return ari
+    return round(ari)
 
 ari_result = counter(book)
 print(ari_result)
@@ -42,3 +42,8 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
     }
 
+# for ari_result in ari_scale.keys():
+
+# print(ari_scale[ari_result])
+print(f"The ARI scale indicates that this book is good for ages {ari_scale[ari_result]['ages']}")
+print(f"\nThat is roughly the equivalent of {ari_scale[ari_result]['grade_level']}")
