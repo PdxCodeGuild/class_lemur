@@ -18,15 +18,26 @@ from datetime import datetime
 file='../../code/swarty/DavidsData.csv'
 updated=f'../../code\swarty\DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
 #Read current file
-lines={}
+
 with open(file, 'r') as file:
     lines=file.read().split('\n')
-    
-print(lines)
+    #categories=lines.pop(0)
+data=[]
+database=[]
+for line in lines:
+    line=line.split(',')
+    data.append(line)
+for i in range(1,len(data)):
+    item={}    #new object with new ID
+    for j in range(len(data[i])):
+        category_name=data[0][j]
+        category_data=data[i][j]
+        category_name=category_name.strip()
+        category_data=category_data.strip()
+        item.update({category_name:category_data})  
+    database.append(item)
 
-
-
-
+print(database)
 
 #Write to file
 # with open(updated, 'w') as file:
