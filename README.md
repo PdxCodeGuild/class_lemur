@@ -59,10 +59,12 @@ Presentation Day: November 5th, 2021
 * [Lab 08 Credit Card Validation](1%20Python/labs/08%20Credit%20Card%20Validation.md)
 * [Lab 09 Peaks And Valleys](1%20Python/labs/09%20Peaks%20And%20Valleys.md)
 * [Lab 10 ROT13](1%20Python/labs/10%20ROT13.md)
+* [Lab 11 ARI](1%20Python/labs/11%20ARI.md)
+* [Lab 12 ARI](1%20Python/labs/11%20Contact%20List.md)
 
 #### Suggested Optional Python Labs
 
-[Grading](1%20Python/labs/grading.md), [Guess The Number](1%20Python/labs/guess_the_number.md), [LCR](1%20Python/labs/LCR.md), [Mad Libs](1%20Python/labs/madlib.md), [Magic 8 Ball](1%20Python/labs/magic_8_ball.md), [Random Emoticon Generator](1%20Python/labs/random_emoticon_generator.md), [Random Password Generator](1%20Python/labs/random_password.md), [Road Trip](1%20Python/labs/road_trip.md), [Rock, Paper, Scissors](1%20Python/labs/rock_paper_scissors.md), [Simple Calculator](1%20Python/labs/simple_calculator.md), [Sock Sorter](1%20Python/labs/sock_sorter.md), [Unit Converter](1%20Python/labs/unit_converter.md)
+[Count Words](1%20Python/labs/count_words.md), [Grading](1%20Python/labs/grading.md), [Guess The Number](1%20Python/labs/guess_the_number.md), [LCR](1%20Python/labs/LCR.md), [Mad Libs](1%20Python/labs/madlib.md), [Magic 8 Ball](1%20Python/labs/magic_8_ball.md), [Rain Data](1%20Python/labs/rain_data.md), [Random Emoticon Generator](1%20Python/labs/random_emoticon_generator.md), [Random Password Generator](1%20Python/labs/random_password.md), [Road Trip](1%20Python/labs/road_trip.md), [Rock, Paper, Scissors](1%20Python/labs/rock_paper_scissors.md), [Simple Calculator](1%20Python/labs/simple_calculator.md), [Sock Sorter](1%20Python/labs/sock_sorter.md), [Unit Converter](1%20Python/labs/unit_converter.md)
 
 
 
