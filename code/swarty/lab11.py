@@ -58,10 +58,8 @@ import re
 #imported files
 with open('Dorian_Grey.txt', 'r') as f:
     wilde=f.read()
+    #remove line breaks
     wilde=re.sub("\n"," ",wilde)
-    # while "\n" in wilde_lines:
-    #     wilde_lines.remove("\n")
-    # wilde_file=''.join(wilde_lines)
 
 
 
