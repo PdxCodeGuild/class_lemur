@@ -41,12 +41,7 @@ def sum_hand(uHand):
         print('winning hand')
     else:
         print('bust')
-    # for card in userHandlist:
-    #     currentCardValue = face_cards[card]
-    #     # # print(currentCardValue)
-    #     # currentCardValue = sum(face_cards.values())
-    #     # print(currentCardValue)
-    #     # # print(type(currentCardValue))
+
 
 
 while len(hand) < 2:
