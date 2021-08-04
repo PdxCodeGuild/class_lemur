@@ -1,5 +1,8 @@
 import re
 
+def ari(a, b, c):
+    return round(4.71 * (a / b) + 0.5 * (b / c) - 21.43)
+
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -23,29 +26,26 @@ with open('gatsby.txt', 'r') as f:
     # print(book)
 
 words = re.findall('\w+', open('gatsby.txt').read())
-print(len(words))
+words = len(words)
 
 characters = len(book)
-print(characters)
 
 sentences = len(book.split())
-print(sentences)
 
-def ari(a, b, c):
-    # return 4.71 (a / b) + 0.5 (b / c) - 21.43
-    return a + b + c
+final_ari = (ari(characters, words, sentences))
 
-print(ari(characters, words, sentences))
+x = ari_scale[final_ari]
 
-# for number in ari_scale:
-
-#     print(f"""
-#     --------------------------------------------------------
-#     The ARI for gatsby.txt is {ari}. This corresponds to a {ari}: {ari_scale['grade_level']} of difficulty that is suitable for an average person of {ari}:{ari_scale['ages']}
-#     """)
-#     print('--------------------------------------------------------')
+print(f"""
+--------------------------------------------------------
+The ARI for gatsby.txt is {final_ari}.
+This corresponds to a {x['grade_level']}
+that is suitable for an average person {x['ages']}.""")
+print("--------------------------------------------------------")
 
 '''
+Final product should look like:
+
 The ARI for gettysburg-address.txt is 12
 This corresponds to a 11th Grade level of difficulty
 that is suitable for an average person 16-17 years old.
