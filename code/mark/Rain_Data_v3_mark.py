@@ -1,5 +1,6 @@
 import datetime
 import re
+import matplotlib.pyplot as plt
 
 
 
@@ -75,8 +76,11 @@ def find_max_rain_year(list_of_rainfall_dicts):
             max_average_year = key
     return max_average_year, max_average_year_value 
 
-        
-
+def graph_values(list_of_data_dicts):
+    totals = [dicts.get("Total") for dicts in list_of_data_dicts]
+    dates = [dicts.get("Date") for dicts in list_of_data_dicts]
+    plt.plot(dates, totals)
+    plt.show()
 
 def main(path):
     rain_data = read_file(path)
@@ -93,6 +97,7 @@ def main(path):
     print(f"\nThe date with the highest rainfall is {max_rain_dates[0].strftime('%d-%b-%Y')} with a rainfall of {max_rain}")
     max_average_year, max_average_year_value = find_max_rain_year(list_of_data_dicts)
     print(f"\nThe year with the highest average rainfall is {max_average_year} with an average rainfall of {max_average_year_value}")
+    graph_values(list_of_data_dicts)
 
 
 main(path)
