@@ -7,18 +7,23 @@ with the formula: 4.71(char/words) + 0.5(words/sentences) - 21.43
 import string
 import re
 
-with open('C:\\Users\\David\\class_lemur\\code\\dbrunken\\NotW.txt', 'r', encoding= 'utf-8') as f:
+with open('gettysburg.txt', 'r', encoding= 'utf-8') as f:
     book = f.read()
 # print(book)
 
 def counter(file):
-    char = len(book.split(string.ascii_letters))
-    words = book.translate(str.maketrans('', '', string.punctuation))
-    sentences = re.split(r'.!?', book)
-    def calc_ari(char, words, sentences):
-        ari = 4.71(char/words) + 0.5(words/sentences) - 21.43
-        return
+    from string import whitespace
+    char = len(book.translate(str.maketrans('', '', string.punctuation + whitespace)))
+    words = len(book.split(' '))
+    sentences = len(re.split(r'[.!?]', book))
+    print(char, words, sentences)
+    # def calc_ari(char, words, sentences):
+    ari = (4.71*(char/words)) + (0.5*(words/sentences)) - 21.43
+    # if 
+    return ari
 
+ari_result = counter(book)
+print(ari_result)
 
 ari_scale = {
     1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
