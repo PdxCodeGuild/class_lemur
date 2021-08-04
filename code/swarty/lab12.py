@@ -12,7 +12,7 @@ the keys, the text in the other lines represent the values.
 
 """
 
-with open('contacts.csv', 'r') as file:
+with open('DavidsData.csv', 'w') as file:
     lines = file.read().split('\n')
     print(lines)
 
