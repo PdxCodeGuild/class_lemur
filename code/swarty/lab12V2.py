@@ -35,14 +35,14 @@ for i in range(1,len(data)):
 
 # add things
 
-#append user info
+#Create a record
 loopout='y'
 while loopout=='y':
     car_brand=input('What is the car brand? ')
-    category=input('What is that brands category? ')
-    known=input('What is that brand known for? ')
-    hq_location=input('Where is the brands headquarter? ')
-    owner=input('Who is the Brand owned by? ')
+    category=input('What is the category for {car_brand}? ')
+    known=input('What is that {car_brand} for? ')
+    hq_location=input('Where are the headquarters for {car_brand}? ')
+    owner=input('Who is the majority owner of {car_brand}? ')
     
     database.append({
         data[0][0]:car_brand,
