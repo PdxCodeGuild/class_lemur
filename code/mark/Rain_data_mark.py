@@ -21,7 +21,12 @@ def clean_and_select_data(rain_data):
     data_table_rows = data_table_rows[:-1]
     for i in range(len(data_table_rows)):
         data_table_rows[i][0] = datetime.datetime.strptime(data_table_rows[i][0], '%d-%b-%Y')
-    return headers, data_table_rows
+        try:
+            data_table_rows[i][1] = int(data_table_rows[i][1])
+        except:
+            data_table_rows[i][1] = 9999999
+    clean_data = [row for row in data_table_rows if not (row[1] == 9999999)]
+    return headers, clean_data
 
 def create_dict(headers, data_table):
     
