@@ -13,7 +13,7 @@ V4 Convert a time given in hours and minutes to a phrase.
 
 # Word Dictionary
 numwords= {
-    0 : "zero",
+    0 : "",
     1 : "one",
     2 : "two",
     3 : "three",
@@ -51,11 +51,16 @@ numwords= {
 roman={
     1 : "I",
     5 : "V",
+    9 : "IX",
     10 : "X",
+    40 : "XL",
     50 : "L",
+    90 : "XC",
     100 : "C",
+    400 : "CD",
     500 : "D",
-    1000 : "M",
+    900 : "CM",
+    1000 : "M"
 }
 
 x=input("put in a mumber: ")
@@ -66,13 +71,14 @@ rx=x
 xstr=str(x)
 xlen=len(xstr)
 xcnt=xlen-1
-
+wordy=""
 if x<=19:
-    print(numwords.get(x))
+    if x == 0:
+        wordy+="zero"
+    wordy+= f'{numwords.get(x)}'
 
 else:
-    place=[]
-    wordy=""   
+    place=[]  
     for i in range(xlen):
         if x>=100:
             place.append(x//(10**(xcnt-i)))
@@ -104,6 +110,6 @@ for num in reversed(roman):
 
 
 # Output
-print(f"That number is {wordy}\n{numeral}")
+print(f"That number is {wordy}\nThe roman numeral is: {numeral}")
 
 
