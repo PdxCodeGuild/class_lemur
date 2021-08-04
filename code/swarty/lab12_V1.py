@@ -12,11 +12,10 @@ the keys, the text in the other lines represent the values.
 
 """
 #import modules
-from datetime import datetime
+#from datetime import datetime
 
 
 file='../../code/swarty/DavidsData.csv'
-updated=f'../../code\swarty\DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
 #Read current file
 
 with open(file, 'r') as file:
@@ -37,8 +36,8 @@ for i in range(1,len(data)):
         item.update({category_name:category_data})  
     database.append(item)
 
-print(database)
-
+for datapoint in database:
+    print(datapoint)
 #Write to file
 # with open(updated, 'w') as file:
 #     file.write('\nHyundai, mid market, small cars and SUVs, South Korea, Hyundai Motor Company'.join(line))
