@@ -70,19 +70,46 @@ def retrieve():
         for i in complete:
             if i['name'] == choice:
                 print(i)
-            main()
-        else:
-            print('That character does not exist. Try again.')
-            continue
+                main()
+            
 
 
 
 def update():
-    main()
+    while True:
+        choice = input('Which character would you like to update?: ').lower()
+        for i in complete:
+            if i['name'] == choice:
+                print(f'Current information for this character is {i}.')
+                choice = input('Which attribute do you want to change?: ').lower()
+                if choice == 'name':
+                    change = input('What would you like to change it to?: ').lower()
+                    temp = i
+                    i['name'] = change
+                    complete.append(i)
+                    complete.remove(temp)
+                elif choice == 'pantheon':
+                    change = input('What would you like to change it to?: ').lower()
+                    temp = i
+                    i['pantheon'] = choice
+                    complete.append(i)
+                    complete.remove(temp)
+                elif choice == 'class':
+                    change = input('What would you like to change it to?: ').lower()
+                    temp = i
+                    i['class'] = choice
+                    complete.append(i)
+                    complete.remove(temp)
+                print(complete)
+                main()
 
 def delete():
-    main()
+    while True:
+        choice = input('Which character would you like to delete?: ').lower()
+        for i in complete:
+            if i['name'] == choice:
+                complete.remove(i)
+                main()
 
 print('Welcome to the Smite Character database.')
 main()
-# print(complete)
