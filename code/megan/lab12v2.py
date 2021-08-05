@@ -1,5 +1,19 @@
-with open('contact.csv', 'r') as file:
+file_path = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/contact.csv'
+file_path_2 = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/contact2.csv'
+
+def retrieve(userInput):
+    '''Locates a user's information by their name, favorite artist, or favorite album'''
+    for dict in contacts:
+    # print(dict)
+        for el in dict:
+            # print(dict[el])
+            if dict[el] == userInput:
+                return dict
+
+
+with open(file_path, 'r') as file:
     lines = file.read().split('\n')
+# print(lines)
 
 
 keys = lines.pop(0).split(",")
@@ -16,21 +30,74 @@ for line in lines:
     # print(pairs)
     contacts.append(pairs)
 
-# print(contacts)
+loop_control = True
 
-while True: 
+while loop_control == True: 
 
-    name = input("Please enter your name: ")
-    artist = input("Please enter your favorite artist: ")
-    album = input("Please enter your favorite album by that artist: ")
+    requested_action = input("To create a contact, enter create. To retrieve a contact, enter retrieve. To update a contact, enter update. To delete a contact, enter delete: ")
 
-    contacts.append({
+    if requested_action == 'retrieve':
+
+        person = input("Who do you want to retrieve? ")
+        print(retrieve(person))
+
+        again = input("Do you want to do something else? yes/no: ")
+
+        if again == 'no':
+            loop_control == False
+
+    elif requested_action == 'update':
+
+        person = input("Who do you want to update? ")
+        attribute = input("Do you want to update name, favorite artist, or favorite album? ")
+        value = input("What do you want to change it to? ")
+
+        selected_dict = retrieve(person)
+
+        selected_dict[attribute] = value
+        print(selected_dict)
+
+        again = input("Do you want to do something else? yes/no: ")
+
+        if again == 'no':
+            loop_control == False
+
+    elif requested_action == 'delete':
+
+        person = input("Who do you want to delete? ")
+        selected_dict = retrieve(person)
+
+        contacts.remove(selected_dict)
+        
+        print(contacts)
+
+        again = input("Do you want to do something else? yes/no: ")
+
+        if again == 'no':
+            loop_control == False
+
+    elif requested_action == 'create':
+
+        name = input("Please enter your name: ")
+        artist = input("Please enter your favorite artist: ")
+        album = input("Please enter your favorite album by that artist: ")
+
+        contacts.append({
         "name" : name,
         "artist" : artist,
         "album" : album
     })
 
-    break
+        print(contacts)
 
-print(contacts)
+        again = input("Do you want to do something else? yes/no: ")
 
+        if again == 'no':
+            loop_control == False
+
+    break 
+
+# print(contacts)
+
+with open(file_path_2, 'w') as file:
+    file.write().split('\n')
