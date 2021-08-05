@@ -29,7 +29,7 @@ for values in contacts[1::]:
     con_list.append(con)
 print(con_list)
 
-repl = input("Do you want to create(C), retrieve(R), update(U), or delete(d) a record?")
+repl = input("Do you want to create(C), retrieve(R), update(U), or delete(D) a record?")
 def record(repl):
     con_list1 = con_list
     if repl == "C":
@@ -57,28 +57,36 @@ def record(repl):
 
     if repl == "U":
         update_name = input("Enter name: ")
-        for dictionary in con_list1:
-            if update_name == dictionary['name']:
-                print(dictionary)
+        for dictionary in con_list1: #for each dictionary in the list
+            if update_name == dictionary['name']: #if input(update_name) is a value for 'name' key in the dictionaries
+                print(dictionary, "b") #print dictionary with name value
                 new_attribute = input("Which attribute would you like to update? ")
-                # for dictionary in con_list1:
-                #     if new_attribute == dictionary[new_attribute]:
-                #         print(dictionary, "u")
+                for dictionary in con_list1:
+                    if update_name == dictionary['name']:
+                        print(dictionary[new_attribute], "aaa")
+                        updated_attribute = input("Enter new attribute")
+                        dictionary[new_attribute] = updated_attribute
+    print(con_list1)
+                
         
     
     if repl == "D":
-        delete_name = input("Enter a name: ")
+        delete_name = input("Enter the name you would like to delete: ")
         print(con_list1)
-        for value in con_list1:
-            print(value)
-            if delete_name in value:
-                con_list1.remove(value)
-            print(con_list1)
+        for dictionary in con_list1:
+            if delete_name == dictionary['name']:
+                con_list1.remove(dictionary)
+        print(con_list1)
 
 record(repl)
 
+# lab12 = "lab12.csv"
+# lab12_new = "lab12_new.csv"
+# with open(lab12, 'w') as lab12_new:
+#     lab12_new = file.write("hello world")
 
-
+#with open (lab12, 'w') as file:
+    #new_file = file.write(new_file)
 
 
 
@@ -103,8 +111,5 @@ record(repl)
 # with open(new variable,w, encoding...)
 #     f.write(new variable)
 #      """
-# lab12 = "lab12.csv"
-# lab12_new = "lab12_new.csv"
-# with open(lab12, 'w') as lab12_new:
-#     f.write(lab12_new)
+
 
