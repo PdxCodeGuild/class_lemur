@@ -21,10 +21,11 @@ def convert_csv(file):
 def main():
     convert_csv(file_name)
     # Process input
-    while True:
+    loop = True
+    while loop == True:
         choice = input('Choose if you would like to "create", "retrieve", "update" or "delete" a record ("exit" to quit): ').lower()
         if choice == 'exit':
-            break
+            loop = False
         # Direct to proper function
         elif choice == 'create':
             create()
@@ -38,31 +39,24 @@ def main():
             print('Invalid entry. Enter "create", "retrieve", "update" or "delete". ')
 
 def create():
-    while True:
+    loop = True
+    while loop == True:
         new_dict = {}
         # Get name
-        data = input('Enter a character name or "exit" to quit: ').lower()
-        if data == 'exit':
-            break
-        elif data in complete:
+        data = input('Enter a character name: ').lower()
+        if data in complete:
             print('That name already exists. Enter another name: ')
         else:
             new_dict['name'] = data
         # Get pantheon
-        data = input('Enter a character pantheon or "exit" to quit: ').lower()
-        if data == 'exit':
-            break
-        else:
+            data = input('Enter a character pantheon: ').lower()
             new_dict['pantheon'] = data
         # Get class
-        data = input('Enter a character class or "exit" to quit: ').lower()
-        if data == 'exit':
-            break
-        else:
+            data = input('Enter a character class: ').lower()
             new_dict['class'] = data
         # Add to final list
-        complete.append(new_dict)
-        main()
+            complete.append(new_dict)
+            loop = False
         
 def retrieve():
     while True:
@@ -71,9 +65,6 @@ def retrieve():
             if i['name'] == choice:
                 print(i)
                 main()
-            
-
-
 
 def update():
     while True:
@@ -100,7 +91,7 @@ def update():
                     i['class'] = choice
                     complete.append(i)
                     complete.remove(temp)
-                print(complete)
+               
                 main()
 
 def delete():
@@ -113,3 +104,14 @@ def delete():
 
 print('Welcome to the Smite Character database.')
 main()
+print('Writing changes to CSV.')
+final = ''
+with open('file_name1', 'w') as f:
+    for i in complete:
+        final += str(i)
+        final.strip('{')   
+
+
+print(final, type(final))
+        
+   
