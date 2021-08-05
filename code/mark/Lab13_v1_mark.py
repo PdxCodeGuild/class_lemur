@@ -1,100 +1,61 @@
-#-----------------------------------------------------------------------------------------------------------
-# Linear Search
-#-----------------------------------------------------------------------------------------------------------
-def linear_search(nums, value):
-    for i in range(len(nums)):
-        if nums[i] == value:
-            return i
-    return "Did not find value in list"
-
-
-nums = [1, 2, 3, 4, 5, 6, 7, 8]
-index = linear_search(nums, 87)
-print(index)
-
-#-----------------------------------------------------------------------------------------------------------
-# Binary Search
-#-----------------------------------------------------------------------------------------------------------
-def binary_search(nums, value):
-    nums.sort()
-    low = 0
-    high = len(nums) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if nums[mid] < value:
-            low = mid + 1
-        elif nums[mid] > value:
-            high = mid - 1
+class ATM:
+    def __init__(self, balance=0, interest_rate=0.1):
+        self.balance = balance
+        self.interest_rate = interest_rate
+    def check_balance(self):
+        """return the account balance"""
+        return self.balance
+    
+    def deposit(self, amount):
+        """deposit a given amount into account"""
+        self.balance += amount
+    
+    def check_withdrawal(self, amount):
+        """return True if account has enough funds to withdraw"""
+        if amount <= self.balance:
+            return True
         else:
-            return mid
-    return "Did not find value in list"
+            return False
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8]
-index = binary_search(nums, 7)
-print(index) 
+    def withdraw(self, amount):
+        """withdraw given amount from account and return that amount"""
+        self.balance -= amount
+        return amount
+    
+    def calc_interest(self):
+        """calculate and return interest gained on account"""
+        return self.balance * self.interest_rate
 
-#-----------------------------------------------------------------------------------------------------------
-# Bubble Sort
-#-----------------------------------------------------------------------------------------------------------
-
-def bubble_sort(list_of_items):
-    list_length = len(list_of_items)
-    swapped = True
-    while swapped is True:
-        swapped = False
-        for i in range(1,list_length):
-            if list_of_items[i-1] > list_of_items[i]:
-                list_of_items[i-1], list_of_items[i] = list_of_items[i], list_of_items[i-1]
-                swapped = True
-    return list_of_items
-
-
-list_of_items = [5,4,2,7,8,2,3]
-print(bubble_sort(list_of_items))
-
-#-----------------------------------------------------------------------------------------------------------
-# Insertion Sort
-#-----------------------------------------------------------------------------------------------------------
-
-def insertion_sort(list_of_items):
-    i = 1
-    while i < len(list_of_items):
-        j = i
-        while j > 0 and list_of_items[j-1] > list_of_items[j]:
-            list_of_items[j], list_of_items[j-1] = list_of_items[j-1], list_of_items[j]
-            j -= 1
-        i += 1
-    return list_of_items
-
-list_of_items = [5,4,2,7,8,2,3]
-print(insertion_sort(list_of_items))
-
-#-----------------------------------------------------------------------------------------------------------
-# Quick Sort
-#-----------------------------------------------------------------------------------------------------------
-
-def quicksort(items_list):
-    quicksort_recursion(items_list, 0, len(items_list) - 1)
-    return items_list
-
-def quicksort_recursion(items_list, low, high):
-    if low < high:
-        pivot = partition(items_list, low, high)
-        quicksort_recursion(items_list, low, pivot)
-        quicksort_recursion(items_list, pivot + 1, high)
-
-def partition(items_list, low, high):
-    pivot = items_list[(high+low)//2]
-    i = low 
-    j = high
-    while True:
-        while items_list[i] < pivot:
-            i += 1 
-        while items_list[j] > pivot:
-            j -= 1
-        if i >= j:
-            return j
-        items_list[i], items_list[j] = items_list[j], items_list[i]
-
-list_of_items = [15,40,25,77,89,2,35,52]
-print(quicksort(list_of_items))
+atm = ATM() # create an instance of our class
+print('Welcome to the ATM')
+while True:
+    command = input('Enter a command: ')
+    if command == 'balance':
+        balance = atm.check_balance() # call the check_balance() method
+        print(f'Your balance is ${balance}')
+    elif command == 'deposit':
+        amount = float(input('How much would you like to deposit? '))
+        atm.deposit(amount) # call the deposit(amount) method
+        print(f'Deposited ${amount}')
+    elif command == 'withdraw':
+        amount = float(input('How much would you like '))
+        if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
+            atm.withdraw(amount) # call the withdraw(amount) method
+            print(f'Withdrew ${amount}')
+        else:
+            print('Insufficient funds')
+    elif command == 'interest':
+        amount = atm.calc_interest() # call the calc_interest() method
+        atm.deposit(amount)
+        print(f'Accumulated ${amount} in interest')
+    elif command == 'help':
+        print('Available commands:')
+        print('balance  - get the current balance')
+        print('deposit  - deposit money')
+        print('withdraw - withdraw money')
+        print('interest - accumulate interest')
+        print('exit     - exit the program')
+    elif command == 'exit':
+        break
+    else:
+        print('Command not recognized')
