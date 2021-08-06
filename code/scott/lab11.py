@@ -37,11 +37,9 @@ with open (file, encoding = 'utf-8') as f:
 # Calculate number chars minus spaces
 num_chars = raw.strip(' ')
 num_chars = len(num_chars)
-print(num_chars)
 
 # Calculate number of words
 num_words = len(raw.split())
-print(num_words)
 
 # Calculate number of sentences
 num_sent = raw.count('.') + raw.count('?') + raw.count('!')
