@@ -106,12 +106,9 @@ print('Welcome to the Smite Character database.')
 main()
 print('Writing changes to CSV.')
 final = ''
-with open('file_name1', 'w') as f:
-    for i in complete:
-        final += str(i)
-        final.strip('{')   
-
-
+with open('file_name1.csv', 'w') as f:
+    
+        
 print(final, type(final))
         
    
