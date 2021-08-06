@@ -3,7 +3,6 @@
 # Scott Cormack
 # Python 3.9.6
 
-
 class ATM:
     def __init__(self, balance=0, interest_rate=0.1, transactions=[]):
         self.balance = balance
