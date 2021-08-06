@@ -60,7 +60,7 @@ Presentation Day: November 5th, 2021
 * [Lab 09 Peaks And Valleys](1%20Python/labs/09%20Peaks%20And%20Valleys.md)
 * [Lab 10 ROT13](1%20Python/labs/10%20ROT13.md)
 * [Lab 11 ARI](1%20Python/labs/11%20ARI.md)
-* [Lab 12 ARI](1%20Python/labs/11%20Contact%20List.md)
+* [Lab 12 Contact List](1%20Python/labs/11%20Contact%20List.md)
 
 #### Suggested Optional Python Labs
 

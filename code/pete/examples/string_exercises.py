@@ -93,8 +93,6 @@ print(words)
 
 """JOIN"""
 print(' '.join(words))
-# Pete's improved python version:
-# words.join(' ')
 
 letters = 'a b c d e'
 print(letters)
