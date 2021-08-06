@@ -1,5 +1,4 @@
 transactions = []
-
 class ATM:
 
     def __init__(self, balance=0, interest_rate=0.1):
@@ -37,7 +36,7 @@ class ATM:
         return (p * t * self.interest_rate) / 100
 
     def print_transactions(self):
-        ...
+        return transactions
 
 atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
@@ -63,6 +62,7 @@ while True:
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'print':
+        atm.print_transactions()
         print(f"Here are all your transactions: {transactions}")
     elif command == 'help':
         print('Available commands:')
