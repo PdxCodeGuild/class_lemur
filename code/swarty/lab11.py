@@ -99,3 +99,12 @@ def ari_score(text):
 #     for line in wilde_lines:
 #         print(line)
 print(ari_score(wilde))
+ari = ari_score(wilde)
+texts=(f' The ARI for Dorian_Grey.txt is {ari}\n',
+f'This corresponds to a {ari_scale[ari]["grade_level"]} level of difficulty\n',
+f'that is suitable for an average person {ari_scale[ari]["ages"]} years old.')
+block_size = max(len(line) for line in texts)
+print('-' * (block_size + 4))
+print(*texts)
+print('-' * (block_size + 4))
+
