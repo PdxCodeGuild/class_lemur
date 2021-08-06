@@ -56,7 +56,7 @@ from math import ceil
 import re
 
 #imported files
-with open('Dorian_Grey.txt', 'r') as f:
+with open('Dorian_Grey.txt', 'r', encoding='utf-8') as f:
     wilde=f.read()
     #remove line breaks
     wilde=re.sub("\n"," ",wilde)
