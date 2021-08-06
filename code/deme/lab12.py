@@ -10,13 +10,14 @@ with open('lab12.csv', 'r') as file:
 # for word in range(len(lines)):
 #     print(word)
 
-contacts = [] #create list for dictionary
+contacts = []  # create list for dictionary
 for line in lines:
+    # print(line, "line")
     for words in line:
         words = line.split(",")
         for word in words:
             word = line.split(",")
-    contacts.append(word) 
+    contacts.append(word)
 headers = contacts[0]
 # print(headers)
 
@@ -25,62 +26,103 @@ con_list = []
 for values in contacts[1::]:
     con = {}
     for i in range(len(values)):
-        con[headers[i]] = values[i] 
+        con[headers[i]] = values[i]
     con_list.append(con)
-print(con_list)
+# print(con_list)
 
-repl = input("Do you want to create(C), retrieve(R), update(U), or delete(d) a record?")
-def record(repl):
+# repl = input("Do you want to create(C), retrieve(R), update(U), or delete(D) a record or exit(E)?")
+
+
+def record():
     con_list1 = con_list
-    if repl == "C":
-        new_name = input("Enter name: ")
-        new_fruit = input("Enter fruit: ")
-        new_color = input("Enter color: ")
-        new_info = [new_name, new_fruit, new_color]
-        new_info_dic = {}
-        for i in range(len(new_info)):
-            new_info_dic[headers[i]] = new_info[i] 
-        # for values in new_info:
-            # print(values)
-            # print(new_info_dic)
-            # for i in range(len(values)):
-            #     new_info_dic[headers[i]] = values[i]
-            # print(new_info_dic, values)
-        con_list1.append(new_info_dic)
-        print(con_list1)
-    
-    if repl == "R":
-        retrieve_name = input("Enter name: ")
-        for dictionary in con_list1:
-            if retrieve_name == dictionary['name']:
-                print(dictionary)
+    loop_control = True
+    while loop_control == True:
+        repl = input("Do you want to create(C), retrieve(R), update(U), or delete(D) a record or exit(E)?")
 
-    if repl == "U":
-        update_name = input("Enter name: ")
-        for dictionary in con_list1:
-            if update_name == dictionary['name']:
-                print(dictionary)
-                new_attribute = input("Which attribute would you like to update? ")
-                # for dictionary in con_list1:
-                #     if new_attribute == dictionary[new_attribute]:
-                #         print(dictionary, "u")
-        
-    
-    if repl == "D":
-        delete_name = input("Enter a name: ")
-        print(con_list1)
-        for value in con_list1:
-            print(value)
-            if delete_name in value:
-                con_list1.remove(value)
+        if repl == "C":
+            new_name = input("Enter name: ")
+            new_fruit = input("Enter fruit: ")
+            new_color = input("Enter color: ")
+            new_info = [new_name, new_fruit, new_color]
+            new_info_dic = {}
+            for i in range(len(new_info)):
+                new_info_dic[headers[i]] = new_info[i]
+            # for values in new_info:
+                # print(values)
+                # print(new_info_dic)
+                # for i in range(len(values)):
+                #     new_info_dic[headers[i]] = values[i]
+                # print(new_info_dic, values)
+            con_list1.append(new_info_dic)
             print(con_list1)
 
-record(repl)
+        if repl == "R":
+            retrieve_name = input("Enter name: ")
+            for dictionary in con_list1:
+                if retrieve_name == dictionary['name']:
+                    print(dictionary)
+
+        if repl == "U":
+            update_name = input("Enter name: ")
+            for dictionary in con_list1:  # for each dictionary in the list
+                # if input(update_name) is a value for 'name' key in the dictionaries
+                if update_name == dictionary['name']:
+                    print(dictionary, "b")  # print dictionary with name value
+                    new_attribute = input(
+                        "Which attribute would you like to update? ")
+                    for dictionary in con_list1:
+                        if update_name == dictionary['name']:
+                            print(dictionary[new_attribute], "aaa")
+                            updated_attribute = input("Enter new attribute")
+                            dictionary[new_attribute] = updated_attribute
+        # print(con_list1)
+
+        if repl == "D":
+            delete_name = input("Enter the name you would like to delete: ")
+            # print(con_list1)
+            for dictionary in con_list1:
+                if delete_name == dictionary['name']:
+                    con_list1.remove(dictionary)
+            # print(con_list1)
+
+        if repl == "E":
+            with open("lab12.csv", "r") as f:
+                contents = f.read()
+                print(contents)
+            # print(con_list)
+            # print(con_list1)
+            # con_list1 = ",".join(con_list1)
+            output = []
+            for dict in con_list1:
+                for el in dict:
+                    output.append(str(dict[el]))
+            output = ",".join(output)
+            # print(output)
+            with open("lab12.csv", "w") as f:
+                f.write()
+            loop_control = False
+
+        # line = ""
+        # for dictionary in con_list:
+        #     for el in dictionary:
+        #         # line = line.join(el)
+        #         print(dictionary[el], "AAAAAA")
+        #         line = line.join(dictionary[el])
+        # #     for key, value in dictionary:
+        # #         line += key, value
+        #     print(line)
+
+        # lab12 = "lab12.csv"
+        # lab12_new = "lab12_new.csv"
+        # with open(lab12, 'w') as file:
+        #     lab12_new = file.write(line)
 
 
+record()
 
 
-
+# with open (lab12, 'w') as file:
+#new_file = file.write(new_file)
 
 
 # name, cuisine, country weather -----kets, loop over keys/lines to make new dictionaries
@@ -103,8 +145,3 @@ record(repl)
 # with open(new variable,w, encoding...)
 #     f.write(new variable)
 #      """
-# lab12 = "lab12.csv"
-# lab12_new = "lab12_new.csv"
-# with open(lab12, 'w') as lab12_new:
-#     f.write(lab12_new)
-
