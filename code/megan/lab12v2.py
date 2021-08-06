@@ -23,6 +23,7 @@ keys = lines.pop(0).split(",")
 contacts = []
 
 for line in lines:
+
     values = line.split(",")
     # print(values)
 
@@ -97,7 +98,10 @@ while loop_control == True:
 
     break 
 
-# print(contacts)
+lines = ','.join(lines)
+# print(lines)
 
 with open(file_path_2, 'w') as file:
-    file.write().split('\n')
+    file.write(lines)
+
+# print(contacts)
