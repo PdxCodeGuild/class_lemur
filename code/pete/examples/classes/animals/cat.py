@@ -21,10 +21,13 @@ class Cat:
         if random() > 0.25:
             print(f'{self.name} jumped successfully')
         else:
+            # you can use and change instance attributes (self.name, self.color, etc.)
+            # inside of methods... here, self.lives is decremented by 1
             self.lives -= 1
             print(f'{self.name} didn\'t jump so well...  {self.lives} lives remaining')
     
     def weather_forecast(self, temperature):
+        # you can call methods within other methods
         self.meow()
         print(f"the current temperature is {temperature} degrees")
         self.meow()
