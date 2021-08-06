@@ -25,6 +25,7 @@ class Cat:
             print(f'{self.name} didn\'t jump so well...  {self.lives} lives remaining')
     
     def weather_forecast(self, temperature):
+
         self.meow()
         print(f"the current temperature is {temperature} degrees")
         self.meow()
