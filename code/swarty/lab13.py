@@ -68,4 +68,7 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
-    elif command == 'exit': break
+    elif command == 'exit':
+        break
+    else:
+        print('Command not recognized')
