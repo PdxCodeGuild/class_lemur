@@ -51,7 +51,7 @@ score = math.ceil(score)
 # Display results
 print('*' * 80)
 print(f'''
-The ARI for A Tale of Two cities is {score}.
+The ARI for A Tale of Two Cities is {score}.
 This corresponds to a {ari_scale[score]['grade_level']} level of difficulty.
 that is suitable for an average person {ari_scale[score]['ages']} years old.
 ''')
