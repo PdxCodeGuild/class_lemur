@@ -28,7 +28,7 @@ class ATM:
         # calculate 0.1% of total balance 
         # add that number to the total balance 
         # this happens every time the command is run 
-        # return "you've earned {amount} in interest"
+        
         return 0.001 * self.balance
         
 atm = ATM()  # create an instance of our class
