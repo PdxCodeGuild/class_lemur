@@ -8,11 +8,12 @@ withdraw(amount) withdraws the amount from the account and returns it
 calc_interest() returns the amount of interest calculated on the account
 Fill in the methods for the ATM class:
 """
-
+import datetime
 class ATM:
     def __init__(self, balance=0, interest_rate=0.1):
         self.int=interest_rate
         self.balance=balance
+        self.accounting=''
 
     def check_balance(self):
         """return the account balance"""
@@ -21,6 +22,7 @@ class ATM:
     def deposit(self, amount):
         """deposit a given amount into account"""
         self.balance+=amount
+        self.accounting += f'{datetime.datetime.now()}\nDeposit ${amount}\nBalance ${self.balance}\n'
 
     def check_withdrawal(self, amount):
         """return True if account has enough funds to withdraw given amount"""
@@ -32,11 +34,17 @@ class ATM:
     def withdraw(self, amount):
         """withdraw given amount from account and return that amount"""
         self.balance -= amount
+        self.accounting += f'{datetime.datetime.now()}\nWithdrawl ${amount}\nBalance ${self.balance}\n'
 
     def calc_interest(self):
         """calculate and return interest gained on account"""
-        return self.balance*0.1
+        interest=self.balance*.01
+        self.balance+=interest
+        self.accounting += f'{datetime.datetime.now()}\nInterest Accrued ${interest}\nBalance ${self.balance}\n'
+        return interest
 
+    def history(self):
+        return self.accounting
 
 atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
@@ -61,12 +69,16 @@ while True:
         amount = atm.calc_interest()  # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+    elif command == 'history':
+        print(atm.history())
+
     elif command == 'help':
         print('Available commands:')
-        print('balance  - get the current balance')
+        print('balance  - get current balance')
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('history - Get account history')
         print('exit     - exit the program')
     elif command == 'exit':
         break
