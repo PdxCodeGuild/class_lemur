@@ -9,35 +9,33 @@ calc_interest() returns the amount of interest calculated on the account
 Fill in the methods for the ATM class:
 """
 
-class Deposit:
+class ATM:
     def __init__(self, balance=0, interest_rate=0.1):
         self.int=interest_rate
         self.balance=balance
 
     def check_balance(self):
         """return the account balance"""
-        print(f'Your balance is currently: $'balance)
+        return self.balance
 
     def deposit(self, amount):
         """deposit a given amount into account"""
         self.balance+=amount
-        print(f'${amount} deposited, account balance: ${self.balance}')
 
     def check_withdrawal(self, amount):
         """return True if account has enough funds to withdraw given amount"""
         if self.balance>=amount:
-            True
+            return True
         else:
-            False
+            return False
 
     def withdraw(self, amount):
         """withdraw given amount from account and return that amount"""
         self.balance -= amount
-        print(f'${amount} withdrawn, account balance: ${self.balance}')
 
     def calc_interest(self):
         """calculate and return interest gained on account"""
-        ...
+        return self.balance*0.1
 
 
 atm = ATM()  # create an instance of our class
@@ -70,4 +68,4 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
-    elif command == 'exit':
+    elif command == 'exit': exit
