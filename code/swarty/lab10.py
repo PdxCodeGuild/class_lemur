@@ -16,10 +16,10 @@ initial=list(initial)
 rotation=int(input("Enter a number between 1-25 to set rotation: "))    #V2
 final=""
 for char in initial:
-    if char.isalpha:                                                    #watch for non alpha
-        rotindex=letters.index(char)                                    #index inital ltter to cypher
-    if rotindex >=(26-rotation):                                        #keep numbers in range
-        rotindex-=26
+    if char.isalpha():                                                    #watch for non alpha
+        rotindex=letters.index(char)                                    #index inital letter to cypher
+        if rotindex >=(26-rotation):                                        #keep numbers in range
+            rotindex-=26
         final+=(letters[rotindex+rotation])                             #apply rotation
     else:                                                               #pass through non alpha
         final+=(char)
