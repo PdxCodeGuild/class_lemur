@@ -107,14 +107,8 @@ main()
 print('Writing changes to CSV.')
 final = ''
 with open('file_name1.csv', 'w') as f:
-    for i in complete:
-        # final += str(i)
-        final.strip('{')
-        final.strip('\'')
-        final.strip(':')
-        f.write('file_name1.csv')
-
-
+    
+        
 print(final, type(final))
         
    

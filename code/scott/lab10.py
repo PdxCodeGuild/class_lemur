@@ -8,18 +8,18 @@ def rot(encode, key):
      'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     result = []
     final_str = ''
+    # Adjust indeces to find new characters
     for i in encode:
         index = alpha.index(i)
         new_index = (index + 13) % 26
         new_char = alpha[new_index]
         result.append(new_char)
+    # Interate through new list and form a final word
     for i in result:
         final_str += i
     return final_str
-
 
 usr_ipt = input('Enter a word to encode: ')
 usr_key = int(input('Enter a key to encode your message: '))
 print('Your encoded message is')
 print(rot(usr_ipt, usr_key))
-
