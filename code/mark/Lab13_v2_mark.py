@@ -1,5 +1,5 @@
 class ATM:
-    def __init__(self, balance=0, interest_rate=0.1, transactions=[]):
+    def __init__(self, balance=0, interest_rate=0.001, transactions=[]):
         self.balance = balance
         self.interest_rate = interest_rate
         self.transactions = transactions
@@ -55,7 +55,7 @@ while True:
     elif command == 'interest':
         amount = atm.calc_interest() # call the calc_interest() method
         atm.deposit(amount)
-        print(f'Accumulated ${amount} in interest')
+        print(f'Accumulated ${round(amount, 3)} in interest')
     elif command == 'transactions':
         atm.print_transactions()
     elif command == 'help':
