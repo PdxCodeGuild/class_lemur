@@ -18,7 +18,7 @@ def rot(encode, key):
     return final_str
 
 
-usr_ipt = input('Enter a string to adjust: ')
+usr_ipt = input('Enter a word to encode: ')
 usr_key = int(input('Enter a key to encode your message: '))
 print('Your encoded message is')
 print(rot(usr_ipt, usr_key))
