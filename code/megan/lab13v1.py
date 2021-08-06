@@ -25,12 +25,12 @@ class ATM:
 
     def calc_interest(self):
         """calculate and return interest gained on account"""
-        p = self.balance
-        t = 12
-        r = self.balance * self.interest_rate
-        return (p * t * self.interest_rate) / 100
-
-
+        # calculate 0.1% of total balance 
+        # add that number to the total balance 
+        # this happens every time the command is run 
+        # return "you've earned {amount} in interest"
+        return 0.001 * self.balance
+        
 atm = ATM()  # create an instance of our class
 print('Welcome to the ATM')
 while True:
