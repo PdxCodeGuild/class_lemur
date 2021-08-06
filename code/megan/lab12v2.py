@@ -46,6 +46,7 @@ while loop_control == True:
 
         if again == 'no':
             loop_control == False
+            break
 
     elif requested_action == 'update':
 
@@ -62,6 +63,7 @@ while loop_control == True:
 
         if again == 'no':
             loop_control == False
+            break
 
     elif requested_action == 'delete':
 
@@ -76,6 +78,7 @@ while loop_control == True:
 
         if again == 'no':
             loop_control == False
+            break
 
     elif requested_action == 'create':
 
@@ -95,8 +98,7 @@ while loop_control == True:
 
         if again == 'no':
             loop_control == False
-
-    break 
+            break
 
 lines = ','.join(lines)
 # print(lines)

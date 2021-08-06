@@ -21,11 +21,11 @@ ari_scale = {
 }
 
 
-with open('gatsby.txt', 'r') as f:
+with open('gatsby.txt', 'r', encoding='utf-8') as f:
     book = f.read()
     # print(book)
 
-words = re.findall('\w+', open('gatsby.txt').read())
+words = re.findall('\w+', book)
 words = len(words)
 
 characters = len(book)
