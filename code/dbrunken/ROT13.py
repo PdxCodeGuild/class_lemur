@@ -11,8 +11,7 @@ encoded_text = ''
 
 i = 0 
 
-while i < len(userText):
-
-    for letter in userText:
-        if ord(letter) + move:
-            encoded_text += (chr(ord(letter)) + (if chr(ord(letter)) > 109)
+encoded_list = [chr(ord(char) + move) if ord(char) < 110 else chr(ord(char) - move) for char in userText]
+# if a letter is over 110 on chr(ord(letters)) then move -26, or move
+encoded_text = ''.join(encoded_list, )
+print(encoded_text)
