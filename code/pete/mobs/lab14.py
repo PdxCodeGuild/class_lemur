@@ -40,7 +40,12 @@ class Game:
     
     def is_full(self):
         """return True if game board is full, else return False"""
-        ...
+        for row in self.board:
+            for position in row:
+                if position == ' ':
+                    return False
+        return True
+
     
     def is_game_over(self):
         """return True if game board is full or a player has won"""
