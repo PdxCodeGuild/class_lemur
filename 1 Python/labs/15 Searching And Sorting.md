@@ -40,9 +40,7 @@ Example run:
 ```
  L        M           H
 [1, 2, 3, 4, 5, 6, 7, 8]
- L  M     H
-[1, 2, 3, 4, 5, 6, 7, 8]
-    L  M  H
+          L     M     H
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
@@ -71,8 +69,8 @@ def binary_search(nums, value):
   ...
 #       0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
-index = linear_search(nums, 3)
-print(index) # 2
+index = linear_search(nums, 6)
+print(index) # 5
 ```
 
 
