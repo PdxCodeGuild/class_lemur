@@ -15,6 +15,14 @@ Example run:
 [1, 2, 3, 4, 5, 6, 7, 8]
        I
 [1, 2, 3, 4, 5, 6, 7, 8]
+          I
+[1, 2, 3, 4, 5, 6, 7, 8]
+             I
+[1, 2, 3, 4, 5, 6, 7, 8]
+                I
+[1, 2, 3, 4, 5, 6, 7, 8]
+                   I
+[1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
 Stub:
@@ -23,8 +31,8 @@ def linear_search(nums, value):
   ...
 # index 0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
-index = linear_search(nums, 3)
-print(index) # 2
+index = linear_search(nums, 7)
+print(index) # 6
 ```
 
 ## Part 2 - Binary Search
@@ -40,9 +48,9 @@ Example run:
 ```
  L        M           H
 [1, 2, 3, 4, 5, 6, 7, 8]
- L  M     H
+          L     M     H
 [1, 2, 3, 4, 5, 6, 7, 8]
-    L  M  H
+                L  M  H
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
@@ -71,8 +79,8 @@ def binary_search(nums, value):
   ...
 #       0  1  2  3  4  5  6  7
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
-index = linear_search(nums, 3)
-print(index) # 2
+index = binary_search(nums, 7)
+print(index) # 6
 ```
 
 
