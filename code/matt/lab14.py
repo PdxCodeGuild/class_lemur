@@ -6,6 +6,7 @@ class Player:
     def __repr__(self):
         return f"Player('{self.name}', '{self.token}')"
     
+
     def __str__(self):
         return self.name
 
@@ -24,7 +25,8 @@ class Game:
     def move(self, x, y, player):
         token = player.token
         if self.board[y][x] != " ":
-            return print("Already taken")
+            print("Already taken")
+            return True
         self.board[y][x] = token
 
     def calc_winner(self):
@@ -59,29 +61,74 @@ class Game:
             return 'O'
 
 
-    def is_full():
-        ...
+    def is_full(self):
+        for i in range(3):
+            for j in range(3):
+                space = self.board[i][j]
+                if space == ' ':
+                    return False
+        return True
+        
 
-    def is_game_over():
-        ...
-
+    def is_game_over(self):
+        if self.calc_winner() or self.is_full():
+            if self.calc_winner() is not None:
+                print(self.calc_winner() + " wins")
+            elif self.is_full(): 
+                print("Cats game!")
+            return True
+        else: 
+            return False
 
 if __name__ == '__main__':
 
     game = Game()
-    player1 = Player('pete', 'X')
-    player2 = Player('matt', 'O')
-    print(game)
-    game.move(0, 0, player1)
-    print(game)
-    game.move(0, 0, player2)
-    print(game)
 
-    print(game.calc_winner())
+    player1 = Player(input("Please enter your name, Player One: "), "X")
+
+    player2 = Player(input("Please enter your name, Player Two: "), "O")
 
 
-    print(player1)
-    print(repr(player1))
+index = 0
+players = [player1, player2]
+
+while game.is_game_over() == False:
+
+    player = players[index % len(players)]
+    print(player)
+
+    player_x =  int(input("Please enter the x coordinate where you'd like to place your token: "))
+    player_y =  int(input("Please enter the y coordinate where you'd like to place your token: "))
+
+
+    go_again = game.move(player_x, player_y, player)
+    if go_again != True:
+        index += 1
+    game.is_game_over()
+
+    
+    # game.move(player_x, player_y, player2)
+    # game.is_game_over()
+
+
+    print(game)
+
+
+    
+
+    
+
+    # print(game)
+    # print(game)
+    # print(game)
+    # print(game.is_full())
+
+
+    # # print(game.calc_winner())
+
+
+    # print(player1)
+    # print(repr(player1))
     
     # user will first be asked if player 1 is x or o
     # then the same for player 2
