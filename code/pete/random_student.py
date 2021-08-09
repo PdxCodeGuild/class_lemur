@@ -23,12 +23,29 @@ def random_students():
             break
 
 def random_groups(n):
-    print(f'split into {n} groups')
+    groups = [[] for _ in range(n)]
+    while True:
+        # if len(students) == 0:
+        #     break
+        for group in groups:
+            if len(students) == 0:
+                print(groups)
+                return
+                # return print(groups)
+            student = choice(students)
+            students.remove(student)
+            group.append(student)
+    # print(groups)
+    # number_per_group = len(students) // n
+    # for 
+    # print(number_per_group)
+    # print(f'split into {n} groups')
 
-if args.groups != 0:
-    random_groups(args.groups)
-else:
-    random_students()
+random_groups(2)
+# if args.groups != 0:
+#     random_groups(args.groups)
+# else:
+#     random_students()
 
 # truthy_or_falsey_string = input(choice(students))
 # if truthy_or_falsey_string:
