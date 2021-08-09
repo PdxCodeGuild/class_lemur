@@ -29,7 +29,8 @@ class ATM:
 
     def calc_interest(self):
         interest = self.balance * self.interest_rate
-        return interest
+        self.balance += interest
+        return self.balance
 
 atm = ATM()
 print("Welcome to Communist Chase ATM")
