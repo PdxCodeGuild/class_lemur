@@ -13,21 +13,27 @@ if hun_place != 0 and ones_place != 0 and tens_place != 0: #huns place, tens pla
     if tens_place == 1:
         print(hundreds[hun_place -1] +'-' + teens[teens_place]) #huns, teens
     else:
-        print(f"{hundreds[hun_place - 1]} - {ones[ones_place - 1]}") #huns, ones
+        print(f"{hundreds[hun_place - 1]} -{tens[tens_place -1]} {ones[ones_place - 1]}") #huns, ones
 
-elif hun_place !=0 and tens_place == 0:#huns, teens
+elif hun_place !=0 and tens_place == 0 and ones_place !=0:#huns, teens
      print(f"{hundreds[hun_place - 1]} - {ones[ones_place - 1]}")
 
 elif hun_place == 0 and tens_place !=1 and tens_place != 0: #tens 20 +
-    print(f"{tens[tens_place - 1]} - {ones[ones_place - 1]}")
+    if ones_place == 0:
+        print(f"{tens[tens_place -1]}")
+    else:
+        print(f"{tens[tens_place - 1]} - {ones[ones_place -1]}")
 
 
 elif hun_place !=0 and ones_place == 0 and tens_place == 0: #only hundreds
-    print(hundreds[hun_place])
+    print(hundreds[hun_place - 1])
 
 elif hun_place == 0 and tens_place == 0: # only ones
-    print(ones[ones_place - 1])
-elif tens_place == 1 and hun_place == 0: #tens only
+    if ones_place == 0:
+        print("zero")
+    else:
+        print(ones[ones_place - 1])
+elif tens_place == 1 and hun_place == 0: #teens only
     # if tens_place > 1:
     #     print(tens[tens_place])
     # elif tens_place == 1:
@@ -38,6 +44,6 @@ else:
     ones_place = num % 10
     print(hun_place, tens_place, ones_place)
     #if statement for 0 huns place
-    print(f"{hundreds[hun_place - 1]} - {tens[tens_place - 1]} - {ones[ones_place - 1]}")
+    print(f"{hundreds[hun_place - 1]} - {tens[tens_place - 1]}")
 
    
