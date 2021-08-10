@@ -39,4 +39,3 @@ while True:
     for object in response:
         print(object['joke'])
     
-
