@@ -26,7 +26,7 @@ else:
      tens_place = num % 100 - (num % 10)
 
 print() 
-
+# Just used to get rid of spaces if theres no hundreds or tens place.
 if hundreds_place == 0 and tens_place == 0:
     print(f"{numbers_dict[ones_place]}")
 elif hundreds_place == 0:
