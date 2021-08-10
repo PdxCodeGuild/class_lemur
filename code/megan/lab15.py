@@ -1,5 +1,6 @@
 '''Part One: Linear Search'''
 
+
 # def linear_search(nums, value):
 #     for i in range(len(nums)):
 #         if nums[i] == value:
@@ -12,6 +13,7 @@
 
 
 '''Part Two: Binary Search'''
+
 
 def binary_search(nums, value):
     nums.sort()
@@ -34,8 +36,6 @@ def binary_search(nums, value):
             elif value > mid:
                 low = mid + 1
                 
-    
-        
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 

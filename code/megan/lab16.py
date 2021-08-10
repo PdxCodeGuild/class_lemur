@@ -32,6 +32,7 @@ while True:
 
     response = requests.get('https://icanhazdadjoke.com/search', headers=headers, params=params)
     # response = response.text
+    # print(response.text)
     response = response.json()
     response = response['results']
 
