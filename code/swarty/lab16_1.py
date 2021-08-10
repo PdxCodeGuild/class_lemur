@@ -9,10 +9,7 @@ This will return a dad joke in JSON format.
 You can then use the .json() method on the response to get a dictionary. 
 Get the joke out of the dictionary and show it to the user.
 
-Part 2 (optional)
-Add the ability to "search" for jokes using another endpoint. 
-Create a REPL that allows one to enter a search term and go through jokes 
-one at a time. You can also add support for multiple pages.
+
 '''
 
 import requests
