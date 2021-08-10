@@ -14,16 +14,32 @@ from time import sleep
 url='https://icanhazdadjoke.com/'
 headers={'Accept': 'application/json'}
 
-response=requests.get(url, headers=headers).json()
-joke=response['joke']
+choice= str(input('Hit enter key for random joke or enter a search term: '))
 
-if '?' in joke:
-    question=joke.split('?')[0]
-    response=joke.split('?')[1]
-    cowsay.stegosaurus(f'{question}?')
-    sleep(3)
-    cowsay.trex(response)
+if choice == '':
+    response=requests.get(url, headers=headers).json()
+    joke=response['joke']
+    if '?' in joke:
+        question=joke.split('?')[0]
+        response=joke.split('?')[1]
+        cowsay.stegosaurus(f'{question}?')
+        sleep(3)
+        cowsay.trex(response)
 
+
+    else:
+        cowsay.trex(response['joke'])
 
 else:
-    cowsay.trex(response['joke'])
+    i=0
+    searchurl=url+f'search?term={choice}'
+    results=requests.get(searchurl, headers=headers).json()['results']
+    for result in results:
+        i+=1
+        print(result['joke'])
+        stopper=input('hit enter for next joke')
+    if i >0:
+        print("that's all the jokes!")
+    else:
+        print(f"we didn't find any jokes that mentioned '{choice}'.")
+    
