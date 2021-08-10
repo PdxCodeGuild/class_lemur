@@ -63,7 +63,7 @@ while True:
     elif command == 'interest':
         amount = atm.calc_interest()
         # atm.deposit(amount)
-        print(f"Managed ${amount} in interest")
+        print(f"New balance is ${amount} from interest owed")
     elif command == 'exit':
         break
     else:
