@@ -31,15 +31,19 @@ while True:
     }
 
     response = requests.get('https://icanhazdadjoke.com/search', headers=headers, params=params)
+    # response = response.text
+    response = response.json()
+    response = response['results']
 
-    # print(response)
+    for object in response:
+        print(object['joke'])
     # print(response.text)
-    data = response.json()
-    # print(data)
+    # data = response.json()
+    # # print(data)
 
-    jokes = data.get('jokes')
+    # jokes = data.get('joke')
 
-    print(type(jokes))
+    # print(type(jokes))
 
     # for joke in jokes:
         # print(joke['joke'])
