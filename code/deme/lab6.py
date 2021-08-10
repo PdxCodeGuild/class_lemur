@@ -10,28 +10,40 @@ win = pick_6()
 balance = 0
 numbers = []
 cost = 2
+loops = 0
 
-for i in range (0, 1000000):
+for i in range (0, 10):
+    loops += 1
     balance -= 2
+    # cost +=2
     match = 0
     numbers = pick_6()
     for k in range(len(numbers)):
         if win[k] == numbers[k]:
             match += 1
-    
+
     if match == 1:
-        print(f"Balance = ${4 - balance}" )
-    # elif match == 2:
-        print(f"Balance = ${7 - balance}" )
+        balance += 4
+        match += 1
+    elif match == 2:
+        balance += 7
+        match += 2
     elif match == 3:
-        print(f"Balance = ${100 - balance}" )
+        balance += 100
+        match += 3
     elif match == 4:
-        print(f"Balance = ${50000 - balance}" )
+        balance += 50000
+        match += 4
     elif match == 5:
-        print(f"Balance = ${1000000 - balance}" )
+        balance += 1000000
+        match += 5
     elif match == 6:
-        print(f"Balance = ${25000000 - balance}" ) 
-    else:
-        print("You lose")
+        balance += 25000
+        match += 6
+
+roi = (balance / (cost * loops) )
+print(f"You had {match} matches.")
+print(f"Your final balance is {balance}")
+print(f"ROI is {roi}")
 
 
