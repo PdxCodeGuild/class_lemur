@@ -10,4 +10,4 @@ Use the [requests](../docs/15%20Requests.md) library to send an HTTP request to 
 
 ## Part 2
 
-Add the ability to "search" for jokes using [another endpoint](https://icanhazdadjoke.com/api#search-for-dad-jokes). Create a REPL that allows one to enter a search term and go through jokes one at a time. You can also add support for multiple pages.
+Add the ability to "search" for jokes using [another endpoint](https://icanhazdadjoke.com/api#search-for-dad-jokes). Create a REPL that allows one to enter a search term for dad jokes on different subjects.  You can show all (up to 20) jokes at once, or use `time.sleep` to keep them coming at a steady pace.  As a bonus, you can ask the user if they want to see the next 20 jokes.
