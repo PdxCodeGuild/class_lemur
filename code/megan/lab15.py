@@ -21,7 +21,8 @@ def binary_search(nums, value):
     while low < high:
 
         for i in range(len(nums)):
-            if nums[i] == value:
+
+            if mid[i] == value:
                 return i
 
             if value > mid:
