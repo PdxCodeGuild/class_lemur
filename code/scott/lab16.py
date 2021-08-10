@@ -40,6 +40,6 @@ while True:
         x = input('Press enter to see the next joke or "quit" to stop.').lower()
         if x == 'quit':
             print('''Thanks for going on this mega cheese journey of cheesiness.
-    You will not get this time back... ever.
+    You will not get this time back... ever...
         ''')
             break
