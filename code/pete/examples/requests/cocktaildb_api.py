@@ -6,7 +6,11 @@ while True:
     query = input('Welcome to the CocktailDB API.  What drink would you like to search for (or \'done\')?  ')
     if query == 'done':
         break
-    response = requests.get(f'https://www.thecocktaildb.com/api/json/v1/1/search.php?s={query}')
+    params = {
+        's': query
+    }
+    response = requests.get('https://www.thecocktaildb.com/api/json/v1/1/search.php', params=params) # use the paras keyword argument to pass a dictionary of the query
+    # response = requests.get(f'https://www.thecocktaildb.com/api/json/v1/1/search.php?s={query}') # use f-string to make a querystring at end of url
     # response = requests.get('https://www.thecocktaildb.com/fdsjkalfjdsa/json/v1/1/search.php?s=margarita') # 404
 
     # print(response) # <Response [200]>
