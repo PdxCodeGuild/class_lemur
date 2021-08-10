@@ -37,14 +37,5 @@ while True:
 
     for object in response:
         print(object['joke'])
-    # print(response.text)
-    # data = response.json()
-    # # print(data)
-
-    # jokes = data.get('joke')
-
-    # print(type(jokes))
-
-    # for joke in jokes:
-        # print(joke['joke'])
+    
 
