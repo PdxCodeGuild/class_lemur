@@ -14,13 +14,13 @@ peak_list=[]
 def peaks(ups):
     for i in range(len(ups[1:-1])):
         if ups[i+1] > ups[i] and ups[i+1] > ups[i+2]:
-            peak_list.append(i)
+            peak_list.append(i+1)
     return peak_list
 
 def valleys(downs,peak_list):
     for i in range(len(downs[1:-1])):
         if downs[i+1] < downs[i] and downs[i+1] < downs[i+2]:
-            peak_list.append(i)
+            peak_list.append(i+1)
     return peak_list
 
 #def terrain():
