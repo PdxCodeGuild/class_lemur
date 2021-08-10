@@ -39,12 +39,8 @@ while True:
 
     jokes = data.get('jokes')
 
-    # if jokes is None:
-    #     print("Sorry, we don't have that")
-    #     continue
-
     print(type(jokes))
 
-
     # for joke in jokes:
-    #     print(joke['joke])
+        # print(joke['joke'])
+
