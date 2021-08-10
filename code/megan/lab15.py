@@ -24,10 +24,7 @@ def binary_search(nums, value):
             if nums[i] == value:
                 return i
 
-            if mid == value:
-                return mid[i]
-
-            elif value > mid:
+            if value > mid:
                 low = mid
                 
             elif value < mid:
@@ -36,5 +33,5 @@ def binary_search(nums, value):
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8]
 
-index = binary_search(nums, 4)
+index = binary_search(nums, 6)
 print(index)
