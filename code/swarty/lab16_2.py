@@ -36,8 +36,8 @@ else:
     results=requests.get(searchurl, headers=headers).json()['results']
     for result in results:
         i+=1
+        stopper=input('hit enter for joke')
         print(result['joke'])
-        stopper=input('hit enter for next joke')
     if i >0:
         print("that's all the jokes!")
     else:
