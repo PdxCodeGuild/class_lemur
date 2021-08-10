@@ -25,9 +25,7 @@ headers = {'Accept' : 'application/json'}
 while True:
     query = input('Enter your cheesy dad joke search word or just push enter to quit: ').lower()
     if query == '':
-        print('''Thanks for going on this mega cheese journey of cheesiness.
-    You will not get this time back... ever.
-        ''')
+        print('Good call.  You dodged a time waster there.')
         break
     url = f'https://icanhazdadjoke.com/search?term={query}'
 
