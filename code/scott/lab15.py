@@ -30,5 +30,4 @@ def bin_search(numbers, num):
             print(f'Your number was found at index {numbers.index(mid)}.')
             break
 
-
 bin_search(nums, 6)
