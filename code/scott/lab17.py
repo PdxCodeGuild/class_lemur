@@ -23,6 +23,7 @@ import requests
 # Version 2
 params = {
     'page' : 1,
+    'type' : 'tag',
     'tags' : '',
 }
 search = input('Enter a word to search the quote database with or press enter to quit: ')
