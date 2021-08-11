@@ -21,27 +21,24 @@ import requests
 # ''')
 
 # Version 2
-params = {
-    'page' : 1,
-    'type' : 'tag',
-    'tags' : '',
-}
 search = input('Enter a word to search the quote database with or press enter to quit: ')
 if search == '':
     print('Thank you for using the quote search program.')
     quit()
-params['tags'] = search
-url = f'https://favqs.com/api/quotes/?filter={params}'
-headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = requests.get(url, headers = headers).json()
+    
+params = {
+    'filter' : search,
+    'page' : 1,
+    'type' : 'tag'
+}
 
-page = 1
+
 while True:
-    url = f'https://favqs.com/api/quotes/?filter={params}'
+    url = f'https://favqs.com/api/quotes/?filter='
     headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-    response = requests.get(url, headers = headers).json()
+    response = requests.get(url, headers = headers, params = params).json()
     response = response['quotes']
-    print('*' * 80 + f'\nHere are your quotes from page {page}:')
+    print('*' * 80 + '\nHere are your quotes from page ' + str(params['page']))
     for i in response:
         data = i['body']
         author = i['author']
@@ -50,4 +47,4 @@ while True:
     if x == '':
         break
     else:
-        page += 1  
+        params['page'] += 1  
