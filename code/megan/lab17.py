@@ -19,6 +19,7 @@ import requests
 
 '''Part two'''
 
+
 while True:
 
     user_response = input("Please enter a keyword you'd like to search with or 'done' to exit: ")
@@ -36,27 +37,7 @@ while True:
         'page': 1
     }
 
-    # response = requests.get(url, headers=headers, params=params)
-    response = requests.get(url + f'/search/{user_response}', headers=headers, params=params)
-
-    # print(response)
-    # print(response.text)
-
-    response = response.json()
-    # print(response)
-
-    response = response['quotes']
-    # quote = data.get('quotes')
-
-    for quote in response:
-        print(quote['body'])
-        print(quote['author'])
-
-    next = input("Enter 'next page' to see the next page or 'done' to exit: ")
-
-    if next == "next page":
-
-        params['page'] += 1
+    while True:
 
         response = requests.get(url + f'/search/{user_response}', headers=headers, params=params)
 
@@ -70,9 +51,17 @@ while True:
         # quote = data.get('quotes')
 
         for quote in response:
+
             print(quote['body'])
             print(quote['author'])
-            
-    else:
-        break
 
+        next = input("Enter 'next page' to see the next page or 'done' to exit: ")
+
+        if next == "next page":
+
+            params['page'] += 1
+                
+        elif next == 'done':
+            break
+
+      
