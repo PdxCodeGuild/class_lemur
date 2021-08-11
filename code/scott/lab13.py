@@ -4,7 +4,7 @@
 # Python 3.9.6
 
 class ATM:
-    def __init__(self, balance=0, interest_rate=0.1, transactions=[]):
+    def __init__(self, balance=0, interest_rate=0.01, transactions=[]):
         self.balance = balance
         self.interest_rate = interest_rate
         self.transactions = transactions
