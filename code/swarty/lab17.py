@@ -35,10 +35,11 @@ if choice == '':
 
 else:
     page=1
-    headers={'Content-Type': 'application/json', 'Authorization': f'Token token={token}'}
+    headers={'Authorization': f'Token token={token}'}
     while True:
-        search_url=f'https://favqs.com/api/quotes?page={page}&filter={choice}'
-        pull=requests.get(search_url, headers=headers).json()
+        # search_url=f'https://favqs.com/api/quotes?page={page}&filter={choice}'
+        url='https://favqs.com/api/quotes?'
+        pull=requests.get(url, headers=headers, params={'format': 'json','page': page, 'filter': choice}).json()
         for quote in pull['quotes']:
             print(fill(quote['body'], width =60))
             print(f"\n  -{quote['author']}-\n\n")
