@@ -10,10 +10,10 @@ nums = [1, 2, 3, 4, 5, 6, 7, 8]
 def lin_search(numbers, num):
     for i in range(len(numbers)):
         if numbers[i] == num:
-            print(f'Your number was found at index {numbers.index(i)}.')
+            print(f'Your number was found at index {numbers.index(i)+1}.')
             break
     
-lin_search(nums, 6)
+lin_search(nums, 8)
 
 # Part 2 - Binary Search
 def bin_search(numbers, num):
@@ -27,7 +27,7 @@ def bin_search(numbers, num):
         elif numbers[mid] > num:
            high = mid -1
         else:
-            print(f'Your number was found at index {numbers.index(mid)}.')
+            print(f'Your number was found at index {numbers.index(mid)+1}.')
             break
 
-bin_search(nums, 6)
+bin_search(nums, 8)

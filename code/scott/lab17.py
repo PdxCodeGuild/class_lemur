@@ -25,13 +25,12 @@ search = input('Enter a word to search the quote database with or press enter to
 if search == '':
     print('Thank you for using the quote search program.')
     quit()
-    
+
 params = {
     'filter' : search,
     'page' : 1,
     'type' : 'tag'
 }
-
 
 while True:
     url = f'https://favqs.com/api/quotes/?filter='
