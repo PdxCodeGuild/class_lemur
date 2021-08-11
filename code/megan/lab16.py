@@ -8,9 +8,9 @@ import requests
 # response = requests.get(url, headers=headers)
 
 # # print(response)
-# print(response.text)
+# # print(response.text)
 # data = response.json()
-# print(data)
+# # print(data)
 
 # jokes = data.get('joke')
 # print(jokes)

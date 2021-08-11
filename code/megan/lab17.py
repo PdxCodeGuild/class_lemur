@@ -25,30 +25,54 @@ while True:
 
     if user_response == 'done':
         break
-
-    headers = {'Authorization': 'Token token="YOUR_APP_TOKEN"'}
     
+    # url = 'https://favqs.com/api/quotes?page=<page>&filter=<keyword>' # full url
+
+    url = 'https://favqs.com/api/quotes?' 
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+
     params = {
-        'filter': user_response
+        'filter': user_response,
+        'page': 1
     }
 
-    # https://favqs.com/api/quotes?page=<page>&filter=<keyword>
-    response = requests.get('https://favqs.com/api/quotes?page=<page>&', headers=headers, params=params)
-
-
+    # response = requests.get(url, headers=headers, params=params)
+    response = requests.get(url + f'/search/{user_response}', headers=headers, params=params)
 
     # print(response)
-    print(response.text)
+    # print(response.text)
 
     response = response.json()
-    # print(type(response))
-    # response = response['quote']
-    # # print(response)
+    # print(response)
 
-    # quote = response['body']
-    # author = response['author']
+    response = response['quotes']
+    # quote = data.get('quotes')
 
+    for quote in response:
+        print(quote['body'])
+        print(quote['author'])
 
-    # print(f'"{quote}"')
-    # print(f'- {author}')
+    next = input("Enter 'next page' to see the next page or 'done' to exit: ")
+
+    if next == "next page":
+
+        params['page'] += 1
+
+        response = requests.get(url + f'/search/{user_response}', headers=headers, params=params)
+
+        # print(response)
+        # print(response.text)
+
+        response = response.json()
+        # print(response)
+
+        response = response['quotes']
+        # quote = data.get('quotes')
+
+        for quote in response:
+            print(quote['body'])
+            print(quote['author'])
+            
+    else:
+        break
 
