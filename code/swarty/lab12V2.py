@@ -45,6 +45,7 @@ print(cars)
 
 def carsort(db):
     cars=lines[0]+'\n'
+    db.sort(key= lambda b:b['Brand'])
     for dictionary in db:
         line=''
         for key in dictionary:
