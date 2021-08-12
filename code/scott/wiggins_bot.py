@@ -4,7 +4,6 @@
 # Python 3.9.6
 
 # Application ID: 875419839806713888
-# Token: ODc1NDE5ODM5ODA2NzEzODg4.YRVQQg.WuUrKY9p7TdYXYIYeTWfa20n7rM
 
 import os
 import discord
