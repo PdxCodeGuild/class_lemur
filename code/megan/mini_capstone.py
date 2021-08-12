@@ -1,38 +1,62 @@
+from hashlib import new
 import random 
 import mingus.core.notes as notes
 import mingus.core.intervals as intervals
-import mingus.core.chords as chords
 
 def new_interval(note1, note2):
-    '''This functinon will take two notes and determine the interval between them'''
+    '''This function will take two notes and determine the interval between them'''
     return intervals.determine(note1, note2)
+ 
+def random_notes(list):
+    '''This function will choose a random letter from the scale list and return it'''
+    return random.choice(list)
 
 scale = ['A', 'A#', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#','Ab']
 
+while True:
 
-note1 = random.choice(scale)
-note2 = random.choice(scale)
-
-while True: 
-
-    skills = input("Do you want to test your interval skills? yes/no: ")
-
-    if skills == 'no':
+    # skills = input("Do you want to test your interval skills? yes/no: ")
+    skills = input("What skill do you want to test? ")
+    
+    if skills == 'none':
         break
     
-    elif skills == 'yes':
+    elif skills == 'intervals':
+
+        note1 = random_notes(scale)
+        note2 = random_notes(scale)
 
         print(note1)
         print(note2)      
 
-    answer = input("Please enter the interval between these two notes: ")
+        while True:
 
-    if answer == new_interval(note1, note2):
-        print("You got it!")
+            answer = input("Please enter the interval between these two notes: ")
 
-    else:
-        print("Sorry, try again.")
+            if answer == new_interval(note1, note2):
+                print("You got it!")
 
+                note1 = random_notes(scale)
+                note2 = random_notes(scale)
+
+                print(note1)
+                print(note2)  
+
+            elif answer == 'I don\'t know':
+                print(f'The answer was {new_interval(note1, note2)}')
+
+                note1 = random_notes(scale)
+                note2 = random_notes(scale)
+
+                print(note1)
+                print(note2) 
+
+            else:
+                print("Sorry, try again!")
+
+                print(note1)
+                print(note2) 
+            
 
 
 '''
@@ -48,5 +72,6 @@ Features:
 ----
 - Display a scale and ask user to identify it 
 - Display a chord and ask user the proper name of the chord (Major triad, minor 7th, etc
+or ask the user to input the notes of a particular chord (What notes make up a dominant seventh chord in the key of C?)
 
 '''
