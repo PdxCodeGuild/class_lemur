@@ -1,16 +1,14 @@
 import csv
 import json
-from gooey import Gooey, GooeyParser
-
-
-
-path = 'python_subject.csv'
-subject_path = 'subject_list.csv'
+# from PyQt5 import QtWidgets
+import sys
+from card_display import Card_Display as card
+import application_test as main_window
 
 
 def user_select():
     while True:
-        user_input = input("\nSelect an option number (1 Select Currrent Subject, 2 Add subject): ")
+        user_input = input("\nSelect an option number (1 Select Current Subject, 2 Add subject): ")
         if user_input == '1' or user_input == '2':
             return user_input
         else:
@@ -56,7 +54,7 @@ def create_subject(path):
                 subject_dict[item[0]] = item[1]
             return subject_dict
         elif import_or_not == 'no':
-            break
+            return subject_dict
         else:
             print("That is not a valid selection.")
 
@@ -78,24 +76,52 @@ def read_subject_list(subject_path):
     with open(subject_path, 'r') as file:
         lines = file.read().rstrip()
         lines = lines.split(',')
-        print(lines)
+    return lines
 
 def open_subject_dict(subject):
     with open(f"{subject}.json") as file:
         subject_dict = json.load(file)
     return subject_dict
 
-subject_dict = create_subject(path)
-save_subject_dictionary(subject_dict)
+def study_cards(subject_dict):
+    restudy_dict = {}
+    for k,v in subject_dict.items():
+        print(f"{k}")
+        input("Hit ENTER to show answer: ")
+        print(f"{v}")
+        while True:
+            correct = input("Correct (y/n)? ").lower()
+            if correct == 'n':
+                restudy_dict[k] = v
+                break
+            elif correct == 'y':
+                break
+            else:
+                print("That is not a valid answer.")
+    return restudy_dict
 
-#question_answer_dict = import_subject_csv(path)
-# subject_list = ['cats', 'dogs', 'chickens', 'python']
-# # select_subject(subject_list)
 
-# save_subject_list(subject_list, subject_path)
-# read_subject_list(subject_path)
+def study_cards_loop(subject_dict):
+    restudy_dict = study_cards(subject_dict)
+    while True:
+        subject_dict = restudy_dict.copy()
+        print(subject_dict)
+        restudy_dict = {}
+        continue_to_restudy = input("Would you like to continue studying the cards you got wrong? ")
+        if continue_to_restudy == 'no':
+            return print(f"This study session is completed with {len(subject_dict.keys())} missed questions.")
+        elif continue_to_restudy == 'yes':
+            restudy_dict = study_cards(subject_dict).copy()
+        else: 
+            print("That was not a valid answer.")
 
-# @Gooey
-# def main():
-#   parser = GooeyParser(...)
-#   subject_list = []
+if __name__ == '__main__':
+    path = 'python_subject.csv'
+    subject_path = 'subject_list.csv'
+    subject_dict = open_subject_dict('python')
+    ui_window = main_window.Ui_MainWindow(subject_dict)
+    list_of_subjects = read_subject_list(subject_path)
+
+    main_window.start_window(list_of_subjects, subject_dict)
+
+
