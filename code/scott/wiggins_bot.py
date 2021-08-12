@@ -11,8 +11,8 @@ from dotenv import load_dotenv
 
 # Pull secret token in from hidden file
 load_dotenv()
-token = os.getenv('wiggins_secret_token')
-server_id = os.getenv('server')
+TOKEN = os.getenv('WIGGINS_SECRET_TOKEN')
+SERVER_ID = os.getenv('SERVER_ID')
 
 # Create a Discord client and test connection
 client = discord.Client()
@@ -20,7 +20,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     for server in client.guilds:
-        if server.name == server_id:
+        if server.name == SERVER_ID:
             break
     print(f'{client.user} has connected to Discord!')
     print(f'{client.user} is connected to the following server:\n'
@@ -29,4 +29,4 @@ async def on_ready():
     members = '\n - '.join([member.name for member in server.members])
     print(f'Server Members:\n - {members}')
 
-client.run(token)
+client.run(TOKEN)
