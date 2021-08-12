@@ -4,7 +4,7 @@
 # Python 3.9.6
 
 class ATM:
-    def __init__(self, balance=0, interest_rate=0.01, transactions=[]):
+    def __init__(self, balance=0, interest_rate=0.1, transactions=[]):
         self.balance = balance
         self.interest_rate = interest_rate
         self.transactions = transactions
@@ -36,7 +36,7 @@ class ATM:
 
     def calc_interest(self):
         """calculate and return interest gained on account"""
-        int_amount = self.balance * self.interest_rate
+        int_amount = (self.balance * self.interest_rate) / 100
         return int_amount
 
     def print_transactions(self):
