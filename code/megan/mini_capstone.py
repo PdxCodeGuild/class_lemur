@@ -1,3 +1,4 @@
+from hashlib import new
 import random 
 import mingus.core.keys as keys
 import mingus.core.notes as notes
@@ -15,17 +16,15 @@ def random_notes(list):
 def random_key_signature(list):
     return keys.get_key_signature(list)
 
+def relative_keys(list):
+    return intervals.keys.relative_minor(list)
 
 # scale = ['A', 'A#', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#','Ab']
 scale = ['A', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'Gb', 'G','Ab']
 
 
-# interval_list = [intervals.major_second, intervals.major_third, intervals.perfect_fourth, intervals.perfect_fifth, intervals.major_sixth, intervals.major_seventh, intervals.minor_second, intervals.minor_second, intervals.minor_sixth, intervals.minor_seventh]
-
-
 while True:
 
-    # skills = input("Do you want to test your interval skills? yes/no: ")
     skills = input("Please enter the skill you would like to work on or 'quit' to exit: ")
     
     if skills == 'quit':
@@ -94,8 +93,30 @@ while True:
             else:
                 print("Sorry, try again!")
 
+    elif skills == 'relative minor keys':
+
+        original_key = random_notes(scale)
+
+        while True:
+
+            new_key = input(f"What is the relative minor of the key of {original_key}? ")
+
+            if new_key == 'quit':
+                    break
+
+            if new_key == relative_keys(original_key):
+                print("You got it!")
+                
+                original_key = random_notes(scale)
 
 
+            elif new_key == 'I don\'t know':
+                print(f"The answer was {relative_keys(original_key)}")
+                
+                original_key = random_notes(scale)
+
+            else:
+                print("Sorry, try again!")
 
 
 '''
@@ -105,14 +126,8 @@ Features:
 
 - Display two notes and ask user what the interval between them is ---> DONE
 - Display key and ask user for the notes in the diatonic scale (ex: C - CDEFGABC) ---> DONE
+- Display a key and ask for the parallel minor/major ---> DONE
 
-- Display a key and ask for the parallel minor/major (They're given C major - parallel minor is a)
 - Display a note and ask for the note that is a specific interval above or below it 
-
-???
-----
-- Display a scale and ask user to identify it 
-- Display a chord and ask user the proper name of the chord (Major triad, minor 7th, etc
-or ask the user to input the notes of a particular chord (What notes make up a dominant seventh chord in the key of C?)
 
 '''
