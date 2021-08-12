@@ -3,8 +3,6 @@
 # Scott Cormack
 # Python 3.9.6
 
-# Application ID: 875419839806713888
-
 import os
 import discord
 from dotenv import load_dotenv
