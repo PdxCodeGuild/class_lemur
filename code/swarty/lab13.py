@@ -38,7 +38,7 @@ class ATM:
 
     def calc_interest(self):
         """calculate and return interest gained on account"""
-        interest=self.balance*.01
+        interest=self.balance*.001
         self.balance+=interest
         self.accounting += f'{datetime.datetime.now()}\nInterest Accrued ${interest}\nBalance ${self.balance}\n'
         return interest
