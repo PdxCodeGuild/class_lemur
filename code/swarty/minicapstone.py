@@ -87,9 +87,8 @@ for elev in range(len(elevs)):
     el_data=(str(elev['elevation'],dist)+'\n')
     coord_1=(elev['location']['lat'],elev['location']['lng'])
     coord_2=(elevs[i+1]['location']['lat'],elevs[i+1]['location']['lng'])
-    leg_dist=haversine(coord_1,coord_2)
+    leg_dist=haver(coord_1,coord_2)
     dist+=leg_dist
-
 
 # chart=alt.Chart(elevs).mark_area().encode(
 #     x="year:T",
@@ -97,7 +96,6 @@ for elev in range(len(elevs)):
 #     color="source:N"
 # )
 # chart.save('chart.html')
-
 
 #Viewer for debug
 ppr.pp(elevs)
