@@ -11,7 +11,6 @@ json (recommended), indicates output in JavaScript Object Notation (JSON); or
 xml, indicates output in XML, wrapped within a <ElevationResponse> node.
 
 '''
-import vega_datasets as testdata
 import altair as alt 
 from secrets import gmap_key
 import requests
@@ -78,9 +77,21 @@ for i in range(len(coords)):
         sleep(1)
 
 
+from vega_datasets import data, local_data
+from vega_datasets.core import Dataset
 
 
 
+
+
+source = 'data.iowa-electricity()'
+
+chart=alt.Chart(source).mark_area().encode(
+    x="year:T",
+    y="net_generation:Q",
+    color="source:N"
+)
+chart.save('chart.html')
 
 
 #Viewer for debug
