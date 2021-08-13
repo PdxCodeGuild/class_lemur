@@ -4,13 +4,13 @@ from easygui.boxes.derived_boxes import enterbox, integerbox, msgbox
 import mingus.core.keys as keys
 import mingus.core.intervals as intervals
 
-def new_interval(note1, note2):
-    '''This function will take two notes and determine the interval between them'''
-    return intervals.determine(note1, note2)
- 
 def random_notes(list):
     '''This function will choose a random letter from the scale list and return it'''
     return random.choice(list)
+
+def new_interval(note1, note2):
+    '''This function will take two notes and determine the interval between them'''
+    return intervals.determine(note1, note2)
 
 def random_key_signature(list):
     '''This function with return the key signature of any key'''
@@ -24,7 +24,6 @@ def relative_keys(list):
 scale = ['A', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'Gb', 'G','Ab']
 
 # ------------------------------------------------------------------------------------------ #
-
 
 while True:
 
@@ -40,12 +39,13 @@ while True:
     elif choice == 'Intervals':
         note1 = random_notes(scale)
         note2 = random_notes(scale)
-        both_notes = note1, note2
-        msgbox(both_notes)
+        # both_notes = note1 + ' and ' + note2
+        # msgbox(both_notes)
 
         while True:
 
-            answer = enterbox("Please enter the interval between these two notes \n(or 'done' to exit): ")
+            answer = enterbox(f"What is the interval between {note1} and {note2} \n(or 'done' to exit)")
+            # answer = enterbox("Please enter the interval between these two notes \n(or 'done' to exit): ")
 
             if answer == 'done':
                 break
@@ -55,16 +55,16 @@ while True:
 
                 note1 = random_notes(scale)
                 note2 = random_notes(scale)
-                both_notes = note1, note2
-                msgbox(both_notes)
+                # both_notes = note1, note2
+                # msgbox(both_notes)
 
             elif answer == 'I don\'t know':
                 msgbox(f"The answer was {new_interval(note1, note2)}")
 
                 note1 = random_notes(scale)
                 note2 = random_notes(scale)
-                both_notes = note1, note2
-                msgbox(both_notes)
+                # both_notes = note1, note2
+                # msgbox(both_notes)
 
             elif answer != new_interval(note1, note2): 
                 msgbox("Sorry, not quite!")
@@ -75,20 +75,20 @@ while True:
 
         while True: 
 
-            ask = int(enterbox(f"How many sharps or flats are in the key of {signature}? \n(Positive numbers for sharp keys and negative numbers for flat keys) \n(or 'done' to exit)"))
+            ask = enterbox(f"How many sharps or flats are in the key of {signature}? \nPositive numbers for sharp keys and negative numbers for flat keys \n(or 'done' to exit)")
 
             if ask == 'done':
                 break
 
-            elif ask == random_key_signature(signature):
-                msgbox("You got it!")
-
-                signature = random_notes(scale)  
-
             elif ask == 'I don\'t know':
                 msgbox(f"The answer was {random_key_signature(signature)}")
                 
-                signature = random_notes(scale)  
+                signature = random_notes(scale) 
+
+            elif int(ask) == random_key_signature(signature):
+                msgbox("You got it!")
+
+                signature = random_notes(scale) 
 
             else:
                 msgbox("Sorry, try again!")
@@ -111,7 +111,7 @@ while True:
 
 
             elif new_key == 'I don\'t know':
-                msgbox(f"The answer was {relative_keys(original_key)}")
+                msgbox(f"The answer was {relative_keys(original_key)} minor")
                 
                 original_key = random_notes(scale)
 
@@ -127,10 +127,5 @@ Features:
 - Display two notes and ask user what the interval between them is ---> DONE
 - Display key and ask for key signature ---> DONE
 - Display a key and ask for the parallel minor/major ---> DONE
-
-???
-----
-
-- Display a note and ask for the note that is a specific interval above or below it 
 
 '''

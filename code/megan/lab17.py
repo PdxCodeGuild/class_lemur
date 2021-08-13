@@ -10,7 +10,7 @@ import requests
 # # print(type(response))
 # response = response['quote']
 # # print(response)
-
+ 
 # quote = response['body']
 # author = response['author']
 

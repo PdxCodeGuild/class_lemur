@@ -11,7 +11,6 @@
 # print(index)
 
 
-
 '''Part Two: Binary Search'''
 
 
@@ -27,7 +26,10 @@ def binary_search(nums, value):
 
         for i in range(len(nums)):
 
-            if nums[mid] == value:
+            if value == nums[0]:
+                return 0
+
+            elif nums[mid] == value:
                 return mid
 
             elif value < mid:
