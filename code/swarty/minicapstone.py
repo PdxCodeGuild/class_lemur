@@ -13,6 +13,7 @@ xml, indicates output in XML, wrapped within a <ElevationResponse> node.
 '''
 import altair as alt 
 from secrets import gmap_key
+from altair.vegalite.v4.schema.channels import Latitude2
 import requests
 import pprint as ppr
 from polyline import decode
@@ -66,21 +67,26 @@ for coord in pline_coord:
         i=0
         j+=1
         coords.append('')
+
+
+
+
+#Get elevtion for each point.
 elevs=[]
 for i in range(len(coords)):
     coords[i]=coords[i].strip('|')
-#Get elevation of each point and add to array - Max points per pull is 512
-#locations='39.7391536,-104.9847034|36.455556,-116.866667'
-#path='36.578581,-118.291994|36.23998,-116.83171'
-#samples=10
     params_elev={'key':key, 'locations':coords[i]}
     pull_elev=requests.get(gmap_elev, params=params_elev).json()
     elevs.extend(pull_elev['results'])
     if len(coords) != 0:
         sleep(1)
-
-
-
+#cleanup data and get distance points instead of coordinates.
+i=0
+dist=0
+for elev in range(len(elevs)):
+    el_data=(str(elevs[i]['elevation'],dist)+'\n')
+    leg_dist=haversine()
+    dist+=
 
 
 # chart=alt.Chart(elevs).mark_area().encode(
@@ -95,4 +101,4 @@ for i in range(len(coords)):
 ppr.pp(elevs)
 filename='secrets.csv'
 with open(filename, 'w') as file:
-    file.write(str(routelegs))
+    file.write(el_data)
