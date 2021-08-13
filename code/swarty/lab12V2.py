@@ -21,8 +21,8 @@ def retriever(brand):
 
 
 
-file='../../code/swarty/DavidsData.csv'
-updated=f'../../code\swarty\DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
+file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/DavidsData.csv'
+updated=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
 #Read current file
 
 with open(file, 'r') as file:
@@ -41,7 +41,7 @@ for i in range(1,len(data)):
         category_data=data[i][j].strip()
         item.update({category_name:category_data})  
     database.append(item)
-print(cars)
+
 
 def carsort(db):
     cars=lines[0]+'\n'
@@ -53,69 +53,75 @@ def carsort(db):
         line.strip(', ')
         cars+=line+'\n'
     return database, cars
+action=''
+while True:
+    action=input('''
+c to create
+r to retrieve
+u to update
+d to delete
+q to quit
+What action would you like to perform? ''').lower()
+    if action=='q':
+        break
+    #Create a record
+    elif action == 'c':
+        loopout='y'
+        while loopout=='y':
+            car_brand=input('What is the car brand? ').title()
+            category=input(f'What is the category for {car_brand}? ').title()
+            known=input(f'What is that {car_brand} known for? ').title()
+            hq_location=input(f'Where are the headquarters for {car_brand}? ').title()
+            owner=input(f'Who is the majority owner of {car_brand}? ').title()
+            
+            database.append({
+                data[0][0]:car_brand,
+                data[0][1]:category,
+                data[0][2]:known,
+                data[0][3]:hq_location,
+                data[0][4]:owner
+            })
+            loopout=input('Would you like to enter another (y/n)? ').lower()
+        database, cars=carsort(database)
+        print(cars)
+        #Write to file
+        with open(updated, 'w') as file:
+            file.write(cars)
 
-action=input('''
-c for create
-r for retrieve
-u for update
-d for delete
-What action would you like to perform? ''')
-#Create a record
-if action == 'c':
-    loopout='y'
-    while loopout=='y':
-        car_brand=input('What is the car brand? ').title()
-        category=input(f'What is the category for {car_brand}? ').title()
-        known=input(f'What is that {car_brand} known for? ').title()
-        hq_location=input(f'Where are the headquarters for {car_brand}? ').title()
-        owner=input(f'Who is the majority owner of {car_brand}? ').title()
-        
-        database.append({
-            data[0][0]:car_brand,
-            data[0][1]:category,
-            data[0][2]:known,
-            data[0][3]:hq_location,
-            data[0][4]:owner
-        })
-        loopout=input('Would you like to enter another (y/n)? ').lower()
-    database, cars=carsort(database)
-    print(cars)
-    #Write to file
-    with open(updated, 'w') as file:
-        file.write(cars)
+    #retrieve a record
+    elif action =='r':
+        record=input('what brand would you like to retrieve? ').title()
+        retriever(record)
 
-#retrieve a record
-if action =='r':
-    record=input('what brand would you like to retrieve? ').title()
-    retriever(record)
+    #update a record
+    elif action =='u':
+        record=input('what brand would you like to update? ').title()
+        retriever(record)
+        for item in database:
+            if item['Brand']==record:
+                change_loc=input(f'What would you like to update in {item["Brand"]}?').title()
+                change=input(f'What would you like to change {change_loc} to? ').title()
+                for key in item:
+                    if key == change_loc:
+                        item[key]=change
+                        break
+        retriever(record)
+        database, cars=carsort(database)
+        print(database)
+        with open(updated, 'w') as file:
+            file.write(cars)
+                    
 
-#update a record
-if action =='u':
-    record=input('what brand would you like to update? ').title()
-    retriever(record)
-    for item in database:
-        if item['Brand']==record:
-            change_loc=input(f'What would you like to update in {item["Brand"]}?').title()
-            change=input(f'What would you like to change {change_loc} to? ').title()
-            for key in item:
-                if key == change_loc:
-                    item[key]=change
-                    break
-    retriever(record)
-    database, cars=carsort(database)
-    print(database)
-    with open(updated, 'w') as file:
-        file.write(cars)
-                
-
-if action == 'd':
-    doomed=input('what brand would you like to remove? ').title()
-    retriever(doomed)
-    for item in database:
-        if item['Brand']==doomed:
-            i=database.index(item)
-            database.pop(i)
-    database, cars=carsort(database)
-    print(cars)
-    with open(updated, 'w') as file:
-        file.write(cars)
+    elif action == 'd':
+        doomed=input('what brand would you like to remove? ').title()
+        retriever(doomed)
+        for item in database:
+            if item['Brand']==doomed:
+                i=database.index(item)
+                database.pop(i)
+        database, cars=carsort(database)
+        print(cars)
+        with open(updated, 'w') as file:
+            file.write(cars)
+    else:
+        print('That is not an option.')

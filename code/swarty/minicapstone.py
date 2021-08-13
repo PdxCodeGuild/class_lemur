@@ -26,8 +26,8 @@ key=secret_key
 
 
 #get polylines from gmap
-origin='Portland, OR'
-dest='Wilsonville, OR'
+origin='29744 Town Center Loop W, Wilsonville, OR 97070'
+dest='16482 SW Langer Dr, Sherwood, OR 97140'
 
 params_map={'key':key, 'origin':origin, 'destination':dest}
 
@@ -39,7 +39,19 @@ routelegs=pull_map['routes'][0]['legs'][0]['steps']
 for leg in routelegs:
     i=routelegs.index(leg)
     pline_enc=routelegs[i]['polyline']['points']
-    pline_coord.extend(decode(pline_enc))
+    points=decode(pline_enc)
+    #removing points within 100m of each other
+    i=0
+    j=len(points)-1
+    while i < j:
+        if round(points[i][0],3) == round(points[i+1][0],3) and round(points[i][1],3) == round(points[i+1][1],3):
+            points.pop(i+1)
+        else:
+            i+=1
+        j=len(points)-1
+    pline_coord.extend(points)
+ppr.pp(pline_coord)
+print(len(pline_coord))
 coords=['']
 j=0
 i=0
@@ -48,11 +60,11 @@ for coord in pline_coord:
     lon=coord[1]
     coords[j]+=f'{lat},{lon}|'
     i+=1
-    if i>511:
+    if i>511: #max pull is 512 for elevation points
         i=0
         j+=1
         coords.append('')
-elev=[]
+elevs=[]
 for i in range(len(coords)):
     coords[i]=coords[i].strip('|')
 #Get elevation of each point and add to array - Max points per pull is 512
@@ -61,12 +73,12 @@ for i in range(len(coords)):
 #samples=10
     params_elev={'key':key, 'locations':coords[i]}
     pull_elev=requests.get(gmap_elev, params=params_elev).json()
-    elev.extend(pull_elev['results'])
-    sleep(1)
-
+    elevs.extend(pull_elev['results'])
+    if len(coords) != 0:
+        sleep(1)
 
 #Viewer for debug
-ppr.pp(elev)
+ppr.pp(elevs)
 filename='capstone.csv'
 with open(filename, 'w') as file:
-    file.write(str(elev))
+    file.write(str(elevs))
