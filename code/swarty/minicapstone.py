@@ -18,10 +18,15 @@ import pprint as ppr
 from polyline import decode
 from time import sleep
 import turtle as tle
+from haversine import haversine as haver
 #google api info
 gmap_elev='https://maps.googleapis.com/maps/api/elevation/json?'
 gmap_dir='https://maps.googleapis.com/maps/api/directions/json?'
 key=gmap_key
+
+
+
+
 
 
 #get polylines from gmap
@@ -49,8 +54,6 @@ for leg in routelegs:
             i+=1
         j=len(points)-1
     pline_coord.extend(points)
-ppr.pp(pline_coord[0])
-print(len(pline_coord[0]))
 coords=['']
 j=0
 i=0
@@ -77,25 +80,19 @@ for i in range(len(coords)):
         sleep(1)
 
 
-from vega_datasets import data, local_data
-from vega_datasets.core import Dataset
 
 
 
-
-
-source = 'data.iowa-electricity()'
-
-chart=alt.Chart(source).mark_area().encode(
-    x="year:T",
-    y="net_generation:Q",
-    color="source:N"
-)
-chart.save('chart.html')
+# chart=alt.Chart(elevs).mark_area().encode(
+#     x="year:T",
+#     y="net_generation:Q",
+#     color="source:N"
+# )
+# chart.save('chart.html')
 
 
 #Viewer for debug
 ppr.pp(elevs)
 filename='secrets.csv'
 with open(filename, 'w') as file:
-    file.write(str(elevs))
+    file.write(str(routelegs))

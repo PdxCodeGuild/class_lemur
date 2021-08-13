@@ -9,11 +9,11 @@ from vega_datasets.core import Dataset
 
 
 
-source = 'data.iowa-electricity()'
+source = data.iowa_electricity()
 print(source)
 chart=alt.Chart(source).mark_area().encode(
     x="year:T",
-    y="net_generation:Q",
+    y=alt.Y("net_generation:Q", axis=alt.Axis(title='Net Generation')),
     color="source:N"
 )
 chart.save('chart.html')
