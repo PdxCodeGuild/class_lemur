@@ -12,8 +12,17 @@ Delete a record: ask the user for the contact's name, remove the contact with th
 #import modules
 from datetime import datetime
 
-file='../../code/swarty/DavidsData.csv'
-updated=f'../../code\swarty\DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
+def retriever(brand):
+    for item in database:
+        if item['Brand']==brand:
+            for key in item:
+                print(f'{key}:\n\t{item[key]}')
+
+
+
+
+file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/DavidsData.csv'
+updated=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/DavidsData_{datetime.now().strftime("%b%d_%Y")}.csv'
 #Read current file
 
 with open(file, 'r') as file:
@@ -33,28 +42,86 @@ for i in range(1,len(data)):
         item.update({category_name:category_data})  
     database.append(item)
 
-# add things
 
-#Create a record
-loopout='y'
-while loopout=='y':
-    car_brand=input('What is the car brand? ')
-    category=input('What is the category for {car_brand}? ')
-    known=input('What is that {car_brand} for? ')
-    hq_location=input('Where are the headquarters for {car_brand}? ')
-    owner=input('Who is the majority owner of {car_brand}? ')
-    
-    database.append({
-        data[0][0]:car_brand,
-        data[0][1]:category,
-        data[0][2]:known,
-        data[0][3]:hq_location,
-        data[0][4]:owner
-    })
-    cars+=f'\n{car_brand},{category},{known},{hq_location},{owner}'
-    loopout=input('Would you like to enter another (y/n)? ').lower()
+def carsort(db):
+    cars=lines[0]+'\n'
+    db.sort(key= lambda b:b['Brand'])
+    for dictionary in db:
+        line=''
+        for key in dictionary:
+            line+= dictionary[key] +", "
+        line.strip(', ')
+        cars+=line+'\n'
+    return database, cars
+action=''
+while True:
+    action=input('''
+c to create
+r to retrieve
+u to update
+d to delete
+q to quit
+What action would you like to perform? ''').lower()
+    if action=='q':
+        break
+    #Create a record
+    elif action == 'c':
+        loopout='y'
+        while loopout=='y':
+            car_brand=input('What is the car brand? ').title()
+            category=input(f'What is the category for {car_brand}? ').title()
+            known=input(f'What is that {car_brand} known for? ').title()
+            hq_location=input(f'Where are the headquarters for {car_brand}? ').title()
+            owner=input(f'Who is the majority owner of {car_brand}? ').title()
+            
+            database.append({
+                data[0][0]:car_brand,
+                data[0][1]:category,
+                data[0][2]:known,
+                data[0][3]:hq_location,
+                data[0][4]:owner
+            })
+            loopout=input('Would you like to enter another (y/n)? ').lower()
+        database, cars=carsort(database)
+        print(cars)
+        #Write to file
+        with open(updated, 'w') as file:
+            file.write(cars)
 
+    #retrieve a record
+    elif action =='r':
+        record=input('what brand would you like to retrieve? ').title()
+        retriever(record)
 
-#Write to file
-with open(updated, 'w') as file:
-    file.write(cars)
+    #update a record
+    elif action =='u':
+        record=input('what brand would you like to update? ').title()
+        retriever(record)
+        for item in database:
+            if item['Brand']==record:
+                change_loc=input(f'What would you like to update in {item["Brand"]}?').title()
+                change=input(f'What would you like to change {change_loc} to? ').title()
+                for key in item:
+                    if key == change_loc:
+                        item[key]=change
+                        break
+        retriever(record)
+        database, cars=carsort(database)
+        print(database)
+        with open(updated, 'w') as file:
+            file.write(cars)
+                    
+
+    elif action == 'd':
+        doomed=input('what brand would you like to remove? ').title()
+        retriever(doomed)
+        for item in database:
+            if item['Brand']==doomed:
+                i=database.index(item)
+                database.pop(i)
+        database, cars=carsort(database)
+        print(cars)
+        with open(updated, 'w') as file:
+            file.write(cars)
+    else:
+        print('That is not an option.')
