@@ -12,7 +12,7 @@ xml, indicates output in XML, wrapped within a <ElevationResponse> node.
 
 '''
  
-from secrets import secret_key
+from secrets import gmap_key
 import requests
 import pprint as ppr
 from polyline import decode
@@ -21,7 +21,7 @@ import turtle as tle
 #google api info
 gmap_elev='https://maps.googleapis.com/maps/api/elevation/json?'
 gmap_dir='https://maps.googleapis.com/maps/api/directions/json?'
-key=secret_key
+key=gmap_key
 
 
 
@@ -79,6 +79,6 @@ for i in range(len(coords)):
 
 #Viewer for debug
 ppr.pp(elevs)
-filename='capstone.csv'
+filename='minicapstone.csv'
 with open(filename, 'w') as file:
     file.write(str(elevs))
