@@ -25,7 +25,6 @@ gmap_dir='https://maps.googleapis.com/maps/api/directions/json?'
 key=gmap_key
 
 
-
 #get polylines from gmap
 origin='29744 Town Center Loop W, Wilsonville, OR 97070'
 dest='16482 SW Langer Dr, Sherwood, OR 97140'
