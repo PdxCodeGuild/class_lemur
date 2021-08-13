@@ -11,7 +11,8 @@ json (recommended), indicates output in JavaScript Object Notation (JSON); or
 xml, indicates output in XML, wrapped within a <ElevationResponse> node.
 
 '''
- 
+import vega_datasets as testdata
+import altair as alt 
 from secrets import gmap_key
 import requests
 import pprint as ppr
@@ -50,8 +51,8 @@ for leg in routelegs:
             i+=1
         j=len(points)-1
     pline_coord.extend(points)
-ppr.pp(pline_coord)
-print(len(pline_coord))
+ppr.pp(pline_coord[0])
+print(len(pline_coord[0]))
 coords=['']
 j=0
 i=0
@@ -77,8 +78,14 @@ for i in range(len(coords)):
     if len(coords) != 0:
         sleep(1)
 
+
+
+
+
+
+
 #Viewer for debug
 ppr.pp(elevs)
-filename='minicapstone.csv'
+filename='secrets.csv'
 with open(filename, 'w') as file:
     file.write(str(elevs))
