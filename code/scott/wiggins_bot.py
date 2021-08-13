@@ -6,8 +6,8 @@
 import os
 import discord
 import logging
-from dotenv import load_dotenv
 from discord.ext import commands
+from keep_alive import keep_alive
 
 # Error logging
 logger = logging.getLogger('Discord')
@@ -16,9 +16,7 @@ handler = logging.FileHandler(filename = 'err.log', encoding = 'utf-8', mode = '
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-# Pull secret token in from hidden file
-load_dotenv()
-TOKEN = os.getenv('WIGGINS_SECRET_TOKEN')
+TOKEN = os.environ['WIGGINS_SECRET_TOKEN']
 
 # Create a Discord bot and establish commonly used variables.
 intents = discord.Intents.default()
@@ -48,7 +46,7 @@ async def on_member_join(member):
 async def on_message(message):
     blurb = 'Trigger message successful!'
     await bot.process_commands(message)
-    if message.content == 'Hi' or message.content == 'hi' or message.content == 'HI':
+    if message.content == 'test':
         await message.channel.send(blurb)
     
 # Bot Commands
@@ -57,4 +55,9 @@ async def test(ctx):
     blurb = 'Test'
     await ctx.send(blurb)
 
+@bot.command(name = 'annoy')
+async def annoy(ctx):
+  ...
+
+keep_alive()
 bot.run(TOKEN)
