@@ -1,4 +1,4 @@
-import dotenv
+import dotenv # pip install python-dotenv
 import os
 
 dotenv.load_dotenv()
