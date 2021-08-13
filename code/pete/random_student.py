@@ -41,11 +41,11 @@ def random_groups(n):
     # print(number_per_group)
     # print(f'split into {n} groups')
 
-random_groups(2)
-# if args.groups != 0:
-#     random_groups(args.groups)
-# else:
-#     random_students()
+# random_groups(2)
+if args.groups != 0:
+    random_groups(args.groups)
+else:
+    random_students()
 
 # truthy_or_falsey_string = input(choice(students))
 # if truthy_or_falsey_string:
