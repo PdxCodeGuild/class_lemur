@@ -1,9 +1,8 @@
-from hashlib import new
-import random 
+import random
+from easygui.boxes.button_box import buttonbox
+from easygui.boxes.derived_boxes import enterbox, integerbox, msgbox
 import mingus.core.keys as keys
-import mingus.core.notes as notes
 import mingus.core.intervals as intervals
-
 
 def new_interval(note1, note2):
     '''This function will take two notes and determine the interval between them'''
@@ -14,109 +13,110 @@ def random_notes(list):
     return random.choice(list)
 
 def random_key_signature(list):
+    '''This function with return the key signature of any key'''
     return keys.get_key_signature(list)
 
 def relative_keys(list):
+    '''This function will take a key and return the relative minor'''
     return intervals.keys.relative_minor(list)
 
-# scale = ['A', 'A#', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'D#', 'Eb', 'E', 'F', 'F#', 'Gb', 'G', 'G#','Ab']
+
 scale = ['A', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'Gb', 'G','Ab']
+
+# ------------------------------------------------------------------------------------------ #
 
 
 while True:
 
-    skills = input("Please enter the skill you would like to work on or 'quit' to exit: ")
-    
-    if skills == 'quit':
-        break
-    
-    if skills == 'intervals':
+    msg = "What would you like to work on?"
+    title = "Let's practice music theory!"
 
+    choices = ["Intervals", "Key signatures", "Relative minor keys", "Quit"]
+    choice = buttonbox(msg, title, choices)
+
+    if choice == 'Quit':
+        break
+
+    elif choice == 'Intervals':
         note1 = random_notes(scale)
         note2 = random_notes(scale)
-
-        print(note1)
-        print(note2)      
+        both_notes = note1, note2
+        msgbox(both_notes)
 
         while True:
 
-            answer = input("Please enter the interval between these two notes or 'quit' to exit: ")
+            answer = enterbox("Please enter the interval between these two notes \n(or 'done' to exit): ")
 
-            if answer == 'quit':
+            if answer == 'done':
                 break
 
-            if answer == new_interval(note1, note2):
-                print("You got it!")
+            elif answer == new_interval(note1, note2):
+                msgbox("You got it!")
 
                 note1 = random_notes(scale)
                 note2 = random_notes(scale)
-
-                print(note1)
-                print(note2)  
+                both_notes = note1, note2
+                msgbox(both_notes)
 
             elif answer == 'I don\'t know':
-                print(f'The answer was {new_interval(note1, note2)}')
+                msgbox(f"The answer was {new_interval(note1, note2)}")
 
                 note1 = random_notes(scale)
                 note2 = random_notes(scale)
+                both_notes = note1, note2
+                msgbox(both_notes)
 
-                print(note1)
-                print(note2) 
+            elif answer != new_interval(note1, note2): 
+                msgbox("Sorry, not quite!")
 
-            else:
-                print("Sorry, try again!")
+    elif choice == 'Key signatures':
 
-                print(note1)
-                print(note2) 
-
-    elif skills == 'key signatures':
-        
         signature = random_notes(scale) 
 
         while True: 
 
-            ask = int(input(f"How many sharps or flats are in the key of {signature}? \nPositive numbers for sharp keys and negative numbers for flat keys "))
+            ask = int(enterbox(f"How many sharps or flats are in the key of {signature}? \n(Positive numbers for sharp keys and negative numbers for flat keys) \n(or 'done' to exit)"))
 
-            if ask == 'quit':
+            if ask == 'done':
                 break
 
-            if ask == random_key_signature(signature):
-                print("You got it!")
-                
-                signature = random_notes(scale) 
+            elif ask == random_key_signature(signature):
+                msgbox("You got it!")
+
+                signature = random_notes(scale)  
 
             elif ask == 'I don\'t know':
-                print(f"The answer was {random_key_signature(signature)}")
+                msgbox(f"The answer was {random_key_signature(signature)}")
                 
-                signature = random_notes(scale) 
+                signature = random_notes(scale)  
 
             else:
-                print("Sorry, try again!")
+                msgbox("Sorry, try again!")
 
-    elif skills == 'relative minor keys':
+    elif choice == 'Relative minor keys':
 
         original_key = random_notes(scale)
 
         while True:
 
-            new_key = input(f"What is the relative minor of the key of {original_key}? ")
+            new_key = enterbox(f"What is the relative minor of the key of {original_key}? \n(or 'done' to exit) ")
 
-            if new_key == 'quit':
+            if new_key == 'done':
                     break
 
             if new_key == relative_keys(original_key):
-                print("You got it!")
+                msgbox("You got it!")
                 
                 original_key = random_notes(scale)
 
 
             elif new_key == 'I don\'t know':
-                print(f"The answer was {relative_keys(original_key)}")
+                msgbox(f"The answer was {relative_keys(original_key)}")
                 
                 original_key = random_notes(scale)
 
             else:
-                print("Sorry, try again!")
+                msgbox("Sorry, try again!")
 
 
 '''
@@ -125,8 +125,11 @@ Features:
 ---------
 
 - Display two notes and ask user what the interval between them is ---> DONE
-- Display key and ask user for the notes in the diatonic scale (ex: C - CDEFGABC) ---> DONE
+- Display key and ask for key signature ---> DONE
 - Display a key and ask for the parallel minor/major ---> DONE
+
+???
+----
 
 - Display a note and ask for the note that is a specific interval above or below it 
 
