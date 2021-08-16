@@ -125,8 +125,10 @@ while True:
             
             elif tonic_notes in options:
                 msgbox(f"The answer was {scales.get_notes(pick_a_chord)}")
-    
+
                 pick_a_chord = random_notes(scale)
+
+                continue
 
             tonic_notes = list(tonic_notes.split(' '))
 
