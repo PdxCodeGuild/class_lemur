@@ -6,25 +6,25 @@
 import os
 import discord
 import logging
-import time
+from dotenv import load_dotenv
 from discord.ext import commands
 from keep_alive import keep_alive
 
 # Error logging
-logger = logging.getLogger('Discord')
+logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename = 'err.log', encoding = 'utf-8', mode = 'a')
+handler = logging.FileHandler(filename = 'err.log', encoding = 'utf-8', mode = 'w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-TOKEN = os.environ['WIGGINS_SECRET_TOKEN']
+# Get token
+load_dotenv()
+TOKEN = os.getenv('WIGGINS_SECRET_TOKEN')
 
 # Create a Discord bot and establish commonly used variables.
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix = '!', intents = intents, case_insensitive = True)
-annoy_bool = False
-annoy_target = None
 
 # Prompts terminal when bot is logged in and ready
 @bot.event
@@ -47,33 +47,29 @@ async def on_member_join(member):
 # Function to handle bot responses to particular messages in chat
 @bot.event
 async def on_message(message):
-    blurb = 'Trigger message successful!'
     await bot.process_commands(message)
     if message.content == 'test':
-        await message.channel.send(blurb)
-    if annoy_target != None:
-        if message.author == annoy_target:
-            blurb = message.content + 'No. You.'
-            await message.send(blurb)
+        await message.channel.send('Test complete.')
+    
 
 # Bot Commands
 @bot.command(name = 'dm', help = 'Use the bot to send direct messages to someone.')
-async def dm(ctx, user : discord.User = None, *, message = None):
+async def dm(ctx, member : discord.Member = None, *, message = None):
   message = message
-  if message == None or user == None:
-      await ctx.send('Proper context for the !dm command: !dm {target username} {message}') 
-  await user.send(message)
+  if message == None or member == None:
+      await ctx.send('Proper context for the !dm command: !dm {target username} {message}')
+      return 
+  await member.send(message)
   await ctx.send('Message sent.')
 
-@bot.command(name = 'annoy', help = 'Someone annoying you in chat?  Sic The Wiggins Bot on them for 5 minutes.')
-async def annoy(ctx, user : discord.User = None):
-    annoy_bool == True
-    if user == None:
-        await ctx.send('Add a target user.  Proper context for the !annoy command: !annoy {target username}')
-        return
-    annoy_target = user
-    await ctx.send(f'{annoy_target} added to the naughty list for 5 minutes')
-
+# @bot.command(name = 'annoy', help = 'Sic The Wiggins Bot on an offender for 5 minutes.')
+# async def annoy(ctx, user : discord.User = None ):
+#     # annoy_bool = True
+#     if user == None:
+#         await ctx.send('Add a target user.  Proper context for the !annoy command: !annoy {target username}')
+#         return
+#     annoy_target = user
+#     await ctx.send(f'{annoy_target} added to the naughty list for 5 minutes')
 
 keep_alive()
 bot.run(TOKEN)
