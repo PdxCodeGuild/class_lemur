@@ -46,7 +46,7 @@ class Card_Display(QDialog):
         self.question_box.setFont(self.card_font)
 
         self.question_text = QTextEdit()
-        self.question_text.isReadOnly()
+        self.question_text.setReadOnly(True)
         self.question_text.textCursor().insertHtml("<b>Click Next Question to Start</b>")
 
         layout = QVBoxLayout()
@@ -58,7 +58,7 @@ class Card_Display(QDialog):
         self.answer_box.setFont(self.card_font)
 
         self.answer_text = QTextEdit()
-        self.answer_text.isReadOnly()
+        self.answer_text.setReadOnly(True)
         self.answer_text.textCursor().insertHtml("Try to answer the question, then hit show answer button to check.")
 
         layout = QVBoxLayout()
@@ -124,7 +124,7 @@ class Card_Display(QDialog):
             self.question_num += 1
             self.question_text.clear()
             self.answer_text.clear()
-            self.question_text.insertHtml(self.keys[self.question_num])
+            self.question_text.insertHtml(self.keys[self.question_num].strip("\""))
 
         else:
             self.question_text.clear()
@@ -147,7 +147,7 @@ class Card_Display(QDialog):
         """Shows the answer in the answer text box"""
         self.answer_text.clear()
         keys = list(self.subject_dict.keys())
-        self.answer_text.insertHtml(self.subject_dict[keys[self.question_num]])
+        self.answer_text.insertHtml(self.subject_dict[keys[self.question_num]].strip("\""))
         self.correct_button.setDisabled(False)
         self.incorrect_button.setDisabled(False)
 
