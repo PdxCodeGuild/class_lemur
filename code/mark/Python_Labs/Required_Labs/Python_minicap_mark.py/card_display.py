@@ -14,7 +14,7 @@ class Card_Display(QDialog):
         self.subject_dict = {}
         self.subject = subject
         self.question_num = -1
-        self.import_card_database()
+        self.import_card_database(f"{subject}.json")
         self.restudy_dict = {}
 
         self.card_font = self.font()
