@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <h1>Inputs and Rendering Values</h1>
+        <!-- Reads the sayHello data variable in vue and displays the value (in this case, a string that says 'Hello from Vue!!') -->
+        <!-- To render data from vue, place the variable in {{double curly brackets}} -->
+        <div>
+            <h2>Rendering from Vue</h2>
+            This is a basic render. This shows a message that has been hard-coded into Vue.
+        </div>
+
+        <div>
+            The message is: {{sayHello}}
+        </div>
+        <br />
+        <br />
+        <!-- v-model grabs every keystroke the user makes, and updates the state of nameEntry in the vue app as the user is typing.  -->
+        <div>
+            <h2>Text Input</h2>
+            This is a basic input in Vue:
+            <label for='nameEntry'>Please enter your name:</label>
+            <input v-model='userName' type='text' id='nameEntry'>
+        </div>
+        <!-- Here we can render userName on the page. The data passes from the user, through the v-model to the vue app, and then is brought back out on the browser -->
+        <div>
+            <label for='currentTyping'>This is the current state of the userName data variable. It updates everytime you
+                type something. </label>
+            <div id='currentTyping'>
+                {{userName}}
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+        <!-- Use v-model to connect the select element to chosenColorDynamic from data. In the vue app, chosenColorDynamic has been hard-coded to begin with yellow. This means that yellow will be pre-selected when the page loads. If it were a blank string, there wouldn't be a default value; this is the vue way to set an option to 'selected'. -->
+        <!-- v-for allows us to run a for loop in html. It loops over the colors array just like regular javascript would -->
+        <!-- We need to use v-bind to add the attribute 'value' so that vue can read the value of the selected color, and use v-model to set our chosenColorDynamic. If vue didn't need access to the value, we wouldn't v-bind it  -->
+        <div>
+            <h2>Select and Options (Dynamic)</h2>
+            <label for='dropDown'>Drop Downs:
+                <select v-model='chosenColorDynamic'>
+                    <option v-for='color in colors' v-bind:value='color' id='dropDown'>
+                        {{color}}
+                    </option>
+                </select>
+            </label>
+        </div>
+        <div>
+            The color you select will appear here: {{chosenColorDynamic}}
+        </div>
+        <br />
+        <br />
+
+
+        <!-- Here's what a drop down looks like if we hard-code it instead. -->
+        <!-- We still can't set an option to selected like we would in normal html, but we can set it in the vue app just like we did with the dynamic select.-->
+        <!-- Alternatively, we can add a decorative option to tell the user what to do.  -->
+        <div>
+            <h2>Select and Options (Hard-Coded)</h2>
+            <label>
+                <select v-model='chosenColorStatic'>
+                    <option disabled value="">Please select one</option>
+                    <option>Cyan</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            The color you select will appear here: {{chosenColorStatic}}
+        </div>
+        <br />
+        <br />
+
+
+        <!-- To dynamically render radio buttons, we'll need to use v-bind on the value again, just like we did with the drop downs.  -->
+        <!-- If you want your label to appear to the right of the button, set the label name after the input. For the left, set it before the input -->
+
+        <div>
+            <h2>Radio Buttons (Dynamic)</h2>
+            <label v-for='animal in animals'>
+                <input type='radio' v-bind:value='animal' v-model='chosenRadioAnimalDynamic' v-bind:id='animal'>
+                {{animal}}
+            </label>
+        </div>
+        <div>
+            You chose: {{chosenRadioAnimalDynamic}}
+        </div>
+        <br />
+        <br />
+
+
+        <!--Notice how we didn't use v-bind with the value? That's because the radio buttons are hard-coded into the html. -->
+        <!-- Even though we made an input element for each animal, they can all have their v-model set to 'chosenRadioAnimalStatic'. In the vue app, chosenRadioAnimalStatic is a blank string waiting to be assigned a value, and it can come from any input we want. In this case, we want it to come from a radio button -->
+        <div>
+            <h2>Radio Buttons (Hard-Coded)</h2>
+            <label for='cats'>Cats
+                <input type='radio' id='cats' v-model='chosenRadioAnimalStatic' value='Cats'>
+            </label>
+
+            <label for='dogs'>Dogs
+                <input type='radio' id='dogs' v-model='chosenRadioAnimalStatic' value='Dogs'>
+            </label>
+
+            <label for='velociraptor'>Velociraptor
+                <input type='radio' id='velociraptor' v-model='chosenRadioAnimalStatic' value='Velociraptor'>
+            </label>
+        </div>
+        <div>
+            You chose: {{chosenRadioAnimalStatic}}
+        </div>
+        <br />
+        <br />
+
+        <!-- To pull from a list of dictionaries, loop over the dictionary and call the key; this will call the selected values from data  -->
+        <div>
+            <h2>Rendering From a List of Dictionaries</h2>
+            This is how to loop over a list of dictionaries and pull out the desired values:
+            <div v-for='contact in contacts'>
+                {{contact.name}}
+                {{contact.phoneNumber}}
+            </div>
+            <br />
+            <!-- To pull a specific entry, we need to first call the list by its name, in this case contacts. Since each dictionary is a list element, we can call it by its index; since Jane Doe is the second entry in the list, their dictionary is at index 1.   -->
+            <div>
+                <label for='wholeListOfDicts'>
+                    This is the whole list of dictionaries:
+                    <div id='wholeListOfDicts'>
+                        {{contacts}}
+                    </div>
+                </label>
+                <br />
+
+                <label for='individualDict'>
+                    This is an individual's dictionary at index 1:
+                    <div id='individualDict'>
+                        {{contacts[1]}}
+                    </div>
+                </label>
+                <br />
+
+                <label>
+                    This is the name from the dictionary at index 1:
+                    <div id='individualName'>
+                        {{contacts[1]['name']}}
+                    </div>
+                </label>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <!-- Checkboxes are boolean values (checked or unchecked, true or false) that can bound to data variables in vue just like text and radio buttons -->
+        <div>
+            <h2>Standard Checkboxes</h2>
+            <!-- In Vue, the checkMePlease variable is empty (which makes it falsey), so the checkbox will be unchecked -->
+            Load Unchecked Box:
+            <div>
+                <label for='checkMe'> Check Me Please!
+                    <input type='checkbox' id='checkMe' v-model='checkMePlease' />
+                </label>
+            </div>
+            <br />
+            <!-- uncheckMePlease has a value other than a blank string (which makes it truthy), so the checkbox will be checked -->
+            Load Checked Box:
+            <div>
+                <label for='uncheckMe'> Uncheck Me Please!
+                    <input type='checkbox' id='uncheckMe' v-model='uncheckMePlease' />
+                </label>
+            </div>
+            <br />
+            <!-- If two checkboxes are bound to the same data variable using v-model, they will both be checked/unchecked simultaneously -->
+            Two For One:
+            <div>
+                <label for='checkTwo'> Checking One will check Them Both
+                    <div id='checkTwo'>
+                        <input type='checkbox' v-model='checkTwo' />
+                        <input type='checkbox' v-model='checkTwo' />
+                    </div>
+                </label>
+            </div>
+            <br />
+
+            <!-- Just like with select inputs, we iterate over the redFruits list with a v-for, and generate our checkboxes from it. We used v-bind on the value because the list is coded in Vue -->
+            <div>
+                <h2>Rendering Checkboxes Dynamically</h2>
+                <div v-for='fruit in redFruits'>
+                    <label for='redFruits'> {{ fruit }}
+                        <input type='checkbox' id='redFruits' v-bind:value='fruit' v-model='checkedRedFruits' />
+                    </label>
+                    <br />
+                </div>
+                <!-- The checkedRedFruits list holds onto everything we selected from the redFruits list. Since we used v-bind on the value attribute, the values were loaded into the checkedRedFruits list. These boxes will show up in a column because they each have their own div element.-->
+                <div>
+                    The currently checked red fruits are:
+                    <div v-for='fruit in checkedRedFruits'>
+                        {{fruit}}
+                    </div>
+                </div>
+            </div>
+            <br />
+            <!-- These checkboxes are all bound to an empty list, so when the box is checked, its value is added to the list. We can see the state of the list as it updates below. These checkboxes will appear in a row because they're all held within the save div element.Because the checkboxes are being hard-coded into the html, we don't need to use v-bind on the value. -->
+            <div>
+                <h2>Rendering Checkboxes Hard-Coded</h2>
+                <label for='honeydew'>Honeydew
+                    <input type='checkbox' id='honeydew' value='Honeydew' v-model='checkedGreenFruits' />
+                </label>
+                <label for='greenGrapes'>Green Grapes
+                    <input type='checkbox' id='greenGrapes' value='Green Grapes' v-model='checkedGreenFruits' />
+                </label>
+                <label for='kiwi'>Kiwi
+                    <input type='checkbox' id='kiwi' value='Kiwi' v-model='checkedGreenFruits' />
+                </label>
+                <!-- By iterating over the checkedGreenFruits list using v-for, we can see the values in the list as we store them. When a box is checked, it's added to the list; when it's unchecked, it's removed from the list. v-model is what does this magic for us. -->
+                <div>
+                    The currently checked green fruits are:
+                    <div v-for='greenFruit in checkedGreenFruits'>
+                        {{greenFruit}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+
+        <h1>Applying Methods</h1>
+        <!-- We made a calculate function in the vue app, now we need to use it. It's nearly identical to onClick(), only now we say v-on:click='calculate'.  -->
+        <!-- Since our function is in vue, we need to add v-on so it can communicate with the html. -->
+        <div>
+            <h2>Using the calculate Method</h2>
+            <p>Enter two numbers to be added together.</p>
+            <label for='firstNum'>first number:
+                <input type='number' v-model='firstNum' id='firstNum'>
+            </label>
+            <label for='secondNum'>second number:
+                <input type='number' v-model='secondNum' id='secondNum'>
+            </label>
+            <button type='button' v-on:click='calculate()'>Calculate</button>
+        </div>
+        <div>
+            {{firstNum}} + {{secondNum}} = {{answer}}
+        </div>
+        <br />
+        <br />
+
+        <div>
+            <h2>Using the calculateTemp Method</h2>
+            <label for='inputTempNum'>
+                <input type='number' id='inputTempNum' v-model='inputTempNum' />
+                °
+            </label>
+            <select v-model='startingUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{ temp }}
+                </option>
+            </select>
+            Converted to:
+            <select v-model='requestedUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{temp}}
+                </option>
+            </select>
+            <button type='button' v-on:click='tempConversion()'>Convert</button>
+            {{convertedUnit}}°
+        </div>
+        <br />
+        <br />
+
+
+
+    </div>
+
+
+    <!-- Vue CDN -->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+    <!-- Axios CDN -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'
+        integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=='
+        crossorigin='anonymous'></script>
+    <!-- Page JS -->
+    <script src='vue_example.js'></script>
+</body>
+
+</html>
