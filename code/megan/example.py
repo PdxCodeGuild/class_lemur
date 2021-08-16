@@ -1,6 +1,4 @@
-from math import pi
-from easygui.boxes.derived_boxes import enterbox
-import easygui
+from easygui.boxes.derived_boxes import enterbox, msgbox
 from mingus.core import chords
 import mingus.core.notes as notes
 import mingus.core.progressions as progressions
@@ -18,29 +16,36 @@ def new_interval(note1, note2):
 
 scale = ['A', 'Bb', 'B', 'C', 'C#', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'Gb', 'G','Ab']
 
+options = ['I don\'t know', 'idk', 'not sure', 'i don\'t know', 'don\'t know']
+
 # ------------------------------------------------------------------------------------------- #
 '''
-Possible additions: 
------------------
-
-''' 
-
-pick_a_chord = random.choice(scale)
-print(pick_a_chord.split(' '))
-
-result  = scales.get_notes(pick_a_chord)
-print(result)
+pick_key = random_notes(scale)
 
 while True:
 
-    tonic_notes = input(f"Please enter the notes of the tonic scale in the key of {pick_a_chord}: ")
+    first = enterbox(f"Please enter the notes for the subdominant triad in the key of {pick_key}: ")
+    second = enterbox(f"Please enter the notes for the dominant triad in the key of {pick_key}: ")
 
-    tonic_notes = list(tonic_notes.split(' '))
-
-    print(tonic_notes)
-
-    if tonic_notes == result:
-        print("Genius!")
+    if first == 'done' or second == 'done':
         break
-    else:
-        print("Not quite")
+    
+    elif first in options or second in options:
+        msgbox(f"The answer was {chords.IV(pick_key)}")
+        msgbox(f"The answer was {chords.V(pick_key)}")
+
+        pick_a_chord = random_notes(scale)
+
+        continue
+
+    first = list(first.split(' '))
+    second = list(second.split(' '))
+
+    if first == chords.IV(pick_key) and second == chords.V(pick_key):
+        msgbox("Correct!")
+        
+        pick_a_chord = random_notes(scale)
+
+    else: 
+        msgbox("Sorry, not quite")
+'''
