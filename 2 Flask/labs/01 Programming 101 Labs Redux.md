@@ -14,6 +14,8 @@ And **at least one** of these:
 - [Guess the Number](https://github.com/PdxCodeGuild/Programming101/blob/master/labs/guess_the_number.md)
 - [Magic 8 Ball](https://github.com/PdxCodeGuild/Programming101/blob/master/labs/magic-8-ball.md) *with* User Input (Show the user's question with the Magic 8 Ball's answer)
 
+Only version 1 is required for each lab.
+
 For the labs with user input, use URL converters (ask the user to type their input into the URL bar i.e.: `localhost:5000/grading/87` OR provide anchor tags for the user to click on to submit input `<a href="/guess-the-number/7">7</a>`).
 
 There should be a home page served by an `index` view with links to each lab.  If you were to choose Emoticon Generator and Guess the Number, your `app.py` would look something like this:
