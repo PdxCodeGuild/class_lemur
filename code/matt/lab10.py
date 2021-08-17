@@ -14,6 +14,8 @@ encoded_string = ""
 
 i = 0
 
+# Use a while loop to go through user_string and then for each letter
+# change it to the unicode number and add the shift.
 while i < len(user_string):
     for letter in user_string:
         if ord(letter) + shift > 122:

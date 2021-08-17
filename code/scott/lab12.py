@@ -3,8 +3,9 @@
 # Scott Cormack
 # Python 3.9.6
 file_name = 'smite_characters.csv'
+
 complete = []
-# Open CSV and convert to a list of dictionaries
+# # Open CSV and convert to a list of dictionaries
 def convert_csv(file):
     temp = []
     with open(file, 'r') as f:
@@ -19,13 +20,12 @@ def convert_csv(file):
         })
 
 def main():
-    convert_csv(file_name)
     # Process input
     loop = True
     while loop == True:
         choice = input('Choose if you would like to "create", "retrieve", "update" or "delete" a record ("exit" to quit): ').lower()
         if choice == 'exit':
-            loop = False
+            break
         # Direct to proper function
         elif choice == 'create':
             create()
@@ -37,10 +37,10 @@ def main():
             delete()
         else:
             print('Invalid entry. Enter "create", "retrieve", "update" or "delete". ')
+    return
 
 def create():
-    loop = True
-    while loop == True:
+    while True:
         new_dict = {}
         # Get name
         data = input('Enter a character name: ').lower()
@@ -56,7 +56,7 @@ def create():
             new_dict['class'] = data
         # Add to final list
             complete.append(new_dict)
-            loop = False
+            return
         
 def retrieve():
     while True:
@@ -103,12 +103,19 @@ def delete():
                 main()
 
 print('Welcome to the Smite Character database.')
+convert_csv(file_name)
 main()
 print('Writing changes to CSV.')
-final = ''
+print(complete)
+
+final = []
+for i in complete:
+    for j in i:
+        final.append(str(i[j]))
+final = ','.join(final)
 with open('file_name1.csv', 'w') as f:
+    f.write(final)
     
         
-print(final, type(final))
-        
+
    
