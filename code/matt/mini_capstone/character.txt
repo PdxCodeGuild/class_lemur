@@ -1,8 +1,8 @@
-Mundi
-16
-13
-16
-10
+Mat
 12
-8
-Barbarion
+13
+11
+14
+13
+10
+Wizard
