@@ -68,4 +68,4 @@ def login():
 # Note: this is missing the success and failure views, be sure to add those!
 ```
 
-Make sure each template has a link back to the home page.
+Make sure each template has a links to any other appropriate pages.
