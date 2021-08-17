@@ -32,7 +32,7 @@ def magic_8_ball():
 @app.route('/random-emoticon/')
 def random_emoticon():
     eyes = [':','8',';','@']
-    noses = ['>','^',]
+    noses = ['>','^']
     mouths = ['S','D',')','P','/','O']
     result = random.choice(eyes) + random.choice(noses) + random.choice(mouths)
     return render_template('page.html', result = result)
