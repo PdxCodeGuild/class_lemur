@@ -33,7 +33,7 @@ params = {
 }
 
 while True:
-    url = f'https://favqs.com/api/quotes/?filter='
+    url = f'https://favqs.com/api/quotes/'
     headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
     response = requests.get(url, headers = headers, params = params).json()
     response = response['quotes']
