@@ -75,5 +75,5 @@ step = 1
 for leg in legs:
     for maneuver in leg['maneuvers']:
         easygui.msgbox(msg=(f'{step}.  {maneuver["narrative"]}, for {maneuver["distance"]} miles.'))
-        print(f'{step}.  {maneuver["narrative"]}, for {maneuver["distance"]} miles.'))
+        print(f'{step}.  {maneuver["narrative"]}, for {maneuver["distance"]} miles.')
         step += 1
