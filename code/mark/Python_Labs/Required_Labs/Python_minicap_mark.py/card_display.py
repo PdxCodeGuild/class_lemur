@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import (
 class Card_Display(QDialog):
     def __init__(self, subject, parent=None):
         super(Card_Display, self).__init__(parent)
-        self.resize(800,600)
+        self.resize(1000,800)
         self.subject_dict = {}
         self.subject = subject
         self.question_num = -1

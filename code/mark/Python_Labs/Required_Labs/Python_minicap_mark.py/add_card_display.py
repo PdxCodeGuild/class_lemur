@@ -96,4 +96,6 @@ class New_Card_Display(QDialog):
     def add_new_card_to_dictionary(self):
         """Adds the new card to the dictionary"""
         self.subject_dict[f"{self.new_question.toPlainText()}"] = f"{self.new_answer.toPlainText()}"
+        self.new_question.clear()
+        self.new_answer.clear()
         
