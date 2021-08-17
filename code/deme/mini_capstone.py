@@ -1,12 +1,7 @@
 import easygui
 
-'''determine sets and reps based off of 1rm
-    -lay out workout plan
-    -IF you completed written set/reps, move on to other set
-    -ELIF calculate adjustment to plan'''
 workout = {}
 workout_log=[]
-answer = []
 workout['Legs'] = []
 workout['Legs'].append({
     'Exercise': 'Back Squat',
@@ -202,13 +197,11 @@ def programming():
     if group == "Custom Workout":
         group = easygui.enterbox(msg="Enter a muscle group: ")
         workout[group]=[]
-        # # print(workout_log)
-        # value = easygui.multenterbox(msg='type in your stuff', fields=[{workout[group]}, 'Number of Sets', 'Number of Reps', 'What is your one rep max?', 'Enter yourworking weight?', 'Enter the Percentage of your 1RM'])
-        # easygui.msgbox(msg=value)
+        
         choice = easygui.choicebox("Select \"Add New\" to enter another exercise or \"Done\".", choices=["Add New", "Done"])
         while choice != 'Done':
             workout[group].append({ #user inputs exercise information
-                'Exercise': easygui.enterbox(msg="Enter the exercise: "),
+                'Exercise': easygui.enterbox(msg="Enter the exercise: ", title="Select Exercise"),
                 'Sets' : easygui.integerbox(msg="How many sets? "),
                 'Reps' : easygui.integerbox(msg="How many reps? "),
                 '1RM' : easygui.integerbox(msg="What is your one rep max? "),
@@ -216,6 +209,7 @@ def programming():
                 'Percentage of 1RM' : easygui.integerbox(msg="Enter the percentage of your 1RM: ")
             })
             choice = easygui.choicebox("Select \"Add New\" to enter another exercise or \"Done\".", choices=["Add New", "Done"])
+            # easygui.multenterbox(msg='type in your stuff', fields=workout[group])
 
     count = 0
     exercise_num = 1
@@ -230,82 +224,23 @@ def programming():
         workout[group][count]['Weight'] =round(((workout[group][count]['Percentage of 1RM'] / 100) * max_weight), 0) #calculate working weight based on percentage and 1RM and inputs it into ['Weight']
 
         exercise_num += 1
-        # workout_log.append(workout[group][count]) # appending the entire workout list to workout_log multiple times
-        print(workout_log)
+
         set_count = 0 # set counter to keep track of number of sets
         log = ""
 
-        while set_count < workout[group][count]['Sets']:
-
+        while set_count < workout[group][count]['Sets']: #while set_count lower than sets of exercise
             for i in range(workout[group][count]['Sets']):
-                
                 set_count += 1
-                # print(f"Set: {set_count} / {workout[group][count]['Sets']}") #display set count
-                # workout_log[group].append(workout[group][count]['Sets'])
-
-                #display set information
-                # print(f"Exercise: {exercise['Exercise']} | Sets: {exercise['Sets']} | Reps: {exercise['Reps']} | Weight: {exercise['Weight']} | Percentage of 1RM: {exercise['Percentage of 1RM']}%")
 
                 user_reps = easygui.integerbox(msg=f"Exercise: {exercise['Exercise']} | Sets: {exercise['Sets']} | Reps: {exercise['Reps']} | Weight: {exercise['Weight']} | Percentage of 1RM: {exercise['Percentage of 1RM']}%\nSet: {set_count} / {workout[group][count]['Sets']}\nHow many reps did you complete? ", title=f"Exercise: {exercise['Exercise']} | Sets: {exercise['Sets']}", upperbound=1000)
 
-                print(workout[group], "a")
-                print(workout[group][count], "b")
-                print(count)
-                workout_log.append(workout[group][count])
+                log += f"{workout[group][count]}\n"
 
                 """Adjusting to lower weight"""
                 if user_reps < workout[group][count]['Reps']:
                     new_one_rep_max = round(workout[group][count]['Weight'] * (36 / (37 - user_reps) ),0) 
-                    workout[group][count]['Weight'] = ((workout[group][count]['Percentage of 1RM'] / 100) * new_one_rep_max)
-
-                    answer.append(workout[group][count])
-                    answer.append("**************************************************************************")
-                else:
-                    answer.append(workout[group][count])
-                    answer.append("**************************************************************************")
-            
-            print(answer,"bbbbbbb")
-            for line in answer:
-                print(line,"abcdef")
-                log += f"{line}\n"
-        easygui.msgbox(msg=log, title="Workout Recap")           
+                    workout[group][count]['Weight'] = round(((workout[group][count]['Percentage of 1RM'] / 100) * new_one_rep_max), 0)          
         count += 1
-        print(count,"count")   
-programming()
-# print(workout_log, "aaaaaaaa")
-
-
-
-# for group in workout_log:
-#     for exercise in group:
-#         print(exercise)
-
-# with open('workout.json', 'w') as f:
-#     json.dump(workout, f)
-#     f.write('workout.json')
-# # df = pd.DataFrame(workout)
-# # gui = show('df')
+        easygui.msgbox(msg=log, title = "Workout Recap")     
     
-
-# with open('workout.json') as json_file:
-#     workout = json.load(json_file)
-#     for exercise in workout['Legs']:
-#         print(f"Exercise: {exercise['Exercise']}, Sets: {exercise['Sets']}, Reps: {exercise['Reps']}aaaa")                    
-            
-
-# with open('workout.json', 'w') as outfile:
-#     json.dump(workout, outfile)
-
-# with open('workout.json') as json_file:
-#     workout = json.load(json_file)
-#     for exercise in workout['Legs']:
-#         print(f"Exercise: {exercise['Exercise']}, Sets: {exercise['Sets']}, Reps: {exercise['Reps']}")
-# print(workout)
-# df = pd.read_json(params = {'path' : workout})
-# print(df)
-# df = pd.io.json.read_json('workout.json')
-# df = pd.read_json('workout.txt')
-
-# print(df.to_string()) 
-
-# show(workout)
+programming()
