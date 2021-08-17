@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from random import choice
+from random import choice, sample
 app = Flask(__name__)
 
 colors=['red','green','blue','orange','indoio','purple']
