@@ -1,16 +1,17 @@
 '''
-
+get and pull quotes from favqs.com
 '''
 
 import requests
 import pprint
 
-response = requests.get('https://favqs.com/api/qotd')
+# response = requests.get('https://favqs.com/api/qotd')
 
-data = response.json()
-pprint.pprint(data)
+# data = response.json()
+# # pprint.pprint(data)
 
-# quote =
+# quote = data['quote']
+# print(quote['body'])
 
 
 #------------------------------VERSION 2----------------------------------------------#
@@ -30,11 +31,20 @@ while True:
 
     print(response)
     data = response.json()
-    print(data)
+    pprint.pprint(data)
 
     quotes = data['quotes']
 
     for quote in quotes:
+        print('-' * 40)
         print(quote['author'])
         print(quote['body'])
-    next_page = input("type 'n' for next page.  type 'done' to quit.")
+    
+    next_page = input("type 'n' for next page, type 'new' for new search, or type 'done' to quit. \n")
+
+    if next_page == 'n':
+        page +=1
+    elif next_page =='new':
+        filter = input('What new keyword do you want to search by? ')
+    else:
+        break
