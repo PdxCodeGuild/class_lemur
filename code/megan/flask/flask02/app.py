@@ -47,12 +47,18 @@ def anagram_checker():
         first = list(first)
         second = list(second)
 
-        first.sort()
-        second.sort()
+        first = first.sort()
+        second = second.sort()
 
-        anagram_check = ...
+        if first == second:
+            True
+        else:
+            False
 
-        return render_template('anagram-checker.html', anagram_check=anagram_check)
+        # anagram_check = ...
+
+        return render_template('anagram-checker.html')
+        # , anagram_check=anagram_check)
 
     print('you did a GET request')
     return render_template('anagram-checker.html')
