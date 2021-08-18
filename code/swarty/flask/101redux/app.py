@@ -24,7 +24,7 @@ def random_color():
 @app.route('/grading/', methods=['GET', 'POST'])
 def grades():
     if request.method == 'POST':
-        numgrade = int(request.form['input_text'])
+        numgrade = (request.form['input_text'])
         if numgrade >=90:
             ltrgrade='A'
         elif numgrade >=80:
