@@ -1,0 +1,27 @@
+<!-- Ask the user for the number of feet, and print out the equivalent 
+distance in meters.
+
+Hint: 1 ft is 0.3048 m.
+
+So we can get the output in meters by multiplying the input
+ distance by 0.3048. Below is some sample input/output. -->
+
+<h1>Unit Converter</h1>
+
+<h2>Enter the distance the starting units and ending units.</h2>
+<p>Units avaliable inch, feet, meters, yard, miles, kilometers.</p>
+
+<form action="/unit-converter/" method="POST">
+    <input name="distance" placeholder="enter distance" type="text" />
+    <input name="starting_unit" placeholder="enter starting unit" type="text" />
+    <input name="ending_unit" placeholder="enter ending unit" type="text" />
+    <input type="submit" value="submit">
+</form>
+
+{% if distance1 and distance3 %}
+<p>
+    {{distance1}} {{starting_unit}} is {{distance3}} {{ending_unit}}.
+</p>
+{% endif %}
+
+<a href="/">Home</a>
