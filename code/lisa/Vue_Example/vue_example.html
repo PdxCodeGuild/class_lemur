@@ -18,7 +18,34 @@
         <h1>Welcome to the Vueseum!</h1>
         <br />
         <a href='https://v3.vuejs.org/' target='_blank'>Click here to visit Vue's landing page</a>
-        <p>For detailed explanations of how everything works, <a href='https://github.com/PdxCodeGuild/class_lemur/tree/lisa/code/lisa/Vue_Example' target='_blank'>click here</a> to see the source code on github.</p>
+        <p>For detailed explanations of how everything works, <a href='https://github.com/PdxCodeGuild/class_lemur/tree/lisa/code/lisa/Vue_Example' target='_blank'>check out all of the source code on github</a></p>
+        <div>
+            <h3>Things to Know:</h3>
+            <ul>
+                <li>v-model</li>
+                <div>v-model allows us to transfer different types of input (text, checkboxes, select options, etc) into the vue app. This is known as 2 way binding because data can travel back and forth between vue and html</div>
+                <div><a href='https://v3.vuejs.org/guide/migration/v-model.html#overview' target='_blank'>Official v-model Docs</a></div>
+                <div><a href="https://learnvue.co/2021/01/everything-you-need-to-know-about-vue-v-model/" target="_blank">Learn Vue.co</a></div>
+                <li>v-bind</li>
+                <div>
+                    v-bind is used to bind an html attribute to something created through javascript. A good rule of thumb is to ask yourself if the vue app needs to be able to read the attribute; if it does, you probably need v-bind. Some examples of html attributes are value, href, id, style, src, alt and key. See 'Select and Options(Dynamic)' for a detailed example. <a href="http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/tags/ref_attributes.asp.html" target="_blank">Click here</a> for a complete list of html attributes
+                </div>
+                <div><a href='https://vuejs.org/v2/guide/class-and-style.html' target="_blank">Official v-bind Docs</a></div>
+                <div><a href="https://masteringjs.io/tutorials/vue/bind" target="_blank">masteringjs.io</a></div>
+                <li>v-for</li>
+                <div>
+                    v-for runs a for loop using information from vue. It works just like any other for loop, we just add v-for so that the html page can read it from vue. As with any for loop, you may run into issues with the keys attribute, and telerik has an article that dives into into it. 
+                </div>
+                <div><a href="https://vuejs.org/v2/guide/list.html" target="_blank">Official v-for Docs</a></div>
+                <div><a href="https://www.telerik.com/blogs/in-vue-when-do-i-actually-need-the-key-attribute-and-why" target="_blank">telerik.com (info on keys)</a></div>
+                <li>v-if</li>
+                <li>v-on</li>
+                <li>shorthand</li>
+                <div>
+                    Vue provides shorter ways to use v-bind and v-on. Shorthand turns v-bind:value='color' into :value='color'. v-on:click='calculate' into @click='calculate'. It's the same thing, just a little bit shorter.
+                </div>
+            </ul>
+        </div>
         <h1>Inputs and Rendering Values</h1>
         <a href='https://vuejs.org/v2/guide/forms.html' target='_blank'>Official Vue Docs for Input Binding</a>
         <br />
@@ -372,7 +399,7 @@
             <label for='secondNum'>second number:
                 <input type='number' v-model='secondNum' id='secondNum'>
             </label>
-            <button type='button' v-on:click='calculate()'>Calculate</button>
+            <button type='button' @click='calculate'>Calculate</button>
         </div>
         <div>
             {{firstNum}} + {{secondNum}} = {{answer}}
@@ -397,7 +424,7 @@
                     {{temp}}
                 </option>
             </select>
-            <button type='button' v-on:click='tempConversion()'>Convert</button>
+            <button type='button' v-on:click='tempConversion'>Convert</button>
             {{convertedUnit}}°
         </div>
         <br />
