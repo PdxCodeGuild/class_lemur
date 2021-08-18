@@ -1,0 +1,29 @@
+<h1>Anagram Checker</h1>
+
+<form action="/", method="POST">
+    <input type="text" name="first" />
+    <input type="text" name="second" />
+    <input type="submit" value="submit">
+</form>
+
+<!-- first = input("Please enter a word: ")
+second = input("Please enter a second word: ")
+
+first = list(first)
+second = list(second)
+
+first.sort()
+second.sort() -->
+
+
+{% if first == second: %}
+
+<p>{{ first }} and {{ second }} are anagrams!</p>
+
+{% else %}
+<p>{{ first }} and {{ second }} are not anagrams!</p>
+
+{% endif %}
+
+<p><a href="/">Home</a></p>
+
