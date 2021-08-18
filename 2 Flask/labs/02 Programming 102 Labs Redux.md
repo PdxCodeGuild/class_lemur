@@ -53,7 +53,7 @@ def anagram_check():
 # using redirects
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
-	if request.METHOD == 'form':
+	if request.METHOD == 'POST':
 		# do the python stuff
 		success = True # or False, depending on the post request
 		if success:
