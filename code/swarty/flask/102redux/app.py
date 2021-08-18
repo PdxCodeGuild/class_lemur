@@ -26,6 +26,25 @@ def unit_converter():
         distance = float(inputs['distance']) *units[inputs['unit_in']] / units[inputs['unit_out']]
     return render_template('index.html', distance=distance)
 
+@app.route('/anagram/',methods=['GET', 'POST'])
+def anagram():
+    if request.method == 'POST':
+        inputs=dict(request.form)
+        print(inputs)
+        firststr=inputs['first'].lower()
+        secondstr=inputs['second'].lower()
+        print(firststr,secondstr)
+        first=list(firststr)
+        second=list(secondstr)
+        print(first)
+        print(second)
+        first.sort()
+        second.sort()
+        if first == second:
+            response=f'{firststr} and {secondstr} are anagrams'
+        else:
+            response=f'{firststr} and {secondstr} are not anagrams'
+    return render_template('index.html',words=response)
 
     
 
