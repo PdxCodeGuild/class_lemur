@@ -34,6 +34,6 @@ def user_login():
         else:
             login = 'Your username or password was not found.'
             return render_template('user-login.html',login=login)
-    return render_template('user-login.html')
+    return render_template('user-login.html', login=login)
         
 app.run(debug=True)        
