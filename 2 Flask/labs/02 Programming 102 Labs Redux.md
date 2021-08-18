@@ -22,7 +22,7 @@ def index():
 @app.route('/unit-converter/', methods=['GET', 'POST'])
 def unit_converter():
 	if request.method == 'POST':
-		print(request.POST) # see what was submitted in the form
+		print(request.form) # see what was submitted in the form
 		# extract the necessary data from request.POST
 		# do the Python stuff
 		result = '42 meters' # or whatever the result is
@@ -40,7 +40,7 @@ def anagram():
 
 @app.route('/anagram/', methods=['POST']) # same endpoint, but a POST request
 def anagram_check():
-	print(request.POST) # see what was submitted in the form
+	print(request.form) # see what was submitted in the form
 	# extract the necessary data from request.POST
 	# do the python stuff
 	word1 = 'Jim Morrison' # or whatever word1 was
@@ -53,7 +53,7 @@ def anagram_check():
 # using redirects
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
-	if request.METHOD == 'POST':
+	if request.METHOD == 'form':
 		# do the python stuff
 		success = True # or False, depending on the post request
 		if success:
