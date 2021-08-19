@@ -115,11 +115,7 @@ json file, and redirects back to the same view with a GET request
 @app.route('/<name>/')
 def detail(name):
     """
-Sent a GET request, this view shows detailed information about one city
-Sent a PATCH request, this view updates the information for that city
-Sent a DELETE request, this view deletes that city from the json file
-PATCH requests redirect back to this route as a GET request
-DELETE requests redirect back to the home page
+This view renders a template with detailed information about one city
     """
     # read json files to get cities list
     # find the right city
@@ -131,6 +127,10 @@ DELETE requests redirect back to the home page
 
 @app.route('/<name>/update', methods=['POST'])
 def update(name):
+	"""
+This view takes in a post request and updates an entry in the database.
+Then it redirects back to the detail view.
+	"""
     # read json files to get cities list
     # find the right city
     # extract data from form
@@ -141,7 +141,10 @@ def update(name):
 
 
 @app.route('/<name>/delete', methods=['POST'])
-def update(name):
+def delete(name):
+	"""
+This view deletes an entry from the databse and redirects back to the home page.
+	"""
     # read json files to get cities list
     # find the right city
     # remove city from list of cities
