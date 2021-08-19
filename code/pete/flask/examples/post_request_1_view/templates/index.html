@@ -1,0 +1,14 @@
+<h1>Number to Phrase</h1>
+
+<h4>Enter a number (i.e.: 67) from 0-999 and get a phrase (i.e.: sixty-seven)</h4>
+
+<form action="/" method="POST">
+	<input name="number" type="number" placeholder="enter a number" />
+	<input type="submit" value="Convert" />
+</form>
+
+{% if number %}
+
+<p>{{ number }} is {{ phrase }}</p>
+
+{% endif %}
