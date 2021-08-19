@@ -128,7 +128,7 @@ DELETE requests redirect back to the home page
     if request.method == 'PATCH':
         # extract data from form
         # update city in list of dictionaries
-        # write file
+		# write file
         # redirect to city's GET request
         return redirect(f'/{name}/') # what if the PATCH request changes the city's name?
     
