@@ -6,32 +6,32 @@ Transform your csv-formatted data into valid JSON (JavaScript Object Notation). 
 
 ```json
 {
-	"cities": [
-		{
-			"name": "Portland",
-			"cuisine": "everything",
-			"country": "USA",
-			"weather": "temperate"
-		},
-		{
-			"name": "Detroit",
-			"cuisine": "Greek",
-			"country": "USA",
-			"weather": "temperate"
-		},
-		{
-			"name": "D.C.",
-			"cuisine": "ramen",
-			"country": "USA",
-			"weather": "temperate"
-		},
-		{
-			"name": "Florence",
-			"cuisine": "pasta",
-			"country": "Italy",
-			"weather": "hot"
-		}
-	]
+    "cities": [
+        {
+            "name": "Portland",
+            "cuisine": "everything",
+            "country": "USA",
+            "weather": "temperate"
+        },
+        {
+            "name": "Detroit",
+            "cuisine": "Greek",
+            "country": "USA",
+            "weather": "temperate"
+        },
+        {
+            "name": "D.C.",
+            "cuisine": "ramen",
+            "country": "USA",
+            "weather": "temperate"
+        },
+        {
+            "name": "Florence",
+            "cuisine": "pasta",
+            "country": "Italy",
+            "weather": "hot"
+        }
+    ]
 }
 ```
 
