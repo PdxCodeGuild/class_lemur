@@ -1,0 +1,25 @@
+<h1>Contacts</h1>
+
+{% for contact in contacts %}
+<h3>
+    {{contact['name']}}
+</h3> 
+<h5>
+    Favorite artist: {{contact['favorite artist']}}&nbsp; |
+    Favorite album: {{contact['favorite album']}}&nbsp; |
+    Favorite song: {{contact['favorite song']}} 
+</h5>
+{{ name }}
+{% endfor%}
+
+<br>
+
+<h3>Add a new contact</h3>
+
+<form action="/", method="POST">
+    <input type="text" name="name" placeholder="Enter your name" />&nbsp;
+    <input type="text" name="favorite artist" placeholder="Enter your favorite artist" />&nbsp;
+    <input type="text" name="favorite album" placeholder="Enter your favorite album" />&nbsp;
+    <input type="text" name="favorite song" placeholder="Enter your favorite song" />&nbsp;
+    <input type="submit" name="submit" />
+</form>
