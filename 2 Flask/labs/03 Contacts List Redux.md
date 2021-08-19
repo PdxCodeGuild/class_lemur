@@ -81,11 +81,11 @@ Create a `detail` view and `detail.html` template to serve individual pages for 
 #### Your index page might look like this after Version 3
 ![Version 3](cities02.png)
 
-### Version 4 (Optional): PATCH requests to detail view
-Add a form with `method="PATCH"` to your detail page for users to send patch requests (updates) to the `detail` view.
+### Version 4 (Optional): POST requests to detail view
+Add a form to your detail page for users to send patch requests (updates) to the `detail` view.
 
-### Version 5 (Optional): DELETE requests to detail view
-Add a form with `method="DELETE"` to your detail page so users can delete an entry from the json database.  The form can have just a submit button inside.
+### Version 5 (Optional): POST requests to detail view
+Add a form to your detail page so users can delete an entry from the json database.  The form can have just a submit button inside.
 
 #### With Versions 3, 4 & 5, your detail page might look like this
 ![Versions 3, 4 & 5](cities03.png)
@@ -112,7 +112,7 @@ json file, and redirects back to the same view with a GET request
 
 
 # 127.0.0.1:5000/Portland
-@app.route('/<name>/', methods=['GET', 'PATCH', 'DELETE'])
+@app.route('/<name>/')
 def detail(name):
     """
 Sent a GET request, this view shows detailed information about one city
@@ -125,19 +125,30 @@ DELETE requests redirect back to the home page
     # find the right city
     city ='???'
 
-    if request.method == 'PATCH':
-        # extract data from form
-        # update city in list of dictionaries
-		# write file
-        # redirect to city's GET request
-        return redirect(f'/{name}/') # what if the PATCH request changes the city's name?
-    
-    if request.method == 'DELETE':
-        # remove city from list of cities
-		# write file
-        # redirect back to home page
-        return redirect('/')
-
     # render detail template with that city as a context kwarg
     return render_template('detail.html', city=city)
+
+
+@app.route('/<name>/update', methods=['POST'])
+def update(name):
+    # read json files to get cities list
+    # find the right city
+    # extract data from form
+    # update city in list of dictionaries
+    # write file
+    # redirect to city's GET request
+    return redirect(f'/{name}/') # what if the view changes the city's name?
+
+
+@app.route('/<name>/delete', methods=['POST'])
+def update(name):
+    # read json files to get cities list
+    # find the right city
+    # remove city from list of cities
+    # write file
+    # redirect back to home page
+    return redirect('/')
+
+
+app.run(debug=True)
 ```
