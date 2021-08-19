@@ -1,0 +1,22 @@
+<title>Anagram Checker</title>
+
+<h1>Anagram Checker</h1>
+<p>Enter two words to see if they are anagrams</p>
+<form action="/anagram/" method="POST">
+    <input name="word_one" placeholder="word one" type="text" />
+    <input name="word_two" placeholder="word two" type="text"/>
+	<input type="submit" value="submit">
+</form>
+
+{% if anagram_check != Null %}
+<span>
+    {% if anagram_check == true %}
+        {{ word_one }} and {{ word_two }} are anagrams
+    {% elif anagram_check == false %}
+        {{ word_one }} and {{ word_two }} are NOT anagrams
+    {% endif %}
+</span>
+{% endif %}
+<br>
+<br>
+<a href="/">HOME</a>
