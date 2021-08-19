@@ -1,11 +1,15 @@
 <h1>Unit Converter</h1>
 
-<form action="/", method="POST">
+<form action="/unit-converter/", method="POST">
     <input type="text" name="distance" placeholder="Enter the distance" />
     <input type="text" name="units" placeholder="Enter the units"/>
     <input type="submit" value="submit">
 </form>
 
 <!-- print(f"{distance} {units} is equal to {round(convert,2)} meters.") -->
-
+{% if units %}
 <p>{{ distance }} {{ units }} is equal to {{ rounded }} meters</p>
+
+{% endif %}
+
+<p><a href="/">Home</a></p>
