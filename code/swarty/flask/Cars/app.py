@@ -16,15 +16,40 @@ Version 5 (Optional): DELETE requests to detail view
 Add a form with method="DELETE" to your detail page so users can delete an entry from the json database. 
 The form can have just a submit button inside.
 '''
-
+from flask import Flask, render_template, request
+import pandas as pd
+app = Flask(__name__)
 # 127.0.0.1:5000/
+
+file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/cars.json'
+updated=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/carsupdated.json'
+
+def read_brands():
+    global file
+    with open(file, 'r') as file:
+        cars=file.read()
+    brands=cars('cars')
+    return brands
+
+def write_brands(dictionary):
+    global file
+    with open(updated, 'w') as file:
+        cars=file.write()
+    
+
+def dict_to_text(dictionary):
+
+
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     """
-Sent a GET request, this view lists all of the Brands.
-Sent a POST request, this view adds a new brand to the
-json file, and redirects back to the same view with a GET request
+    Sent a GET request, this view lists all of the Brands.
+    Sent a POST request, this view adds a new brand to the
+    json file, and redirects back to the same view with a GET request
     """
+    global file
     if request.method == 'POST':
         brands = read_brands() # read brands from json file
         # extract new brand data from request.form
@@ -40,11 +65,11 @@ json file, and redirects back to the same view with a GET request
 @app.route('/<name>/', methods=['GET', 'PATCH', 'DELETE'])
 def detail(name):
     """
-Sent a GET request, this view shows detailed information about one brand
-Sent a PATCH request, this view updates the information for that brand
-Sent a DELETE request, this view deletes that brand from the json file
-PATCH requests redirect back to this route as a GET request
-DELETE requests redirect back to the home page
+    Sent a GET request, this view shows detailed information about one brand
+    Sent a PATCH request, this view updates the information for that brand
+    Sent a DELETE request, this view deletes that brand from the json file
+    PATCH requests redirect back to this route as a GET request
+    DELETE requests redirect back to the home page
     """
     # read json files to get car list
     # find the right Brand
