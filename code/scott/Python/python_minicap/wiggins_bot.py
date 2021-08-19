@@ -8,15 +8,16 @@ import discord
 import logging
 from dotenv import load_dotenv
 from discord.ext import commands
+from keep_alive import keep_alive
 
 # Error logging
-logger = logging.getLogger('Discord')
+logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename = 'err.log', encoding = 'utf-8', mode = 'a')
+handler = logging.FileHandler(filename = 'err.log', encoding = 'utf-8', mode = 'w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-# Pull secret token in from hidden file
+# Get token
 load_dotenv()
 TOKEN = os.getenv('WIGGINS_SECRET_TOKEN')
 
@@ -46,15 +47,29 @@ async def on_member_join(member):
 # Function to handle bot responses to particular messages in chat
 @bot.event
 async def on_message(message):
-    blurb = 'Trigger message successful!'
     await bot.process_commands(message)
-    if message.content == 'Hi' or message.content == 'hi' or message.content == 'HI':
-        await message.channel.send(blurb)
+    if message.content == 'test':
+        await message.channel.send('Test complete.')
     
-# Bot Commands
-@bot.command(name = 'test')
-async def test(ctx):
-    blurb = 'Test'
-    await ctx.send(blurb)
 
+# Bot Commands
+@bot.command(name = 'dm', help = 'Use the bot to send direct messages to someone.')
+async def dm(ctx, member : discord.Member = None, *, message = None):
+  message = message
+  if message == None or member == None:
+      await ctx.send('Proper context for the !dm command: !dm {target username} {message}')
+      return 
+  await member.send(message)
+  await ctx.send('Message sent.')
+
+# @bot.command(name = 'annoy', help = 'Sic The Wiggins Bot on an offender for 5 minutes.')
+# async def annoy(ctx, user : discord.User = None ):
+#     # annoy_bool = True
+#     if user == None:
+#         await ctx.send('Add a target user.  Proper context for the !annoy command: !annoy {target username}')
+#         return
+#     annoy_target = user
+#     await ctx.send(f'{annoy_target} added to the naughty list for 5 minutes')
+
+keep_alive()
 bot.run(TOKEN)
