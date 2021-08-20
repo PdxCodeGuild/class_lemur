@@ -1,5 +1,6 @@
-file_path = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/contact.csv'
-file_path_2 = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/contact2.csv'
+
+file_path = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/python/contact.csv'
+file_path_2 = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/python/contact2.csv'
 
 def retrieve(userInput):
     '''Locates a user's information by their name, favorite artist, or favorite album'''
@@ -55,7 +56,7 @@ while loop_control == True:
         value = input("What do you want to change it to? ")
 
         selected_dict = retrieve(person)
-
+        
         selected_dict[attribute] = value
         print(selected_dict)
 
@@ -67,12 +68,13 @@ while loop_control == True:
 
     elif requested_action == 'delete':
 
+
         person = input("Who do you want to delete? ")
         selected_dict = retrieve(person)
 
         contacts.remove(selected_dict)
         
-        print(contacts)
+        # print(contacts)
 
         again = input("Do you want to do something else? yes/no: ")
 
@@ -81,18 +83,26 @@ while loop_control == True:
             break
 
     elif requested_action == 'create':
+        
+        new = []
 
         name = input("Please enter your name: ")
         artist = input("Please enter your favorite artist: ")
         album = input("Please enter your favorite album by that artist: ")
 
-        contacts.append({
-        "name" : name,
-        "artist" : artist,
-        "album" : album
-    })
+    #     lines.append({
+    #     "name" : name,
+    #     "artist" : artist,
+    #     "album" : album
+    # })
 
-        print(contacts)
+        new.append(name)
+        new.append(artist)
+        new.append(album)
+
+        new = ', '.join(new)
+
+        lines.append(new)
 
         again = input("Do you want to do something else? yes/no: ")
 
@@ -100,10 +110,8 @@ while loop_control == True:
             loop_control == False
             break
 
-lines = ','.join(lines)
+lines = ''.join(lines)
 # print(lines)
 
 with open(file_path_2, 'w') as file:
-    file.write(lines)
-
-# print(contacts)
+        file.write(lines)
