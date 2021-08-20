@@ -1,0 +1,32 @@
+{
+    "characters": [
+        {
+            "name": "achilles",
+            "pantheon": "greek",
+            "attack": "melee",
+            "damage": "physical",
+            "class":"warrior"
+        },
+        {
+            "name": "agni",
+            "pantheon": "hindu",
+            "attack": "ranged",
+            "damage": "magical",
+            "class":"mage"
+        },
+        {
+            "name": "amaterasu",
+            "pantheon": "japanese",
+            "attack": "melee",
+            "damage": "physical",
+            "class":"warrior"
+        },
+        {
+            "name": "loki",
+            "pantheon": "norse",
+            "attack": "melee",
+            "damage": "physical",
+            "class":"assassin"
+        }
+    ]
+}

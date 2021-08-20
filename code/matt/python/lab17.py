@@ -11,14 +11,11 @@ def main():
     print(f"{quote['author']} - {quote['body']}")
 
     def print_quotes(query, page, quotes):
-        print('\/' * 40)
         print(f'25 quotes associated with {query} - page {page}')
-        print('\/' * 40)
         for quote in quotes:
             print('-' * 40)
+            print(quote['author'])
             print(quote['body'])
-            if quote == 'No quotes found':
-                return False
 
     def get_response(keyword_url, headers, params):
         response = requests.get(keyword_url, headers=headers, params=params)
@@ -56,13 +53,10 @@ def main():
                     'page': page
                 }
                 quotes = get_response(keyword_url, headers, params)
-                if print_quotes:
-                    break
-                else:
-                    print_quotes(query, page, quotes)
-            elif quote == 'No quotes found':
-                print('helllllloooooooo')
-            elif next_page == 'done':
+
+            print_quotes(query, page, quotes)
+
+            if next_page == 'done':
                 break
 
 
