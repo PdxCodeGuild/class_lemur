@@ -3,20 +3,47 @@ from PySimpleGUI.PySimpleGUI import Combo
 
 
 def main():
-    classes = [
-        'Barbarion', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
-        'Paladin', 'Ranger', 'Rouge', 'Sorcerer', 'Warlock', 'Wizard'
-    ]
+    classes = ['Barbarion', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk',
+               'Paladin', 'Ranger', 'Rouge', 'Sorcerer', 'Warlock', 'Wizard']
 
-    #  sf.Combo(barbarion_p, key='p')],
-    # barbarion_p = ['Athletics', 'Animal Handling', 'Athletics', 'Intimidation',
-    #                'Nature', 'Perception', 'Survival'
-    #                ]
-    # bard_p = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics',
-    #           'Deception', 'History', 'Insight', 'Intimidation', 'Investigation',
-    #           'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion',
-    #           'Religion', 'Sleight of Hand', 'Stealth', 'Survival'
-    #           ]
+    barbarion_p = ['Athletics', 'Animal Handling', 'Athletics', 'Intimidation',
+                   'Nature', 'Perception', 'Survival']
+
+    bard_p = ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics',
+              'Deception', 'History', 'Insight', 'Intimidation', 'Investigation',
+              'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion',
+              'Religion', 'Sleight of Hand', 'Stealth', 'Survival']
+
+    cleric_p = ['History', 'Insight', 'Medicine', 'Persuasion', 'Medicine']
+
+    druid_p = ['Animal Handling', 'Arcana', 'Insight', 'Medicine', 'Nature', 'Perception',
+               'Religion', 'Survival']
+
+    fighter_p = ['Acrobatics', 'Animal Handling', 'Athletics', 'History', 'Insight',
+                 'Intimidation', 'Perception', 'Survival']
+
+    monk_p = ['Acrobatics', 'Athletics', 'History',
+              'Insight', 'Religion',  'Stealth', ]
+
+    paladin_p = ['Athletics', 'Insight', 'Intimidation',
+                 'Medicine', 'Persuasion', 'Religion', ]
+
+    ranger_p = ['Animal Handling', 'Athletics', 'Insight', 'Investigation',
+                'Nature', 'Perception', 'Stealth', 'Survival']
+
+    rouge_p = ['Acrobatics', 'Athletics', 'Deception', 'Insight', 'Intimidation',
+               'Investigation', 'Perception', 'Performance', 'Persuasion', 'Sleight of Hand',
+               'Stealth', ]
+
+    sorcerer_p = ['Arcana', 'Deception',  'Insight', 'Intimidation', 'Persuasion',
+                  'Religion']
+
+    warlock_p = ['Arcana', 'Deception', 'History', 'Intimidation', 'Investigation',
+                 'Nature', 'Religion']
+
+    wizard_p = ['Arcana', 'History', 'Insight',
+                'Investigation', 'Medicine', 'Religion']
+
     sf.theme('DarkAmber')   # Add a touch of color
     # All the stuff inside your window.
     layout = [
@@ -36,25 +63,55 @@ def main():
          sf.InputText(size=(20, 1), key='wis')],
         [sf.Text('Enter your charisma: ', size=(22,  1)),
          sf.InputText(size=(20, 1), key='char')],
+        [sf.Combo(classes, key='class', enable_events=True, size=(15, 1)),
+         sf.Combo([], key='proficiencies', enable_events=True, size=(15, 1))],
         [sf.Text(key='output')],
-        [sf.Combo(classes, key='class')],
         [sf.Button('Save'), sf.Button('Cancel')]]
 
     stats = []
     # Create the Window
-    window = sf.Window('Window Title', layout)
+    window = sf.Window('Character Creation', layout)
     # Event Loop to process "events" and get the "values" of the inputs
     while True:
         event, values = window.read()
         if event == sf.WIN_CLOSED or event == 'Cancel':  # if user closes window or clicks cancel
             break
-        # if event == 'class':
-        #     if 'class' == 'Barbarion':
-        #         window.Values['p'] = barbarion_p
-        #         selected_p = []
-        #         if 'p' == value:
-        #             while len(selected_p) < 2:
-        #                 selected_p.append('p')
+
+        if event == 'class':
+            if values['class'] == 'Barbarion':
+                window['proficiencies'].update(values=barbarion_p)
+            elif values['class'] == 'Bard':
+                window['proficiencies'].update(values=bard_p)
+            elif values['class'] == 'Cleric':
+                window['proficiencies'].update(values=cleric_p)
+            elif values['class'] == 'Druid':
+                window['proficiencies'].update(values=druid_p)
+            elif values['class'] == 'Fighter':
+                window['proficiencies'].update(values=fighter_p)
+            elif values['class'] == 'Monk':
+                window['proficiencies'].update(values=monk_p)
+            elif values['class'] == 'Paladin':
+                window['proficiencies'].update(values=paladin_p)
+            elif values['class'] == 'Ranger':
+                window['proficiencies'].update(values=ranger_p)
+            elif values['class'] == 'Rouge':
+                window['proficiencies'].update(values=rouge_p)
+            elif values['class'] == 'Sorcerer':
+                window['proficiencies'].update(values=sorcerer_p)
+            elif values['class'] == 'Warlock':
+                window['proficiencies'].update(values=warlock_p)
+            elif values['class'] == 'Wizard':
+                window['proficiencies'].update(values=wizard_p)
+        # rouge 4 ranger 3 bard 3
+        selected_p = []
+        selected_p2 = []
+        if event == 'proficiencies':
+            selected_p.append(values['proficiencies'])
+            window['output'].update(selected_p)
+        if event == 'proficiencies':
+            selected_p2.append(values['proficiencies'])
+            window['output'].update(selected_p2)
+
         if event == 'Save':
             for value in values:
                 if values[value] == '':
@@ -67,6 +124,6 @@ def main():
                     for value in values:
                         f.write(values[value])
                         f.write('\n')
-            break
+                break
 
     window.close()
