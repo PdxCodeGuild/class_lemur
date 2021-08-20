@@ -1,0 +1,15 @@
+<title>User Login</title>
+
+<h1>User Login</h1>
+<form action="/login/" method="POST">
+	<input name="user_name" placeholder="username" type="text" />
+    <input name="user_password" placeholder="password" type="text"/>
+	<input type="submit" value="submit">
+</form>
+
+{% if result %}
+<p>{{ result }}</p>
+{% endif %}
+<br>
+<br>
+<a href="/">HOME</a>
