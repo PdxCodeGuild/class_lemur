@@ -1,0 +1,42 @@
+<title>Unit Converter</title>
+
+<h1>Unit Converter</h1>
+
+<p>Enter a number in feet to get the result in meters:</p>
+<form action="/unit-converter/feet/" method="POST">
+    <input name="feet" placeholder="Number in Feet" type="text"/>
+    <input type="submit" value="Feet to Meters"/>
+</form>
+{% if feet_meters %}
+{{ feet_meters }} meters
+{% endif %}
+<br>
+<br>
+<form action="/unit-converter/miles/" method="POST">
+    <input name="miles" placeholder="Number in Miles" type="text"/>
+    <input type="submit" value="Miles to Meters"/>
+</form>
+{% if miles_meters %}
+{{ miles_meters }} meters
+{% endif %}
+<br>
+<br>
+<form action="/unit-converter/meters/" method="POST">
+    <input name="meters" placeholder="Number in Miles" type="text"/>
+    <input type="submit" value="Meters to Meters"/>
+</form>
+{% if meters_meters %}
+{{ meters_meters }} meters
+{% endif %}
+<br>
+<br>
+<form action="/unit-converter/kilometers/" method="POST">
+    <input name="kilometers" placeholder="Number in Miles" type="text"/>
+    <input type="submit" value="Kilometers to Meters"/>
+</form>
+{% if km_meters %}
+{{ km_meters }} meters
+{% endif %}
+<br>
+<br>
+<a href="/">HOME</a>

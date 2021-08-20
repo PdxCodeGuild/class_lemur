@@ -21,8 +21,8 @@ import requests
 # ''')
 
 # Version 2
-search = input('Enter a word to search the quote database with or press enter to quit: ')
-if search == '':
+search = input('Enter a word to search the quote database with or enter "exit" to quit: ').lower()
+if search == 'exit':
     print('Thank you for using the quote search program.')
     quit()
 
@@ -33,7 +33,7 @@ params = {
 }
 
 while True:
-    url = f'https://favqs.com/api/quotes/?filter='
+    url = f'https://favqs.com/api/quotes/'
     headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
     response = requests.get(url, headers = headers, params = params).json()
     response = response['quotes']
@@ -42,8 +42,11 @@ while True:
         data = i['body']
         author = i['author']
         print(f'{data} \nBy {author}.')
-    x = input('Would you like to see the next page? Enter to quit, anything else to continue: ')
-    if x == '':
-        break
+    x = input('Would you like to see the next page, enter "n"? If you would like to search for new quotes, enter your search term.  Type "exit" to quit, anything else to continue: ').lower()
+    if x == 'exit':
+        print('Thank you for using the quote search program.')
+        quit()
+    elif x == 'n':
+        params['page'] += 1
     else:
-        params['page'] += 1  
+        search = x

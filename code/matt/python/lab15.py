@@ -2,16 +2,15 @@ import math
 
 
 def main():
-    test_list = [5, 4, 3, 2, 1]
 
-    def linear_search(value):
+    def linear_search(test_list, value):
         for i in range(len(test_list)):
-            if value in test_list:
-                return test_list[i]
-            else:
-                return -1
+            if test_list[i] == value:
+                return i
+        return "Value not found"
 
-    print(f'linear search index {linear_search(3)}')
+    test_list = [5, 4, 3, 2, 1]
+    print(f'linear search index {linear_search(test_list, 3)}')
 
     def binary_search(test_list, length_of_list, value):
         low = 0
@@ -24,9 +23,10 @@ def main():
                 high = middle - 1
             else:
                 return middle
-        return -1
+        return "Value not found"
 
-    print(f'binary search index {binary_search(test_list, len(test_list), 4)}')
+    test_list = [1, 2, 3, 4, 5]
+    print(f'binary search index {binary_search(test_list, len(test_list), 2)}')
 
     def bubble_sort(test_list):
         length = len(test_list)
@@ -41,6 +41,7 @@ def main():
                     made_swap = True
         return test_list
 
+    test_list = [5, 4, 3, 2, 1]
     new_list = bubble_sort(test_list)
     print(new_list)
 
