@@ -155,3 +155,7 @@ This view deletes an entry from the databse and redirects back to the home page.
 
 app.run(debug=True)
 ```
+
+### Version 6 (Optional): Use a SQL database instead of JSON
+
+[SQL](https://en.wikipedia.org/wiki/SQL) (often pronounced "sequel"), or Structured Query Language, is a widely used language in relational database management.  Django uses something called an ORM (Object Relational Mapper) to perform all SQL operations under the hood.  A popular Python ORM is SQLAlchemy.  Check out this [tutorial](https://www.tutorialspoint.com/flask/flask_sqlalchemy.htm) on integrating SQLAlchemy with Flask.  If you want to get real down and dirty and write your own SQL queries, you can do so with the `sqlite3` library.  Check out the documentation [here](https://docs.python.org/3/library/sqlite3.html).
