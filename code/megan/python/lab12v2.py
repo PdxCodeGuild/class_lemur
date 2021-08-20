@@ -14,7 +14,6 @@ def retrieve(userInput):
 
 with open(file_path, 'r') as file:
     lines = file.read().split('\n')
-# print(lines)
 
 
 keys = lines.pop(0).split(",")
@@ -56,7 +55,7 @@ while loop_control == True:
         value = input("What do you want to change it to? ")
 
         selected_dict = retrieve(person)
-        
+
         selected_dict[attribute] = value
         print(selected_dict)
 
@@ -68,13 +67,10 @@ while loop_control == True:
 
     elif requested_action == 'delete':
 
-
         person = input("Who do you want to delete? ")
         selected_dict = retrieve(person)
 
         contacts.remove(selected_dict)
-        
-        # print(contacts)
 
         again = input("Do you want to do something else? yes/no: ")
 
@@ -90,19 +86,11 @@ while loop_control == True:
         artist = input("Please enter your favorite artist: ")
         album = input("Please enter your favorite album by that artist: ")
 
-    #     lines.append({
-    #     "name" : name,
-    #     "artist" : artist,
-    #     "album" : album
-    # })
-
-        new.append(name)
-        new.append(artist)
-        new.append(album)
-
-        new = ', '.join(new)
-
-        lines.append(new)
+        contacts.append({
+        "name" : name,
+        "artist" : artist,
+        "album" : album
+    })
 
         again = input("Do you want to do something else? yes/no: ")
 
@@ -110,8 +98,9 @@ while loop_control == True:
             loop_control == False
             break
 
-lines = ''.join(lines)
-# print(lines)
+contacts = str(contacts)
+
+final_list = ''.join(contacts)
 
 with open(file_path_2, 'w') as file:
-        file.write(lines)
+        file.write(final_list)
