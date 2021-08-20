@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/cars.json'
 updated=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/carsupdated.json'
-
+#get file and convert to Pandas
 def read_brands():
     global file
     with open(file, 'r') as file:
@@ -35,15 +35,20 @@ def read_brands():
     brands=jfile['cars']
     car_data=pd.DataFrame(brands)
     return car_data
-
-def write_brands(data):
-    global file
+#Write back to JSON as dict
+def write_brands(car_data):
+    global updated
+    carsdict=pd_to_dict(car_data)
     with open(updated, 'w') as file:
-        #recreate as a dictionary
-            file.write(data)
+        file.write(json.dumps(carsdict, indent=4))
     
-
-def dict_to_text(dictionary):
+#Covert back to dic from pandas
+def pd_to_dict(car_data):
+    cars=car_data.to_dict(orient='index')
+    carsdict={ 'cars':[]}
+    for key in cars:
+        carsdict['cars'].append(cars[key])
+    return carsdict
 
 
 
@@ -60,7 +65,7 @@ def index():
         car_data = read_brands() # read brands from json file
         # extract new brand data from request.form
         # add new brand dictionary to brands list
-        write_brands(car-data) # write updated brands to json file
+        write_brands(car_data) # write updated brands to json file
         return redirect('/') # redirect back to the same view, as a GET request
     brands = read_brands() # read brands from json file
     # render index template, passing brands list as a context kwarg
