@@ -1,2 +1,20 @@
+<body style="background-color: wheat;"></body>
 <h1>Welcome to login page</h1>
 <h4>please input login and password</h4>
+
+<form action="/login/" method="POST">
+    <input name="username" type="text" placeholder="enter username" />
+    <input name="password" type="text" placeholder="enter password" />
+    <input type="submit" value="Login" />
+</form>
+{% if got_error == True %}
+<div>
+    <h5>Invalid username or password, try again</h5>
+</div>
+{% endif %}
+
+{% if check_input == True %}
+<div>
+    <h5>Welcome {{ username }}</h5>
+</div>
+ {% endif %}

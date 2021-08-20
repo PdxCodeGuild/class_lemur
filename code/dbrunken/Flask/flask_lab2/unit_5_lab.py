@@ -27,7 +27,7 @@ profiles = [
 
 # print(profiles['username'] == 'blank', profiles['password'] == '1234321')
 
-def login(name, word, dict):    
+def login_base(name, word, dict):    
     if name != dict['username']:
         return False
     if word != dict['password']:
@@ -38,33 +38,35 @@ def login(name, word, dict):
 # log_attempts = 0
 # close_out = log_attempts + 3
 
-while True: #close_out == 0:
+if __name__ == '__main__':
 
-    username = input('\nenter your username: ')
-    password = input('\nwhats the password? ')
+    while True: #close_out == 0:
 
-    # id = profiles['blank':{'id'}], profiles['dave':{'id'}], profiles['micah':{'id'}]
-    # username = username.append(id)
+        username = input('\nenter your username: ')
+        password = input('\nwhats the password? ')
 
-    for user in profiles:
-        check_input =  login(username, password, user)
-        if check_input == True:
+        # id = profiles['blank':{'id'}], profiles['dave':{'id'}], profiles['micah':{'id'}]
+        # username = username.append(id)
+
+        for user in profiles:
+            check_input =  login_base(username, password, user)
+            if check_input == True:
+                break
+        
+
+        if check_input != True:
+            try_again = input('would you like to try again? ')
+            no = 'no'
+            if try_again == no:
+                print('goodbye')
+                break
+
+        # if close_out == 3:
+        #     print('thats too many attempts')
+        #     break
+
+
+        elif check_input == True:
+            print(f'welcome {username}')
             break
-    
-
-    if check_input != True:
-        try_again = input('would you like to try again? ')
-        no = 'no'
-        if try_again == no:
-            print('goodbye')
-            break
-
-    # if close_out == 3:
-    #     print('thats too many attempts')
-    #     break
-
-
-    elif check_input == True:
-        print(f'welcome {username}')
-        break
       
