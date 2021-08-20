@@ -1,3 +1,4 @@
+from re import A
 from flask import Flask, render_template, request, redirect
 import json
 
@@ -17,6 +18,12 @@ def write_contacts(contacts):
 def index():
     if request.method == 'POST':
         contacts = read_contacts()
+
+        info = dict(request.form)
+        print(info)
+
+        contacts.append(info)
+        print(contacts)
 
         write_contacts(contacts)
         return redirect('/')
