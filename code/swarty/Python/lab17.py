@@ -45,7 +45,13 @@ else:
             print(f"\n  -{quote['author']}-\n\n")
         if pull['last_page']:
             print('End of quotes.')
-            break
+            if input('Would you like to search again(y/n)? ') =='y':
+                choice= str(input('Enter a new search term: '))
+            else:
+                break
         if input('Would you like to see another page(y/n)? ') =='y': 
             page+=1
-        else: break
+        elif input('Would you like to search again(y/n)? ') =='y':
+            choice= str(input('Enter a new search term: '))
+        else:
+            break

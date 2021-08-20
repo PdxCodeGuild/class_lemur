@@ -1,0 +1,13 @@
+<h1>Anagram Checker</h1>
+<h2>Enter two words to check if their anagrams.</h2>
+<form action='/anagram-checker/' method="POST">
+    <input name='word1' placeholder="first word" type="text" />
+    <input name='word2' placeholder="second word" type="text" />
+    <input type="submit" value="submit">
+</form>
+
+{% if word1 and word2 %}
+<p>{{message}}</p>
+{% endif %}
+
+<a href="/">Home</a>
