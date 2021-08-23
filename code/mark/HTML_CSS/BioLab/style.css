@@ -27,7 +27,7 @@ ul {
     margin-right: auto;
     text-align: left;
     list-style-type: none;
-    background: rgba(255,255,255,.4);
+    
     padding: 20px;
 
 }
@@ -36,11 +36,17 @@ p {
     /* margin-left: auto;
     margin-right: auto; */
     text-align: left;
-    background: rgba(255,255,255,.4);
+    background: rgba(212, 206, 70,.25);
     padding: 20px;
 }
 
+a {
+    color: #0e5135;
+}
 
+a:visited {
+    color: #0d9263;
+}
 
 
 
