@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from login_func import login
 
 app = Flask(__name__)
 
@@ -35,6 +36,30 @@ def anagram_checker():
             message = f'{word1} is not an anagram of {word2}'
         return render_template('anagram-checker.html', word1=word1, word2=word2, message=message)
     return render_template('anagram-checker.html')
+
+
+@app.route('/user-login/', methods=['GET', 'POST'])
+def user_login():
+    profile = [
+        {'username': 'bilbo',
+         'password': 'baggins'},
+        {'username': 'gandalf',
+         'password': 'thegrey'}
+    ]
+    message = ''
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        for dictionary in profile:
+            if login(username, password, dictionary):
+                message = f'Welcome! {dictionary["username"]}'
+                break
+        if not login(username, password, dictionary):
+            message = f'username or password incorrect'
+
+        return render_template('user-login.html', message=message)
+
+    return render_template('user-login.html')
 
 
 app.run(debug=True)

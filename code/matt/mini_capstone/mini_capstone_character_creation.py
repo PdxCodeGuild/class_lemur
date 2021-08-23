@@ -104,13 +104,9 @@ def main():
                 window['proficiencies'].update(values=wizard_p)
         # rouge 4 ranger 3 bard 3
         selected_p = []
-        selected_p2 = []
         if event == 'proficiencies':
             selected_p.append(values['proficiencies'])
             window['output'].update(selected_p)
-        if event == 'proficiencies':
-            selected_p2.append(values['proficiencies'])
-            window['output'].update(selected_p2)
 
         if event == 'Save':
             for value in values:
