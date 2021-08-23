@@ -38,7 +38,6 @@ def delete(name):
         if name in character['name']:
             del(character)
             
-
 # The one method to rule them all
 def main():
     while True:
@@ -63,7 +62,6 @@ def main():
             quit()
         else:
             print('Incorrect entry.  Try again.')
-
 
 print('Welcome to the jankest, most put together by duct tape, Smite Character database. ')
 main()
