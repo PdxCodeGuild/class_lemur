@@ -33,8 +33,6 @@ ul {
 }
 
 p {
-    /* margin-left: auto;
-    margin-right: auto; */
     text-align: left;
     background: rgba(212, 206, 70,.25);
     padding: 20px;
