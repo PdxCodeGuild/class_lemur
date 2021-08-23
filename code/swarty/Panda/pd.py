@@ -16,14 +16,16 @@ with open(original, 'r') as file:
 print(cars)
 brands=cars['cars']
 car_data=pd.DataFrame(brands)
-print(car_data)
+car_data=car_data.set_index('brand')
 car_data=car_data.sort_values(by='brand')
+print(car_data)
+car_data=car_data.reset_index()
 cars=car_data.to_dict(orient='index')
 carsdict={ 'cars':[]}
 for key in cars:
     carsdict['cars'].append(cars[key])
 
-with open(updated, 'w') as file:
-        file.write(json.dumps(carsdict, indent=4))
+with open(updated, 'w') as updated:
+        updated.write(json.dumps(carsdict, indent=4))
 
 ppr.pp(carsdict)

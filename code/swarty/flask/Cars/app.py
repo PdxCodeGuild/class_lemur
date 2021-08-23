@@ -26,7 +26,7 @@ app = Flask(__name__)
 # 127.0.0.1:5000/
 
 file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/cars.json'
-updated=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/carsupdated.json'
+#Original=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/carsorig.json'
 #get file and convert to Pandas
 def read_brands():
     global file
@@ -34,16 +34,18 @@ def read_brands():
         jfile=json.loads(file.read())
     brands=jfile['cars']
     car_data=pd.DataFrame(brands)
+    car_data=car_data.set_index('brand')
     return car_data
 #Write back to JSON as dict
 def write_brands(car_data):
-    global updated
+    global file
     carsdict=pd_to_dict(car_data)
-    with open(updated, 'w') as file:
+    with open(file, 'w') as file:
         file.write(json.dumps(carsdict, indent=4))
     
 #Covert back to dic from pandas
 def pd_to_dict(car_data):
+    car_data=car_data.reset_index()
     cars=car_data.to_dict(orient='index')
     carsdict={ 'cars':[]}
     for key in cars:
@@ -60,15 +62,20 @@ def index():
     Sent a POST request, this view adds a new brand to the
     json file, and redirects back to the same view with a GET request
     """
-    global file
-    if request.method == 'POST':
-        car_data = read_brands() # read brands from json file
-        # extract new brand data from request.form
-        # add new brand dictionary to brands list
-        write_brands(car_data) # write updated brands to json file
-        return redirect('/') # redirect back to the same view, as a GET request
-    brands = read_brands() # read brands from json file
+    # if request.method == 'POST':
+    #     car_data = read_brands()
+        
+    #     # extract new brand data from request.form
+        
+    #     # add new brand dictionary to brands list
+        
+    #     write_brands(car_data) # write updated brands to json file
+    #     return render_template('/') # redirect back to the same view, as a GET request
+    car_data = read_brands() # read brands from json file
+    cars=car_data.style.to_html()
     # render index template, passing brands list as a context kwarg
+    # print(car_data)
+    # print(cars)
     return render_template('index.html', cars=cars)
 
 
