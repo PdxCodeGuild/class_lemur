@@ -40,3 +40,5 @@ e.g.
 ```css
 @media screen and (min-width: 30em) and (orientation: landscape) { ... }
 ```
+
+Check out this [article](https://kinsta.com/blog/responsive-web-design/) for tips on modern responsive design, including where to establish breakpoints.
