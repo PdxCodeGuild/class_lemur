@@ -1,0 +1,20 @@
+
+{% for contact in contacts %}
+
+<h1>
+    {{contact['name']}}
+</h1> 
+
+
+<h3>Favorite artist:</h3>
+<p>{{contact['favorite artist']}}</p>
+
+
+<h3>Favorite album:</h3>
+<p>{{contact['favorite album']}}</p>
+
+
+<h3>Favorite song:</h3>
+<p>{{contact['favorite song']}}</p>
+
+{% endfor %}

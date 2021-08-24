@@ -42,11 +42,11 @@ while True:
         data = i['body']
         author = i['author']
         print(f'{data} \nBy {author}.')
-    x = input('Would you like to see the next page, enter "n"? If you would like to search for new quotes, enter your search term.  Type "exit" to quit, anything else to continue: ').lower()
+    x = input('If you would you like to see the next page, enter "n"? If you would like to search for new quotes, enter your search term.  Type "exit" to quit: ').lower()
     if x == 'exit':
         print('Thank you for using the quote search program.')
         quit()
     elif x == 'n':
         params['page'] += 1
     else:
-        search = x
+        params['filter'] = x

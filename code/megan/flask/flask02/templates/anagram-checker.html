@@ -1,0 +1,19 @@
+<h1>Anagram Checker</h1>
+
+<form action="/anagram-checker/", method="POST">
+    <input type="text" name="first" placeholder="Enter the first word"/>
+    <input type="text" name="second" placeholder="Enter the second word" />
+    <input type="submit" value="submit">
+</form>
+
+{% if True %}
+
+<p>{{ first }} and {{ second }} {{ anagram_check }}</p>
+
+{% else %}
+
+<p>{{ first }} and {{ second }} {{ anagram_check }}</p>
+
+{% endif %}
+
+<p><a href="/">Home</a></p>
