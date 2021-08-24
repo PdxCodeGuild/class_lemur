@@ -1,0 +1,102 @@
+/* define css vars with :root selector
+and use them later with var() function */
+:root {
+	--yellow: #fbbbad;
+	--peach: #ee8695;
+	--bluish: #4a7a96;
+	--dark-bluish: #333f58;
+	--gray: #292831;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Poppins&display=swap'); */
+
+* {
+	color: var(--gray);
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: var(--dark-bluish);
+}
+
+
+h1 {
+	margin: 0px;
+	padding: 20px;
+	font-family: 'Balsamiq Sans', cursive;
+}
+
+/* give everything a border to see where
+everything is while developing */
+/* * {
+	border: 2px solid black;
+} */
+
+/* nav is a semantic element to be used for
+nav bars */
+nav {
+	background-color: var(--bluish);
+	/* 20% the height of the viewport */
+	height: 20vh;
+}
+
+/* main is a semantic element to be used for the 
+main content section of a webpage */
+main {
+	/* 80% the height of the viewport */
+	height: 80vh;
+	/* display: flex makes main a flex container */
+	display: flex;
+	/* flex-wrap determines how (and whether) elements wrap
+	around to the next line */
+	flex-wrap: wrap;
+	/* flex-direction: row (left to right) is the default
+	flex-direction: column is top to bottom */
+	/* flex-direction: column; */ 
+	padding: 20px;
+	/* justify content controls the spacing of main's flex
+	children along the main (horizontal, in this case) axis
+	space-evenly leaves even spacing along the axis*/
+	justify-content: space-evenly;
+}
+
+/* article is a semantic element, it should be used
+when appropriate in place of a div */
+article {
+	background-color: var(--yellow);
+	height:225px;
+	width: 350px;
+	margin: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* give everything that's a direct child of
+article left/right padding */
+article > * {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* OLD HARD CODED POSITIONING: */
+
+/* #article-1, #article-4 {
+	left: 100px;
+}
+
+#article-2, #article-5 {
+	left: 600px;
+}
+
+#article-3, #article-6 {
+	right: 100px;
+}
+
+.row-1 {
+	top: 100px;
+}
+
+.row-2 {
+	bottom: 100px;
+} */
