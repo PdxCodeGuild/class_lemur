@@ -2,7 +2,7 @@
 let app = new Vue({
     el: '#app',
     // data is where Vue holds variables that can be used in both the html file, and in the methods portion. Essentially, these allow Vue.js to instantly communicate with your html file. 
-    
+
     data: {
         //Rendering from Vue
         // The html page will render this by placing the value in {{ double curly braces }}
@@ -16,7 +16,7 @@ let app = new Vue({
         colors: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'],
 
         //Select and Options (Dynamic) selected color
-        // Chosen color from the colors(line 13) list; it can be initially set toany value from the colors list like it currently is, hard-coded into the html (only recommended for a value that will be disabled as soon as the select is clicked on), or left blank to leave the dropdown blank until clicked on.
+        // Chosen color from the colors(line 13) list; it can be initially set to any value from the colors list like it currently is, hard-coded into the html (only recommended for a value that will be disabled as soon as the select is clicked on), or left blank to leave the dropdown blank until clicked on.
         chosenColorDynamic: 'Yellow',
 
         //Select and Options (Hard-Coded)
@@ -57,7 +57,7 @@ let app = new Vue({
         // The redFruits list will be used to generate multiple checkboxes
         redFruits: ['Cherries', 'Strawberries', 'Apples', 'Watermelon'],
         // As the user checks and unchecks boxes, their values will be added and removed accordingly.
-        checkedRedFruits:[],
+        checkedRedFruits: [],
         //Because the green fruits are hard-coded into the html, we only need a blank list to catch the selections
         checkedGreenFruits: [],
 
@@ -74,58 +74,59 @@ let app = new Vue({
         requestedUnit: 'Celsius',
         convertedUnit: '',
 
+
     },
     // methods is where you'll write your actual javaScript code. You can use the variables from data to get information from your user through the html file. Note that arrow functions will not work here. 
     methods: {
-        calculate: function() {
+        calculate: function () {
             //to refer to our data variables, all we have to do is add this. before it. Since our functions change the variables being rendered, we don't need to return anything (Vue essentially does it for you). So to refer to firstNum, we would say this.firstNum.
             this.answer = parseFloat(this.firstNum) + parseFloat(this.secondNum)
         },
-        tempConversion: function() {
+        tempConversion: function () {
             //from celsius to farenheit
-            if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Farenheit'){
-                output = ((this.inputTempNum * 9/5) + 32)
+            if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Farenheit') {
+                output = ((this.inputTempNum * 9 / 5) + 32)
                 this.convertedUnit = (Math.round(output * 10) / 10)
             }
             //from kelvin to farenheit
-            else if (this.startingUnit == 'Kelvin' && this.requestedUnit == 'Farenheit'){
-                output = (((this.inputTempNum - 273.15 - 273.15) * 9/5) + 32)
+            else if (this.startingUnit == 'Kelvin' && this.requestedUnit == 'Farenheit') {
+                output = (((this.inputTempNum - 273.15 - 273.15) * 9 / 5) + 32)
                 this.convertedUnit = (Math.round(output * 10) / 10)
             }
             //from farenheit to farenheit
-            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Farenheit'){
+            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Farenheit') {
                 this.convertedUnit = this.inputTempNum
             }
-            
+
 
             //from farenheit to celsius
-            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Celsius'){
-                output = ((this.inputTempNum - 32) * 5/9)
+            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Celsius') {
+                output = ((this.inputTempNum - 32) * 5 / 9)
                 this.convertedUnit = (Math.round(output * 10) / 10)
             }
             //from kelvin to celsius
-            else if (this.startingUnit == 'Kelvin' && this.requestedUnit == 'Celsius'){
+            else if (this.startingUnit == 'Kelvin' && this.requestedUnit == 'Celsius') {
                 output = (this.inputTempNum - 273.15)
                 this.convertedUnit = (Math.round(output * 10) / 10)
             }
             //from celsius to celsius
-            else if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Celsius'){
+            else if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Celsius') {
                 this.convertedUnit = this.inputTempNum
             }
-            
+
 
             //from farenheit to kelvin
-            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Kelvin'){
-                output = (((this.inputTempNum - 32) * 5/9) + 273.15)
+            else if (this.startingUnit == 'Farenheit' && this.requestedUnit == 'Kelvin') {
+                output = (((this.inputTempNum - 32) * 5 / 9) + 273.15)
                 this.convertedUnit = (Math.round(output * 10) / 10)
             }
             //from celsius to kelvin
-            else if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Kelvin'){
+            else if (this.startingUnit == 'Celsius' && this.requestedUnit == 'Kelvin') {
                 output = (this.inputTempNum + 273.15)
                 this.convertedUnit = (Math.round(output * 10) / 10)
-            } 
+            }
             //from celsius to celsius
-            else{
+            else {
                 this.convertedUnit = this.inputTempNum
             }
         }

@@ -1,0 +1,68 @@
+body {
+    background-color: #fcfbfe;
+}
+
+/* div {
+    border: solid black 1px;
+    border-style: double;
+} */
+
+.modal-dialog {
+    padding: 1rem;
+    border: .2rem solid #36353c;
+    border-radius: .5rem;
+    background-image: url(images/dark_galaxy.jpeg);
+    
+}
+
+.modal-body {
+    background-color: #36353c;
+    color: #e8daed;
+    font-family: sans-serif;
+    font-size: large;
+    border: .1rem solid #36353c;
+    box-shadow: 
+    .09rem -.09rem #36353c,
+    -.09rem -.09rem #36353c;
+    
+    /* background-clip: padding-box; */
+}
+
+.modal-header {
+    background-color: #8774a4;
+    font-family: 'Delius Unicase', cursive;
+    font-size: xx-large;
+    font-weight: bold;
+    color: whitesmoke;
+    border: .6rem solid #36353c;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    box-shadow: 
+    .09rem -.09rem #36353c,
+    -.09rem -.09rem #36353c;
+}
+
+
+.btn-close {
+    font-size: large;
+    background: #8774a4;
+    color: whitesmoke;
+    margin-bottom: .08rem !important;
+    opacity: 1;
+}
+.navbar {
+    background-color: whitesmoke !important;
+    border: .1px solid #8774a4;
+    border-radius: .5rem;
+}
+
+.nav-link {
+    font-family: sans-serif;
+    color: #2a313e;
+    font-size: larger;
+    font-weight: bold;
+}
+
+a {
+    color: #8bc3ee;
+}
