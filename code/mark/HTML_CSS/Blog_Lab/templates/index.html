@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header><h1>The Page About Lorem Ipsum!</h1></header>
+    <main class="container">
+        <nav id="side">
+            {% for content in contents %}
+            <a class="page-links" href="#{{ content['number'] }}"><button>Article {{ content['number'] }}</button></a>
+            {% endfor %}
+            <a class="page-links" href="#bottom" ><button>Last Article</button></a>
+        </nav>
+        <section>
+            {% for content in contents %}
+                <div class="container article-content">
+                    <article>
+                        <h2 class="article-title" id="{{ content['number']}}">{{ content['title'] }}</h2>
+                        <p class='author'>{{ content['author'] }}</p>
+                        <p class='date'>{{ content['date'] }}</p>
+                        <div class="image-and-body">
+                            <div class='text-body'>
+                                <p>{{ content['body'] }}</p>
+                            </div>
+                            <img src="{{ content['image'] }}" alt="">
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+    <footer id="bottom"></footer>
+</body>
+</html>
