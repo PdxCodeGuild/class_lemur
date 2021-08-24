@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "title": "Coffee around town",
+            "author": "Megan Bradner",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sed ad officia nam, pariatur ipsum cum minima excepturi obcaecati quasi modi similique? Error nisi velit perspiciatis tenetur, totam architecto sunt.",
+            "date": "August, 24, 2021"
+        },
+        {
+            "title": "About",
+            "author": "Megan Bradner",
+            "body": "A little bit about the people running this blog!",
+            "date": "August, 15, 2021"
+        },
+        {
+            "title": "Our other favorites",
+            "author": "Megan Bradner",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sed ad officia nam, pariatur ipsum cum minima excepturi obcaecati quasi modi similique? Error nisi velit perspiciatis tenetur, totam architecto sunt.",
+            "date": "August, 20, 2021"
+        }
+    ]
+}
