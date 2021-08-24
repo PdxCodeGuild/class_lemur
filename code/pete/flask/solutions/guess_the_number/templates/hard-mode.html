@@ -1,0 +1,14 @@
+<h1>Guess the Number</h1>
+<h4>Guess a number between 1 and {{ range }}</h4>
+<!-- <p>Psst!  It's {{ num }}</p> -->
+{% if guess_num %}
+<h4>You guessed {{ guess_num }}</h4>
+<h4>Your guess is {{ result }}</h4>
+<a href="/hard-mode">Home</a>
+{% endif %}
+
+<ul>
+{% for num in nums %}
+	<li><a href="/hard-mode/{{ num }}">{{ num }}</a></li>
+{% endfor %}
+</ul>

@@ -1,0 +1,22 @@
+<title>{{ contact['Name'] }}</title>
+
+<h1>{{ contact["Name"] }}</h1>
+
+<h3>Favorite Fruit</h3>
+<p>{{ contact["Favorite_Fruit"] }}</p>
+
+<h3>Favorite Color</h3>
+<p>{{ contact["Favorite_Color"] }}</p>
+
+<h2>Update Contact</h2>
+<form action="/{{ contact['Name'] }}/update/" method="POST">
+    <input name="Name" placeholder="{{ contact['Name'] }}" type="text">
+    <input name="Favorite_Fruit" placeholder="{{ contact['Favorite_Fruit'] }}" type="text">
+    <input name="Favorite_Color" placeholder="{{ contact['Favorite_Color'] }}" type="text">
+    <input type="submit" value="Update">
+</form>
+
+<h2>Delete Contact</h2>
+<form action="/{{ contact['Name'] }}/delete/" method="POST">
+    <input type="submit" value="Delete">
+</form>

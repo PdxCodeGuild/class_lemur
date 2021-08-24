@@ -1,0 +1,21 @@
+<h1>Guess the Number</h1>
+<h4>Guess a number between 1 and 10</h4>
+<!-- <p>Psst!  It's {{ num }}</p> -->
+<ul>
+	<li><a href="/1">1</a></li>
+	<li><a href="/2">2</a></li>
+	<li><a href="/3">3</a></li>
+	<li><a href="/4">4</a></li>
+	<li><a href="/5">5</a></li>
+	<li><a href="/6">6</a></li>
+	<li><a href="/7">7</a></li>
+	<li><a href="/8">8</a></li>
+	<li><a href="/9">9</a></li>
+	<li><a href="/10">10</a></li>
+</ul>
+
+{% if guess_num %}
+<h4>You guessed {{ guess_num }}</h4>
+<h4>Your guess is {{ result }}</h4>
+<a href="/">Home</a>
+{% endif %}

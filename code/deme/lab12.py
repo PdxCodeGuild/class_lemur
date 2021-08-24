@@ -1,14 +1,5 @@
 with open('lab12.csv', 'r') as file:
     lines = file.read().split('\n')
-    # lines = file.read().split
-    # print(lines)
-# for line in lines:
-# print(line)
-# lines = lines.split(',')
-# for line in lines:
-#     print(line)
-# for word in range(len(lines)):
-#     print(word)
 
 contacts = []  # create list for dictionary
 for line in lines:
@@ -30,9 +21,6 @@ for values in contacts[1::]:
     con_list.append(con)
 # print(con_list)
 
-# repl = input("Do you want to create(C), retrieve(R), update(U), or delete(D) a record or exit(E)?")
-
-
 def record():
     con_list1 = con_list
     loop_control = True
@@ -47,12 +35,6 @@ def record():
             new_info_dic = {}
             for i in range(len(new_info)):
                 new_info_dic[headers[i]] = new_info[i]
-            # for values in new_info:
-                # print(values)
-                # print(new_info_dic)
-                # for i in range(len(values)):
-                #     new_info_dic[headers[i]] = values[i]
-                # print(new_info_dic, values)
             con_list1.append(new_info_dic)
             print(con_list1)
 
@@ -68,11 +50,10 @@ def record():
                 # if input(update_name) is a value for 'name' key in the dictionaries
                 if update_name == dictionary['name']:
                     print(dictionary, "b")  # print dictionary with name value
-                    new_attribute = input(
-                        "Which attribute would you like to update? ")
+                    new_attribute = input("Which attribute would you like to update? ")
                     for dictionary in con_list1:
                         if update_name == dictionary['name']:
-                            print(dictionary[new_attribute], "aaa")
+                            print(dictionary[new_attribute])
                             updated_attribute = input("Enter new attribute")
                             dictionary[new_attribute] = updated_attribute
         # print(con_list1)
@@ -89,59 +70,20 @@ def record():
             with open("lab12.csv", "r") as f:
                 contents = f.read()
                 print(contents)
-            # print(con_list)
-            # print(con_list1)
-            # con_list1 = ",".join(con_list1)
-            output = []
+            output = ",".join(headers) 
             for dict in con_list1:
+                row = []
+                #output += "\n" + ",".join(dict.values())***********other way instead of below for loop
                 for el in dict:
-                    output.append(str(dict[el]))
-            output = ",".join(output)
-            # print(output)
+                    row.append(str(dict[el]))
+                    
+                output += "\n" + ",".join(row)
+        
+
             with open("lab12.csv", "w") as f:
-                f.write()
+                f.write(output)
             loop_control = False
-
-        # line = ""
-        # for dictionary in con_list:
-        #     for el in dictionary:
-        #         # line = line.join(el)
-        #         print(dictionary[el], "AAAAAA")
-        #         line = line.join(dictionary[el])
-        # #     for key, value in dictionary:
-        # #         line += key, value
-        #     print(line)
-
-        # lab12 = "lab12.csv"
-        # lab12_new = "lab12_new.csv"
-        # with open(lab12, 'w') as file:
-        #     lab12_new = file.write(line)
-
-
 record()
 
 
-# with open (lab12, 'w') as file:
-#new_file = file.write(new_file)
 
-
-# name, cuisine, country weather -----kets, loop over keys/lines to make new dictionaries
-# split by calma
-
-# have categories into dictionary by ket value pair
-# cities = [
-#     {'name: 'Portland' , 'cuisine': 'chicken}
-
-# version 2
-# while loop for input, append or create dictionary
-
-# version 3
-# turn list of dictionaries back into a properly formated .csv
-# write to file
-# //variable = book file
-# variable = new file
-# with open(1st variavle, 'r', encoding .. )
-
-# with open(new variable,w, encoding...)
-#     f.write(new variable)
-#      """

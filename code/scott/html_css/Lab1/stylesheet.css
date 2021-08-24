@@ -1,0 +1,30 @@
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Tillana:wght@700&display=swap');
+    font-family: 'Tillana', cursive;
+    margin: 20px;  
+}
+h1 {
+    font-family: 'Berkshire Swash', cursive;
+    color: #b38719;
+    font-size: 3vw;
+}
+h2 {
+    font-size: 2vw;
+}
+body {
+    font-size: 1vw;
+    background-image:url("https://i.stack.imgur.com/J189y.jpg");
+    text-align : center;
+}
+li {
+    list-style-image:url('E:/class_lemur/code/scott/html_css/Lab1/sword_02b.png');
+    margin: 0px;
+}
+img {
+    width: 40vw;
+    border-radius: 50px;
+}
+a{
+    color:#471f23; 
+    margin:0px;
+}

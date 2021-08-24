@@ -1,0 +1,29 @@
+<h1>Grading</h1>
+
+<h4>Enter a percent grade (i.e.: 85%) and get the letter grade (i.e.: B)</h4>
+
+<form action="/" method="POST">
+	<input name="percent" placeholder="enter % grade" type="text" />
+	<input type="submit" value="submit">
+</form>
+
+{% if percent %}
+<p>
+	{{ percent }}% is a letter grade of 
+	<span>
+	{% if percent < 60 %}
+		F
+	{% elif percent < 70 %}
+		D
+	{% elif percent < 80 %}
+		C
+	{% elif percent < 90 %}
+		B
+	{% elif percent <= 100 %}
+		A
+	{% else %}
+		not a valid percent
+	{% endif %}
+	</span>
+</p>
+{% endif %}
