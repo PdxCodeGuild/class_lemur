@@ -8,7 +8,7 @@ and use them later with var() function */
 	--gray: #292831;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Poppins&display=swap');
 
 * {
 	color: var(--gray);
@@ -67,6 +67,7 @@ article {
 	height:225px;
 	width: 350px;
 	margin: 15px;
+	/* flex stuff */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
