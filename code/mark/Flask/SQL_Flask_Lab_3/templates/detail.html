@@ -1,0 +1,24 @@
+<title>{{ contact.name }}</title>
+
+<h1>{{ contact.name }}</h1>
+
+<h3>Favorite Fruit</h3>
+<p>{{ contact.fruit }}</p>
+
+<h3>Favorite Color</h3>
+<p>{{ contact.color }}</p>
+
+<h2>Update Contact</h2>
+<form action="/{{ contact.name }}/update/" method="POST">
+    <input name="Name" placeholder="{{ contact.name }}" type="text">
+    <input name="Favorite_Fruit" placeholder="{{ contact.fruit }}" type="text">
+    <input name="Favorite_Color" placeholder="{{ contact.color }}" type="text">
+    <input type="submit" value="Update">
+</form>
+
+<h2>Delete Contact</h2>
+<form action="/{{ contact.name }}/delete/" method="POST">
+    <input type="submit" value="Delete">
+</form>
+
+<a href="/">Return Home</a>

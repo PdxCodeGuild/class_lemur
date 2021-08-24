@@ -9,7 +9,7 @@ class ATM:
     
     def deposit(self, amount):
         self.balance =  self.balance + amount
-        self.transactions.append(self.balance)
+        self.transactions.append(f"User deposited {self.balance}")
 
     def check_withdrawal(self, amount):
         if amount <= self.balance:
@@ -19,6 +19,8 @@ class ATM:
 
     def withdraw(self, amount):
         self.balance = self.balance - amount
+        self.transactions.append(f"User withdrew {self.balance}")
+
     
     def calc_interest(self):
         return self.balance * self.interest_rate *.01

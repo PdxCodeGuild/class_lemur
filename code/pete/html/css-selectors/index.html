@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS Selectors</title>
+
+	<style>
+		/* tag selection
+		applies ruleset to all h1s */
+		h1 {
+			text-align: center;
+		}
+		/* class selection
+		applies ruleset to all elements with class="red" */
+		.red {
+			color: red;
+		}
+		/* applies ruleset to all elements with class="right" */
+		.right {
+			text-align: right;
+		}
+		/* id selection
+		applies ruleset to element with id="green" */
+		#green {
+			color: green;
+		}
+		/* descendant selection
+		applies ruleset to all divs with #outer-div-1 as an ancestor */
+		#outer-div-1 div {
+			color: blue;
+		}
+		/* child selection
+		applies ruleset to all divs with #outer-div-2 as parent */
+		#outer-div-2 > div {
+			color: green;
+		}
+		/* applies ruleset to all lis with a ul as parent */
+		ul > li {
+			color: blue;
+		}
+		/* attribute selection
+		applies ruleset to all inputs with type="text" */
+		input[type="text"] {
+			color: green;
+		}
+		/* applies ruleset to all inputs with type="number" */
+		input[type="number"] {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>This Text Should Be Centered</h1>
+	<p class="red">This text should be red.</p>
+	<p class="right">This text should be on the right.</p>
+	<p class="red right">This text should be red and on the right.</p>
+
+	<div id="outer-div-1">
+		<div>
+			<div>
+				<div>
+					This text should be blue.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+	<div id="outer-div-2">
+		<div>
+			This text should be green.
+			<div class="red">
+				This text should be red.
+			</div>
+		</div>
+	</div>
+
+	<ul>
+		<li>This text should be blue.</li>
+		<li>This text should be blue.</li>
+		<li id="green">This text should be green.</li>
+		<li>This text should be blue.</li>
+	</ul>
+
+	<form action="/">
+		<input type="text" placeholder="this text should be green" />
+		<input type="number" placeholder="this text should be red" />
+	</form>
+
+</body>
+</html>

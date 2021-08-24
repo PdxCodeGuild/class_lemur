@@ -35,17 +35,22 @@ Presentation Day: November 5th, 2021
 
  
 
-#### Optional Django Labs
+#### Optional Django Labs -->
 
 
 
 ## HTML/CSS Labs Assigned:
+* [Lab 01 Bio](3%20HTML%20+%20CSS/labs/01%20Bio.md)
 
 
+<!-- #### Optional HTML/CSS Labs -->
 
-#### Optional HTML/CSS Labs -->
 
+## Flask Labs Assigned:
 
+* [Lab 01 Programming 101 Redux](2%20Flask/labs/01%20Programming%20101%20Labs%20Redux.md)
+* [Lab 02 Programming 102 Redux](2%20Flask/labs/02%20Programming%20102%20Labs%20Redux.md)
+* [Lab 03 Contacts List Redux](2%20Flask/labs/03%20Contacts%20List%20Redux.md)
 
 ## Python Labs Assigned:
 
@@ -66,6 +71,7 @@ Presentation Day: November 5th, 2021
 * [Lab 15 Searching And Sorting](1%20Python/labs/15%20Searching%20And%20Sorting.md)
 * [Lab 16 Dad Joke API](1%20Python/labs/16%20Dad%20Joke%20API.md)
 * [Lab 17 Quotes API](1%20Python/labs/17%20Quotes%20API.md)
+* [Lab 18 Mini-Capstone](1%20Python/labs/../../1%20Python/labs/18%20Mini-Capstone.md)
 
 #### Suggested Optional Python Labs
 

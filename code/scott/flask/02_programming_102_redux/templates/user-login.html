@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>User Login</title>
+    </head>
+    <body>
+        <h1>Welcome to your login page Mr. Grey</h1>
+        <h3>Input your username and pass:</h3>
+        <p>
+            <form action = "/user-login/" method = "POST">
+                <input name = "username" placeholder = "Enter your username" type = "text">
+                <input name = "pass" placeholder = "Enter your password" type = "text">
+                <input type="submit" value="submit">
+            </form>
+        </p>
+        <h3>{{login}}</h3>
+        <p>
+            <a href="/">Home</a>
+        </p>
+    </body>
+</html>
