@@ -4,6 +4,14 @@ response = requests.get('https://icanhazdadjoke.com', headers = {'accept': 'appl
 data = response.json()
 print(data['joke'])
 
+headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+
+search = input("Search for a joke")
+
+
+
+
+
 # print(response.url)
 # print(response.text)
 # print(response.status_code) 

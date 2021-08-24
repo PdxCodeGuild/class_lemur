@@ -53,7 +53,7 @@ def record():
                     new_attribute = input("Which attribute would you like to update? ")
                     for dictionary in con_list1:
                         if update_name == dictionary['name']:
-                            print(dictionary[new_attribute], "aaa")
+                            print(dictionary[new_attribute])
                             updated_attribute = input("Enter new attribute")
                             dictionary[new_attribute] = updated_attribute
         # print(con_list1)
@@ -76,8 +76,9 @@ def record():
                 #output += "\n" + ",".join(dict.values())***********other way instead of below for loop
                 for el in dict:
                     row.append(str(dict[el]))
-                    print(row)
+                    
                 output += "\n" + ",".join(row)
+        
 
             with open("lab12.csv", "w") as f:
                 f.write(output)

@@ -1,0 +1,28 @@
+<title>Contacts</title>
+
+<h1>Contacts</h1>
+
+<!-- Version 1 & 2 -->
+<!-- {% for contact in contacts %}
+    <h2>{{ contact["name"] }}</h2>
+    <p>Favorite Fruit: {{ contact["favorite fruit"] }} || Favorite Color: {{ contact["favorite color"] }}</p>
+{% endfor %} -->
+
+<!-- Version 3 - 5 -->
+<ul>
+    <form action="/update-contact/">
+        {% for contact in contacts %}
+        <li><a href="/{{ contact['Name'] }}">{{ contact['Name'] }}</a></li>
+        {% endfor %}
+    </form>
+</ul>
+
+<h2>Add new contact</h2>
+<form action="/" method="POST">
+    <input name="Name" placeholder="Name" type="text">
+    <input name="Favorite_Fruit" placeholder="Favorite Fruit" type="text">
+    <input name="Favorite_Color" placeholder="Favorite Color" type="text">
+    <input type="submit" value="Create Contact">
+</form>
+
+<a href="/">Return Home</a>

@@ -1,4 +1,12 @@
 <h1>Grading</h1>
+<form action='/grading/' method="POST">
+    <input name="grade" placeholder="grade" type="text" />
+    <input type="submit" value="submit">
+</form>
+{% if grade %}
 <p>Your grade is {{grade}} {{ letter_grade }}</p>
 <p>Rival grade is {{rival_grade}} {{ rival_letter_grade }}</p>
 <p>{{message}}</p>
+{% endif %}
+
+<a href="/">Home</a>

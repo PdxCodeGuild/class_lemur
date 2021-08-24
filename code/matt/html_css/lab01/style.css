@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+    background-image: url("https://st3.depositphotos.com/2880321/34022/v/600/depositphotos_340228288-stock-video-northern-lights-on-blue-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    font-family: 'Andada Pro', serif;
+    color: aliceblue;
+}
+
+h1{
+    color: rgb(37, 173, 133);
+    margin-bottom: 2px;
+}
+
+h2{
+    color: rgb(37, 173, 133);
+}
+p {
+    text-align: center;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+ul
+{
+    padding-left: 15px;
+    list-style: none;
+}
+
+li:before { 
+    content: '\26E8'; 
+     }
+
+img {
+    width: 600px;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+} 
+
+blockquote {
+    color: rgb(37, 173, 133);
+    margin:0 auto;
+    font-family: 'Jim Nightshade', cursive;
+    font-size: 30px;
+}
+
+a {
+    color: aliceblue;
+}
+
+a:visited {
+    color: rgb(16, 161, 118);
+}
