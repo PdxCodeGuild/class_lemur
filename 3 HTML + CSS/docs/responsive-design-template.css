@@ -1,0 +1,28 @@
+/* EXTRA SMALL SCREEN WIDTH */
+/* smartphones in portrait-mode, devices less than 576px wide */
+
+/* 1. Use your browser's responsive design mode to view your webpage
+in smartphone-portrait mode.  
+
+@media (min-width: 576px) {
+	/* SMALL SCREEN WIDTH */
+	/* smartphones in landscape-mode, devices less than 768 px wide */
+	
+	
+	@media (min-width: 768px) {
+		/* MEDIUM SCREEN WIDTH */
+		/* tablets, devices less than 992px wide */
+
+
+		@media (min-width: 992px) {
+			/* LARGE SCREEN WIDTH */
+			/* laptops, desktops, devices less than 1200px wide */
+
+
+			@media (min-width: 1200px) {
+				/* EXTRA LARGE SCREEN WIDTH */
+				/* large desktops, devices 1200px or wider */
+			}
+		}
+	}
+}
