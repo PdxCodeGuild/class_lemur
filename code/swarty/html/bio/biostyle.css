@@ -1,0 +1,65 @@
+
+
+body {
+	background-color: #272727;
+	font-family: 'Helvetica, sans-serif', font-variant= small-caps;
+}
+
+/* use multiplie selectors with commas */
+h1, a, h3, p{
+	color: #b6ddd3;
+}
+li{
+	color: #66697a;
+    list-style-type: "\1F4BF" /* Optical Disk Emoji*/
+}
+p {
+	padding-left: 50px;
+	text-align: center;
+}
+#quote{
+    color: whitesmoke;
+    font-family: 'Spectral', serif;
+    font-size: 2.5em;
+}
+#name{
+    color: whitesmoke;
+    font-family: 'Knewave', cursive;
+    font-size: 1em;
+    text-align: right;
+    padding-right: 20%;
+}
+
+h3 {
+	margin-left: 25px;
+	padding-left: 25px;
+}
+
+div {
+	margin: 0 auto;
+}
+
+img {
+    display: block;
+	width: 525px;
+	/* height: 150px; */
+	/* width: 50%; */
+	/* width: 80vw; */
+    border-radius: 200px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+a { 
+    margin-left: 25px;
+	padding-left: 25px;
+	color: #34ebba;
+}
+
+a:visited {
+    margin-left: 25px;
+	padding-left: 25px;
+	color: #77cae6;
+}

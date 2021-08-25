@@ -1,0 +1,45 @@
+body {
+    background-image: url("sparkles.png");
+    background-color: #F2DDDA;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+h1, h3 {
+    text-align: center;
+    color: #BF6D46;
+}
+
+img {
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-radius: 15%;
+}
+
+.quote {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #BF6D46;
+}
+
+p, ul {
+    color: #584C59;
+    padding: 25px 25px 10px 20px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: inside square;
+    padding-bottom: 20px;
+}
+
+a {
+    color: #BB917D;
+}

@@ -1,0 +1,162 @@
+:root {
+	--yellow: #fbbbad;
+	--peach: #ee8695;
+	--bluish: #4a7a96;
+	--dark-bluish: #333f58;
+	--gray: #292831;
+}
+
+/* EXTRA SMALL SCREEN WIDTH */
+/* smartphones in portrait-mode, devices less than 576px wide */
+
+/* 1. Use your browser's responsive design mode to view your webpage
+in smartphone-portrait mode.  Fill in the css below until it looks right. */
+
+body {
+	color: var(--gray)
+}
+
+nav {
+	background-color: var(--yellow);
+	/* position: fixed; */
+	overflow-x: auto;
+	/* padding: 2px; */
+}
+
+
+main {
+	background-color: var(--dark-bluish);
+}
+
+header {
+	background-color: var(--peach);
+	padding: 4px;
+}
+
+h1 {
+	margin: 0;
+}
+
+section {
+	width: 100%;
+}
+
+figure {
+	padding: 0 12px;
+	margin: 20px 0;
+}
+
+h3 {
+	color: var(--yellow)
+}
+
+img {
+	width: 95%;
+}
+
+
+@media (min-width: 568px) {
+	/* SMALL SCREEN WIDTH */
+	/* smartphones in landscape-mode, devices less than 768 px wide */
+	
+	/* 2.  Switch to smartphone-landscape mode on your browser.  Add any
+	necessary css changes for landscape-width here. */
+	figure {
+		padding: 0 20px;
+		margin: 26px 0;
+	}
+
+	img {
+		width: 80%;
+	}
+
+	nav {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+	}
+
+	nav > a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (min-width: 768px) {
+	/* MEDIUM SCREEN WIDTH */
+	/* tablets, devices less than 992px wide */
+
+	/* 3.  Switch to tablet mode on your browser.  Add any necessary css
+	for tablet-width here. */
+
+	h1 {
+		text-align: center;
+	}
+	
+	section {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	figure {
+		margin: 16px 0;
+	}
+
+	h3 {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+
+	figure > div {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+}
+
+@media (min-width: 992px) {
+	/* LARGE SCREEN WIDTH */
+	/* laptops, desktops, devices less than 1200px wide */
+
+	/* 4. Turn off responsive design mode on your desktop.  Add any css
+	here to make your page look good on your desktop. */
+
+	body {
+		display: flex;
+	}
+
+	nav {
+		width: 15vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+
+	main {
+		width: 85vw;
+	}
+
+	header {
+		height: 12vh;
+	}
+
+	section {
+		height: 88vh;
+		overflow-y: auto;
+	}
+}
+
+@media (min-width: 1200px) {
+	/* EXTRA LARGE SCREEN WIDTH */
+	/* large desktops, devices 1200px or wider */
+
+	/* 5. Even smaller desktops can emulate extra-wide monitors
+	in responsive design mode.  Often desktop-width is sufficient
+	for ultra-wide screens, but as more and more internet users
+	have larger screens, developers are beginning to style websites
+	for those users. Add that css here. */
+}

@@ -1,0 +1,75 @@
+:root {
+	--blue: #0C9AC2;
+	--gray: #50818F;
+	--seafom: #28F5B2;
+	--red1: #F66C65;
+	--red2: #C20C46;
+}
+
+* {
+	border: 1px solid black;
+}
+
+body {
+	/* turn body into a grid container */
+	display: grid;
+	/* the first column is 20% the width of the screen
+	the second column is 80% the width of the screen */
+	grid-template-columns: 20vw 80vw;
+	/* the first row is 15% the height of the screen
+	the second row is 85% the height of the screen */
+	grid-template-rows: 15vh 85vh;
+}
+
+nav {
+	background-color: var(--red1);
+
+	/* where the element starts and ends in the grid columns */
+	grid-column-start: 1; /* start in column 1 */
+	grid-column-end: 2; /* end before column 2 (at the end of column 1) */
+
+	/* where the element starts and ends in the grid rows */
+	grid-row-start: 1; /* start in row 1 */
+	grid-row-end: 3; /* end before row 3 (at the end of row 2) */
+}
+
+#page-header {
+	background-color: var(--blue);
+}
+
+main {
+	background-color: var(--gray);
+	/* flexbox trick to center-align #calendar (the one child of main)
+	horizontally and vertically inside of main */
+	display: flex; /* flex-direction: row; is the default */
+	justify-content: center; /* main axis (horizontal axis) */
+	align-items: center; /* secondary axis (vertical axis */
+}
+
+#calendar {
+	background-color: var(--seafom);
+	width: 80%;
+	height: 70%;
+
+	/* turn #calendar into grid container */
+	display: grid;
+	/* 6 rows: the first row is 20% of the height #calendar
+	the other 5 rows are each 1/5 of the remaining height */
+	grid-template-rows: 20% 1fr 1fr 1fr 1fr 1fr;
+	/* 7 rows, each 1/7 of the width of #calendar,
+	using the repeat function:
+	repeat(how many repetitions?, what value?) */
+	grid-template-columns: repeat(7, 1fr);
+}
+
+#month {
+	background-color: var(--red2);
+
+	/* grid-column shorthand:
+	start in column 1 and span 7 columns */
+	grid-column: 1 / span 7;
+}
+
+.day {
+	margin: 0;
+}
