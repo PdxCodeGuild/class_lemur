@@ -1,0 +1,53 @@
+* {
+	/* shorthand property: */
+	border: 2px dotted black;
+
+	/* combines 3 other properties: */
+	border-width: 2px;
+	border-style: dotted;
+	border-color: black;
+}
+
+body {
+	background-color: slategray;
+	font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+}
+
+/* use multiplie selectors with commas */
+h1, a {
+	color: #34ebba;
+}
+
+p {
+	padding-left: 50px;
+	text-align: center;
+}
+
+
+
+h3 {
+	margin-left: 25px;
+	padding-left: 25px;
+}
+
+div {
+	margin: 0 auto;
+}
+
+img {
+	width: 525px;
+	/* height: 150px; */
+	/* width: 50%; */
+	/* width: 80vw; */
+	border-radius: 20px;
+}
+
+
+
+a {
+	color: #34ebba;
+}
+
+a:visited {
+	color: #77cae6;
+}

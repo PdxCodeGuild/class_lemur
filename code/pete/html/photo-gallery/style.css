@@ -1,0 +1,69 @@
+:root {
+	--yellow: #fbbbad;
+	--peach: #ee8695;
+	--bluish: #4a7a96;
+	--dark-bluish: #333f58;
+	--gray: #292831;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	color: var(--gray)
+}
+
+nav {
+	background-color: var(--yellow);
+	width: 15%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+button {
+	margin-left: 18px;
+}
+
+main {
+	background-color: var(--dark-bluish);
+	width: 85%;
+}
+
+header {
+	background-color: var(--peach);
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	/* scrollbar inside page */
+	max-height: 80%;
+	overflow-y: auto;
+}
+
+figure {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h3 {
+	color: var(--yellow)
+}
+
+img {
+	height: 200px;
+	width: 200px;
+	object-fit: contain;
+}

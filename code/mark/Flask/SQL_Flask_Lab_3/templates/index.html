@@ -1,0 +1,20 @@
+<title>Contacts</title>
+
+<h1>Contacts</h1>
+
+<ul>
+    <form action="/update-contact/">
+        {% for contact in contacts %}
+        <li><a href="/{{ contact.name }}">{{ contact.name }}</a></li>
+        {% endfor %}
+    </form>
+</ul>
+
+<h2>Add new contact</h2>
+<form action="/" method="POST">
+    <input name="Name" placeholder="Name" type="text">
+    <input name="Favorite_Fruit" placeholder="Favorite Fruit" type="text">
+    <input name="Favorite_Color" placeholder="Favorite Color" type="text">
+    <input type="submit" value="Create Contact">
+</form>
+
