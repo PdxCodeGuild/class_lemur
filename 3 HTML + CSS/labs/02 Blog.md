@@ -40,3 +40,7 @@ Once you have your template, incorporate it into a flask app.  Like Version 1 of
 Your blog post may not need images (this comes down to the style of the blog).  But it should include at least a title, author, and body.
 
 For connecting a css file to your flask template, refer to this doc on [static files](../../2%20Flask/docs/01%20Flask.md#static-files).
+
+## Advanced Version
+
+Add more CRUD (create, retrieve, update, delete) functionality to your blog.  Start with allowing users to submit a form to create a new post.  Should the form be on the `/` index route or on its own page?  What is the UX (user experience) you would want for this website?
