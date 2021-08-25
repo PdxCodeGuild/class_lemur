@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Lab02</title>
+</head>
+
+<body>
+    <nav id="side-nav">
+        <ul id="side-menu">
+            <li><a href="#">Origins</a></li>
+            <li><a href="http://127.0.0.1:5000/odyssey.json">Odyssey</a></li>
+            <li><a href="http://127.0.0.1:5000/valhalla.json">Valhalla</a></li>
+            <li><a href="#">Rouge</a></li>
+            <li><a href="#">Black Flag</a></li>
+            <li><a href="#">Unity</a></li>
+            <li><a href="#">AC I</a></li>
+            <li><a href="#">AC II</a></li>
+            <li><a href="#">AC III</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Characters</h1>
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Other</a></li>
+                    <li><a href="#">Other</a></li>
+                    <li><a href="#">Other</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            {% for character in characters %}
+            <figure>
+                <h2>{{character['name']}}</h2>
+                <div>
+                    <img src="{{character['image']}}" alt="{{character['name']}}">
+                    <p>{{character['bio']}}</p>
+                </div>
+            </figure>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+
+</html>

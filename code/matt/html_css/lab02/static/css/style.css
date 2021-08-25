@@ -1,0 +1,84 @@
+:root {
+    --light-blue: #69B7BF;
+    --dark-blue: #125259;
+    --orange :#db5014;
+    
+}
+body {
+    background-color: black;
+    color: var(--orange);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#side-nav {
+    background-color: var(--dark-blue);
+    width: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#side-menu{
+    padding-left: 0px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+a{
+    color: var(--orange);
+}
+
+main {
+    width: 90vw;
+}
+
+header {
+    background-color: var(--dark-blue);
+    height: 10vh;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+li {
+    padding: 10px;
+}
+
+section {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;   
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+figure{
+    background-color: var(--dark-blue);
+    border-style: solid;
+    border-color: var(--light-blue);
+    width: 575px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div {
+    display: flex;
+    align-items: center; 
+}
+img {
+    height: 150px;
+    width: auto;
+    padding-right: 5px;
+}
