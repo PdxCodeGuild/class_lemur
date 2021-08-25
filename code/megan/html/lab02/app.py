@@ -10,11 +10,10 @@ def read_posts():
     return data.get('posts')
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    
+
     posts = read_posts()
     return render_template('index.html', posts=posts)
-
 
 app.run(debug=True)
