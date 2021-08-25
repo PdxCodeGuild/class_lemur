@@ -42,3 +42,5 @@ e.g.
 ```
 
 Check out this [article](https://kinsta.com/blog/responsive-web-design/) for tips on modern responsive design, including where to establish breakpoints.
+
+Use this [template](responsive-design-template.css) as a starter for writing responsive css.
