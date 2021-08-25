@@ -3,11 +3,11 @@
 
 {% for post in posts %}
 
-<h3>{{ post['title'] }}</h3>
+<h3>Title: {{ post['title'] }}</h3>
 
-<p>{{ post['author'] }}</p>
+<p>Author: {{ post['author'] }}</p>
 <p>{{ post['body'] }}</p>
-<p>{{ post['date'] }}</p>
+<p>Date: {{ post['date'] }}</p>
 
 
 {% endfor %}

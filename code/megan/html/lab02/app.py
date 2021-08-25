@@ -10,7 +10,7 @@ def read_posts():
     return data.get('posts')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
 
     posts = read_posts()
