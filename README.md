@@ -41,6 +41,7 @@ Presentation Day: November 5th, 2021
 
 ## HTML/CSS Labs Assigned:
 * [Lab 01 Bio](3%20HTML%20+%20CSS/labs/01%20Bio.md)
+* [Lab 02 Blog](3%20HTML%20+%20CSS/labs/02%20Blog.md)
 
 
 <!-- #### Optional HTML/CSS Labs -->
