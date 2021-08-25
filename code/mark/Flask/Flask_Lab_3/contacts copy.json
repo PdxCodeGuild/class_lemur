@@ -1,0 +1,29 @@
+{
+    "contacts": [
+        {
+            "Name": "Joseph",
+            "Favorite_Fruit": "oranges",
+            "Favorite_Color": "red"
+        },
+        {
+            "Name": "Mark",
+            "Favorite_Fruit": "strawberries",
+            "Favorite_Color": "blue"
+        },
+        {
+            "Name": "David",
+            "Favorite_Fruit": "sour apples",
+            "Favorite_Color": "yellow"
+        },
+        {
+            "Name": "Robert",
+            "Favorite_Fruit": "pizza",
+            "Favorite_Color": "green"
+        },
+        {
+            "Name": "Richard",
+            "Favorite_Fruit": "pineapple",
+            "Favorite_Color": "fuscia"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from random import choice
+from random import randint, choice
 
 app = Flask(__name__)
 
@@ -26,11 +26,11 @@ def guess_the_number():
 
 @app.route('/guess-the-number/<int:guess>/')
 def guess_the_number_guess(guess):
-    number = choice(range(1,10))
+    number = randint(1,10)
     if guess == number:
         guess_result = "Correct"
     else:
-        guess_result =("Guess is incorrect. Try again")
+        guess_result = "Guess is incorrect. Try again"
         # guess_result = 'low'
         return render_template('guess-the-number-guess.html', guess=guess, guess_result = guess_result)
 
