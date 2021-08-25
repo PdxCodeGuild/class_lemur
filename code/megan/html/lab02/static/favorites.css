@@ -53,9 +53,10 @@ h2 {
 }
 
 article {
-    width: 50%;
+    width: 60%;
     display: flex; 
     flex-wrap: wrap;
+    padding: 15px;
 }
 
 img {
@@ -69,7 +70,6 @@ img {
 #first {
     margin-left: auto;
     margin-right: auto;
-    /* justify-content: center; */
     width: 250px;
     order: 1;
 }
@@ -82,6 +82,10 @@ img {
     order: 2;
 }
 
+.para {
+    width: 50%;
+    margin: 20px;
+}
 
 footer {
     padding-top: 15px;
