@@ -1,0 +1,39 @@
+{
+    "characters": [
+        {
+            "name": "Eivor",
+            "image": "https://assets2.rockpapershotgun.com/assassins-creed-valhalla-character-header.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/assassins-creed-valhalla-character-header.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiam delectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sint laboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Sigurd",
+            "image": "https://assassinscreedvalhalla.wiki.fextralife.com/file/Assassins-Creed-Valhalla/sigurd-npc-assassins-creed-valhalla-wiki-guide.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Basim",
+            "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/12/Assassins-Creed-Valhalla-Basim.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Randvi",
+            "image": "https://assassinscreedvalhalla.wiki.fextralife.com/file/Assassins-Creed-Valhalla/randvi-npc-assassins-creed-valhalla-wiki-guide.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Ivarr and Ubba",
+            "image": "https://assassinscreedvalhalla.wiki.fextralife.com/file/Assassins-Creed-Valhalla/ivarr-and-ubba-npc-assassins-creed-valhalla-wiki-guide.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Dag",
+            "image": "https://assassinscreedvalhalla.wiki.fextralife.com/file/Assassins-Creed-Valhalla/dag-npc-assassins-creed-valhalla-wiki-guide.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        },
+        {
+            "name": "Valka",
+            "image": "https://www.siliconera.com/wp-content/uploads/2020/10/Assassins-Creed-Valhalla-Valka-the-Seer.jpg",
+            "bio": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, officia odit impedit aperiamdelectussaepe nobis tempore rerum nostrum corporis voluptatibus quia vitae quae quo sintlaboriosamaccusantiumiusto!"
+        }
+    ]
+}
