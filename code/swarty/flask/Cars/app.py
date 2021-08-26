@@ -19,40 +19,27 @@ The form can have just a submit button inside.
 from flask import Flask, render_template, request
 import pandas as pd
 import json
-
+from markupsafe import Markup
 
 
 app = Flask(__name__)
 # 127.0.0.1:5000/
 
-file='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/cars.json'
+file1='C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/cars.json'
 #Original=f'C:/Users/DavidSwartwood/codeguild/class_lemur/code/swarty/flask/Cars/carsorig.json'
-#get file and convert to Pandas
+#get file
 def read_brands():
-    global file
-    with open(file, 'r') as file:
+    with open(file1, 'r') as file:
         jfile=json.loads(file.read())
     brands=jfile['cars']
-    car_data=pd.DataFrame(brands)
-    car_data=car_data.set_index('brand')
-    return car_data
+    return brands
+
+    return brands
 #Write back to JSON as dict
-def write_brands(car_data):
-    global file
-    carsdict=pd_to_dict(car_data)
-    with open(file, 'w') as file:
-        file.write(json.dumps(carsdict, indent=4))
-    
-#Covert back to dic from pandas
-def pd_to_dict(car_data):
-    car_data=car_data.reset_index()
-    cars=car_data.to_dict(orient='index')
-    carsdict={ 'cars':[]}
-    for key in cars:
-        carsdict['cars'].append(cars[key])
-    return carsdict
-
-
+def write_brands(brands):
+    jfile={'cars': brands}
+    with open(file1, 'w') as file:
+        file.write(json.dumps(jfile, indent=4))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -61,23 +48,28 @@ def index():
     Sent a GET request, this view lists all of the Brands.
     Sent a POST request, this view adds a new brand to the
     json file, and redirects back to the same view with a GET request
-    """
-    # if request.method == 'POST':
-    #     car_data = read_brands()
+    """   
+    if request.method == 'POST':
+        brands=read_brands()
+        # extract new brand data from request.form
+        while request.form != brands:
+            brands.append(dict(request.form))
+        brands=sorted(brands, key=lambda i:i['Brand'])
+        print(brands)
         
-    #     # extract new brand data from request.form
-        
-    #     # add new brand dictionary to brands list
-        
-    #     write_brands(car_data) # write updated brands to json file
-    #     return render_template('/') # redirect back to the same view, as a GET request
-    car_data = read_brands() # read brands from json file
-    cars=car_data.style.to_html()
+        # add new brand dictionary to brands list
+        write_brands(brands)
+        # car_data = pd.DataFrame(brands).style 
+        # car_data=car_data.hide_index() 
+        # cars=Markup(car_data.to_html(table_uuid='panda'))
+        # return render_template('index.html', cars=cars) # redirect back to the same view, as a GET request
+    brands=read_brands()
+    car_data = pd.DataFrame(brands).style 
+    car_data=car_data.hide_index() 
+    cars=Markup(car_data.to_html(table_uuid='panda'))
     # render index template, passing brands list as a context kwarg
     # print(car_data)
-    # print(cars)
     return render_template('index.html', cars=cars)
-
 
 # 127.0.0.1:5000/Portland
 # @app.route('/<name>/', methods=['GET', 'PATCH', 'DELETE'])
