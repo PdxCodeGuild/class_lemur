@@ -5,7 +5,6 @@ computer picks 6 random numbers from 1-99
 matching numbers between ticket and winning numbers determines payoff
 '''
 
-from code.dbrunken.make_change import make_change
 import random
 
 #got help from https://www.tutorialspoint.com/generating-random-number-list-in-python
