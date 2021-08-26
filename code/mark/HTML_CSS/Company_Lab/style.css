@@ -1,0 +1,18 @@
+.studio-name {
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.space-title{
+    font-family: 'Racing Sans One', cursive;
+}
+
+body {
+    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+hr {
+    height: 0px;
+    border-top: 10px solid black;
+}
