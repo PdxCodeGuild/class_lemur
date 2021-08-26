@@ -1,5 +1,6 @@
-* {
+body {
     font-family: 'Alegreya Sans SC', sans-serif;
+    background-color: #F6F6F6;
 }
 
 #tiptop {
@@ -27,21 +28,9 @@ a:hover {
     text-decoration: underline;
 }
 
-#first {
-    display: flex;
-    flex-direction: column;
-}
-
-#second {
-    display: flex;
-    justify-content: flex-end;
-    align-self:stretch;
-    padding: 10px;
-}
-
 #books {
-    width: 100vw;
-    height: 650px;
+    width: 350px;
+    height: 225px;
 }
 
 .button {
@@ -54,28 +43,43 @@ a:hover {
     border: 2px solid black;
 }
 
-#second-section {
+
+.header-center {
+    text-align: center;
+    padding: 20px;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+}
+
+.box1 {
     background-color: #F6F6F6;
+    padding-top: 50px;
+    padding-bottom:80px;
 }
 
-#right-now {
-    text-align: center;
-    padding-top: 15px;
+.box a {
+    text-decoration: underline #FA6400;
 }
 
-.side {
-    text-align: center;
-    padding-bottom: 15px;
-}
-
-#three {
+.image {
     display: block;
     padding: auto;
     margin: auto;
-    width: 50%;
+    width: 35vw;
+    padding: 15px;
 }
 
+
 #lovely {
-    width: 100vw;
-    height: 700px;
+    width: 100px;
+    height: 100px;
 }
+
+/* .fix-button{
+    display: flex;
+    /* justify-content: center;
+    align-items: center;
+} */
