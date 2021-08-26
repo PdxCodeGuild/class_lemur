@@ -1,0 +1,102 @@
+header {
+	margin: 3rem;
+	margin-right: 2rem;
+}
+
+header#header {
+	margin: 2rem;
+}
+
+header > * {
+	border-bottom: 1px solid black;
+}
+
+#table-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+table {
+	width: 75%;
+	border-collapse: collapse;
+}
+
+thead {
+	/* border-bottom: 1px solid black; */
+	/* text-decoration: underline; */
+	background-color: gainsboro;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+#form-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#box-shadow-container, #text-shadow-container, #transition-container, #animation-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#box-shadow-container > figure {
+	border: 1px solid aquamarine;
+	/* box-shadow: x-offset y-offset blur-radius color; */
+	box-shadow: -15px -15px 10px aquamarine;
+}
+
+#text-shadow-container > figure {
+	text-shadow: 2px 2px 5px;
+}
+
+#button-1:hover {
+	color: red;
+	font-size: xx-large;
+	margin-left: 10rem;
+}
+
+#button-1 {
+	transition-duration: 5s;
+}
+
+#button-2 {
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 2px;
+	color: black;
+	transition-duration: .25s;
+}
+
+#button-2:hover {
+	background-color: chartreuse;
+}
+
+#square {
+	width: 200px;
+	height: 200px;
+	background-color: goldenrod;
+	animation-duration: 3s;
+	animation-name: spin;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+body {
+	padding-bottom: 5rem;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
