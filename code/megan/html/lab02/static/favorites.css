@@ -82,9 +82,18 @@ img {
     order: 2;
 }
 
+h3, h4 {
+    margin: 20px;
+}
+
 .para {
     width: 50%;
     margin: 20px;
+}
+
+a {
+    color: var(--dark-roast);
+    margin: 5px;
 }
 
 footer {

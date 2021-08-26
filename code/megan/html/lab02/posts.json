@@ -1,21 +1,24 @@
 {
     "posts": [
         {
-            "title": "Coffee around town",
-            "author": "Megan Bradner",
-            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sed ad officia nam, pariatur ipsum cum minima excepturi obcaecati quasi modi similique? Error nisi velit perspiciatis tenetur, totam architecto sunt.",
+            "title": "Good Coffee",
+            "author": "Scott",
+            "body": "Frappuccino carajillo so white cup steamed instant. Grounds, id caffeine whipped to go, sweet, body instant saucer fair trade redeye flavour. Macchiato, shop, whipped trifecta, cultivar at, cultivar as caffeine doppio organic. Milk body chicory carajillo, eu, id aroma iced lungo extra. Chicory a, blue mountain, brewed dark mazagran extraction and black cappuccino sugar.",
+            "image": "static/images/good.jpeg",
             "date": "August, 24, 2021"
         },
         {
-            "title": "About",
-            "author": "Megan Bradner",
-            "body": "A little bit about the people running this blog!",
+            "title": "Case Study",
+            "author": "Emily",
+            "body": "As robusta, cultivar rich decaffeinated affogato mug carajillo medium. Aftertaste et kopi-luwak in saucer milk froth. Cultivar cortado lungo shop café au lait, wings, mazagran black est cappuccino americano skinny. Roast lungo eu brewed, caffeine, cultivar con panna, wings americano filter arabica ristretto. Spoon, filter aged robust, filter breve dark redeye shop.",
+            "image": "static/images/case.jpeg",
             "date": "August, 15, 2021"
         },
         {
-            "title": "Our other favorites",
-            "author": "Megan Bradner",
-            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sed ad officia nam, pariatur ipsum cum minima excepturi obcaecati quasi modi similique? Error nisi velit perspiciatis tenetur, totam architecto sunt.",
+            "title": "Coava",
+            "author": "Brian",
+            "body": "Frappuccino carajillo so white cup steamed instant. Grounds, id caffeine whipped to go, sweet, body instant saucer fair trade redeye flavour. Macchiato, shop, whipped trifecta, cultivar at, cultivar as caffeine doppio organic. Milk body chicory carajillo, eu, id aroma iced lungo extra. Chicory a, blue mountain, brewed dark mazagran extraction and black cappuccino sugar.",
+            "image": "static/images/good.jpeg",
             "date": "August, 20, 2021"
         }
     ]
