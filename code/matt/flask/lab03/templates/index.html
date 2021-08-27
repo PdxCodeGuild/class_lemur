@@ -1,0 +1,19 @@
+<h1>Characters</h1>
+
+
+
+{% for character in characters %}
+<a href="/{{character['name']}}">{{character['name']}}<br></a>
+{% endfor %}
+
+
+
+
+<h2>Add new character</h2>
+<form action="/" method="POST">
+    <input name="name" placeholder="name" type="text">
+    <input name="race" placeholder="race" type="text">
+    <input name="class" placeholder="class" type="text">
+    <input name="background" placeholder="background" type="text">
+    <input type="submit" value="Add">
+</form>

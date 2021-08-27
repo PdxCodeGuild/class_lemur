@@ -1,0 +1,103 @@
+body {
+    @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Sorts+Mill+Goudy&display=swap');
+    font-family       : 'Sorts Mill Goudy', serif;
+    font-weight       : 200;
+    margin            : 0px;
+    background-image: url(https://th.bing.com/th/id/R.963930668b15b49ae3928229c1361e27?rik=IcU2T9FD426QaQ&riu=http%3a%2f%2fwww.hdwallpaperslife.com%2fwp-content%2fuploads%2f2019%2f01%2fplanet_horizon_4k-3840x2160.jpg&ehk=%2fAgjwXxzgnPBdY4LdJayK%2bgC2d9zbrTCCRFv2I6Uwww%3d&risl=&pid=ImgRaw&r=0);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+}
+.bg{
+    background: rgb(252, 251, 254, 0.80);
+    
+}
+#titlebar {
+    display        : flex;
+    flex-direction : row;
+    align-items    : flex-end;
+    justify-content: center;
+}
+
+#title {
+    font-weight: 600;
+    font-size  : 100px;
+    color:#18789b;
+    font-family: 'Sacramento', cursive;
+    width      : auto;
+}
+
+#titlebar {
+    display        : flex;
+    justify-content: space-around;
+    align-items    : baseline;
+}
+
+#titlenav {
+    display       : flex;
+    font-family   : 'Sorts Mill Goudy', serif;
+    font-size     : 20px;
+    font-weight   : 600;
+    text-decoration: underline;
+    flex-direction: row;
+    color:#18789b;
+    
+}
+
+#titlenav article {
+    padding: 20px;
+}
+
+#picturebar {
+    display        : flex;
+    justify-content: center;
+    padding        : 25px;
+
+}
+
+.picturebar {
+    width        : 15vw;
+    height       : 15vw;
+    padding      : 20px;
+    border-radius: 50%;
+}
+
+main {
+    display        : flex;
+    justify-content: space-evenly;
+}
+main h1{
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+    color:#3ea4c9;
+    margin-bottom: 5px;
+}
+main h2{
+    margin-top: 0px;
+    font-size: 15px;
+    text-align: center;
+    font-style: italic;
+}
+main article{
+    margin: 30px;
+    padding: 15px;
+}
+footer {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    width         : 100vw;
+    margin        : auto;
+    padding-top: 20px;
+}
+
+footer article {
+    margin: auto;
+}
+
+#fttitle {
+    text-align: center;
+    font-style: italic;
+}
