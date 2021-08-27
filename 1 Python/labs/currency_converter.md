@@ -1,6 +1,6 @@
 # Currency Converter
 
-You've just returned from an around-the-world trip and realize that you still have currencies from many different countries in your wallet.  Write a program the can read the contents of your wallet and convert those values into USD.  Your wallet is represented as `wallet.txt` and might look like this:
+You've just returned from an around-the-world trip and realize that you still have currencies from many different countries in your wallet.  Write a program that can read the contents of your wallet and convert those values into USD.  Your wallet is represented as `wallet.txt` and might look like this:
 ```txt
 $3.40  ¥97
 
