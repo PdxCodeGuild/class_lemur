@@ -7,8 +7,9 @@ M-F 6:00 pm – 9:36 pm
 ![lemur](lemur.jpg)
 
 ### Holidays
- 
-September 6th -- Labor Day  
+
+August 30th –– Day Off
+September 6th –– Labor Day  
 
 ### Staff
 
@@ -40,11 +41,15 @@ Presentation Day: November 5th, 2021
 
 
 ## HTML/CSS Labs Assigned:
+
 * [Lab 01 Bio](3%20HTML%20+%20CSS/labs/01%20Bio.md)
 * [Lab 02 Blog](3%20HTML%20+%20CSS/labs/02%20Blog.md)
+* [Lab 03 Company](3%20HTML%20+%20CSS/labs/03%20Company.md)
 
 
-<!-- #### Optional HTML/CSS Labs -->
+#### Optional HTML/CSS/Flask Labs
+
+[Flask Redo](3%20HTML%20+%20CSS/labs/Optional%20Flask%20Redo.md)
 
 
 ## Flask Labs Assigned:

@@ -1,3 +1,11 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 header {
 	margin: 3rem;
 	margin-right: 2rem;
@@ -38,7 +46,7 @@ table, th, td {
 	align-items: center;
 }
 
-#box-shadow-container, #text-shadow-container, #transition-container, #animation-container, #svg-container {
+#box-shadow-container, #text-shadow-container, #transition-container, #animation-container, #icon-container, #svg-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -99,4 +107,12 @@ body {
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+i {
+	font-size: xx-large;
+}
+
+svg {
+	color: black;
 }
