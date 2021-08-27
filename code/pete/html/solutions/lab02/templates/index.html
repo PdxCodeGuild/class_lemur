@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rubber Cheese: Food, Coffee & ClickBait</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+<header class="section has-background-dark">
+	<div class="container">
+		<h1 class="title has-text-primary">
+			Rubber Cheese
+		</h1>
+		<p class="subtitle has-text-primary">
+			Food, Coffee & ClickBait
+		</p>
+	</div>
+</header>
+
+<main class="my-5">
+{% for post in posts %}
+	<article class="box mx-5">
+		<h3 class="title is-4">{{ post['title'] }}</h3>
+		<p class="level">
+			<div class="level-left my-2">
+				<figure class="image is-64x64">
+					<img class="is-rounded" src="{{ post['cat_photo'] }}" alt="kitty kat" />
+				</figure>
+				<h6 class="subtitle is-6 ml-3">by <a class="has-text-link" href="#">{{ post['author'] }}</a></h6>
+			</div>
+		</p>
+		<p class="is-size-6 px-3">{{ post['body'] }}</p>
+	</article>
+{% endfor %}
+</main>
+
+<footer class="has-background-dark has-text-primary footer">&copy; 2021 Class Lemur Productions</footer>
+</body>
+
+</html>

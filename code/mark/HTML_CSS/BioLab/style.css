@@ -27,9 +27,12 @@ ul {
     margin-right: auto;
     text-align: left;
     list-style-type: none;
-    
     padding: 20px;
 
+}
+
+li::before{
+    content: "\2694";
 }
 
 p {
