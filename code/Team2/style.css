@@ -1,0 +1,12 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+img {
+    width: 40vw;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.842);
+    color: white;
+}
