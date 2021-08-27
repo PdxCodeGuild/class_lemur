@@ -1,9 +1,61 @@
-<h1>Car Database</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&display=swap" rel="stylesheet">
+    <title>Autos</title>
 
-<div id="cars"></div>
+</head>
+<body>
 
-<script>
-    const cars = document.querySelector('#cars')
-    cars.innerHTML = '{{ cars }}'
-</script>
 
+    <h1>Car Database</h1>
+    <hr />
+    <div id="cars">
+
+    {{ cars }}
+    <hr />
+    </div>
+    <div>
+        <form action="/" method="POST">
+            <div>
+            <input name="Brand" type="text" placeholder="Brand name" />
+            </div>
+            <div>
+            <select name="Category" type="text" id="Category" >
+                <option value="Low Cost">Low Cost</option>
+                <option value="Mid-Level">Mid-Level</option>
+                <option value="Premium">Premium</option>
+                <option value="Luxury">Luxury</option>
+                <option value="Specialty">Specialty</option>
+            </select>
+            </div>
+            <div>
+            <select name="Reputation" type="text" id="Reputation" >
+                <option value="Safety">Safety</option>
+                <option value="Off Road">Off Road</option>
+                <option value="Muscle Car">Muscle Car</option>
+                <option value="High Performance">High Performance</option>
+                <option value="Reliability">Reliability</option>
+                <option value="Comfort">Comfort</option>
+                <option value="Truck/SUV">Truck/SUV</option>
+            </select>
+            </div>
+            <div>
+            <input name="HQ Location" type="text" placeholder="HQ Country" />
+            </div>
+            <div>
+            <input name="Parent Company" type="text" placeholder="Parent Company" />
+            </div>
+            <div>
+            <input type="submit" value="New Brand" />
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
