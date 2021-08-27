@@ -1,7 +1,7 @@
 
-# Intro to Flask
+# Optional: Flask Redo
 
-Implement one of the following Python labs in a Flask app:
+Implement one or more of the following Python labs in a Flask app:
 
 - [Rot Cipher](../../1%20Python/labs/11%20Rot%20Cipher.md)
   - Simple version: the user could just input the word to encode.
@@ -13,3 +13,4 @@ Implement one of the following Python labs in a Flask app:
   - Simple version: the user just enters in the number of characters in the password
   - Complex version: the user enters the number of uppercase letters, lowercase letters, numbers, and special characters
 
+Add styling to practice CSS.
