@@ -1,0 +1,39 @@
+{
+    "cars": [
+        {
+            "Brand": "Acura",
+            "Category": "Premium",
+            "Reputation": "Reliability",
+            "HQ Location": "Japan",
+            "Parent Company": "Honda Motors"
+        },
+        {
+            "Brand": "Alpha Romeo",
+            "Category": "Luxury",
+            "Reputation": "Performance",
+            "HQ Location": "Italy",
+            "Parent Company": "Stellantis"
+        },
+        {
+            "Brand": "Dodge",
+            "Category": "Mid-Level",
+            "Reputation": "Muscle Car",
+            "HQ Location": "USA",
+            "Parent Company": "Stellantis"
+        },
+        {
+            "Brand": "Honda",
+            "Category": "Mid-Level",
+            "Reputation": "Reliability",
+            "HQ Location": "Japan",
+            "Parent Company": "Honda Motor Co"
+        },
+        {
+            "Brand": "Volvo",
+            "Category": "Premium",
+            "Reputation": "safety",
+            "HQ Location": "Sweden",
+            "Parent Company": "Geely Holding"
+        }
+    ]
+}

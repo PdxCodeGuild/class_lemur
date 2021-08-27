@@ -1,0 +1,94 @@
+*{
+    color: rgb(223, 251, 253);
+    
+}
+
+body{
+    background-color: black;
+    /* margin-left: auto;
+    margin-right: auto;
+    padding: auto;
+    margin-right: 900px;
+    margin-left: 200px; */
+    background-image: url("background.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+h1, h2, h3{
+    text-align: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    font-family: Papyrus, fantasy;
+    text-shadow: 0.05em 0 black,
+    0 0.05em black,
+    -0.05em 0 black,
+    0 -0.05em black,
+    -0.05em -0.05em black,
+    -0.05em 0.05em black,
+    0.05em -0.05em black,
+    0.05em 0.05em black;
+
+}
+
+p, a{  
+    text-align: center;
+    font-weight: bold;
+    font-family: Papyrus, fantasy;
+    font-size: 25px;
+    text-shadow: 0.05em 0 black,
+    0 0.05em black,
+    -0.05em 0 black,
+    0 -0.05em black,
+    -0.05em -0.05em black,
+    -0.05em 0.05em black,
+    0.05em -0.05em black,
+    0.05em 0.05em black;
+}  
+a{
+    font-size: 30px;
+}
+
+p{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+li{
+    list-style-type: square;
+}
+
+img{
+    border-radius: 5px;
+    border: 2px solid rgb(5, 219, 201);
+    /* margin: auto; */
+    width: 25%;
+    /* margin: auto; */
+    margin-left: 460px;
+    margin-right: 500px;
+
+    /* box-shadow: 5px 10px vi; */
+}
+.quote{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+ul{
+    /* padding-left: 300px;   */
+    margin-left: 470px;  
+
+    font-weight: bold;
+    font-family: Papyrus, fantasy;
+    font-size: 25px;
+    text-shadow: 0.05em 0 black,
+    0 0.05em black,
+    -0.05em 0 black,
+    0 -0.05em black,
+    -0.05em -0.05em black,
+    -0.05em 0.05em black,
+    0.05em -0.05em black,
+    0.05em 0.05em black;
+} 
+/* .list-style{
+
+} */
