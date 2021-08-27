@@ -1,0 +1,29 @@
+{
+    "posts": [
+        {
+            "number": "1",
+            "title": "Maria",
+            "author": "The nuns",
+            "body": "She climbs a tree and scrapes her knee <br> Her dress has got a tear <br> She waltzes on her way to Mass <br> And whistles on the stair <br> And underneath her wimple <br> She has curlers in her hair <br> I even heard her singing in the abbey <br> She's always late for chapel <br> But her penitence is real <br> She's always late for everything <br> Except for every meal <br> I hate to have to say it <br> But I very firmly feel <br> Maria's not an asset to the abbey <br> I'd like to say a word in her behalf <br> Maria makes me laugh <br> How do you solve a problem like Maria? <br> How do you catch a cloud and pin it down? <br> How do you find a word that means Maria? <br> A flibbertijibbet! A will-o'-the wisp! A clown! <br> Many a thing you know you'd like to tell her <br> Many a thing she ought to understand <br> But how do you make her stay <br> And listen to all you say <br> How do you keep a wave upon the sand <br> Oh, how do you solve a problem like Maria? <br> How do you hold a moonbeam in your hand? <br> When I'm with her I'm confused <br> Out of focus and bemused <br> And I never know exactly where I am <br> Unpredictable as weather <br> She's as flighty as a feather <br> She's a darling! She's a demon! She's a lamb! <br> She'd outpester any pest <br> Drive a hornet from its nest <br> She could throw a whirling dervish out of whirl <br> She is gentle! She is wild! <br> She's a riddle! She's a child! <br> She's a headache! She's an angel! <br> She's a girl! <br> How do you solve a problem like Maria? <br> How do you catch a cloud and pin it down? <br> How do you find a word that means Maria? <br> A flibbertijibbet! A will-o'-the wisp! A clown! <br> Many a thing you know you'd like to tell her <br> Many a thing she ought to understand <br> But how do you make her stay <br> And listen to all you say <br> How do you keep a wave upon the sand <br> Oh, how do you solve a problem like Maria? <br> How do you hold a moonbeam in your hand?",
+            "date": "Aug 24th, 2021",
+            "image": "\\static\\maria.jpg"
+        },
+        {
+            "number": "2",
+            "title": "I Have Confidence",
+            "author": "Maria",
+            "body": "What will this day be like? <br> I wonder <br> What will my future be? <br> I wonder <br> It could be so exciting <br> To be out in the world <br> To be free <br> My heart should be wildly rejoicing <br> Oh, what's the matter with me? <br> I've always longed for adventure <br> To do the things I've never dared <br> Now here I'm facing adventure <br> Then why am I so scared? <br> A captain with seven children <br> What's so fearsome about that? <br> Oh, I must stop these doubts <br> All these worries <br> If I don't I just know I'll turn back <br> I must dream of the things I am seeking <br> I am seeking the courage I lack <br> The courage to serve them with reliance <br> Face my mistakes without defiance <br> Show them I'm worthy <br> And while I show them <br> I'll show me <br> So let them bring on all their problems <br> I'll do better than my best <br> I have confidence <br> They'll put me to the test <br> But I'll make them see <br> I have confidence in me <br> Somehow I will impress them <br> I will be firm, but kind <br> And all those children <br> Heaven bless them <br> They will look up to me <br> And mind me <br> With each step I am more certain <br> Everything will turn out fine <br> I have confidence <br> The world can all be mine <br> They'll have to agree <br> I have confidence in me <br> I have confidence in sunshine <br> I have confidence in rain <br> I have confidence that spring will come again <br> Besides, which you see <br> I have confidence in me <br> Strength doesn't lie in numbers <br> Strength doesn't lie in wealth <br> Strength lies in nights of peaceful slumbers <br> When you wake up <br> Wake up! <br> It's healthy <br> All I trust I leave my heart to <br> All I trust becomes my own <br> I have confidence in confidence alone <br> (Oh, help) <br> I have confidence in confidence alone <br> Besides, which you see <br> I have confidence in me",
+            "date": "Aug 1st, 2021",
+            "image": "\\static\\confidence.jpg"
+        },
+        {
+            "number": "3",
+            "title": "So Long, Farewell",
+            "author": "Von Trapp Children",
+            "body": "There's a sad sort of clanging from the clock in the hall <br> And the bells in the steeple too <br> And up in the nursery an absurd little bird <br> Is popping out to say 'cuckoo' <br> Cuckoo, cuckoo <br> Regretfully they tell us Cuckoo, cuckoo <br> But firmly they compel us Cuckoo, cuckoo <br> To say goodbye... <br> Cuckoo! <br> . . . to you <br> So long, farewell, auf Wiedersehen, good night <br> I hate to go and leave this pretty sight <br> So long, farewell, auf Wiedersehen, adieu <br> Adieu, adieu, to yieu and yieu and yieu <br> So long, farewell, au revoir, auf wiedersehen <br> I'd like to stay and taste my first champagne <br> So long, farewell, auf Wiedersehen, goodbye <br> I leave and heave a sigh and say goodbye -- Goodbye! <br> I'm glad to go, I cannot tell a lie <br> I flit, I float, I fleetly flee, I fly <br> The sun has gone to bed and so must I <br> So long, farewell, auf Wiedersehen, goodbye <br> Goodbye, goodbye, goodbye <br> Goodbye!",
+            "date": "Jul 20th, 2021",
+            "image": "\\static\\vontrappchildren.jpg"
+        }
+
+    ]
+}
