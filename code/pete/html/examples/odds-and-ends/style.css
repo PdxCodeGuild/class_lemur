@@ -38,7 +38,7 @@ table, th, td {
 	align-items: center;
 }
 
-#box-shadow-container, #text-shadow-container, #transition-container, #animation-container {
+#box-shadow-container, #text-shadow-container, #transition-container, #animation-container, #svg-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
