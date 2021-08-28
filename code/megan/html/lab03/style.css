@@ -18,14 +18,18 @@ header > nav {
     width: 200px;
 }
 
-a {
+.nav a {
     color: black;
     text-decoration: none;
 }
 
-a:hover {
-    color:slateblue;
-    text-decoration: underline;
+.nav a:hover {
+    color: black;
+    text-decoration: underline 5px #FA6400;
+}
+
+i {
+    padding-left: 15px;
 }
 
 #books {
@@ -55,9 +59,14 @@ a:hover {
 }
 
 .box1 {
-    background-color: #F6F6F6;
-    padding-top: 50px;
+    padding-left: 50px;
+    padding-top: 35px;
     padding-bottom:80px;
+}
+
+#image1 {
+    width: 45vw;
+    padding-right: 15px;
 }
 
 .box a {
