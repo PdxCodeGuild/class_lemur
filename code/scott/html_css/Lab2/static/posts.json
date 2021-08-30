@@ -1,0 +1,19 @@
+{
+    "posts": [
+        {
+            "title": "Hubble History",
+            "body": "The Hubble Space Telescope (often referred to as HST or Hubble) is a space telescope that was launched into low Earth orbit in 1990 and remains in operation. It was not the first space telescope, but it is one of the largest and most versatile, renowned both as a vital research tool and as a public relations boon for astronomy. The Hubble telescope is named after astronomer Edwin Hubble and is one of NASA's Great Observatories, along with the Compton Gamma Ray Observatory (1991–2000), the Chandra X-ray Observatory, and the Spitzer Space Telescope (2003–2020).[7] The Space Telescope Science Institute (STScI) selects Hubble's targets and processes the resulting data, while the Goddard Space Flight Center (GSFC) controls the spacecraft.  Hubble features a 2.4 m (7 ft 10 in) mirror, and its five main instruments observe in the ultraviolet, visible, and near-infrared regions of the electromagnetic spectrum. Hubble's orbit outside the distortion of atmosphere of Earth allows it to capture extremely high-resolution images with substantially lower background light than ground-based telescopes.",
+            "date": "24 January 2021"
+        },
+        {
+            "title": "Equipment",
+            "body": "A basic deep-sky astrophotography equipment setup typically includes an equatorial mount, telescope, camera, autoguiding system, and a slew of additional accessories required to run the camera throughout the night. My personal astrophotography equipment profile has evolved substantially over the years, (and yours may too). While all pieces of the puzzle must unite for a successful deep sky image, the undeniable foundation of it all is the equatorial telescope mount. When it comes to astrophotography, it’s the telescope mount that must accurately track the apparent movement of the night sky. This is often the first step beginners take when building their first deep-sky astrophotography rig, and an important one. Choosing a telescope well-suited for astrophotography using either a DSLR or a dedicated astronomy camera is next, and there are many different types and models to choose from. For the best results early on, I recommend an apochromatic refractor telescope, as they are compact, lightweight, and capable of superb deep-sky images.",
+            "date": "21 August 2021"
+        },
+        {
+            "title": "How To",
+            "body": "The night sky can be the ultimate canvas for a photographer — there’s something magnetic about it that keeps people looking up at the stars. With the right equipment and knowledge, you can take gorgeous pictures of everything from star clusters to the new moon, joining your fellow astrophotographers in mapping out deep space. Before you set out on any photography venture, define your intentions. What kinds of photos do you want to take? Do you have the equipment and knowledge to do it? Explore these possibilities to discover which ones seem most interesting to you. Light painting is a popular technique that many photographers use to great effect, and not just with the night sky. Light paintings are long exposures that cause points of light to blur and travel, creating interesting photographs that are scribbled with light. Many astrophotographers use this method to capture the rotation of the Earth through the movement of the points of light of the stars. Using a telescope, you can take truly spectacular images of celestial bodies. This style of photography requires a bit more equipment than your standard photo adventure.",
+            "date": "19 August 2021"
+        }
+    ]
+}
