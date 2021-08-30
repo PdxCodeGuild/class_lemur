@@ -46,34 +46,9 @@
                 <p>{{ post['body'] }}</p>
                 <p>Submitted by: Author: {{ post['author'] }}</p>
             </div>
-            <p>{{ post['image'] }}</p>
-
-            <!-- <img src="static/images/good.jpeg" alt="Good Coffee"/> -->
-        </article>
-
-        <article>
-            <div id="second">
-                <h3>Title: {{ post['title'] }}</h3>
-                <p>{{ post['body'] }}</p>
-                <p>Submitted by: Author: {{ post['author'] }}</p>
-
-            </div>
-            <p>{{ post['image'] }}</p>
-
-            <!-- <img src="static/images/case.jpeg" alt="Case Study"/> -->
-
-        </article>
-        
-        <article>
-            <div id=third>
-                <h3>Title: {{ post['title'] }}</h3>
-                <p>{{ post['body'] }}</p>
-                <p>Submitted by: Author: {{ post['author'] }}</p>
-
-            </div>
-            <p>{{ post['image'] }}</p>
-
-            <!-- <img src="static/images/coava.jpeg" alt="Coava"/> -->
+            
+            <img src="{{ post['image'] }}" alt="coffee shops" />
+            
         </article>
 
         {% endfor %}
