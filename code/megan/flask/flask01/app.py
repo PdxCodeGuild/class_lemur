@@ -17,7 +17,7 @@ def password_generator(password):
 
     all = alphabet + digits + punctuation
 
-    control = 0 
+    control = 0   
     user_password = []
 
 

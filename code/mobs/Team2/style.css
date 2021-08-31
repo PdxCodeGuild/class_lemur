@@ -1,0 +1,23 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+main img {
+    width: 40vw;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.842);
+    color: white;
+}
+
+footer{
+    background-color: rgba(0, 0, 0, 0.842);
+    color: white;
+}
+footer img{
+    width: 10vw;
+}
