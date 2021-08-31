@@ -81,12 +81,46 @@ i {
     padding: 15px;
 }
 
+.btn-outline-secondary {
+   margin: 0px 20px 20px 20px;
+   background-color: white;
+   border: 2px solid #FA6400;
+}
 
-#lovely {
-    width: 100px;
-    height: 100px;
+.btn-outline-secondary:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
 }
 
 footer {
-    padding-left: 20px;
+    padding: 20px 30px;
 }
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FA6400;
+}
+
+@media (min-width: 576px) {
+#tiptop {
+        height: 30px;
+}
+
+.nav {
+    height: 75px;
+}
+
+.col-image {
+   padding-top: 40px;
+}
+
+	
+/* @media (min-width: 768px) {
+
+
+} */
