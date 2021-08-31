@@ -100,7 +100,7 @@ while loop_control == True:
 
 contacts = str(contacts)
 
-final_list = ''.join(contacts)
+# final_list = ''.join(contacts)
 
 with open(file_path_2, 'w') as file:
-        file.write(final_list)
+        file.write(contacts).split('\n')
