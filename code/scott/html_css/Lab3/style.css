@@ -1,28 +1,34 @@
-body{
+body {
     background-color: #A91B60;
-    font-family: 'Righteous', cursive;
+    font-family     : 'Righteous', cursive;
 }
 
-nav{
+nav {
     background-color: #EBE0D0;
-    font-size: xx-large;
+    font-size       : xx-large;
 }
 
-#break{
-    background-color: #EBE0D0;
+#break {
+    background-color: #FF0080;
 }
-h1{
+
+h1 {
     font-size: 50px;
+    color: #EBE0D0;
 }
 
-h2{
+h2 {
     font-size: x-large;
+    color: #EBE0D0;
 }
 
-h3{
+h3 {
     font-size: large;
+    color: #EBE0D0;
 }
 
-#main-img {
-    width: 30vw;
+#sup-img {
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
 }
