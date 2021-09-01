@@ -27,6 +27,7 @@ header > * {
 
 table {
 	width: 75%;
+	/* border-collapse: collapse; will make the borders of the table cells all line up */
 	border-collapse: collapse;
 }
 
@@ -56,12 +57,18 @@ table, th, td {
 	border: 1px solid aquamarine;
 	/* box-shadow: x-offset y-offset blur-radius color; */
 	box-shadow: -15px -15px 10px aquamarine;
+	/* x-offset: what amount is the horizontal offset
+	y-offset: what amount is the vertical offset
+	blur-radius: how blurry is the shadow? the higher the value here, the blurrier it will be
+	color: what css color will the shadow be */
 }
 
 #text-shadow-container > figure {
+	/* text-shadow works much like border shadow, only on the text instead of the element's border */
 	text-shadow: 2px 2px 5px;
 }
 
+/* the :hover pseudo selector will apply this styling when the cursor is hovering over the element */
 #button-1:hover {
 	color: red;
 	font-size: xx-large;
@@ -69,6 +76,7 @@ table, th, td {
 }
 
 #button-1 {
+	/* transition-duration is how long a transition (for instance between hovering and not hovering) will last */
 	transition-duration: 5s;
 }
 
@@ -78,6 +86,7 @@ table, th, td {
 	border-radius: 2px;
 	padding: 2px;
 	color: black;
+	/* be careful with long transition-duration times, you generally want them to be quick */
 	transition-duration: .25s;
 }
 
@@ -85,28 +94,36 @@ table, th, td {
 	background-color: chartreuse;
 }
 
+/* use the @keyframes keyword to declare an animations */
+@keyframes spin {
+	/* where does the animation start */
+	from {
+		transform: rotate(0deg);
+	}
+	/* where does the animation end */
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 #square {
 	width: 200px;
 	height: 200px;
 	background-color: goldenrod;
-	animation-duration: 3s;
+
+	/* the @keyframes-declared spin animation is used for animation-name */
 	animation-name: spin;
+	/* how long the animation will take */
+	animation-duration: 3s;
+	/* animation-iteration-count is how many times the animation runs */
 	animation-iteration-count: infinite;
+	/* animation-timing-function is ease-in-out by default, it determines at what rate the animation moves through
+	the different animated properites.  a linear animation always animates at the same rate */
 	animation-timing-function: linear;
 }
 
 body {
 	padding-bottom: 5rem;
-}
-
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
 }
 
 i {

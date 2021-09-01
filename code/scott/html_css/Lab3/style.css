@@ -1,9 +1,28 @@
 body{
     background-color: #A91B60;
+    font-family: 'Righteous', cursive;
 }
 
 nav{
     background-color: #EBE0D0;
-    font-family: 'Righteous', cursive;
     font-size: xx-large;
+}
+
+#break{
+    background-color: #EBE0D0;
+}
+h1{
+    font-size: 50px;
+}
+
+h2{
+    font-size: x-large;
+}
+
+h3{
+    font-size: large;
+}
+
+#main-img {
+    width: 30vw;
 }
