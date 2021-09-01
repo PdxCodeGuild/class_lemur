@@ -3,9 +3,9 @@
 # Lab 06: Burrito Order Form
 
 
-Let's create a burrito order form with the following input controls. Try to incorporate some images and semantic elements. Below are some recommended fields, feel free to use your own. You may draw some inspiration from [this image](burrito-order-form.png). 
+Create a Flask app that serves a burrito order form template with the following inputs. Try to incorporate some images and semantic elements. Below are some recommended fields, feel free to use your own.
 
-Once you have your page together, use link at https://webhook.site/ to create a temporary endpoint. Add the attributes `action="your-url-here"` and `method="post"` to your form. Then fill out your form and submit the data. You should see an "ok" response. You can then check your bin and look at the request's body. Make sure all the relevant data is present to ensure your form is working.
+The input elements should all be inside a `<form>` element with `action="/"` and `method="POST"` attributes.  Feel free to change things up a bit (i.e.: use a `<select>` dropdown with `<option>`s instead of radio buttons) but include at least this much data 
 
 - Name (text input)
 - Password (password input)
@@ -30,3 +30,35 @@ Once you have your page together, use link at https://webhook.site/ to create a 
   - Sour Cream
 - Delivery Instructions (textarea)
 
+Use the starter code below if you like.  Only Version 1 (print the order info in the terminal) is required.
+
+```py
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+	if request.method == 'POST':
+		form_data = dict(request.form)
+		print(form_data)
+		# extract the order info from form_data
+
+		# Version 1:
+		# print an order summary in the terminal
+
+		# Version 2 (optional):
+		# render a confirmation page
+		# return render_template('confirmation', confirmation_data=???)
+
+		# Version 3 (optional):
+		# redirect to another view, sending the form_data info along
+		# https://sodocumentation.net/flask/topic/6856/redirect
+		# return redirect(url_for('confirmation', confirmation_data=???))
+
+	return render_template('index.html') # index.html is the template with the form
+
+@app.route('/confirmation/<confirmation_data>/')
+def confirmation(confirmation_data):
+	...
+```

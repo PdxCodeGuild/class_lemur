@@ -1,0 +1,31 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* form {
+	width: 80%;	
+	display: flex;
+	justify-content: space-evenly;
+} */
+
+main {
+	display: grid;
+	grid-template-columns: repeat(19, 1fr);
+	grid-template-rows: repeat(19, 1fr)
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+}
+
+input {
+	margin: 0 10px;
+}
