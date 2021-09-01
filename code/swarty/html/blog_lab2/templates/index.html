@@ -13,9 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
     <!-- remove CSS CRT Border -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{{ url_for('templates', filename='style.css') }}">
 </head>
 <body>
+    <header>
+
+
+    </header>
     <nav>
 
 
@@ -24,18 +28,20 @@
 
     </nav>
     <main>
-    {% for post in posts %}
-        <header>
-
-
-        </header>
-        <section>
-
-
-
-        </section>
-
+    {% for post in posts %}  
+        <article>
+            <h3>{{ post['title'] }}</h3>
+            <p>
+                <div>
+                    <figure>
+                        <img src="{{ post['cat_photo'] }}" alt="kitty kat" />
+                    </figure>
+                    <h6>by <a class="has-text-link" href="#">{{ post['author'] }}</a></h6>
+                </div>
+            </p>
+            <p>{{ post['body'] }}</p>
+        </article>
+    {% endfor %}
     </main>
-
 </body>
 </html>
