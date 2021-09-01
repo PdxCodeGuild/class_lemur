@@ -12,15 +12,13 @@ file1='templates/data.json'
 
 def read_posts():
     with open(file1, 'r') as file:
-        jfile=json.loads(file.read())
-    posts=jfile['posts']
-    return posts
+        posts=json.load(file)
+    return posts.get('posts')
 
 #Write back to JSON as dict
 def write_posts(posts):
-    jfile={'posts': posts}
-    with open(file1, 'w') as file:
-        file.write(json.dumps(jfile, indent=4))
+    with open(posts.json, 'w') as file:
+        json.dump({'posts': posts}, file)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -31,20 +29,19 @@ def index():
     """   
     if request.method == 'POST':
         posts=read_posts()
-        # extract new brand data from request.form
+        # get new post from page and add to dictionary of posts.
         while request.form != posts:
             posts.append(dict(request.form))
-        posts=sorted(posts, key=lambda i:i['Brand'])
+        #posts=sorted(posts, key=lambda i:i['date'])
         print(posts)
         
-        # add new brand dictionary to brands list
+        # write new post dictionary to posts
         write_posts(posts)
-        # car_data = pd.DataFrame(brands).style 
-        # car_data=car_data.hide_index() 
-        # cars=Markup(car_data.to_html(table_uuid='panda'))
-        # return render_template('index.html', cars=cars) # redirect back to the same view, as a GET request
     posts=read_posts()
-    
-    # render index template, passing brands list as a context kwarg
-    # print(car_data)
+    # render index template, passing blog post list as a context kwarg
+    # print(posts)
     return render_template('index.html', posts=posts)
+
+
+
+app.run(debug=True)
