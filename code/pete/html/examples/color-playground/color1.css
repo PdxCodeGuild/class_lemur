@@ -1,9 +1,13 @@
 header {
-	background-color: rebeccapurple;
+	background-color: #C7ABE3;
 }
 
 main {
 	background-color: goldenrod;
+}
+
+article {
+	background-color: yellowgreen;
 }
 
 footer {
