@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Planets</title>
+
+	 <!-- Compiled and minified CSS -->
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	 <!-- Compiled and minified JavaScript -->
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="orange-text text-darken-4">The Sun</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Sun.jpeg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="amber-text text-accent-4">Mercury</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Mercury.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="deep-orange-text text-lighten-2">Venus</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Venus.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="lime-text text-darken-4">Earth</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Earth.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="red-text text-accent-1">Mars</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Mars.jpg"></div>
+	</div>
+	
+	<section class="section center-align grey darken-4">
+		<h1 class="deep-orange-text text-darken-4">Jupiter</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Jupiter.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="lime-text text-lighten-4">Saturn</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Saturn.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="light-blue-text text-lighten-5">Uranus</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Uranus.jpg"></div>
+	</div>
+
+	<section class="section center-align grey darken-4">
+		<h1 class="blue-text text-lighten-4">Neptune</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Neptune.jpg"></div>
+	</div>
+
+
+	<section class="section center-align grey darken-4">
+		<h1 class="amber-text text-lighten-5">Pluto</h1>
+	</section>
+	<div class="parallax-container">
+		<div class="parallax"><img src="images/Pluto.jpg"></div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.parallax')
+			var instances = M.Parallax.init(elems)
+		})
+	</script>
+</body>
+</html>
