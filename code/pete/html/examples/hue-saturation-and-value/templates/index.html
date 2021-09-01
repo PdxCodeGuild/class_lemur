@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hue, Saturation & Value</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" />
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+</head>
+<body>
+	<form action="/" method="POST">
+		<label for="saturation">Saturation (0-100):</label>
+		<input type="number" name="saturation" id="saturation" value="{{ saturation }}">
+		<label for="lightness">Lightness (0-100):</label>
+		<input type="number" name="lightness" id="lightness" value="{{ lightness }}">
+		<button type="submit">Submit</button>
+	</form>
+	<main>
+	{% for hue in hues %}
+		<figure style="background-color: hsl({{ hue }}, {{ saturation }}%, {{ lightness }}%);"></figure>
+	{% endfor %}
+	</main>
+</body>
+</html>
