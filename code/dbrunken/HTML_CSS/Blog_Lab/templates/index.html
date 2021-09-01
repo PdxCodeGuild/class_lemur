@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
 
 
 
@@ -22,6 +23,7 @@
   </header>
   <hr />
   <main>
+    <div id="linear-gradient"></div>
     <div style="padding: 175px">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -33,21 +35,21 @@
         <div class="carousel-item active" data-bs-interval="10000">
           <img src="static/AE86Rari.jpg" class="d-block w-100" alt="AE86Rari">
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ blogs[0].title }}</h5>
+            <h5>{{ blogs[0].title }}</h5><h6> by {{ blogs[0].author}}</h6>
             <p>{{ blogs[0].body }}</p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="10000">
           <img src="static/roninrifle.jpg" class="d-block w-100" alt="roninrifle">
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ blogs[1].title }}</h5>
+            <h5>{{ blogs[1].title }}</h5><h6> by {{ blogs[1].author}}</h6>
             <p>{{ blogs[1].body }}</p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="10000">
           <img src="static/sushi.jpg" class="d-block w-100" alt="sushi">
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ blogs[2].title }}</h5>
+            <h5>{{ blogs[2].title }}</h5><h6> by {{ blogs[2].author}}</h6>
             <p>{{ blogs[2].body }}</p>
           </div>
         </div>
@@ -61,57 +63,6 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
-      <!--<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          {% for blog in blogs %}
-          <div class="carousel-item active mb-5">
-            <article class="row-1" id="Blog-1">
-              <div class="blog-title">
-                <div class='blog-title'>
-                  <h3>{{ blog['title'] }}</h3>
-                </div>
-                <div class="blog-title">
-                  <h5>{{ blog ['author'] }}</h5>
-                </div>
-              </div>
-              <div class="blog-body">
-                <p>{{ blog['body'] }}</p>
-              </div>
-            </article> -->
-              <!-- <div>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non obcaecati et quo asperiores sint alias eaque neque maxime quaerat est dolorem eius quasi sapiente a, at ad officiis. Ipsam, incidunt?
-              </div>
-            <div class="blog-image">
-              <img src="{{ url_for('static', filename=blog['image']) }}" class="d-block w-100" alt="blog image">
-             </div>
-          </div>
-          {% endfor %}
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-        </button>
-      </div>
-    </div> -->
-
-
-
-
-
 
   </main>
 
