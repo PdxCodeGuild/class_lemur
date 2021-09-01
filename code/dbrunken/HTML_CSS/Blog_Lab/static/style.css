@@ -1,0 +1,54 @@
+:root {
+    --olive: #6B8E23;
+    --forest: #003314;
+    --earth: #674422;
+    --stonebrown: #947352;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    background-color: var(--olive);
+    height: 28rem;
+    display: flex;
+    justify-content: center;
+}
+
+#carousel_container {
+    width: 50px;
+}
+
+main {
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+article {
+    background-image: AE86Rari;
+    height: 225px;
+    width: 350px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+article, p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+footer {
+    border: 1px dashed black;
+    padding: 5px;
+}
+
+
+.carousel {
+    border: brown;
+}
