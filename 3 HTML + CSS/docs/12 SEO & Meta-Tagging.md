@@ -81,3 +81,5 @@ Here is a template as well with some of the basics:
 
 </html>
 ```
+
+That covers the `<head>`, as for the `<body>`, the best thing you can do for SEO is to use semantic elements properly.  Here is a great article going in depth on why you should use semantic elements and how best to implement them: [https://www.semrush.com/blog/semantic-html5-guide/](https://www.semrush.com/blog/semantic-html5-guide/)
