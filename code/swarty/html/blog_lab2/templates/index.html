@@ -8,38 +8,43 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Changa:wght@400;700&display=swap" rel="stylesheet">
     <!-- remove CSS CRT Border -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
-	<link rel="stylesheet" href="{{ url_for('templates', filename='style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
+        <div>
+            <h1>
 
+            </h1>
+            <p>
+
+            </p>
+
+        </div>
 
     </header>
     <nav>
-
-
-
-
-
+        <div></div>
+        <a href="#">Editors page</a>
+        </div>
+        <div>
+        <a href="#">Contact</a>
+        </div>
     </nav>
     <main>
     {% for post in posts %}  
         <article>
-            <h3>{{ post['title'] }}</h3>
-            <p>
+            <block>
+                <h3>{{ post['title'] }}</h3>
+                <p id="name">by {{ post['author'] }}</p>
                 <div>
-                    <figure>
-                        <img src="{{ post['cat_photo'] }}" alt="kitty kat" />
-                    </figure>
-                    <h6>by <a class="has-text-link" href="#">{{ post['author'] }}</a></h6>
+                    <img src="static/{{ post['image'] }}" alt= "{{ post['image'] }}">
                 </div>
-            </p>
-            <p>{{ post['body'] }}</p>
+            </block>
+            <!-- <p id="quote">{{ post['body'] }}</p> -->
         </article>
     {% endfor %}
     </main>
