@@ -1,0 +1,21 @@
+* {
+	color: #261111;
+}
+
+header, footer {
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient() */
+	background-image: linear-gradient(to right, #F53D81, #F5E649, #CE31F5, #18F529, #5A25F5);
+}
+
+main {
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient() */
+	background-image: radial-gradient(#F53D81, #F5E649, #CE31F5, #18F529, #5A25F5);
+}
+
+article {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+article * {
+	color: gainsboro;
+}

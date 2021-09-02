@@ -12,6 +12,11 @@
 		integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<link rel="stylesheet" href="style.css">
 </head>
 
@@ -27,8 +32,12 @@
 			</header>
 			<div id="table-container">
 				<table>
+					<!-- The table element is used to display tabular data -->
 					<thead>
+						<!-- the thead element contains the header information -->
 						<tr>
+							<!-- each tr is a row of the table, even the header row -->
+							<!-- each th represents a column header in the table -->
 							<th>Name</th>
 							<th>Cuisine</th>
 							<th>Country</th>
@@ -36,17 +45,20 @@
 						</tr>
 					</thead>
 					<tbody>
+						<!-- the tbody element contains the rows of data -->
 						<tr>
-							<th>Portland</th>
-							<th>Everything</th>
-							<th>USA</th>
-							<th>Temperate</th>
+							<!-- each tr is a row of the table -->
+							<!-- each td is a cell of data in the table -->
+							<td>Portland</td>
+							<td>Everytding</td>
+							<td>USA</td>
+							<td>Temperate</td>
 						</tr>
 						<tr>
-							<th>Detroit</th>
-							<th>Greek</th>
-							<th>USA</th>
-							<th>Temperate</th>
+							<td>Detroit</td>
+							<td>Greek</td>
+							<td>USA</td>
+							<td>Temperate</td>
 						</tr>
 					</tbody>
 				</table>
@@ -58,28 +70,47 @@
 				<h3>Forms</h3>
 			</header>
 			<div id="form-container">
-				<form action="#">
+				<form action="#" method="GET">
+					<!-- a form is a container for submitting data to the backend or elsewhere
+					the form's action attribute is the url to which the request should be submitted
+					th form's method attribute is the method of request that is sent "GET" or "POST" -->
+
+					<!-- the for attribute in the label should match up with the id attribute of the input
+					the name attribute of the input will be the key to the input's value on the backend
+					an input with type="text" is meant for short text inputs, like name or address -->
 					<label for="first_name">First Name</label>
 					<input type="text" name="first_name" id="first_name" />
 					<label for="last_name">Last Name</label>
 					<input type="text" name="last_name" id="last_name" />
 					<br />
+
+					<!-- an input with type="radio" allows one radio button to be selected of each input with the same name attribute
+					the values of these elements are hard-coded into the html, unlike text inputs -->
 					<label for="job">Choose your Job!</label>
 					<label for="instructor">Instructor</label><input type="radio" name="job" value="instructor" id="instructor" />
 					<label for="driver">Driver</label><input type="radio" name="job" value="driver" id="driver" />
 					<label for="hostel-desk">Hostel Desk</label><input type="radio" name="job" value="hostel-desk"
 						id="hostel-desk" />
 					<br />
+
+					<!-- an input with type="checkbox" allows multiple checkbox inputs to be selected -->
 					<label for="skills">Highlight your Skills!</label>
 					<label for="django">Django</label><input type="checkbox" name="skills" value="django" id="django" />
 					<label for="python">Python</label><input type="checkbox" name="skills" value="python" id="python" />
 					<label for="javascript">JavaScript</label><input type="checkbox" name="skills" value="javascript"
 						id="javascript" />
 					<br />
+
+					<!-- an input with type="password" will hide any text typed inside of it -->
 					<label for="secret">Tell me a secret...</label><input type="password" id="secret" />
 					<br />
+
+					<!-- an input with type="tel" is for phone numbers -->
 					<label for="phone">Enter Phone #</label><input type="tel" id="phone" />
 					<br />
+
+					<!-- a select is a special input element with options inside as values
+					it is essentially a dropdown-input -->
 					<label for="computer">Computer</label>
 					<select name="computer" id="computer">
 						<option value="mac">Mac</option>
@@ -88,7 +119,12 @@
 						<option value="alienware">Alienware</option>
 					</select>
 					<br />
+
+					<!-- an input with type="submit" will render as a button to submit the form -->
 					<input type="submit" value="submit" />
+					<!-- alternatively, you could use a button:
+					<button type="submit">submit</button> -->
+
 				</form>
 			</div>
 		</section>
@@ -148,9 +184,28 @@
 
 		<section>
 			<header>
-				<h3>SVGs</h3>
+				<h3>Icons &amp; SVGs</h3>
 			</header>
+			<div id="icon-container">
+				<!-- with font awesome installed by cdn (see the head), i are icon elements used for special symbols
+				font awesome works by giving classes to i elements -->
+				<i class="fas fa-dragon"></i>
+				<i class="fab fa-jedi-order"></i>
+			</div>
 			<div id="svg-container">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+				</svg>
+				<svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
+				</svg>
+				
 			</div>
 		</section>
 

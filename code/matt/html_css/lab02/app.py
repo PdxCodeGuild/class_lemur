@@ -21,8 +21,9 @@ def index():
 
 @app.route('/<name>/')
 def update(name):
-    characters = read_characters(name)
-    return render_template('index.html', characters=characters)
+    if name:
+        characters = read_characters(name)
+        return render_template('index.html', characters=characters)
 
 
 app.run(debug=True)

@@ -1,5 +1,4 @@
 body {
-    @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Sorts+Mill+Goudy&display=swap');
     font-family       : 'Sorts Mill Goudy', serif;
     font-weight       : 200;
     margin            : 0px;
@@ -10,7 +9,6 @@ body {
 }
 .bg{
     background: rgb(252, 251, 254, 0.80);
-    
 }
 #titlebar {
     display        : flex;
