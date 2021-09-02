@@ -169,7 +169,15 @@
                                                 v-if statements don't work like the standard if statements from
                                                 JavaScript and Python. v-if statements are one of two ways we can
                                                 conditionally render a block of code; they're attached to the parent
-                                                element, and they will either render or not render the block of code. We're not writing our own conditions, just checking if the vue data variable is <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy" target="_blank">truthy</a> or <a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsey" target="_blank">falsey</a>. A variable is considered falsey if it is undefined, NaN (not a number), 0, or blank (such as a blank string ""); if the variable equals anything else, it's considered truthy. This
+                                                element, and they will either render or not render the block of code.
+                                                We're not writing our own conditions, just checking if the vue data
+                                                variable is <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy"
+                                                    target="_blank">truthy</a> or <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Glossary/Falsey"
+                                                    target="_blank">falsey</a>. A variable is considered falsey if it is
+                                                undefined, NaN (not a number), 0, or blank (such as a blank string "");
+                                                if the variable equals anything else, it's considered truthy. This
                                                 will help us control when things are rendered, and can help us style our
                                                 output. v-if and v-show are
                                                 extremely similar, and the differences will be explained in the v-show
@@ -184,8 +192,7 @@
                                                     target="_blank">v-if and v-show</a>
                                             </div>
                                             <div>
-                                                <a href=""
-                                                    target="_blank"></a>
+                                                <a href="" target="_blank"></a>
                                             </div>
                                         </div>
                                         <br />
@@ -1037,10 +1044,8 @@
                                             The redFruits list will be used to generate multiple checkboxes.
                                             As the user checks and unchecks boxes, their values will be added and
                                             removed
-                                            accordingly.
-                                            checkedRedFruits:[],
-                                        </p>
-                                        <img src='images/DynamicCheckboxesJs.png'>
+                                            accordingly in the checkedRedFruits list.
+                                            <img src='images/DynamicCheckboxesJs.png'>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -1090,13 +1095,23 @@
                                     </div>
                                     <div class="modal-body text-center">
                                         <p>
-
+                                            These checkboxes are all bound to an empty list, so when the box is checked,
+                                            its value is added to the list. We can see the state of the list as it
+                                            updates below. These checkboxes will appear in a row because they're all
+                                            held within the save div element.Because the checkboxes are being hard-coded
+                                            into the html, we don't need to use v-bind on the value. By iterating over
+                                            the checkedGreenFruits list using v-for, we can see the
+                                            values in the list as we store them. When a box is checked, it's added to
+                                            the list; when it's unchecked, it's removed from the list. v-model is what
+                                            does this magic for us.
                                         </p>
-                                        <img src=''>
+                                        <img src='images/StaticCheckboxesHtml.png'>
                                         <p>
-
+                                            Because the green fruits are hard-coded into the html, we only need a blank
+                                            list to catch the selections. v-model adds and removes the green fruits as
+                                            they're selected.
                                         </p>
-                                        <img src=''>
+                                        <img src='images/StaticCheckboxesJs.png'>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -1143,13 +1158,21 @@
                                 </div>
                                 <div class="modal-body text-center">
                                     <p>
-
+                                        We made a calculate function in the vue app, now we need to use it. It's nearly
+                                        identical to onClick(), only now we say v-on:click='calculate'.
+                                        Since our function is in vue, we need to add v-on so it can communicate with the
+                                        html.
                                     </p>
-                                    <img src=''>
+                                    <img src='images/CalculateHtml.png'>
                                     <p>
-
+                                        these values act just like the others in our data. The only difference is that
+                                        these are used in methods on this particular document. Look at the functions
+                                        below to see how they work. To refer to our data variables, all we have to do is
+                                        add this. before it. Since our functions change the variables being rendered, we
+                                        don't need to return anything (Vue essentially does it for you). So to refer to
+                                        firstNum, we would say this.firstNum.
                                     </p>
-                                    <img src=''>
+                                    <img src='images/CalculateJs.png'>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -1200,11 +1223,11 @@
                                     <p>
 
                                     </p>
-                                    <img src=''>
+                                    <img src='images/TempHtml.png'>
                                     <p>
 
                                     </p>
-                                    <img src=''>
+                                    <img src='images/TempJs.png'>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"

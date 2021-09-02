@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <div id='app'>
+        <div>
+            <h2>Using the calculateTemp Method</h2>
+            <label for='inputTempNum'>
+                <input type='number' id='inputTempNum' v-model='inputTempNum' />
+                °
+            </label>
+            <select v-model='startingUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{ temp }}
+                </option>
+            </select>
+            Converted to:
+            <select v-model='requestedUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{temp}}
+                </option>
+            </select>
+            <button type='button' v-on:click='tempConversion'>Convert</button>
+            {{convertedUnit}}°
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
