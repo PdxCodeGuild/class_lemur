@@ -5,13 +5,10 @@
     </head>
     <body>
         <h1>Smite Characters</h1>
-        <h3>{{characters}}</h3>
-        
-        <p>
-            <a href="/unit-converter/">Click to convert miles to kilometers.</a>
-        </p>
-        <p>
-            <a href="/user-login/">Click to login to the super cool site.</a>
-        </p>
+        {% for character in characters %}
+        <h2>{{character['name']|title}}</h2>
+        <h3>Pantheon:{{character['pantheon']|title}} || Attack:{{character['attack']|title}} || Damage:{{character['damage']|title}} || Class:{{character['class']|title}}</h3>
+        <br>
+        {% endfor %}
     </body>
 </html>
