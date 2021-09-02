@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+
+
+{% for post in posts %}
+
+<h3>Title: {{ post['title'] }}</h3>
+
+<p>Author: {{ post['author'] }}</p>
+<p>{{ post['body'] }}</p>
+<p>{{ post['image'] }}</p>
+<p>Date: {{ post['date'] }}</p>
+
+
+{% endfor %}
