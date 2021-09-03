@@ -17,7 +17,7 @@
         <div>
             <h2>Using the calculateTemp Method</h2>
             <label for='inputTempNum'>
-                <input type='number' id='inputTempNum' v-model='inputTempNum' />
+                <input type='number' id='inputTempNum' v-model='inputTempNum' placeholder="0.0" />
                 °
             </label>
             <select v-model='startingUnit'>
@@ -32,7 +32,7 @@
                 </option>
             </select>
             <button type='button' v-on:click='tempConversion'>Convert</button>
-            {{convertedUnit}}°
+            {{convertedNum}}°
         </div>
     </div>
 

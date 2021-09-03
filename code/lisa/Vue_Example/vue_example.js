@@ -74,7 +74,7 @@ let app = new Vue({
         tempList: ['Farenheit', 'Celsius', 'Kelvin'],
         startingUnit: 'Farenheit',
         requestedUnit: 'Celsius',
-        convertedUnit: '',
+        convertedNum: '',
         inCelsius: '',
 
     },
@@ -91,17 +91,19 @@ let app = new Vue({
                     'Farenheit': ((parseFloat(this.inputTempNum) - 32) * 5 / 9),
                     'Kelvin': (parseFloat(this.inputTempNum) - 273.15),
                     'Celsius': parseFloat(this.inputTempNum)
-                },
-                "toOutput": {
-                    'Farenheit': ((parseFloat(this.inCelsius) * 9 / 5) + 32),
-                    'Kelvin': (parseFloat(this.inCelsius) + 273.15),
-                    'Celsius': parseFloat(this.inCelsius),
                 }
             }
+            let inCelsius = converter['toCelsius'][this.startingUnit]
 
-
-            this.inCelsius = converter['toCelsius'][this.startingUnit]
-            this.convertedUnit = converter['toOutput'][this.requestedUnit]
+            let outputConverter = 
+            {
+                "toOutput": {
+                    'Farenheit': ((parseFloat(inCelsius) * 9 / 5) + 32),
+                    'Kelvin': (parseFloat(inCelsius) + 273.15),
+                    'Celsius': parseFloat(inCelsius),
+                }
+            }
+            this.convertedNum = Math.round(outputConverter['toOutput'][this.requestedUnit] * 10) / 10
 
         }
 
