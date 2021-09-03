@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Page</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Changa:wght@400;700&display=swap" rel="stylesheet">
+    <!-- remove CSS CRT Border -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+	<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>
+
+            </h1>
+            <p>
+
+            </p>
+
+        </div>
+
+    </header>
+    <nav>
+        <div></div>
+        <a href="{{ url_for('index')}}">Readers View</a>
+        </div>
+        <div>
+        <a href="#">Contact</a>
+        </div>
+    </nav>
+    <form action="/blog-editor" method="POST">
+		<label for="author">Author:</label>
+		<input type="text" name="author" id="author" value="{{ 'author' }}">
+		<label for="title">Title:</label>
+		<input type="text" name="title" id="title" value="{{ 'title' }}">
+        <label for="body">What would you like to say?</label>
+        <textarea id="body" name="body" value="{{ 'body'}}"> Blog Text</textarea>
+		<button type="submit">Submit</button>
+	</form>
+    <main>
+    {% for post in posts %}  
+        <article>
+            <block>
+                <h3>{{ post['title'] }}</h3>
+                <p id="name">by {{ post['author'] }}</p>
+                <div>
+                    <img src="static/{{ post['image'] }}" alt= "{{ post['image'] }}">
+                </div>
+            </block>
+            <!-- <p id="quote">{{ post['body'] }}</p> -->
+        </article>
+    {% endfor %}
+    </main>
+</body>
+</html>
