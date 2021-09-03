@@ -1,0 +1,27 @@
+section {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    color: black ;
+    text-shadow: 2px 1px whitesmoke;
+
+}
+body{
+    background-color: #555358;
+    
+}
+
+.nav-item{
+    background-color: #555358;
+}
+
+.nav-link{
+    color:#E56B6F;
+    text-decoration:solid;
+    font-style: oblique;
+}
+
+.container{
+    background-color: #ACC8E5;
+    /* padding-right: 10%; */
+} 
+
