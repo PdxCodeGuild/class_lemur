@@ -307,7 +307,8 @@
                                         <a class="nav-link" href="#item-3">Three Main Stations</a>
                                         <nav class="nav nav-pills flex-column">
                                             <a class="nav-link ms-3 my-1" href="#item-3-1">HTML Station</a>
-                                            <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+                                            <a class="nav-link ms-3 my-1" href="#item-3-2">Data Station</a>
+                                            <a class="nav-link ms-3 my-1" href="#item-3-3">Methods Station</a>
                                         </nav>
                                     </nav>
                                 </nav>
@@ -329,20 +330,22 @@
                                     <p>To make Vue and the html work together, we'll have three stations that we can
                                         focus on initially. There will be more later on, but this is all we need to get
                                         started. These stations are the html page, the data section of Vue, and the
-                                        methods section of Vue. </p>
+                                        methods section of Vue. You don't have to start at any particular station, and you don't have to finish one to start another. </p>
 
                                     <h5 id="item-3-1">HTML Station</h5>
                                     <p>In our html station, we're building our visual display. We'll want to think about
-                                        our inputs and outputs, forms, buttons, and how we'll ultimately want them to
+                                        our input types (text, number, email, radio, select, checkbox, etc.), outputs, forms, buttons, and how we'll ultimately want them to
                                         react to user input. Look through the 'Vue HTML' section to see the most
                                         common Vue-specific html elements. </p>
                                     <img src='images/CalculateHtml.png' />
 
                                     <h5 id="item-3-2">Data Station</h5>
-                                    <p></p>
-                                    <img src="images/userNameTextJs.png" />
-                                    <h5 id="item-3-3">Item 3-2</h5>
-                                    <p></p>
+                                    <p>We can think of the data station as real-time storage locker that we can access from anywhere in our html and vue pages. The data station is an object full of key/value pairs that will keep track of the state of all of our data. The key will be a data variable, and just like any other variable in programming, we'll name it based on what it's keeping track of. The value will establish both the data type, and the current state of our key; it can be left blank, or a value can be hard-coded into it. Here, we'll want to think about what data types we need for our input/output (arrays, numbers, strings, objects, etc.), as well as the initial value.  </p>
+                                    <img src="images/dataStation.png" />
+
+                                    <h5 id="item-3-3">Methods Station</h5>
+                                    <p>Here at the methods station, we can start writing functions to use in our app. None of these functions will run until they're called, and we can do that in a few different ways. We can call one function inside another right here in the methods, or use v-on to trigger the function after an event (such as a click). In the advanced topics section, we'll look at Vue's lifecycle hooks, which can also call a function from methods. We'll want to think about how data needs to be able to move, and how we'll add that functionality to it. We can use any variable from the data station as long as we add this. to it first.  </p>
+                                    <img src='images/methodStation.png' />
                                 </div>
 
                             </div>
@@ -1199,7 +1202,7 @@
                             </option>
                         </select>
                         <button type='button' v-on:click='tempConversion'>Convert</button>
-                        {{convertedUnit}}°
+                        {{convertedNum}}°
                     </div>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
