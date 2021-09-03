@@ -1,0 +1,110 @@
+:root {
+	--yellow: #C49E85;
+	--peach: #FFD6AF;
+	--bluish: #BC9CB0;
+	--bgc: #553C16;
+	--gray: #5E747F;
+}
+body {
+	background-color: var(--bgc);
+	font-family: 'Acme', sans-serif;
+}
+nav {
+	height: 100%; /* 100% Full-height */
+	width: 120px; /* 0 width - change this with JavaScript */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: #111; /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 60px; /* Place content 60px from the top */
+  }
+main {
+	/* 80% the height of the viewport */
+	width:80vw;
+	height: 80vh;
+	margin-left: 20vw;
+	/* display: flex makes main a flex container */
+	display: flex;
+	/* flex-wrap determines how (and whether) elements wrap
+	around to the next line */
+	flex-wrap: wrap;
+	/* flex-direction: row (left to right) is the default
+	flex-direction: column is top to bottom */
+	/* flex-direction: column; */ 
+	padding:20px;
+	/* justify content controls the spacing of main's flex
+	children along the main (horizontal, in this case) axis
+	space-evenly leaves even spacing along the axis*/
+	justify-content: space-between;
+}
+article {
+	background-color: var(--peach);
+	height:450px;
+	max-width: 300px;
+	min-width: 275px;
+	margin: 15px;
+	border-radius: 15px;
+	/* flex stuff */
+	display: flex;
+	flex-direction: column;
+	/* align-items:center; */
+}
+/* use multiplie selectors with commas */
+h1, a, h3, p{
+	color: var(--gray);
+	max-width: 20vw;
+}
+li{
+	color: #66697a;
+}
+p {
+	padding-left: 50px;
+	text-align: center;
+}
+#quote{
+    color: var(--gray);
+    font-family: 'Changa', sans-serif;
+	font-weight:400;
+    font-size: 2.5em;
+}
+#name{
+    color: var(--gray);
+    font-family:'Changa', sans-serif;
+	font-weight:700;
+    font-size: 1em;
+    text-align: right;
+    padding-right: 20%;
+}
+
+h3 {
+	margin-left: 25px;
+	padding-left: 25px;
+}
+
+div {
+	margin: 0 auto;
+}
+
+img {
+    display: block;
+	width: 250px;
+    /* border-radius: 150px; */
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+a { 
+    margin-left: 10px;
+	color: #34ebba;
+	word-wrap: normal;
+}
+
+a:visited {
+    margin-left: 25px;
+	padding-left: 25px;
+	color: #77cae6;
+}
