@@ -1,0 +1,23 @@
+{
+    "blogs": [
+        {
+            "title": "Cars",
+            "author": "Yours Truly",
+            "body": "Cars are good! Cars are good! Cars are good! and stuff!",
+            "image": "AE86Rari.jpg"
+        },
+        {
+            "title": "Pew-Pews",
+            "author": "Yours Truly",
+            "body": "I make boomsticks go pew. They make loud noises.",
+            "image": "roninrifle.jpg"
+        },
+        {
+            "title": "Nom nom",
+            "author": "Yours Truly",
+            "body": "Just a simple Hungarian man who loves all the delicious things God has made for us.",
+            "image": "sushi.jpg"
+        }
+    ]
+}
+
