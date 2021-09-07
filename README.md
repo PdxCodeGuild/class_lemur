@@ -45,11 +45,13 @@ Presentation Day: November 5th, 2021
 * [Lab 01 Bio](3%20HTML%20+%20CSS/labs/01%20Bio.md)
 * [Lab 02 Blog](3%20HTML%20+%20CSS/labs/02%20Blog.md)
 * [Lab 03 Company](3%20HTML%20+%20CSS/labs/03%20Company.md)
+* [Lab 04 Company](3%20HTML%20+%20CSS/labs/04%20Mob%20Class%20Mascot.md)
+* [Lab 05 Personal Portfolio](3%20HTML%20+%20CSS/labs/05%20Personal%20Portfolio.md)
 
 
 #### Optional HTML/CSS/Flask Labs
 
-[Flask Redo](3%20HTML%20+%20CSS/labs/Optional%20Flask%20Redo.md)
+[Flask Redo](3%20HTML%20+%20CSS/labs/Optional%20Flask%20Redo.md), [Burrito Order Form](3%20HTML%20+%20CSS/labs/Optional%20Burrito%20Order%20Form.md)
 
 
 ## Flask Labs Assigned:
