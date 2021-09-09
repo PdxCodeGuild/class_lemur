@@ -5,13 +5,10 @@ from .models import GroceryItem
 
 def index(request): 
 
-    myinstances = GroceryItem.objects.all()
-
     context = {
-        'myinstances': myinstances,
-        'completed_list' : GroceryItem.objects.filter(incomplete=False),
-        'incomplete_list' : GroceryItem.objects.filter(incomplete=True)
-
+        'all_items': GroceryItem.objects.all(),
+        'completed_list' : GroceryItem.objects.filter(complete=True),
+        'incomplete_list' : GroceryItem.objects.filter(complete=False)
     }
 
     return render(request, 'myapp/index.html', context)
@@ -24,15 +21,19 @@ def new_item(request):
     return HttpResponseRedirect(reverse('myapp:index'))
 
 
-def complete(request, id):
-# 	  use the id to get the object from the database
-# 	  change its completed attribute to False
-#     save it 
-#     return HttpResponseRedirect(reverse('myapp:index'))
-    ...
+def completed_item(request, id):
+    item = request.POST['id']
+    completed = GroceryItem.objects.get(id=id)
+    completed.completed = True
+    completed.save()
+
+    return HttpResponseRedirect(reverse('myapp:index'))
+
 	
-def delete(request, id):
-	# use the id to get the object from the database
-	# delete it
-	# redirect back to the home page
-	...
+def delete_item(request, id):
+    item = request.POST['id']
+    items = GroceryItem.objects.get(id=id)
+    items.delete()
+
+    return HttpResponseRedirect(reverse('myapp:index'))
+

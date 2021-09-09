@@ -2,39 +2,90 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Grocery List</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
   </head>
   <body>
 
-    <h1 style="text-decoration: underline;">Grocery List</h1>
-    <!-- <ul>
-        {% for myinstance in myinstances %}
-        <li style="list-style-type: none;">
-            <input type="checkbox" name="item" id="item">{{ myinstance.item }}
-        </li>
-        {% endfor %}
-    </ul> -->
+    <h1 class="title">Grocery List</h1>
+    
+    
+    <section class="section">
+        <table class="table is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Completed</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
 
-    <h2>Complete:</h2>
-    <ul>
-        {% for complete in completed_list %}
-        <li>
-            {{ complete.item }}
-        </li>
-        {% endfor %}
-    </ul>
+            {% for grocery_item in all_items %}
+                <tr>
+                    <td>
+                        {% if grocery_item.complete == True %}
+                            <span style="text-decoration: line-through">{{ grocery_item.item }}</span>
+                        {% else %}
+                            {{ grocery_item.item }}
+                        {% endif %}
+                    </td>
+                    <td> 
+                        {% if grocery_item.complete == True %}
+                         <!-- {{ grocery_item.complete }}  -->
+                        Yes
+                        {% else %}
+                            <!-- <input type="checkbox" />  {{ grocery_item.complete }} -->
+                            <form action="{% url 'myapp:completed_item' grocery_item.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" id="id" name="id">Mark as completed</button>
+                            </form>
+                        {% endif %}
+                     </td>
+                    <td>
+                        <form action="{% url 'myapp:delete_item' grocery_item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" id="id" name="id">Remove item</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
 
+
+
+        </table>
+    </section>
+
+<!-- 
     <h2>Incomplete:</h2>
     <ul>
         {% for incomplete in incomplete_list %}
         <li style="list-style-type: none;">
             <input type="checkbox" />
-            {{ incomplete.item }}
+            {{ incomplete.item }} - {{ incomplete.incomplete }}
+            
         </li>
         {% endfor %}
         <br>
-        <button type="submit">Submit</button>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Submit</button>
+        </form>
     </ul>
+
+    <h2>Complete:</h2>
+    <ul>
+        {% for complete in completed_list %}
+        <li style="list-style-type: none;">
+            <input type="checkbox"/>
+            {{ complete.item }} - {{ complete.incomplete }}
+        </li>
+        {% endfor %}
+
+    </ul> -->
+
+    <section class="section">
 
     <h3>Add item:</h3>
     <form action="{% url 'myapp:new_item' %}" method="POST">
@@ -42,6 +93,8 @@
         <input type="text" name="item" /> 
         <button type="submit">Submit</button>
     </form>
+
+    </section>
 
   </body>
 </html>
