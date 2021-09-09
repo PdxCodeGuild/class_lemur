@@ -28,17 +28,18 @@ Presentation Day: November 5th, 2021
 
 
 
-#### Optional JavaScript Labs
+#### Optional JavaScript Labs -->
 
  
 
 ## Django Labs Assigned:
 
- 
+ * [Lab 00 Polls](4%20Django/labs/00%20Polls.md)
+ * [Lab 01 Grocery List](4%20Django/labs/01%20Grocery%20List.md)
 
-#### Optional Django Labs -->
+#### Optional Django Labs  
 
-
+[URL Shortener](4%20Django/labs/02%20URL%20Shortener.md)
 
 ## HTML/CSS Labs Assigned:
 
@@ -81,7 +82,7 @@ Presentation Day: November 5th, 2021
 * [Lab 17 Quotes API](1%20Python/labs/17%20Quotes%20API.md)
 * [Lab 18 Mini-Capstone](1%20Python/labs/../../1%20Python/labs/18%20Mini-Capstone.md)
 
-#### Suggested Optional Python Labs
+#### Optional Python Labs
 
 [Count Words](1%20Python/labs/count_words.md), [Grading](1%20Python/labs/grading.md), [Guess The Number](1%20Python/labs/guess_the_number.md), [LCR](1%20Python/labs/LCR.md), [Mad Libs](1%20Python/labs/madlib.md), [Magic 8 Ball](1%20Python/labs/magic_8_ball.md), [Rain Data](1%20Python/labs/rain_data.md), [Random Emoticon Generator](1%20Python/labs/random_emoticon_generator.md), [Random Password Generator](1%20Python/labs/random_password.md), [Road Trip](1%20Python/labs/road_trip.md), [Rock, Paper, Scissors](1%20Python/labs/rock_paper_scissors.md), [Simple Calculator](1%20Python/labs/simple_calculator.md), [Sock Sorter](1%20Python/labs/sock_sorter.md), [Stack And Linked List](1%20Python/labs/stack_and_linked_list.md), [Unit Converter](1%20Python/labs/unit_converter.md)
 
