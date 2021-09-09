@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="Grocery List" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+    <hr />
+    <h3>Items to Purchase</h3>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Date Added</th>
+        <th>Purchased?</th>
+      </tr>
+      {% for item in items %}
+      <tr>
+        <td>{{item.item|title}}</td>
+        <td>{{item.date_added}}</td>
+        <td>{{item.cleared}}</td>
+        <td>{% include 'delete_item.html' %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <h3>Items Already Purchased</h3>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Date Purchased</th>
+        <th>Purchased?</th>
+      </tr>
+      {% for item in items %}
+      <tr>
+        <td>{{item.item|title}}</td>
+        <td>{{item.date_bought}}</td>
+        <td>{{item.cleared}}</td>
+        <td>{% include 'delete_item.html' %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% include 'item_form.html' %}
+    <footer>{% include 'footer.html' %}</footer>
+  </body>
+</html>
