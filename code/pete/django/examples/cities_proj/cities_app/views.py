@@ -1,7 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 
+from random import choice, random
+
 from .models import City
+
+
+def random_color():
+    return choice([
+        'gray',
+        'red',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'purple',
+        'pink',
+    ])
 
 # @app.index('/', methods=['GET', 'POST']) the decorator you would use if this was flask
 def index(request):
@@ -45,7 +60,8 @@ def index(request):
 def city(request, slug): # the id comes from <int:id> in the urlpatterns in urls.py
     # city = City.objects.get(slug=slug)
     city = get_object_or_404(City, slug=slug) # prevents django from crashing if the object does not exist
-    return render(request, 'cities_app/city.html', {'city': city})
+    color = random_color()
+    return render(request, 'cities_app/city.html', {'city': city, 'color': color})
 
 def update_city(request, slug): # the id comes from <int:id> in the urlpatterns in urls.py
     city = get_object_or_404(City, slug=slug) # prevents django from crashing if the object does not exist
