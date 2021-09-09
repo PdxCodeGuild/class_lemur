@@ -34,10 +34,6 @@ def index(request):
 	# the return line will render the template
 	return render(request, 'list_app/index.html', context)
 
-"""
-Note: there are multiple ways to complete/delete GroceryItems
-The following is just a suggestion
-"""
 
 def complete(request, id):
 	# use the id to get the object from the database

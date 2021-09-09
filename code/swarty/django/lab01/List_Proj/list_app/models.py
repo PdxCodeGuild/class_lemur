@@ -7,5 +7,6 @@ class GroceryItem(models.Model):
     list_text = models.CharField(max_length=200)
     creat_date = models.DateTimeField('date created')
     comp_date=models.DateTimeField('date completed')
+    completed=models.BooleanField()
     def __str__(self):
         return self.list_title
