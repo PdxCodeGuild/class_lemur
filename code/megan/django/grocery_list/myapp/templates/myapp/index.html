@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1 style="text-decoration: underline;">Grocery List</h1>
+    <!-- <ul>
+        {% for myinstance in myinstances %}
+        <li style="list-style-type: none;">
+            <input type="checkbox" name="item" id="item">{{ myinstance.item }}
+        </li>
+        {% endfor %}
+    </ul> -->
+
+    <h2>Complete:</h2>
+    <ul>
+        {% for complete in completed_list %}
+        <li>
+            {{ complete.item }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Incomplete:</h2>
+    <ul>
+        {% for incomplete in incomplete_list %}
+        <li style="list-style-type: none;">
+            <input type="checkbox" />
+            {{ incomplete.item }}
+        </li>
+        {% endfor %}
+        <br>
+        <button type="submit">Submit</button>
+    </ul>
+
+    <h3>Add item:</h3>
+    <form action="{% url 'myapp:new_item' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="item" /> 
+        <button type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>
