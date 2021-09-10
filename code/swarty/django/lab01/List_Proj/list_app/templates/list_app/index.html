@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    {% load static %}
+{% extends 'list_app/base.html' %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'list_app/style.css' %}">
-    <title>Polls</title>
-  </head>
-  <body>
+{% block content %}
+
+  
+  <main>
     {% if grocery_list %}
     <ul>
     {% for item in incomplete_list %}
-    <li><a href="{% url 'list_app:detail' question.id %}">{{ question.question_text }}</a></li>
+    <li><a href="{% url 'list_app:list_item' grocery_list.id %}">{{ grocery_list.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No items on list.</p>
 {% endif %}
-  </body>
-</html>
+  </main>
+
+{% endblock %}

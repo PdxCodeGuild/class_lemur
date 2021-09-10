@@ -36,14 +36,19 @@ def index(request):
 
 
 def complete(request, id):
+    return render(request, 'list_app/index.html')
 	# use the id to get the object from the database
 	# change it's completed attribute to True
 	# save it
 	# redirect back to the home page
-	...
 
 def delete(request, id):
+    grocery_list = GroceryItem.objects.all() # get all the GroceryItems
+    completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
+    incomplete_list = GroceryItem.objects.filter(completed=False) # get the incomplete GroceryItems
+    context = {'grocery_list': grocery_list} # the context dictionary will have all the objects
+    return render(request, 'list_app/delete.html', context)
 	# use the id to get the object from the database
 	# delete it
 	# redirect back to the home page
-	...
+	
