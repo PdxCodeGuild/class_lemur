@@ -9,11 +9,11 @@
   </head>
   <body>
     <main class="m-5">
-    <h1 class="title is-2">Grocery List</h1>
+    <h1 class="container title is-2">Grocery List</h1>
     
     
     <section class="section">
-        <table class="table is-hoverable is-fullwidth">
+        <table class="table is-hoverable is-fullwidth is-striped">
             <thead>
             <tr>
                 <th>Item</th>
@@ -37,7 +37,7 @@
                         {% else %}
                             <form action="{% url 'myapp:completed_item' grocery_item.id %}" method="POST">
                                 {% csrf_token %}
-                                <button type="submit" id="id" name="id">Mark as completed</button>
+                                <button type="submit" id="id" name="id" class="has-background-black-ter has-text-light">Mark as completed</button>
                             </form>
 
                         {% endif %}  
@@ -46,7 +46,7 @@
                     <td>
                         <form action="{% url 'myapp:delete_item' grocery_item.id %}" method="POST">
                             {% csrf_token %}
-                            <button type="submit" id="id" name="id">Remove item</button>
+                            <button type="submit" id="id" name="id" class="has-background-black-ter has-text-light">Remove item</button>
                         </form>
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
         </table>
         </section>
         
-    <section>
+    <section class="container mt-5">
 
         <h3>Add item:</h3>
         <form action="{% url 'myapp:new_item' %}" method="POST">
