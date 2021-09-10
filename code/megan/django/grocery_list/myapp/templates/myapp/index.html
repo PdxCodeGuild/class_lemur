@@ -8,8 +8,8 @@
 
   </head>
   <body>
-
-    <h1 class="title">Grocery List</h1>
+    <main class="m-5">
+    <h1 class="title is-2">Grocery List</h1>
     
     
     <section class="section">
@@ -17,7 +17,7 @@
             <thead>
             <tr>
                 <th>Item</th>
-                <th>Completed</th>
+                <th></th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -33,16 +33,16 @@
                     </td>
                     <td> 
                         {% if grocery_item.complete == True %}
-                         <!-- {{ grocery_item.complete }}  -->
-                        Yes
+                        <!-- Yes -->
                         {% else %}
-                            <!-- <input type="checkbox" />  {{ grocery_item.complete }} -->
                             <form action="{% url 'myapp:completed_item' grocery_item.id %}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" id="id" name="id">Mark as completed</button>
                             </form>
-                        {% endif %}
-                     </td>
+
+                        {% endif %}  
+                       
+                    </td>
                     <td>
                         <form action="{% url 'myapp:delete_item' grocery_item.id %}" method="POST">
                             {% csrf_token %}
@@ -51,50 +51,19 @@
                     </td>
                 </tr>
             {% endfor %}
-
-
-
         </table>
-    </section>
+        </section>
+        
+    <section>
 
-<!-- 
-    <h2>Incomplete:</h2>
-    <ul>
-        {% for incomplete in incomplete_list %}
-        <li style="list-style-type: none;">
-            <input type="checkbox" />
-            {{ incomplete.item }} - {{ incomplete.incomplete }}
-            
-        </li>
-        {% endfor %}
-        <br>
-        <form method="POST">
+        <h3>Add item:</h3>
+        <form action="{% url 'myapp:new_item' %}" method="POST">
             {% csrf_token %}
+            <input type="text" name="item" /> 
             <button type="submit">Submit</button>
         </form>
-    </ul>
-
-    <h2>Complete:</h2>
-    <ul>
-        {% for complete in completed_list %}
-        <li style="list-style-type: none;">
-            <input type="checkbox"/>
-            {{ complete.item }} - {{ complete.incomplete }}
-        </li>
-        {% endfor %}
-
-    </ul> -->
-
-    <section class="section">
-
-    <h3>Add item:</h3>
-    <form action="{% url 'myapp:new_item' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" name="item" /> 
-        <button type="submit">Submit</button>
-    </form>
 
     </section>
-
+    </main>
   </body>
 </html>

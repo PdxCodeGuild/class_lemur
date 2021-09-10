@@ -24,7 +24,9 @@ def new_item(request):
 def completed_item(request, id):
     item = request.POST['id']
     completed = GroceryItem.objects.get(id=id)
-    completed.completed = True
+    completed.complete = True
+    print("You've marked this as completed")
+
     completed.save()
 
     return HttpResponseRedirect(reverse('myapp:index'))
