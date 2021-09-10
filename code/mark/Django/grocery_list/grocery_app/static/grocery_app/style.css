@@ -1,0 +1,32 @@
+body {
+    /* background-image: url("grocery_getter.jpg"); */
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --dark-blue: #1B3C59;
+    --light-blue: #B0BFB5;
+    --light-yellow: #F2D5BB;
+    --light-pink: #F2A999;
+    --orange-pink: #F28177;
+}
+
+.dark-blue {
+    background-color: var(--dark-blue);
+}
+
+.light-blue {
+    background-color: var(--light-blue);
+}
+
+.light-yellow {
+    background-color: var(--light-yellow);
+}
+
+.light-pink {
+    background-color: var(--light-pink);
+}
+
+.orange-pink {
+    background-color: var(--orange-pink);
+}
