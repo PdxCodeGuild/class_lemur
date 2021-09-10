@@ -12,6 +12,7 @@ class Book(models.Model):
     published_date = models.DateField()
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='author')
     checked_out = models.BooleanField(default=False)
+    # photo = models.ImageField()
     
     def __str__(self):
         return self.name

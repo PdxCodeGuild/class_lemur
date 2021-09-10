@@ -12,9 +12,9 @@
 </head>
 <body>
     <h1 class="container">Library</h1>
-    <figure>
+    <!-- <figure>
         <img src="library.jpeg" alt="Library">
-    </figure>
+    </figure> -->
 
     <main>
 
@@ -39,6 +39,8 @@
                         <td>
                             {% if book.checked_out == False %}
                             No
+                            <br>
+                            <button>Check out book</button>
                             {% else %}
                             Yes
                             {% endif%}
