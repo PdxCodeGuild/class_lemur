@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <main class="container py-2" style="border: 2px solid;">
+        <h2>Burrito Order</h2>
+        <form action="/" method="POST">
+            <div class="col-5 mb-4">
+                <input name="name" placeholder="name" type="text">
+                <input name="password" placeholder="password" type="password">
+            </div>
+
+            <div class="col">
+                <p class="mb-1">Please select your tortilla.</p>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="tortilla" id="Whiteflour" value="White Flour"
+                        checked>
+                    <label class="form-check-label" for="Whiteflour">White Flour</label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="tortilla" id="Wheat Flour" value="Wheat Flour">
+                    <label class="form-check-label" for="Wheat Flour">Wheat Flour</label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="tortilla" id="Spinach" value="Spinach">
+                    <label class="form-check-label" for="Spinach">Spinach</label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="tortilla" id="Corn" value="Corn">
+                    <label class="form-check-label" for="Corn">Corn</label>
+                </div>
+            </div>
+
+            <div>
+                <select class="form-select my-3" id="rice" name="rice" style="width: 20vw;" aria-label="rice">
+                    <option selected>Select Rice</option>
+                    <option value="White">White Rice</option>
+                    <option value="Brown">Brown Rice</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <p class="mb-1">Please select your beans.</p>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="bean" id="Black" value="Black" checked>
+                    <label class="form-check-label" for="Black">Black</label>
+                </div>
+                <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="bean" id="Pinto" value="Pinto">
+                    <label class="form-check-label" for="Pinto">Pinto</label>
+                </div>
+            </div>
+
+            <div>
+                <select class="form-select my-3" id="protein " name="protein" style="width: 20vw;" aria-label="protein">
+                    <option selected>Select Protein</option>
+                    <option value="Carnitas">Carnitas</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Sofritas">Sofritas</option>
+                    <option value="None">None</option>
+                </select>
+            </div>
+
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name=add-ons id="Cheese" value="Cheese">
+                    <label class="form-check-label" for="Cheese">Cheese</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name=add-ons id="Sour Cream" value="Sour Cream">
+                    <label class="form-check-label" for="Sour Cream">Sour Cream</label>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="my-3">
+                    <label for="delivery-instructions" class="form-label">Delivery Instructions</label>
+                    <textarea class="form-control" name="delivery-instructions" id="delivery-instructions"
+                        rows="3"></textarea>
+                </div>
+            </div>
+            <div class="col-3">
+                <button type="submit" style="border: 2px solid;" class="btn mb-3">Submit Order</button>
+            </div>
+
+
+
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+        {% if form %}
+        <p>hrllo</p>
+        {% endif %}
+    </main>
+</body>
+
+</html>
