@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+
+</head>
+<body>
+    <h1 class="container">Library</h1>
+    <figure>
+        <img src="library.jpeg" alt="Library">
+    </figure>
+
+    <main>
+
+        <section class="section">
+            <table class="table is-hoverable is-fullwidth is-striped">
+                <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Checked out</th>
+                </tr>
+                </thead>
+    
+                {% for book in books %}
+                    <tr>
+                        <td>
+                            {{ book.name }}
+                        </td>
+                        <td> 
+                            {{ book.author }}
+                        </td>
+                        <td>
+                            {% if book.checked_out == False %}
+                            No
+                            {% else %}
+                            Yes
+                            {% endif%}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            &copy; Megan Bradner 2021
+          </p>
+        </div>
+      </footer>
+</body>
+</html>
