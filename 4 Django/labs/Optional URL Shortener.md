@@ -1,5 +1,5 @@
 
-# Lab 02: URL Shortener
+# Optional: URL Shortener
 
 ## Version 1:
 
