@@ -1,4 +1,4 @@
-# Lab 06 - Django REST Framework
+# Lab 04 - Django REST Framework
 
 Let's build a full API using Django REST Framework!
 
