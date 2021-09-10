@@ -22,6 +22,6 @@ The new model can have the following fields:
 
 Add a `Genre` model.  Give the `Genre` model a [many-to-many relationship](https://docs.djangoproject.com/en/3.2/topics/db/examples/many_to_many/).  Each genre can have any number of books.  Each book can have any number of genres.
 
-# Optional Version 4
+## Optional Version 4
 
 Add a [user authentication system](https://docs.djangoproject.com/en/3.2/topics/auth/) to the project.  Instead of a user text field in the check out model, make the field a `ForeignKey` to the `User` model.
