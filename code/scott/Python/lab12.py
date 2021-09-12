@@ -78,6 +78,7 @@ def delete(name):
         if name in character['name']:
             characters.remove(character)
 
+
 def write():
     with open("E:/class_lemur/code/scott/python/file_name1.csv", 'w') as f:
         f.write(f'name,pantheon,class')
@@ -90,6 +91,8 @@ def write():
             f.write('\n')
 
 # The one method to rule them all
+
+
 def main():
     while True:
         choice = input('Input one of the following commands:\n(r) - to retrieve a record by name\n(u) - to update an existing record\n(c) - to create a new record\n(d) - to delete a record\n(e) - to exit\n:').lower()
@@ -119,6 +122,3 @@ def main():
 
 print('Welcome to the jankest, most put together by duct tape, Smite Character database. ')
 main()
-
-
-

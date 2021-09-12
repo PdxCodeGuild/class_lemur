@@ -17,7 +17,7 @@ def read_posts():
 
 #Write back to JSON as dict
 def write_posts(posts):
-    with open(posts.json, 'w') as file:
+    with open(file1, 'w') as file:
         json.dump({'posts': posts}, file)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -37,10 +37,28 @@ def index():
         
         # write new post dictionary to posts
         write_posts(posts)
+        return render_template('index.html', posts=posts)
     posts=read_posts()
     # render index template, passing blog post list as a context kwarg
     # print(posts)
     return render_template('index.html', posts=posts)
+
+@app.route('/blog-editor', methods=['GET', 'POST'])
+def blog_editor(): 
+    if request.method == 'POST':
+        posts=read_posts()
+        # get new post from page and add to dictionary of posts.
+        print(request.form)
+        # while request.form != posts:
+        #     posts.append(dict(request.form))
+        #posts=sorted(posts, key=lambda i:i['date'])
+        print(posts)
+        
+        # write new post dictionary to posts
+        write_posts(posts)
+        return render_template('blog-editor.html', posts=posts) 
+    posts=read_posts()  
+    return render_template('blog-editor.html', posts=posts) 
 
 
 
