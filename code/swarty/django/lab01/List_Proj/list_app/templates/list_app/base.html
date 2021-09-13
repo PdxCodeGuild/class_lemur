@@ -6,7 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Grocery List</title>
+	{% load static %}
 
+    <link rel="stylesheet" type="text/css" href="{% static 'list_app/style.css' %}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
@@ -27,44 +29,25 @@
 
 			<div id="navbarBasicExample" class="navbar-menu">
 				<div class="navbar-start">
-					<a href="{% url 'list_app:index' %}" class="navbar-item">
-						Home
-					</a>
+					
 					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">
-							More
-						</a>
+						<strong class="navbar-link">
+							Menu
+						</strong>
 
 						<div class="navbar-dropdown">
-							<a class="navbar-item">
-								About
+							<a href="{% url 'list_app:index' %}" class="navbar-item">
+								Home
 							</a>
 							<a class="navbar-item">
-								Jobs
-							</a>
-							<a class="navbar-item">
-								Contact
+								Add
 							</a>
 							<hr class="navbar-divider">
-							<a class="navbar-item">
-								Report an issue
-							</a>
 						</div>
 					</div>
 				</div>
 
-				<!-- <div class="navbar-end">
-					<div class="navbar-item">
-						<div class="buttons">
-							<a href="{% url 'list_app:delete' %}" class="button is-primary">
-								<strong>Delete</strong>
-							</a>
-							<a class="button is-light">
-								Log in
-							</a>
-						</div>
-					</div>
-				</div> -->
+				
 			</div>
 		</nav>
 
@@ -76,7 +59,7 @@
 	<footer class="footer">
 		<div class="content has-text-centered">
 			<p>
-				<strong>Doggo</strong> by <a href="https://github.com/pdxcodeguild/class_lemur">Class Lemur</a>.
+				<strong>Grocery List</strong> by Swarty.
 			</p>
 		</div>
 	</footer>
