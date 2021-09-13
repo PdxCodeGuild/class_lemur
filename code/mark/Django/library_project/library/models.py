@@ -17,3 +17,12 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Checkout(models.Model):
+    book = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+    checkout = models.BooleanField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.book
