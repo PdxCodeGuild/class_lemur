@@ -1,0 +1,22 @@
+{% extends 'wiki/base.html' %}
+
+{% block title %}
+<title>{{ house }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="row margin">
+	<div class="col s12 m6">
+		<h3>{{ house }}</h3>
+		<blockquote><h5>{{ house.words }}</h5></blockquote>
+		<ul>
+			{% for character in house.characters.all %}
+			<li>{{ character }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="col s12 m6">
+		<img class="responsive-img materialboxed" src="{{ house.sigil_photo }}" alt="{{ house.sigil_description }}">
+	</div>
+</div>
+{% endblock %}
