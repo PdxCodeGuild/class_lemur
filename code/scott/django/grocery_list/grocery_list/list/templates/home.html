@@ -16,12 +16,17 @@
         <th>Date Added</th>
         <th>Purchased?</th>
       </tr>
-      {% for item in items %}
+      {% for item in groceries %}
       <tr>
         <td>{{item.item|title}}</td>
         <td>{{item.date_added}}</td>
         <td>{{item.cleared}}</td>
-        <td>{% include 'delete_item.html' %}</td>
+        <td>
+          <form action="delete_item/" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </table>
@@ -32,12 +37,17 @@
         <th>Date Purchased</th>
         <th>Purchased?</th>
       </tr>
-      {% for item in items %}
+      {% for item in bought %}
       <tr>
         <td>{{item.item|title}}</td>
         <td>{{item.date_bought}}</td>
         <td>{{item.cleared}}</td>
-        <td>{% include 'delete_item.html' %}</td>
+        <td>
+          <form action="delete_item/ item" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </table>
