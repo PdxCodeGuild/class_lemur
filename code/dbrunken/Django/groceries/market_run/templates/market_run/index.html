@@ -1,3 +1,30 @@
-{% for grocery_item in grocery_items %}
-{{ grocery_item }}
-{% endfor %}
+{% extends 'market_run/base.html' %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Date Added</th>
+              <th scope="col">Bought</th>
+              <th scope="col">Date bought</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for grocery_item in grocery_items%}
+              <tr>
+                <th scope="row">{{grocery_item.id}}</th>
+                <td>{{ grocery_item.item }}</td>
+                <td>{{ grocery_item.date_added }}</td>
+                <td>{{ grocery_item.bought }}</td>
+                <td>{{ grocery_item.date_bought }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+    </table>
+</div>
+
+{% endblock %}

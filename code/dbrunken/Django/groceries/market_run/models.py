@@ -1,5 +1,4 @@
 from django.db import models
-import uuid
 
 class Item(models.Model):
     item = models.CharField('Item', max_length=100)
