@@ -1,34 +1,40 @@
 from django.shortcuts import render
-from .models import Book, Author, Checkout
+from .models import Book, Author, Checkout, Genre
 
 def index(request):
     books = Book.objects.all()
     authors = Author.objects.all()
-    checkouts = Checkout.objects.all()
     context = {
         'books': books,
         'author': authors,
-        'checkouts': checkouts
     }
     return render(request, 'library/index.html', context)
 
 def checkout(request):
+    books = Book.objects.all()
     if request.method == 'POST':
         user = request.POST.get("user")
         book = request.POST.get("name")
+        print('Book Title: ' + book)
         checkout = True
-        Checkout.objects.create(checkout=checkout, book=book, user=user)
+        Checkout.objects.create(checkout=checkout, book_title=book, user=user)
+        book_edit = books.get(title=book)
+        book_edit.checked_out = checkout
+        book_edit.save()
     return index(request)
 
 def checkin(request):
+    books = Book.objects.all()
     if request.method == 'POST':
-        user = request.POST.get("user")
         book = request.POST.get("name")
-        books = Checkout.objects.filter(book=book, checkout=True).order_by(timestamp).first()
-        # books = Checkout.objects.filter(book=book, checkout=True).order_by(Checkout.timestamp).first()
-        print(books)
+        
+        filtered_book = Checkout.objects.filter(book_title=book, checkout=True).order_by('-timestamp').first()
+        user = filtered_book.user
         checkout = False
-        Checkout.objects.create(checkout=checkout, book=book, user=user)
+        Checkout.objects.create(checkout=checkout, book_title=book, user=user)
+        book_edit = books.get(title=book)
+        book_edit.checked_out = checkout
+        book_edit.save()
     return index(request)
 
 def status(request):

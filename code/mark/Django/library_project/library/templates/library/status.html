@@ -1,8 +1,9 @@
 {% extends 'library/base.html' %}
 
 {% block content %}
-<h2>Check In and Check Out History</h2>
-<table>
+<div class="m-1">
+<h2 class="center-align">Check In and Check Out History</h2>
+<table >
     <thead>
       <tr>
           <th>Book</th>
@@ -15,7 +16,7 @@
     <tbody>
     {% for checkout in checkouts %}
       <tr>
-        <td>{{ checkout.book }}</td>
+        <td>{{ checkout.book_title }}</td>
         <td>{{ checkout.user }}</td>
         <td>{{ checkout.checkout }}</td>
         <td>{{ checkout.timestamp }}</td>
@@ -23,5 +24,5 @@
     {% endfor %}
     </tbody>
   </table>
-
+</div>
 {% endblock %}
