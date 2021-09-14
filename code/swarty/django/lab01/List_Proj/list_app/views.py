@@ -45,47 +45,16 @@ def index(request):
 
 
 def complete(request):
-	if request.method == 'POST':
-		print(request.POST)
-		id=int(request.POST.get('id'))
-		item= GroceryItem.objects.get(id=id)
-		item.completed=True
-		item.save()
-
-	grocery_list = GroceryItem.objects.all() # get all the GroceryItems
-	completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
-	incomplete_list = GroceryItem.objects.filter(completed=False) # get the incomplete GroceryItems
-	
-
-	context = {
-		'all': grocery_list, 
-		'completed':completed_list, 
-		'incomplete': incomplete_list,
-		}
-	return render(request, 'list_app/index.html', context)
-	# use the id to get the object from the database
-	# change it's completed attribute to True
-	# save it
-	# redirect back to the home page
+	print(request.POST)
+	id=int(request.POST.get('id'))
+	item= GroceryItem.objects.get(id=id)
+	item.completed=True
+	item.save()
+	return redirect('/')
 
 def delete(request):
-	if request.method == 'POST':
-		print(request.POST)
-		id=int(request.POST.get('id'))
-		item=GroceryItem.objects.get(id=id)
-		item.delete()
-	grocery_list = GroceryItem.objects.all() # get all the GroceryItems
-	completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
-	incomplete_list = GroceryItem.objects.filter(completed=False) # get the incomplete GroceryItems
-	
-
-	context = {
-		'all': grocery_list, 
-		'completed':completed_list, 
-		'incomplete': incomplete_list,
-		}
-	return render(request, 'list_app/index.html', context)
-	# use the id to get the object from the database
-	# delete it
-	# redirect back to the home page
-	
+	print(request.POST)
+	id=int(request.POST.get('id'))
+	item=GroceryItem.objects.get(id=id)
+	item.delete()
+	return redirect('/')
