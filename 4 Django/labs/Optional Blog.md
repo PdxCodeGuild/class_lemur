@@ -1,5 +1,5 @@
 
-# Lab 05: Blog
+# Optional: Blog
 
 Let's create a blog with posts, comments, and a user system. The instructions below should be taken as guidelines. If you feel confident in structuring your application differently, you're welcome to do so. For testing purposes, you can use incognito/private windows to have separate user sessions, or use different browsers.
 
