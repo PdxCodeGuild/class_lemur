@@ -18,15 +18,17 @@ class Book(models.Model):
     def __str__(self):
         return self.name
 
+
+
 class Checked(models.Model):
     book = models.ForeignKey(Book, on_delete=models.PROTECT, related_name='book')
     user = models.ForeignKey('User', on_delete=models.PROTECT, related_name='user')
     checkout = models.BooleanField(default=False)
     out_date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
 
-
     def __str__(self):
         return self.name
+        
 
 class User(models.Model):
     name = models.CharField(max_length=50)

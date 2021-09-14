@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 
-from .models import Book, Author, User
+from .models import Book, Author, User, Checked
+
 
 def index(request):
     books = Book.objects.all()
@@ -9,37 +10,51 @@ def index(request):
     context = {
         'books': books,
         'authors': authors,
-        'out': Book.objects.filter(checked_out=True),
-        'in': Book.objects.filter(checked_out=False),
+        # 'out': Book.objects.filter(checked_out=True),
+        # 'in': Book.objects.filter(checked_out=False),
     }
 
     return render(request, 'library_app/index.html', context)
 
+
 def checked(request):
-    users = User.objects.all()
     books = Book.objects.all()
+    users = User.objects.all()
 
     context = {
         'books': books,
         'users': users
     }
 
+    # id = request.POST['name']
+    # brought_back = Book.objects.get(id=id)
+    # brought_back.checked_out = False
+    # brought_back.save()
+
+    # return HttpResponseRedirect(reverse('library_app:index'), context)
+
     return render(request, 'library_app/check.html', context)
 
 def new_user(request):
-    name = request.POST['name']
-    user = User(name=name)
-    user.save()
+    # if request.method == 'POST':
 
-    return HttpResponseRedirect(reverse('myapp:index'))
+        name = request.POST.get('id')
+        print("You did a post request!")
+        added_user = User(name=name)
+        added_user.save()
+
+        return HttpResponseRedirect(reverse('library_app:checked'))
+
 
 def records(request):
     users = User.objects.all()
     books = Book.objects.all()
+    records = Checked.objects.all()
 
     context = {
         'books': books,
-        'users': users
+        'users': users,
+        'records': records
     }
 
     return render(request, 'library_app/records.html', context)

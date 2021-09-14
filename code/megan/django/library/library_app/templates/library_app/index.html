@@ -13,14 +13,18 @@
 
 <body>
 
-    <h1 class="title is-1 is-flex is-justify-content-center pt-5 pb-5">Library</h1>
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <p class="title is-flex is-justify-content-center">
+                Library
+            </p>
+        </div>
+    </section>
 
     <main>
 
-
-        <h1 class="title is-3 pl-5 is-flex is-justify-content-center">Available</h1>
-
         <section class="section">
+            <h1 class="title is-3 p-5 mb-5 is-flex is-justify-content-center">Available</h1>
 
             <table class="table is-hoverable is-fullwidth is-striped">
                 <thead>
@@ -46,7 +50,11 @@
             </table>
         </section>
 
-        <a class="title is-4 is-flex is-justify-content-center pt-6" href="{% url 'library_app:checked' %}">To check out or in a book, click here!</a>
+        <a class="is-flex is-justify-content-center" href="{% url 'library_app:checked' %}">Click here to check out or
+            return a book</a>
+
+        <a class="is-flex is-justify-content-center" href="{% url 'library_app:records' %}">or here to view our
+            records</a>
 
     </main>
 

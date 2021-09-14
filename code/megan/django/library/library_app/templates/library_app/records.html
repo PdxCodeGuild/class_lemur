@@ -13,8 +13,13 @@
 
 <body>
 
-    <h1 class="title is-1 is-flex is-justify-content-center pt-5 pb-5">Records</h1>
-
+    <section class="hero is-warning">
+        <div class="hero-body">
+          <p class="title is-flex is-justify-content-center">
+            Records
+          </p>
+        </div>
+      </section>
 
     <main>
 
@@ -35,6 +40,7 @@
                 {% for book in books %}
                 {% if book.checked_out == True %}
 
+
                 <tr>
                     <td>
                         {{ book.name }}
@@ -42,6 +48,7 @@
                     <td>
                         {{ book.author }}
                     </td>
+                    
                     <td>
                         Name
                     </td>
@@ -49,10 +56,15 @@
                         Date
                     </td>
                 </tr>
+                
                 {% endif %}
                 {% endfor %}
+                
+
             </table>
         </section>
+
+        <a class="title is-4 is-flex is-justify-content-center pt-6" href="{% url 'library_app:index' %}">Go home</a>
 
 
     </main>
