@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Grocery List</title>
 	{% load static %}
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/14c2381cf4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'list_app/style.css' %}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
@@ -39,8 +41,8 @@
 							<a href="{% url 'list_app:index' %}" class="navbar-item">
 								Home
 							</a>
-							<a class="navbar-item">
-								Add
+							<a href="admin" class="navbar-item">
+								Admin
 							</a>
 							<hr class="navbar-divider">
 						</div>

@@ -3,16 +3,78 @@
 {% block content %}
 
   
-  <main>
-    {% if grocery_list %}
-    <ul>
-    {% for item in incomplete_list %}
-    <li><a href="{% url 'list_app:list_item' grocery_list.id %}">{{ grocery_list.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No items on list.</p>
-{% endif %}
-  </main>
+<main>
+  <div class="container">
+      <div class="tile is-parent px-5 my-4">
+        <article class="tile is-child notification is-black">
+          <p class="title">Add Item</p>
+          <div class="content">
+            <form action="{% url 'list_app:index' %}" method="POST">
+              {% csrf_token %}
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" placeholder="Item" name="title">
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Add Item</button>
+              </div>
+            </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    <div class="columns is-8 px-4">
+      <div class="column box mx-2">
+        <section class="hero is-small is-info">
+          <div class="hero-body">
+            <p class="title">
+            {% if incomplete %}
+              Items Needed
+            {% else %}
+              No Items
+            {% endif %}
+            </p>
+          </div>
+        </section>
+      </br>
+              {% for item in incomplete %}
+              <p class="px-4 level">
+                 {{ item.title }}
+                  
+                 <span class="icon has-text-success">
+                  <i class="fas fa-check-square"></i>
+                </span>
+                  
+                </p>
+              {% endfor %}
+        <p> </p>
+      </div>
+      <div class="column box mx-4">
+        <section class="hero is-small is-info">
+          <div class="hero-body">
+            <p class="title">
+              Items Acquired
+            </p>
+          </div>
+        </section>
+      </br>
+            {% for item in completed %}
+              <p class="px-4 level">
+                {{ item.title }}
+                 
+                  <span class="icon has-text-danger">
+                    <i class="fas fa-ban">Delete</i>
+                  </span>
+                  
+                  
+               </p>
+            {% endfor %}
+            <p> </p>
+      </div>
+    </div>
+  </div>
+</main>
 
 {% endblock %}

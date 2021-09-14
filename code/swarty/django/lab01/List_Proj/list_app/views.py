@@ -26,10 +26,14 @@ def index(request):
 	# dictionary and render the template
 
 	grocery_list = GroceryItem.objects.all() # get all the GroceryItems
-	completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
-	incomplete_list = GroceryItem.objects.filter(completed=False) # get the incomplete GroceryItems
+	completed_list = GroceryItem.objects.filter(completed=True) # get the completed Items
+	incomplete_list = GroceryItem.objects.filter(completed=False) # get the incomplete Items
 
-	context = {'grocery_list': grocery_list} # the context dictionary will have all the objects
+	context = {
+		'all': grocery_list, 
+		'completed':completed_list, 
+		'incomplete': incomplete_list,
+		} # the context dictionary will have all the objects
 	# you want to render in your template
 	# the return line will render the template
 	return render(request, 'list_app/index.html', context)

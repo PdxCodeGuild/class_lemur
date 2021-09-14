@@ -1,6 +1,6 @@
-li a {
-    color: green;
+.box {
+    margin-bottom: 1.5em !important;
 }
-body {
-    background: white url("images/background.jpg") no-repeat;
-}
+/* .box:not(:last-child) {
+    margin-bottom: 0 !important;
+} */

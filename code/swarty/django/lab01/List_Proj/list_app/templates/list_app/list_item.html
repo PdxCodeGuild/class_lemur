@@ -2,19 +2,18 @@
 
 {% block content %}
 <main class="tile is-ancestor">
-	{% for item in grocery_list %}
+	{% for item in all %}
 
 	<figure class="card">
 		<div class="card-content">
 			<div class="media">
 				<div class="media-content">
-					<p class="title is-4">{{ grocery_list.title }}</p>
-					<p class="subtitle is-6">{{ grocery_list.creation }}</p>
+					<p class="title is-4">{{ item.title }}</p>
 				</div>
 			</div>
 
 			<div class="content">
-				{{ grocery_list.text }}
+				{{ item.text }}
 			</div>
 			
 		</div>
