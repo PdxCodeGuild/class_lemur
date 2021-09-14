@@ -10,7 +10,8 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.PROTECT)
+    author = models.ForeignKey(
+        Author, on_delete=models.PROTECT, related_name='books')
     title = models.CharField(max_length=100)
     publish_date = models.DateField()
 
@@ -19,10 +20,11 @@ class Book(models.Model):
 
 
 class Checkout(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.PROTECT)
+    book = models.ForeignKey(
+        Book, on_delete=models.PROTECT, related_name='checkouts')
     user = models.CharField(max_length=50)
     checkout = models.BooleanField(default=False)
-    time = models.DateTimeField(auto_now=True)
+    time = models.DateTimeField('checkout time', auto_now=True)
 
     def __str__(self):
-        return self.book
+        return self.book.title

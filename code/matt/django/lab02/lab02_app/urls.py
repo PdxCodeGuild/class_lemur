@@ -6,4 +6,5 @@ app_name = "lab02_app"
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('checkout/<str:name>/', views.checkout, name='checkout')
 ]
