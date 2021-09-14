@@ -17,41 +17,6 @@
 
     <main>
 
-        <h1 class="title is-3 pl-5 is-flex is-justify-content-center">Checked out</h1>
-
-        <section class="section">
-
-            <table class="table is-hoverable is-fullwidth is-striped">
-                <thead>
-                    <tr>
-                        <th>Book</th>
-                        <th>Author</th>
-                        <th>Checked out by</th>
-                        <th>Date checked out</th>
-                    </tr>
-                </thead>
-
-                {% for book in books %}
-                {% if book.checked_out == True %}
-
-                <tr>
-                    <td>
-                        {{ book.name }}
-                    </td>
-                    <td>
-                        {{ book.author }}
-                    </td>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        Date
-                    </td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-            </table>
-        </section>
 
         <h1 class="title is-3 pl-5 is-flex is-justify-content-center">Available</h1>
 

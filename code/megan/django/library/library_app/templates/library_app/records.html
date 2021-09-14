@@ -5,73 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check in & out</title>
+    <title>Records</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
 </head>
 
 <body>
+
+    <h1 class="title is-1 is-flex is-justify-content-center pt-5 pb-5">Records</h1>
+
+
     <main>
-        <div class=".container m-5">
 
-            <h3 class="title is-4 is-flex is-justify-content-center">Check in/out:</h3>
+        <h1 class="title is-3 pl-5 is-flex is-justify-content-center">Checked out</h1>
 
-            <form action="{% url 'library_app:checked' %}" method="POST">
-                {% csrf_token %}
-                <div class="select">
-                    <select>
-                        <option>Select a user</option>
-                        {% for user in users %}
-                        <option>{{ user }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+        <section class="section">
 
-                <h3>or add a user:</h3>
-                <form action="{% url 'library_app:new_user' %}" method="POST">
-                    {% csrf_token %}
-                    <input type="text" name="name" />
-                    <button type="submit">Submit</button>
-                </form>
+            <table class="table is-hoverable is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Author</th>
+                        <th>Checked out by</th>
+                        <th>Date checked out</th>
+                    </tr>
+                </thead>
 
-                <div class="select">
-                    <select>
-                        <option>Select a book</option>
-                        {% for book in books %}
-                        <option>{{ book.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+                {% for book in books %}
+                {% if book.checked_out == True %}
 
-                <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Check out
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="answer">
-                        Check in
-                    </label>
-                </div>
+                <tr>
+                    <td>
+                        {{ book.name }}
+                    </td>
+                    <td>
+                        {{ book.author }}
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Date
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </section>
 
 
-                <form action="{% url 'library_app:checked' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link">Submit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-light">Cancel</button>
-                        </div>
-                    </div>
-                </form>
-            </form>
-        </div>
-
-        <a class="title is-4 is-flex is-justify-content-center pt-6" href="{% url 'library_app:index' %}">Go home</a>
     </main>
+
 </body>
 
 </html>
