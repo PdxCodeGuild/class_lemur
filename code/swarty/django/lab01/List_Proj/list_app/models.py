@@ -4,7 +4,6 @@ import datetime
 # Create your models here.
 class GroceryItem(models.Model):
     title = models.CharField(max_length=40)
-    text = models.CharField(max_length=200, null=True, blank=True)
     creation = models.DateTimeField('date created', auto_now_add=True)
     completion=models.DateTimeField('date completed', null=True, blank=True)
     completed=models.BooleanField(default=False)

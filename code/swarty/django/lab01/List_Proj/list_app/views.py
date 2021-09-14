@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-
+from django.shortcuts import render, get_object_or_404,redirect
+from datetime import datetime
 from .models import GroceryItem
 from django.template import loader
 from django.urls import reverse
@@ -14,10 +14,15 @@ def index(request):
 		# of the form data
 		data = dict(request.POST) # Optionally, turn the QueryDict
 		print(data) # into a plain Python dictionary
+		title=request.POST.get('title')
+		# if GroceryItem.title != title:
+		GroceryItem.objects.create(
+			title=title,
+			creation=datetime.now()
+		)
+		return redirect('/')
 
-		# Save the new GroceryItem to the databse!
-
-		# What else?  Return, redirect?  It's up to you!
+		
 
 	# Here you'll put the code that you want to run for a GET request
 	# How do you want to get the necessary items from the database?
