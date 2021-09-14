@@ -39,16 +39,20 @@
           </div>
         </section>
       </br>
+        <form action="{% url 'list_app:complete' %}" method="POST">
+          {% csrf_token %}
               {% for item in incomplete %}
               <p class="px-4 level">
                  {{ item.title }}
-                  
+                 <input class="input" type="hidden" name="{{item.id}}" value="{{item.id}}">
                  <span class="icon has-text-success">
-                  <i formaction="{% url 'list_app:index' %}" class="fas fa-check-square"></i>
+                  <button class="button is-ghost" type="submit">
+                    <i  class="fas fa-check-square"></i>
+                  </button>
                 </span>
-                  
-                </p>
+              </p>
               {% endfor %}
+        </form>
         <p> </p>
       </div>
       <div class="column box mx-4">
@@ -60,17 +64,20 @@
           </div>
         </section>
       </br>
+      <form action="{% url 'list_app:delete' %}" method="POST">
+        {% csrf_token %}
             {% for item in completed %}
-              <p class="px-4 level">
-                {{ item.title }}
-                 
-                  <span class="icon has-text-danger">
-                    <i class="fas fa-ban">Delete</i>
-                  </span>
-                  
-                  
-               </p>
+            <p class="px-4 level">
+               {{ item.title }}
+               <input class="input" type="hidden" name="id" value="{{item.id}}">
+               <span class="icon has-text-warning">
+                <button class="button is-ghost" type="submit">
+                  <i  class="fas fa-dumpster"></i>
+                </button>
+              </span>
+            </p>
             {% endfor %}
+      </form>
             <p> </p>
       </div>
     </div>
