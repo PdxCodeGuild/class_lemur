@@ -29,6 +29,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='book')
     image = models.URLField()
     checked_out = models.BooleanField()
+    genre = models.ManyToManyField(Genre)
 
     def __str__(self):
         return self.title

@@ -16,7 +16,10 @@
                         <span class="card-title">{{ book.title }}</span>
                         <p>Author: {{ book.author.name }}</p>
                         <p>Publish Date: {{ book.publish_date }}</p>
-                        <!-- <p>Genre: {{ book.Genre.genre_name }}</p> -->
+                        <p>Genre: {% for each_genre in book.genre.all %}
+                            {{ each_genre }} |
+                            {% endfor %}
+                        </p>
                     </div>
                     <div class="card-action">
                         {% if book.checked_out == True %}
@@ -55,3 +58,4 @@
     </article>
 </main>
 {% endblock %}
+
