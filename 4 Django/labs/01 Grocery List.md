@@ -7,8 +7,8 @@ This can be done with a single app called `grocery_list` and model called `Groce
 Your database would look something like this:
 |id|description|created_date|completed_date|completed|
 |--|-----------|------------|--------------|---------|
-| 1|   wash car|  2021-09-09|    2021-09-09|     True|
-| 2|   buy food|  2021-09-09|          NULL|     False|
+| 1|     apples|  2021-09-09|    2021-09-09|     True|
+| 2|    bananas|  2021-09-09|          NULL|     False|
 
 The user should be presented with an input field and a button (in a form). When the user clicks the button, it should save the data to the server and show the newly-added item in the list. The user should be presented with a list of incomplete items and a list of complete items. The user should be able to mark an item complete/incomplete and be able to delete an item.
 
