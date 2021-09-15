@@ -8,7 +8,7 @@ M-F 6:00 pm – 9:36 pm
 
 ### Holidays
 
-August 30th –– Day Off
+August 30th –– Day Off  
 September 6th –– Labor Day  
 October 18th –– Labor Day  
 
