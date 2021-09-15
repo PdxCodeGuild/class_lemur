@@ -10,6 +10,7 @@ M-F 6:00 pm – 9:36 pm
 
 August 30th –– Day Off
 September 6th –– Labor Day  
+October 18th –– Labor Day  
 
 ### Staff
 
@@ -36,6 +37,8 @@ Presentation Day: November 5th, 2021
 
  * [Lab 00 Polls](4%20Django/labs/00%20Polls.md)
  * [Lab 01 Grocery List](4%20Django/labs/01%20Grocery%20List.md)
+ * [Lab 02 Library](4%20Django/labs/02%20Library.md)
+ * [Lab 03 Chirp](4%20Django/labs/03%20Chirp.md)
 
 #### Optional Django Labs  
 
