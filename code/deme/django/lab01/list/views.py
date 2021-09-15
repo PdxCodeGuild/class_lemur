@@ -1,10 +1,17 @@
 from django.shortcuts import render
 
+from django.utils import timezone
+
+from .forms import GroceryItemForm
+
 from .models import GroceryItem
 
 
 def index(request):
 	if request.method == 'POST':
+		print("stringgggg")
+		description = request.POST['description']
+		GroceryItem.objects.create(description = description, created_date = timezone.now())
 		# If there's a POST request, that means the user
 		# has submitted a new GroceryItem for the database
 		# How do you parse it?
@@ -28,7 +35,9 @@ def index(request):
 	completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
 	incomplete_list = GroceryItem.objects.filter(completed=False) # get the completed GroceryItems
 
-	context = {grocery_list + completed_list + incomplete_list} # the context dictionary will have all the objects
+	form = GroceryItemForm()
+
+	context = {"grocery_list" : grocery_list, "grocery_item_form" : form} # the context dictionary will have all the objects
 	# you want to render in your template
 	# the return line will render the template
 	return render(request, 'list/index.html', context)
@@ -39,7 +48,18 @@ The following is just a suggestion
 """
 
 def complete(request, id):
-    obj = GroceryItem.objects.get(pk=this_object_id)
+	if request.method == 'GET':
+		print("stringgggg")
+		description = request.GET['description']
+		GroceryItem.objects.create(description = description, created_date = timezone.now())
+		# If there's a POST request, that means the user
+		# has submitted a new GroceryItem for the database
+		# How do you parse it?
+		print(request.GET) # this will show the post request's
+		# QueryDict, a dictionary-like object with the contents
+		# of the form data
+		data = dict(request.GET) # Optionally, turn the QueryDict
+		print(data) # into a plain Python dictionary
 	# use the id to get the object from the database
 	# change it's completed attribute to True
 	# save it
@@ -47,7 +67,6 @@ def complete(request, id):
 	
 
 def delete(request, id):
-	# use the id to get the object from the database
-	# delete it
-	# redirect back to the home page
-	...
+	description = request.GET['description']
+	GroceryItem.objects.delete(description = description)
+	description.delete()

@@ -1,0 +1,6 @@
+.box {
+    margin-bottom: 1.5em !important;
+}
+/* .box:not(:last-child) {
+    margin-bottom: 0 !important;
+} */
