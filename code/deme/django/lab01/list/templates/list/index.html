@@ -1,0 +1,20 @@
+
+
+{% block body %}
+<h1>Grocery List</h1>
+<p>{{ grocery_list }}</p>
+{% for item in grocery_list %}
+<p>{{ item }}</p>
+{% endfor %}
+
+<form method="POST" action="/list/">{% csrf_token %}
+    {{ grocery_item_form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+
+<form method="GET" action="/list/">{% csrf_token %}
+    {{ grocery_item_form.as_p }}
+    <button type="submit" class="delete btn btn-default">Delete</button>
+</form>
+
+{% endblock %}
