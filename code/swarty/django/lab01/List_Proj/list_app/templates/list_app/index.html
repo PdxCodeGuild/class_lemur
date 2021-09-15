@@ -71,11 +71,12 @@
             <p class="px-4 level">
                {{ item.title }}
                <input class="input" type="hidden" name="id" value="{{item.id}}">
-               <span class="icon has-text-warning">
+               
                 <button class="button is-ghost" type="submit">
-                  <i  class="fas fa-dumpster"></i>
+                  <span class="icon has-text-danger"></span>
+                  <i  class="fas fa-dumpster is-danger"></i>
+                </span>
                 </button>
-              </span>
             </p>
           </form>
             {% endfor %}
