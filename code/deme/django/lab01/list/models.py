@@ -7,5 +7,5 @@ class GroceryItem(models.Model):
     completed_date = models.DateField(blank=True, null=True)
     completed = models.BooleanField(default=False)
 
-    # def__str__(self):
-    #     return self.GroceryItem
+    def __str__(self):
+        return self.description
