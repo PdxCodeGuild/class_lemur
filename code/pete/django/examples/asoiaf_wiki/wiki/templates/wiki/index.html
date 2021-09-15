@@ -25,7 +25,7 @@
 				{{ location }} 
 			{% endfor %}
 			</td>
-			<td><a class="red-text text-accent-4"href="{% url 'wiki:house' character.house.name %}">{{ character.house }}</a></td>
+			<td><a class="red-text text-accent-4"href="{% url 'wiki:house' character.house.id %}">{{ character.house }}</a></td>
 			<td>{{ character.house.words }}</td>
 			<td>{{ character.house.sigil_description }}</td>
 		</tr>
