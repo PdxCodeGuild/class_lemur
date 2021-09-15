@@ -6,5 +6,6 @@ urlpatterns= [
     # path('', admin.site.urls),
     path('', views.index, name="index"),
     path('', views.complete, name="complete"),
-    path('', views.delete, name = "delete")
+    path('', views.delete, name = "delete"),
+
 ]
