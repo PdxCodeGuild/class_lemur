@@ -33,25 +33,20 @@ class Tracking(models.Model):
     def __str__(self):
         return self.state
 class Genre(models.Model):
-    genres=[
-        'Horror',
-        "Fantasy",
-        'Science Fiction',
-        'Novel',
-        'Romance',
-        'Play',
-        'Drama',
-        'Fiction',
-        'Non-Fiction',
-        'Historical',
-        'Classic',
-        'Series',
-        'Western'
-    ]
-
     title=models.ManyToManyField(Book, related_name='genre')
-    for genre in genres:
-        genre=models.BooleanField(default=False)
+    horror=models.BooleanField(default=False,name="Horror")
+    fantasy=models.BooleanField(default=False, name='Fantasy')
+    sci_fi=models.BooleanField(default=False, name='Science Fiction')
+    novel=models.BooleanField(default=False,name="Novel")
+    romance=models.BooleanField(default=False,name="Romance")
+    theatrical=models.BooleanField(default=False,name="Theatrical")
+    drama=models.BooleanField(default=False,name="Drama")
+    fiction=models.BooleanField(default=False,name="Fiction")
+    non_fiction=models.BooleanField(default=False,name="Non Fiction")
+    historical=models.BooleanField(default=False,name="Historical")
+    classic=models.BooleanField(default=False,name="Classic")
+    series=models.BooleanField(default=False,name="Series")
+    western=models.BooleanField(default=False,name="Western")
     def __str__(self):
         return self.genre
 
