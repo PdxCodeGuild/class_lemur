@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _ 
 from datetime import datetime, timedelta
 
 
@@ -26,12 +27,33 @@ class Author(models.Model):
 class Tracking(models.Model):
     first_name = models.CharField('First Name', max_length=40)
     last_name = models.CharField('Last Name', max_length=40)
-    book = models.ManyToManyField(Book, related_name='state')
+    title = models.ManyToManyField(Book, related_name='state')
     date_out =models.DateField('Date Checkout Out', default=datetime.today())
     due=models.DateField('Due Date',default= get_due_date)
-
+    def __str__(self):
+        return self.state
 class Genre(models.Model):
-    genre=models.ManyToManyField(Author, related_name='genre' ,max_length=40)
+    genres=[
+        'Horror',
+        "Fantasy",
+        'Science Fiction',
+        'Novel',
+        'Romance',
+        'Play',
+        'Drama',
+        'Fiction',
+        'Non-Fiction',
+        'Historical',
+        'Classic',
+        'Series',
+        'Western'
+    ]
+
+    title=models.ManyToManyField(Book, related_name='genre')
+    for genre in genres:
+        genre=models.BooleanField(default=False)
+    def __str__(self):
+        return self.genre
 
 """
 Let's create an application for representing a library. You should have two models (below) 
