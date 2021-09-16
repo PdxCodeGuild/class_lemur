@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import related
 
 # Create your models here.
 class Book(models.Model):
@@ -13,3 +14,9 @@ class Author(models.Model):
     author = models.ForeignKey(Book, on_delete=models.PROTECT, related_name ='authors')
     def __str__(self):
         return self.author
+
+class Checkout(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.PROTECT, related_name = 'checkouts')
+    user = models.CharField(max_length=50)
+    checkout = models.BooleanField(default=False)
+    timestamp = models.DateField(null = True, blank = True)
