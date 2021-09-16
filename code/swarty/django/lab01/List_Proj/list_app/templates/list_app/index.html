@@ -1,0 +1,88 @@
+{% extends 'list_app/base.html' %}
+
+{% block content %}
+
+  
+<main>
+  <div class="container">
+      <div class="tile is-parent px-5 my-4">
+        <article class="tile is-child notification is-black">
+          <p class="title">Add Item</p>
+          <div class="content">
+            <form action="{% url 'list_app:index' %}" method="POST">
+              {% csrf_token %}
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" placeholder="Item" name="title">
+              </div>
+            </div>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Add Item</button>
+              </div>
+            </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    <div class="columns is-8 px-4">
+      <div class="column box mx-2">
+        <section class="hero is-small is-info">
+          <div class="hero-body">
+            <p class="title">
+            {% if incomplete %}
+              Items Needed
+            {% else %}
+              No Items
+            {% endif %}
+            </p>
+          </div>
+        </section>
+      </br>
+       {% for item in incomplete %}
+       <form action="{% url 'list_app:complete' %}" method="POST">
+        {% csrf_token %}
+              <p class="px-4 level">
+                 {{ item.title }}
+                 <input class="input" type="hidden" name="id" value="{{item.id}}">
+                 <span class="icon has-text-success">
+                  <button class="button is-ghost" type="submit">
+                    <i  class="fas fa-check-square"></i>
+                  </button>
+                </span>
+              </p>
+            </form>
+              {% endfor %}
+        <p> </p>
+      </div>
+      <div class="column box mx-4">
+        <section class="hero is-small is-info">
+          <div class="hero-body">
+            <p class="title">
+              Items Acquired
+            </p>
+          </div>
+        </section>
+      </br>
+
+      {% for item in completed %}
+      <form action="{% url 'list_app:delete' %}" method="POST">
+        {% csrf_token %}
+            <p class="px-4 level">
+               {{ item.title }}
+               <input class="input" type="hidden" name="id" value="{{item.id}}">
+               <span class="icon has-text-warning">
+                <button class="button is-ghost" type="submit">
+                  <i  class="fas fa-dumpster"></i>
+                </button>
+              </span>
+            </p>
+          </form>
+            {% endfor %}
+            <p> </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
