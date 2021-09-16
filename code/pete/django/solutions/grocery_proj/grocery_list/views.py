@@ -1,16 +1,22 @@
+from django.contrib.auth import login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required #, user_passes_test
 # from django.http import HttpResponseRedirect, HttpResponse
 # from django.urls import reverse
 
 from .models import GroceryItem
+
+def super_check(user):
+    return user.username.contains('super')
 
 def index(request):
     if request.method == 'POST':
         description = request.POST.get('description')
         GroceryItem.objects.create(
             description=description,
-            created_date=timezone.now()
+            created_date=timezone.now(),
+            user=request.user
         )
         return redirect('grocery_list:index')
         # ^^ this is a shorcut for this:
@@ -28,12 +34,14 @@ def index(request):
     }
     return render(request, 'grocery_list/index.html', context)
 
+@login_required
 def delete(request, id):
     # item = GroceryItem.objects.get(id=id)
     item = get_object_or_404(GroceryItem, id=id)
     item.delete()
     return redirect('grocery_list:index')
 
+@login_required
 def complete(request, id):
     # item = GroceryItem.objects.get(id=id)
     item = get_object_or_404(GroceryItem, id=id)

@@ -10,13 +10,25 @@
 	</style>
 </head>
 
+<nav>
+	{% if user.is_authenticated %}
+	Welcome, {{ user.username }}
+	<a href="{% url 'users:logout' %}">Logout</a>
+	{% else %}
+	Welcome, guest
+	<a href="{% url 'users:login' %}">Login</a>
+	<a href="{% url 'users:register' %}">Register</a>
+	{% endif %}
+</nav>
+
 <h1>Grocery List</h1>
 
+{% if user.is_authenticated %}
 <ul>
 	{% for item in groceries %}
 	<li>
 		<span {% if item.completed %} class="completed" {% endif %}>
-			{{ item.description }}
+			{{ item.description }} added by {{ item.user.username }}
 		</span>
 		<a href="{% url 'grocery_list:delete' item.id %}">
 			<button>Delete</button>
@@ -39,7 +51,7 @@
 	<input type="submit" value="Add!">
 </form>
 
-<h3>Not Bought</h3>
+<!-- <h3>Not Bought</h3>
 
 <ul>
 	{% for item in incomplete_groceries %}
@@ -77,4 +89,7 @@
 		{% endif %}
 	</li>
 	{% endfor %}
-</ul>
+</ul> -->
+{% else %}
+<p>please login or register to use this app</p>
+{% endif %}
