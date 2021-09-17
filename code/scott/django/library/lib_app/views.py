@@ -7,9 +7,11 @@ from .models import Book, Author, Checkout
 def index(request):
     books = Book.objects.all()
     authors = Author.objects.all()
+    checkouts = Checkout.objects.all()
     context = {
         'books':books,
         'authors':authors,
+        'checkouts':checkouts,
     }
     return render(request, 'lib_app/index.html', context)
 
@@ -25,8 +27,7 @@ def status(request):
     return render(request, 'lib_app/status.html', context)
 
 def check_out(request, pk):
-    checked_book = Book.objects.get(id=pk)
+    checked_book = Book.objects.get(pk=pk)
     if request.method == 'POST':
         checked_book.checked = True
-        now = timezone.now()
         return redirect('index')

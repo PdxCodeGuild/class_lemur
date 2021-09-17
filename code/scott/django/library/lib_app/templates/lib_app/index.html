@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library App</title>
-</head>
-<body>
+  </head>
+  <body>
     {% include 'lib_app/navbar.html' %}
     <h3>Available Books</h3>
     <table>
@@ -16,20 +16,17 @@
         <th>Type</th>
         <th>User</th>
       </tr>
-    {% for book in books %}
-    <tr>
+      {% for book in books %}
+      <tr>
         <td>{{book.title|title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.book_type}}</td>
         <td>
-            <form action="">
-                {% csrf_token %}
-                <input type="text" value="User">
-            </form>
+          <form action="{% url 'checkout' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" value="User" id="usr_input"/>
         </td>
         <td>
-          <form action="" method="POST">
-            {% csrf_token %}
             <input type="submit" value="Check-out" />
           </form>
         </td>
@@ -44,12 +41,13 @@
         <th>Type</th>
         <th>User</th>
       </tr>
-    {% for book in books %}
-    <tr>
+      {% for book in books %}
+      <tr>
         <td>{{book.title|title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.book_type}}</td>
         <td>
+    
         </td>
         <td>
           <form action="" method="POST">
@@ -58,8 +56,8 @@
           </form>
         </td>
       </tr>
-    {% endfor %}
+      {% endfor %}
     </table>
     {% include 'lib_app/footer.html' %}
-</body>
+  </body>
 </html>

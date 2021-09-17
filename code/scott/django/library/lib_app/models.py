@@ -29,3 +29,6 @@ class Checkout(models.Model):
     timestamp = models.DateTimeField(null=True, blank=True)
     checkout = models.BooleanField('Checked In/Out', default=False)
     
+    def __str__(self):
+        return self.book
+    
