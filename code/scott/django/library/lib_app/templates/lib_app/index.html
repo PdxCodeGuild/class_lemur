@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library App</title>
+</head>
+<body>
+    {% include 'lib_app/navbar.html' %}
+    <h3>Available Books</h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+        <th>User</th>
+      </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{book.title|title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.book_type}}</td>
+        <td>
+            <form action="">
+                {% csrf_token %}
+                <input type="text" value="User">
+            </form>
+        </td>
+        <td>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Check-out" />
+          </form>
+        </td>
+      </tr>
+    </table>
+    {% endfor %}
+    <h3>Checked Out Books</h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+        <th>User</th>
+      </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{book.title|title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.book_type}}</td>
+        <td>
+        </td>
+        <td>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Check-in" />
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+    {% include 'lib_app/footer.html' %}
+</body>
+</html>
