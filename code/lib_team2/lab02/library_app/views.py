@@ -34,3 +34,15 @@ def checkout(request):
 
     print(request.POST)
     return redirect('library_app:index')
+
+def checkin(request):
+    if request.method == 'POST':
+        title_from_input = request.POST['title_in'] # title
+        book_obj_in = Book.objects.get(title = title_from_input)  
+        user_in = request.POST['user_in']
+        checkout_obj = Checkout.objects.get(book=book_obj_in)
+        checkout_obj.checkout = False
+        checkout_obj.timestamp = timezone.now()
+        checkout_obj.save()
+
+        return redirect('library_app:index')
