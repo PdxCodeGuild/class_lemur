@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
 from datetime import datetime, timedelta
-
-
+from django.contrib.auth.models import User
 
 
 def get_due_date():
@@ -15,6 +14,8 @@ class Book(models.Model):
     pubdate=models.DateField('Date Published')
     genre=models.ManyToManyField('Genre', 'title')
     author=models.ManyToManyField('Author', 'title')
+    CHOICES = [(i,str(i)) for i in range(1,11)]
+    copies=models.SmallIntegerField(choices=CHOICES, default=1)
 
     def __str__(self):
         return self.title
@@ -32,6 +33,7 @@ class Tracking(models.Model):
     title = models.ManyToManyField(Book, related_name='state')
     date_out =models.DateField('Date Checkout Out', default=datetime.today())
     due=models.DateField('Due Date',default= get_due_date)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, related_name='Patron')
     def __str__(self):
         return self.first_name+ ' ' +self.last_name
 class Genre(models.Model):
