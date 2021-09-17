@@ -1,12 +1,34 @@
-<ul>
-    {% for book in books %} 
-        <li>
-            {{ book.title}}
-        </li>
-    {% endfor %}
-</ul>
+{% extends 'library_app/base.html' %}
+{% block content %}
 
+<div class="container-fluid">
+    <ul>
+        {% for book in books %} 
+            <li>
+                {{ book.title}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+<!-- Checkout book form -->
 <form action="{% url 'library_app:checkout' %}" method="POST">
     {%csrf_token %}
-    <input type="text"
+    <div class="mb-3">
+        <label for="checkout" class="form-label">Checkout Book</label>
+        <input type="text" name="book" class="form-control" id="checkout" value="">
+    </div>
+    <div class="mb-4">
+        <label for="checkout_name" class="form-label">Enter name</label>
+        <input type="text" name="user" class="form-control" id="checkout_name" value="">
+    </div>
+    <div class="col-auto">
+        <input type="date" name="time_stamp" id="checkout">
+        <button type="submit" class="btn btn-primary mb-3">Checkout</button>
+    </div>
 </form>
+
+
+
+{% endblock %}
