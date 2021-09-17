@@ -14,26 +14,20 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <div>
-            <h1>
-
-            </h1>
-            <p>
-
-            </p>
-
-        </div>
-
-    </header>
     <nav>
-        <div></div>
+        <div>
         <a href="{{ url_for('blog_editor')}}">Editors page</a>
         </div>
         <div>
         <a href="#">Contact</a>
         </div>
-    </nav>
+    </nav>  
+    <header>    
+            <h1>
+This isn't the greatest blog in the world
+            </h1>
+    </header>
+    <br/>
     <main>
     {% for post in posts %}  
         <article>
@@ -44,7 +38,6 @@
                     <img src="static/{{ post['image'] }}" alt= "{{ post['image'] }}">
                 </div>
             </block>
-            <!-- <p id="quote">{{ post['body'] }}</p> -->
         </article>
     {% endfor %}
     </main>

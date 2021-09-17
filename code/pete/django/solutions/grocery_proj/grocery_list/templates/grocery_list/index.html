@@ -1,0 +1,95 @@
+<head>
+	<style>
+		body {
+			margin: 3rem;
+		}
+
+		.completed {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+
+<nav>
+	{% if user.is_authenticated %}
+	Welcome, {{ user.username }}
+	<a href="{% url 'users:logout' %}">Logout</a>
+	{% else %}
+	Welcome, guest
+	<a href="{% url 'users:login' %}">Login</a>
+	<a href="{% url 'users:register' %}">Register</a>
+	{% endif %}
+</nav>
+
+<h1>Grocery List</h1>
+
+{% if user.is_authenticated %}
+<ul>
+	{% for item in groceries %}
+	<li>
+		<span {% if item.completed %} class="completed" {% endif %}>
+			{{ item.description }} added by {{ item.user.username }}
+		</span>
+		<a href="{% url 'grocery_list:delete' item.id %}">
+			<button>Delete</button>
+		</a>
+		{% if item.completed == False %}
+		<a href="{% url 'grocery_list:complete' item.id %}">
+			<button>Complete</button>
+		</a>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+
+
+<h3>Add Item To List</h3>
+<form action="{% url 'grocery_list:index' %}" method="POST">
+	{% csrf_token %}
+	<label for="description">Grocery Item</label>
+	<input type="text" id="description" name="description">
+	<input type="submit" value="Add!">
+</form>
+
+<!-- <h3>Not Bought</h3>
+
+<ul>
+	{% for item in incomplete_groceries %}
+	<li>
+		<span>
+			{{ item.description }}
+		</span>
+		<a href="{% url 'grocery_list:delete' item.id %}">
+			<button>Delete</button>
+		</a>
+		{% if item.completed == False %}
+		<a href="{% url 'grocery_list:complete' item.id %}">
+			<button>Complete</button>
+		</a>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+
+
+<h3>Bought</h3>
+<ul>
+	{% for item in completed_groceries %}
+	<li>
+		<span>
+			{{ item.description }}
+		</span>
+		<a href="{% url 'grocery_list:delete' item.id %}">
+			<button>Delete</button>
+		</a>
+		{% if item.completed == False %}
+		<a href="{% url 'grocery_list:complete' item.id %}">
+			<button>Complete</button>
+		</a>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul> -->
+{% else %}
+<p>please login or register to use this app</p>
+{% endif %}

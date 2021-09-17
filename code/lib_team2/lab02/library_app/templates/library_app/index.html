@@ -1,0 +1,12 @@
+<ul>
+    {% for book in books %} 
+        <li>
+            {{ book.title}}
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'library_app:checkout' %}" method="POST">
+    {%csrf_token %}
+    <input type="text"
+</form>
