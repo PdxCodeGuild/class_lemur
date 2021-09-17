@@ -9,88 +9,29 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 
 <body>
 
     <section class="hero is-warning">
         <div class="hero-body">
-          <p class="title is-flex is-justify-content-center">
-            Check in/out:
-          </p>
+            <p class="title is-flex is-justify-content-center">
+                Check in/out:
+            </p>
         </div>
-      </section>
+    </section>
 
     <main>
 
-        <!-- <h3 class="title is-4 is-flex is-justify-content-center m-5">Check in/out:</h3> -->
-
-        <div class=".container m-5">
-            
-            <form action="{% url 'library_app:checked' %}" method="POST">
+        <h2 class="title is-4">Check out</h2>
+            <form method="POST" class="library-form">
                 {% csrf_token %}
-                <div class="select">
-                    <select>
-                        <option>Select a user</option>
-                        {% for user in users %}
-                        <option>{{ user }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-        
-                <h3 class="mt-2">or add a user:</h3>
-                <form action="{% url 'library_app:new_user' %}" method="POST">
-                    {% csrf_token %}
-                    <input class="input is-link" type="text" name="name" id="name">
-                    <button class="button is-link is-light">Submit</button>
-                </form>
-            </div>
-
-        <div class=".container m-5">
-
-            <div class="select">
-                <select>
-                    <option>Select a book</option>
-                    {% for book in books %}
-                    <option>{{ book.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
-        </div>
-
-
-        <div class=".container m-5">
-
-            <div class="control">
-                <label class="radio">
-                    <input type="radio" name="answer" id="out">
-                    Check out
-                </label>
-                <label class="radio">
-                    <input type="radio" name="answer" id="in">
-                    Check in
-                </label>
-            </div>
-
-        </div>
-
-        <div class=".container m-5">
-
-            <form action="{% url 'library_app:checked' %}" method="POST">
-                {% csrf_token %}
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-link is-light" name="id">Submit</button>
-                    </div>
-                    <div class="control">
-                        <button class="button is-link is-light">Cancel</button>
-                    </div>
-                </div>
-            </form>
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Save</button>
             </form>
 
-        </div>
 
         <a class="title is-4 is-flex is-justify-content-center pt-6" href="{% url 'library_app:index' %}">Go home</a>
     </main>

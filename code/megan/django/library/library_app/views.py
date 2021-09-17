@@ -1,60 +1,48 @@
-from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect, get_object_or_404
 
-from .models import Book, Author, User, Checked
-
+from .models import Book, Author, Checked
+from .forms import LibraryForm
 
 def index(request):
+
     books = Book.objects.all()
     authors = Author.objects.all()
+    # checked = Checked.objects.all()
 
     context = {
         'books': books,
         'authors': authors,
-        # 'out': Book.objects.filter(checked_out=True),
-        # 'in': Book.objects.filter(checked_out=False),
+        'checked': Checked.objects.all(),
     }
 
     return render(request, 'library_app/index.html', context)
 
 
-def checked(request):
-    books = Book.objects.all()
-    users = User.objects.all()
+def form(request):
+    if request.method == 'POST':
+            
+        form = LibraryForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+        return redirect('library_app:index')
+
+    form = LibraryForm()
 
     context = {
-        'books': books,
-        'users': users
+        'form': form,
     }
-
-    # id = request.POST['name']
-    # brought_back = Book.objects.get(id=id)
-    # brought_back.checked_out = False
-    # brought_back.save()
-
-    # return HttpResponseRedirect(reverse('library_app:index'), context)
 
     return render(request, 'library_app/check.html', context)
 
-def new_user(request):
-    # if request.method == 'POST':
+def returning(request, id):
 
-        name = request.POST.get('id')
-        print("You did a post request!")
-        added_user = User(name=name)
-        added_user.save()
+    id = request.POST['id']
+    returned = Checked.objects.get(id=id)
+    returned.checked_out = False
+    returned.save()
 
-        return HttpResponseRedirect(reverse('library_app:checked'))
+    return redirect('library_app:index')
 
-
-def records(request):
-    users = User.objects.all()
-    books = Book.objects.all()
-    records = Checked.objects.all()
-
-    context = {
-        'books': books,
-        'users': users,
-        'records': records
-    }
-
-    return render(request, 'library_app/records.html', context)

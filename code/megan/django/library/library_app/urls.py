@@ -5,7 +5,6 @@ app_name = 'library_app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('checked/', views.checked, name='checked'),
-    path('new_user/', views.new_user, name='new_user'),
-    path('records/', views.records, name='records'),
+    path('form/', views.form, name='form'),
+    path('returning/<int:id>', views.returning, name='returning'),
 ]
