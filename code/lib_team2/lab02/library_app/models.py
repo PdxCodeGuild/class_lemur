@@ -19,3 +19,5 @@ class Checkout(models.Model):
     user = models.CharField(max_length=50)
     checkout = models.BooleanField(default=False)
     timestamp = models.DateField(null = True, blank = True)
+    def __str__(self):
+        return self.book.title + " " + self.user

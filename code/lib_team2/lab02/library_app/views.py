@@ -6,19 +6,31 @@ from .models import Book, Author, Checkout
 def index(request):
     books = Book.objects.all()
     authors = Author.objects.all()
-    checkouts = Checkout.objects.filter()
+    checkouts = Checkout.objects.filter(checkout=True)
+    checkins = Checkout.objects.filter(checkout=False)
     context={
         'books' : books,
         'authors' : authors,
         'checkouts': checkouts,
+        'checkins' : checkins,
     }
     return render(request, 'library_app/index.html', context)
 
 def checkout(request):
     if request.method == 'POST':
-        book = request.POST['book']
+        title_from_input = request.POST['title'] # title
         user = request.POST['user']
-        time_stamp = request.POST['time_stamp']
-        book.checkout = True
+        timestamp = request.POST['time_stamp']
+        # get the book where title is title
+        book_obj = Book.objects.get(title = title_from_input)  
+        # kwargs are a dictionary { 'title': title}
+
+        Checkout.objects.create(
+            book = book_obj,
+            user = user,
+            timestamp = timestamp,
+            checkout = True,
+        )
+
     print(request.POST)
     return redirect('library_app:index')

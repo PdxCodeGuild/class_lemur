@@ -2,6 +2,8 @@
 {% block content %}
 
 <div class="container-fluid">
+
+    <h1>Inventory</h1>
     <ul>
         {% for book in books %} 
             <li>
@@ -16,8 +18,8 @@
 <form action="{% url 'library_app:checkout' %}" method="POST">
     {%csrf_token %}
     <div class="mb-3">
-        <label for="checkout" class="form-label">Checkout Book</label>
-        <input type="text" name="book" class="form-control" id="checkout" value="">
+        <label for="checkout" class="form-label">Checkout / Checkin Book</label>
+        <input type="text" name="title" class="form-control" id="checkout" value="">
     </div>
     <div class="mb-4">
         <label for="checkout_name" class="form-label">Enter name</label>
@@ -26,8 +28,37 @@
     <div class="col-auto">
         <input type="date" name="time_stamp" id="checkout">
         <button type="submit" class="btn btn-primary mb-3">Checkout</button>
+        <button type="submit" class="btn btn-primary mb-3">Checkin</button>
     </div>
+   
 </form>
+
+<h1>Checkedout Books</h1>
+
+<ul>
+    {% for check in checkouts %}
+    <li>
+        <span>
+            {{ check.book.title }} checkedout by {{ check.user }}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<br>
+<h1>Checkin Books</h1>
+
+<ul>
+    {% for check in checkins %}
+    <li>
+        <span>
+            {{ check.book.title }} checkedin by {{ check.user }}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
 
 
 
