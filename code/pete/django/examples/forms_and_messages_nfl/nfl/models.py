@@ -19,7 +19,8 @@ class Player(models.Model):
         ('RB', 'Running Back'),
         ('DL', 'Defensive Lineman'),
         ('WR', 'Wide Receiver'),
-        ('CB', 'Cornerback')
+        ('CB', 'Cornerback'),
+        ('TE', 'Tight End'),
     ]
     position = models.CharField(max_length=2, choices=POSITION_CHOICES)
     bio = models.TextField()
