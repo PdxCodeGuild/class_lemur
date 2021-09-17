@@ -1,0 +1,41 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center">Chirp, Chirp Birdie</h1>
+<article class='container'>
+  <div class="row">
+    <div class="col-md-3" style="position:fixed">
+      <p>I stay fixed in place</p>
+    </div>
+    <div class="col-md-9 container">
+      <div class="col">
+        <form action="{% url 'posts:make_post' %}" method="POST">
+          {% csrf_token %}
+          <label for="content">New Post</label>
+          <textarea type="text" id="content" name="content"></textarea>
+          <br />
+          <button type="submit">Post</button>
+        </form>
+      </div>
+      <ul>
+        {% for post in posts %}
+        <li class="border border-dark col">
+          {{ post.user.user_name }}
+          {{ post.user.user_image }}
+          {{ post.content }}
+          {{ post.date_time }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</article>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+
+{% endblock %}
