@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from random import choice, sample, shuffle
 import string
+import decimal as dec
 
 app = Flask(__name__)
 
@@ -23,8 +24,9 @@ def unit_converter():
     if request.method == 'POST':
         inputs=dict(request.form)
         print(inputs)
-        distance = float(inputs['distance']) *units[inputs['unit_in']] / units[inputs['unit_out']]
-    return render_template('index.html', distance=distance)
+        unit_out=inputs['unit_out']
+        distance = round(float(inputs['distance']) *units[inputs['unit_in']] / units[inputs['unit_out']],2)
+    return render_template('unit.html', distance=distance, unit=unit_out)
 
 @app.route('/anagram/',methods=['GET', 'POST'])
 def anagram():
@@ -44,7 +46,7 @@ def anagram():
             response=f'{firststr} and {secondstr} are anagrams'
         else:
             response=f'{firststr} and {secondstr} are not anagrams'
-    return render_template('index.html',words=response)
+    return render_template('anagram.html',words=response)
 
     
 

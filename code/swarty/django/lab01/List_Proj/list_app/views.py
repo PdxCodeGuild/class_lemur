@@ -48,6 +48,7 @@ def complete(request):
 	print(request.POST)
 	id=int(request.POST.get('id'))
 	item= GroceryItem.objects.get(id=id)
+	item.completion=datetime.now()
 	item.completed=True
 	item.save()
 	return redirect('/')
