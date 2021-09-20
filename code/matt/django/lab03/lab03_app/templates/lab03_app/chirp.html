@@ -1,0 +1,72 @@
+{% extends 'lab03_app/base.html' %}
+
+{% block title %}
+<title>Chrip</title>
+{% endblock %}
+
+{% block content %}
+<section>
+    <article class="border p-3">
+        <span class="p-2">
+            {{chirp.user}} {{ chirp.created_at|timesince }} ago
+        </span>
+        <div class="ps-2 pt-2">
+            {{ chirp.chirp }}
+        </div>
+        <div class="pt-1">
+            <span>
+                <a class="col-2" style="text-decoration: none;" href="{% url 'lab03_app:likes' chirp.id %}">
+                    <button class="btn" type="submit" name="like"><i class="fa fa-heart"></i>
+                        {{ chirp.likes.count }}</button>
+                </a>
+                <span class="col-2">
+                    <button class="btn">
+                        <i class="fa fa-comments"></i> {{ chirp.comment.all.count }}
+                    </button>
+                </span>
+                <span class="d-grid flex justify-content-end">
+                    {% if user.is_authenticated %}
+                    {% if user.id == chirp.user.id %}
+
+                    <a class="pe-2" href="{% url 'lab03_app:delete' chirp.id %}">
+                        Delete
+                    </a>
+                    {% endif %}
+                    {% endif %}
+                </span>
+            </span>
+        </div>
+    </article>
+    <article class="container pb-2 border">
+        <form class="row" action="{% url 'lab03_app:chirp' %}" method="POST">
+            {% csrf_token %}
+            <div class=" ps-5 mb-3">
+                <textarea placeholder="your reply" name="reply" class="form-control shadow-none border-0" id="reply"
+                    rows="3"></textarea>
+            </div>
+            <div class="d-grid flex justify-content-end">
+                {% if user.is_authenticated %}
+                <button type="submit" class="btn btn-primary rounded-pill">
+                    Reply
+                </button>
+                {% else %}
+                <button type="submit" disabled class="btn btn-primary rounded-pill">
+                    Reply
+                </button>
+                {% endif %}
+            </div>
+        </form>
+
+    </article>
+    <article class="border p-3">
+        {% for comment in chirp.comment.all %}
+        <span>
+            {{ comment.user }} {{ comment.created_at|timesince }} ago
+        </span>
+        <div>
+            {{ comment }}
+        </div>
+        {% endfor %}
+    </article>
+</section>
+{% endblock %}
