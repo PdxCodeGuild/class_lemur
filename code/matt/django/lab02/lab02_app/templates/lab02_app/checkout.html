@@ -15,8 +15,10 @@
 
 <body class="container">
     <h1>{{ author }}</h1>
+
     <form action="{% url 'lab02_app:index' %}" method="POST">
         {% csrf_token %}
+
         <div class="row">
             <p>Enter your name and select the book you want to check out.</p>
             <div class="mb-3 col">
@@ -25,18 +27,18 @@
             <div class="col">
                 <select class="form-select" name="book">
                     {% for book in author.books.all %}
-
-
-                    {% if book not in book.checkouts.all %}
-                    <option selected>{{book.title}} </option>
-                    {% endif %}
-
-
-
+                    <option selected>{{book.title}}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
+
+        {% if book %}
+        <div>
+            <p class="fts-3">{{book}} is already checked out</p>
+        </div>
+        {% endif %}
+
         <div class="mt-2">
             <button type="submit" name="checkout" class="btn btn-primary mb-3">Checkout</button>
         </div>

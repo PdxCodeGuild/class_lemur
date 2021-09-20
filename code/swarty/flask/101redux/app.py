@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index(): # this is the index
     return render_template('index.html')
 
-@app.route('/random-pswd/')
+@app.route('/random-pswd/', methods=['GET'])
 def random_color():
     lowercase = list(string.ascii_lowercase)
     uppercase = list(string.ascii_uppercase)
@@ -24,7 +24,7 @@ def random_color():
 @app.route('/grading/', methods=['GET', 'POST'])
 def grades():
     if request.method == 'POST':
-        numgrade = (request.form['input_text'])
+        numgrade = int(request.form['input_text'])
         if numgrade >=90:
             ltrgrade='A'
         elif numgrade >=80:

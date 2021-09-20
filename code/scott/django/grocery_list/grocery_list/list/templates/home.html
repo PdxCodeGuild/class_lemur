@@ -4,24 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="Grocery List" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Grocery List</title>
   </head>
   <body>
     {% include 'navbar.html' %}
-    <hr />
     <h3>Items to Purchase</h3>
     <table>
       <tr>
         <th>Item</th>
         <th>Date Added</th>
-        <th>Purchased?</th>
       </tr>
-      {% for item in items %}
+      {% for item in groceries %}
       <tr>
         <td>{{item.item|title}}</td>
         <td>{{item.date_added}}</td>
-        <td>{{item.cleared}}</td>
-        <td>{% include 'delete_item.html' %}</td>
+        <td>
+          <form action="{% url 'purchased_item' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Purchase Item" />
+          </form>
+        </td>
+        <td>
+          <form action="{% url 'delete_item' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </table>
@@ -30,14 +38,17 @@
       <tr>
         <th>Item</th>
         <th>Date Purchased</th>
-        <th>Purchased?</th>
       </tr>
-      {% for item in items %}
+      {% for item in bought %}
       <tr>
         <td>{{item.item|title}}</td>
         <td>{{item.date_bought}}</td>
-        <td>{{item.cleared}}</td>
-        <td>{% include 'delete_item.html' %}</td>
+        <td>
+          <form action="{% url 'delete_item' item.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </table>

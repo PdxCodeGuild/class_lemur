@@ -15,57 +15,54 @@
 
 <body class="container">
     <h1>Welcome to the Library</h1>
+
     <div class="row">
         <p>Please select an author to view their books.</p>
+
         <ul class="list-group">
             {% for author in authors %}
             <li class="list-group-item"><a href="{% url 'lab02_app:checkout' author.name %}">{{author}}</a></li>
             {% endfor %}
         </ul>
 
-        <form action="/" method="POST">
-            {% csrf_token %}
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Book</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Checkout/in</th>
-                        <th scope="col">Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for book in checkout %}
-                    <tr>
-                        <td>
-                            {{ book.book }}
-                        </td>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Book</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Checkout/in</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in checkout %}
+                <tr>
+                    <td>
+                        {{ book.book }}
+                    </td>
 
-                        <td>
-                            {{ book.user}}
-                        </td>
+                    <td>
+                        {{ book.user}}
+                    </td>
 
+                    <td>
+                        {% if book.checkout == True %}
+                        <a href="{% url 'lab02_app:checkin' book.id %}"><button
+                                class="btn btn-primary btn-sm">Checkin</button></a>
+                        {% else %}
+                        Checked in at
+                        {% endif %}
+                    </td>
 
-                        <td>
-                            <div class="form-check form-switch col">
-                                <input {% if not book.checkout %} checked {% endif %} class="form-check-input"
-                                    type="checkbox" id="checkout" name="{{book.book}}checkout">
-                            </div>
-                        </td>
+                    <td>
+                        {{ book.time }}
+                    </td>
 
-                        <td>
-                            {{ book.time }}
-                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div>
-                <button type="submit" name='checkin' class="btn btn-primary">Check in</button>
-            </div>
-        </form>
 
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
