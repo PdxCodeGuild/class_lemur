@@ -6,25 +6,43 @@
     <table class="table table-hover">
         <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">#</th>
               <th scope="col">Item</th>
               <th scope="col">Date Added</th>
-              <th scope="col">Bought</th>
               <th scope="col">Date bought</th>
             </tr>
           </thead>
           <tbody>
             {% for grocery_item in grocery_items%}
               <tr>
-                <th scope="row">{{grocery_item.id}}</th>
-                <td>{{ grocery_item.item }}</td>
-                <td>{{ grocery_item.date_added }}</td>
-                <td>{{ grocery_item.bought }}</td>
-                <td>{{ grocery_item.date_bought }}</td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check_label" for="flexCheckDefault">
+                    </div>
+                  </td>
+                  <th scope="row">{{grocery_item.id}}</th>
+                    <td>{{ grocery_item.item }}</td>
+                    <td>{{ grocery_item.date_added }}</td>
+                    <td>{{ grocery_item.date_bought }}</td>
+                  </label>
             </tr>
             {% endfor %}
           </tbody>
     </table>
 </div>
+
+
+<!-- add an item -->
+
+<form action="{% url 'market_run:added_item' %}" method="POST">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="add_item" class="form-label">Add item to list</label>
+    <input type="text" class="form-control" id="add_item" name="new_item">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 {% endblock %}
