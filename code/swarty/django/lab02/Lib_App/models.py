@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
 from datetime import datetime, timedelta
-
-
+from django.contrib.auth.models import User
 
 
 def get_due_date():
@@ -13,14 +12,18 @@ class Book(models.Model):
     title = models.CharField('Title', max_length=40)
     publisher = models.CharField('Publisher', max_length=40)
     pubdate=models.DateField('Date Published')
+    genre=models.ManyToManyField('Genre', 'title')
+    author=models.ManyToManyField('Author', 'title')
+    CHOICES = [(i,str(i)) for i in range(1,11)]
+    copies=models.SmallIntegerField(choices=CHOICES, default=1)
+
     def __str__(self):
         return self.title
 
 class Author(models.Model):
     first_name = models.CharField('First Name', max_length=40)
     last_name = models.CharField('Last Name', max_length=40)
-    works=models.ManyToManyField(Book, related_name='authors')
-    pen_name=models.CharField('Pen Name', max_length=60)
+    pen_name=models.CharField('Pen Name', max_length=81)
     def __str__(self):
         return self.first_name+ ' ' +self.last_name
 
@@ -30,25 +33,13 @@ class Tracking(models.Model):
     title = models.ManyToManyField(Book, related_name='state')
     date_out =models.DateField('Date Checkout Out', default=datetime.today())
     due=models.DateField('Due Date',default= get_due_date)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, related_name='Patron')
     def __str__(self):
-        return self.state
+        return self.first_name+ ' ' +self.last_name
 class Genre(models.Model):
-    title=models.ManyToManyField(Book, related_name='genre')
-    horror=models.BooleanField(default=False,name="Horror")
-    fantasy=models.BooleanField(default=False, name='Fantasy')
-    sci_fi=models.BooleanField(default=False, name='Science Fiction')
-    novel=models.BooleanField(default=False,name="Novel")
-    romance=models.BooleanField(default=False,name="Romance")
-    theatrical=models.BooleanField(default=False,name="Theatrical")
-    drama=models.BooleanField(default=False,name="Drama")
-    fiction=models.BooleanField(default=False,name="Fiction")
-    non_fiction=models.BooleanField(default=False,name="Non Fiction")
-    historical=models.BooleanField(default=False,name="Historical")
-    classic=models.BooleanField(default=False,name="Classic")
-    series=models.BooleanField(default=False,name="Series")
-    western=models.BooleanField(default=False,name="Western")
+    name=models.CharField('Genre', max_length=20)
     def __str__(self):
-        return self.genre
+        return self.name
 
 """
 Let's create an application for representing a library. You should have two models (below) 
