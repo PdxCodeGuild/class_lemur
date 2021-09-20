@@ -1,0 +1,61 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+<main>
+    <article>
+        <div class="row" id="books">
+            {% for book in books %}
+            <div class="col m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ book.image }}" alt="">
+                    </div>
+                    <div class="card-content">
+
+                        <span class="card-title">{{ book.title }}</span>
+                        <p>Author: {{ book.author.name }}</p>
+                        <p>Publish Date: {{ book.publish_date }}</p>
+                        <p>Genre: {% for each_genre in book.genre.all %}
+                            {{ each_genre }} |
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        {% if book.checked_out == True %}
+                        <form action="{% url 'library:checkin' %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="waves-effect waves-light btn-large" value="{{ book.title }}"
+                                name="name">Check in Book</a>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'library:checkout' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input value="" name="user" id="user" type="text">
+                                    <label class="active" for="user">Username</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="waves-effect waves-light btn-large" value="{{ book.title }}"
+                                name="name">Check out Book</a>
+                        </form>
+                        {% endif %}
+                    </div>
+                    <div class="card-action">
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+    <article>
+        <div class="row">
+            <a href="{% url 'library:status' %}" class="waves-effect waves-light btn center-align">Library Status
+                Page</a>
+        </div>
+    </article>
+</main>
+{% endblock %}
+
