@@ -1,0 +1,16 @@
+{% extends 'Poo_Talk_users/base.html' %}
+<form action="{% url 'Poo_Talk_users:NewUser' %}" method="POST">
+    {%csrf_token%}
+    <div class="mb-3">
+        <label for="new_user" class="form-label">Enter new username</label>
+        <input type="text" class="form-control" id="new_user" placeholder="Poo_Talker" />
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="password" rows="3"></textarea>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </div>
+</form>
+{% endblock%}

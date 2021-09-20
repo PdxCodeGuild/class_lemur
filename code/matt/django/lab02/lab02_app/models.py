@@ -28,3 +28,11 @@ class Checkout(models.Model):
 
     def __str__(self):
         return self.book.title
+
+
+class Genre(models.Model):
+    genre = models.CharField(max_length=50)
+    book = models.ManyToManyField(Book)
+
+    def __str__(self):
+        return self.genre
