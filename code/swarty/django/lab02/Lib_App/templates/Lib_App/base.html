@@ -2,18 +2,82 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'Lib_App/bones.ico'%}" type="image/x-icon">
-	<title>Grocery List</title>
-	{% load static %}
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://kit.fontawesome.com/14c2381cf4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'Lib_App/style.css' %}">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>WPC</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'Lib_App/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'Lib_App/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
+<body>
+  <nav class="green lighten-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo right grey-text text-darken-3">Login</a>
+      <!-- For large Screens -->
+      <ul class="left hide-on-med-and-down white-text"> 
+        <li><a href="#" class="grey-text text-darken-3"><i class="material-icons grey-text text-darken-3">menu</i></a></li>
+      </ul>
+      <!-- For Smll Screens -->
+      <ul id="nav-mobile" class="sidenav grey-text text-darken-3">
+        <li><a href="#" class="grey-text text-darken-3"><i class="material-icons grey-text text-darken-3">menu</i></a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons grey-text text-darken-3">menu</i></a>
+    </div>
+  </nav>
 
+{% block content %}
+{% endblock %}
+
+<footer class="page-footer green lighten-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+			<h5 class="grey-text text-darken-3">Library Hours</h5>
+			<div class="col l3 s6">
+          		<ul class="grey-text text-darken-3">
+			  		<li>Weekday</li>
+					<li>Weekends</li>
+		  		</ul>
+			</div>	  
+			<div class="col l3 s6">
+          		<ul class="grey-text text-darken-3">
+			  		<li>8-10</li>
+					<li>10-4</li>
+		  		</ul>
+			</div>	  	
+
+        </div>
+        <div class="col l6 s12">
+          <h5 class="grey-text text-darken-3">Events</h5>
+          <ul>
+            <li><a class="grey-text text-darken-3" href="#!">Senior</a></li>
+            <li><a class="grey-text text-darken-3" href="#!">Adult</a></li>
+            <li><a class="grey-text text-darken-3" href="#!">Youth</a></li>
+            <li><a class="grey-text text-darken-3" href="#!">ESL</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container grey-text text-darken-2">
+      Made by <a class="grey-text text-darken-3" href="#">Swarty</a>
+      </div>
+    </div>
+  </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <!--  Scripts-->
+ 
+  <script src="{% static 'Lib_App/materialize.js' %}"></script>
+  <script>
+	  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems);
+  });
+  </script>
+
+</body>
+</html>

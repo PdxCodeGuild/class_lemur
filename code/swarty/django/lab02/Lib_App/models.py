@@ -28,14 +28,12 @@ class Author(models.Model):
         return self.first_name+ ' ' +self.last_name
 
 class Tracking(models.Model):
-    first_name = models.CharField('First Name', max_length=40)
-    last_name = models.CharField('Last Name', max_length=40)
     title = models.ManyToManyField(Book, related_name='state')
     date_out =models.DateField('Date Checkout Out', default=datetime.today())
     due=models.DateField('Due Date',default= get_due_date)
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, related_name='Patron')
     def __str__(self):
-        return self.first_name+ ' ' +self.last_name
+        return f'{self.user}; checked: {self.title}'
 class Genre(models.Model):
     name=models.CharField('Genre', max_length=20)
     def __str__(self):
