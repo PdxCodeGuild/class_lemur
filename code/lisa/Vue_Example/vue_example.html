@@ -22,7 +22,7 @@
 
 <body>
     <div id='app'>
-        <header class='container-fluid'>
+        <header>
             <div class="text-center">
                 <span class='page-title'>Welcome to the Vueseum!</span>
             </div>
@@ -34,7 +34,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="thingsToKnowLabel">Vue HTML</h5>
+                                    <h5 class="modal-title" id="thingsToKnowLabel">Vue Directives</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close">X</button>
                                 </div>
@@ -304,7 +304,7 @@
                                         <nav class="nav nav-pills flex-column">
                                         </nav>
                                         <a class="nav-link" href="#item-2">Setting Up Vue.js</a>
-                                        <a class="nav-link" href="#item-3">Three Main Stations</a>
+                                        <a class="nav-link" href="#item-3">After Setup</a>
                                         <nav class="nav nav-pills flex-column">
                                             <a class="nav-link ms-3 my-1" href="#item-3-1">HTML Station</a>
                                             <a class="nav-link ms-3 my-1" href="#item-3-2">Data Station</a>
@@ -316,35 +316,72 @@
                                 <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0"
                                     tabindex="0">
                                     <h4 id="item-1">Setting Up HTML</h4>
-                                    <p>First we need to set up the html page. Vue doesn't have anything to add to the html head, so we can leave that alone. We'll cover CSS, Google Fonts, and Axios later, these are just the basics; the title in the html head isn't important. In the html body, add the Vue CDN, <a
-                                            href='https://v3.vuejs.org/guide/installation.html#cdn'>found here</a>, as
-                                        well as your javascript page. Order matters, so add Vue first. It needs to be underneath the div pair with the id of 'app'.  </p>
+                                    <p>First we need to set up the html page by creating a div pair, and giving it an id
+                                        of 'app'. Under the closing div, add the Vue CDN,
+                                        <a href='https://v3.vuejs.org/guide/installation.html#cdn' target="_blank">
+                                            found here
+                                        </a>,
+                                        as
+                                        well as your javascript page. Order matters, so add the Vue CDN first. Vue
+                                        doesn't have anything to add to the html head, so we can leave that alone. We'll
+                                        cover CSS, Google Fonts, and Axios later, these are just the basics; the title
+                                        in the html head isn't important.
+                                    </p>
                                     <img src='images/settingUpHtml.png' />
+                                    <br />
+                                    <br />
+                                    <hr />
 
                                     <h4 id="item-2">Setting Up Vue.js</h4>
-                                    <p>Now we can go to our javascript file, and create a new Vue app. This is Vue in
+                                    <p>Now we can go to our javascript file, and create a new Vue app (you can name it
+                                        script.js if you're unsure). This is Vue in
                                         its most basic form, before we add functionality to it. </p>
                                     <img src='images/settingUpVue.png' />
+                                    <br />
+                                    <br />
+                                    <hr />
 
-                                    <h4 id="item-3">Three Main Stations</h4>
+                                    <h4 id="item-3">After The Setup</h4>
                                     <p>To make Vue and the html work together, we'll have three stations that we can
                                         focus on initially. There will be more later on, but this is all we need to get
                                         started. These stations are the html page, the data section of Vue, and the
-                                        methods section of Vue. You don't have to start at any particular station, and you don't have to finish one to start another. </p>
+                                        methods section of Vue. You don't have to start at any particular station, and
+                                        you don't have to finish one to start another. </p>
+                                        <br />
 
                                     <h5 id="item-3-1">HTML Station</h5>
                                     <p>In our html station, we're building our visual display. We'll want to think about
-                                        our input types (text, number, email, radio, select, checkbox, etc.), outputs, forms, buttons, and how we'll ultimately want them to
+                                        our input types (text, number, email, radio, select, checkbox, etc.), outputs,
+                                        forms, buttons, and how we'll ultimately want them to
                                         react to user input. Look through the 'Vue HTML' section to see the most
                                         common Vue-specific html elements. </p>
                                     <img src='images/CalculateHtml.png' />
+                                    <br />
+                                    <br />
 
                                     <h5 id="item-3-2">Data Station</h5>
-                                    <p>We can think of the data station as real-time storage locker that we can access from anywhere in our html and vue pages. The data station is an object full of key/value pairs that will keep track of the state of all of our data. The key will be a data variable, and just like any other variable in programming, we'll name it based on what it's keeping track of. The value will establish both the data type, and the current state of our key; it can be left blank, or a value can be hard-coded into it. Here, we'll want to think about what data types we need for our input/output (arrays, numbers, strings, objects, etc.), as well as the initial value.  </p>
+                                    <p>We can think of the data station as real-time storage locker that we can access
+                                        from anywhere in our html and vue pages. The data station is an object full of
+                                        key/value pairs that will keep track of the state of all of our data. The key
+                                        will be a data variable, and just like any other variable in programming, we'll
+                                        name it based on what it's keeping track of. The value will establish both the
+                                        data type, and the current state of our key; it can be left blank, or a value
+                                        can be hard-coded into it. Here, we'll want to think about what data types we
+                                        need for our input/output (arrays, numbers, strings, objects, etc.), as well as
+                                        the initial value. </p>
                                     <img src="images/dataStation.png" />
+                                    <br />
+                                    <br />
 
                                     <h5 id="item-3-3">Methods Station</h5>
-                                    <p>Here at the methods station, we can start writing functions to use in our app. None of these functions will run until they're called, and we can do that in a few different ways. We can call one function inside another right here in the methods, or use v-on to trigger the function after an event (such as a click). In the advanced topics section, we'll look at Vue's lifecycle hooks, which can also call a function from methods. We'll want to think about how data needs to be able to move, and how we'll add that functionality to it. We can use any variable from the data station as long as we add this. to it first.  </p>
+                                    <p>Here at the methods station, we can start writing functions to use in our app.
+                                        None of these functions will run until they're called, and we can do that in a
+                                        few different ways. We can call one function inside another right here in the
+                                        methods, or use v-on to trigger the function after an event (such as a click).
+                                        In the advanced topics section, we'll look at Vue's lifecycle hooks, which can
+                                        also call a function from methods. We'll want to think about how data needs to
+                                        be able to move, and how we'll add that functionality to it. We can use any
+                                        variable from the data station as long as we add this. to it first. </p>
                                     <img src='images/methodStation.png' />
                                 </div>
 
@@ -364,8 +401,7 @@
                         Docs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="header-nav-link nav-link"
-                        href='https://github.com/lisab1993/Vueseum'
+                    <a class="header-nav-link nav-link" href='https://github.com/lisab1993/Vueseum'
                         target='_blank'>Vueseum Source Code</a>
                 </li>
                 <li class="nav-item">
@@ -390,20 +426,26 @@
                             <nav class="nav nav-pills flex-column">
                                 <a class="nav-link ms-3 my-1" href="#renderingFromVue">Rendering From Vue</a>
                                 <a class="nav-link ms-3 my-1" href="#textInput">Text Input</a>
-                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsDynamic">Select and Options (Dynamic)</a>
-                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsHardCoded">Select and Options (Hard-Coded)</a>
+                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsDynamic">Select and Options
+                                    (Dynamic)</a>
+                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsHardCoded">Select and Options
+                                    (Hard-Coded)</a>
                                 <a class="nav-link ms-3 my-1" href="#radioButtonsDynamic">Radio Buttons (Dynamic)</a>
-                                <a class="nav-link ms-3 my-1" href="#radioButtonsHardCoded">Radio Buttons (Hard-Coded)</a>
-                                <a class="nav-link ms-3 my-1" href="#renderingFromAListOfDictionaries">Rendering From a List of Dictionaries</a>
+                                <a class="nav-link ms-3 my-1" href="#radioButtonsHardCoded">Radio Buttons
+                                    (Hard-Coded)</a>
+                                <a class="nav-link ms-3 my-1" href="#renderingFromAListOfDictionaries">Rendering From a
+                                    List of Dictionaries</a>
                                 <a class="nav-link ms-3 my-1" href="#standardCheckboxes">Standard Checkboxes</a>
-                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesDynamic">Rendering Checkboxes (Dynamic)</a>
-                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesHardCoded">Rendering Checkboxes (Hard-Coded)</a>
-                              </nav>
+                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesDynamic">Rendering Checkboxes
+                                    (Dynamic)</a>
+                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesHardCoded">Rendering Checkboxes
+                                    (Hard-Coded)</a>
+                            </nav>
                             <a class="nav-link" href="#applyingMethods">Applying Methods</a>
                             <nav class="nav nav-pills flex-column">
                                 <a class="nav-link ms-3 my-1" href="#calculate">Example: Calculator</a>
                                 <a class="nav-link ms-3 my-1" href="#convertTemp">Example: Convert Temperature</a>
-                              </nav>
+                            </nav>
                         </nav>
                     </nav>
                 </div>
@@ -411,6 +453,11 @@
 
                 <div class='col-10'>
                     <h1 id="inputsAndRenderingValues">Inputs and Rendering Values</h1>
+                    <p>Vue is used to style the front end of a project, and it can play a small or large role; the
+                        options are endless! In this guide, we'll be covering how to add Vue to an HTML page using a
+                        CDN. If you're new to Vue, check out Setting Up to add a vue app. Vue also has its own
+                        directives such as v-model, v-bind, etc., and they will be covered in the Vue Directives tab.
+                    </p>
                     <a href='https://vuejs.org/v2/guide/forms.html' target='_blank'>Official Vue Docs for Input
                         Binding</a>
                     <br />
@@ -1235,11 +1282,12 @@
                                 </div>
                                 <div class="modal-body text-center">
                                     <p>
-                                        Here's a more advanced version of what we did in the calculate method. The degrees symbols are unicode characters, and we can 
+                                        Here's a more advanced version of what we did in the calculate method. The
+                                        degrees symbols are unicode characters, and we can
                                     </p>
                                     <img src='images/TempHtml.png'>
                                     <p>
-                                        
+
                                     </p>
                                     <img src='images/TempJs.png'>
                                 </div>
