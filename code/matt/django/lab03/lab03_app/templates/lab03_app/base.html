@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <script src="https://use.fontawesome.com/a70310ec2f.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    {% block title %}
+    <title>Chirp</title>
+    {% endblock %}
+
+</head>
+
+<body class="container">
+    <!-- start nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid ">
+            <div class="col">
+                <a class="navbar-brand" href="{% url 'lab03_app:index' %}">Chirp</a>
+            </div>
+            <div class="col text-center">
+                {% if user.is_authenticated %}
+                <Welcome class="fs-3" style="font-family: 'Nunito', sans-serif;">Welcome, {{ user.username }} </Welcome>
+                {% endif %}
+            </div>
+            <div class="col">
+                <nav>
+                    <!-- Login Modal -->
+                    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="login">Login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <form action="{% url 'users:login' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="modal-body">
+
+                                        <div class="mb-3">
+                                            <label for="username" class="col-sm-2 col-form-label">
+                                                Username</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                placeholder="username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="col-sm-2 col-form-label">
+                                                Password</label>
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="password">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'users:login' %}">
+                                            <button type="submit" name="login" class="btn btn-primary">Login</button>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- start register modal -->
+                    <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="register">Register</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <form action="{% url 'users:register' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="username" class="col-sm-2 col-form-label">
+                                                Username</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                placeholder="username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="password" class="col-sm-2 col-form-label">
+                                                Password</label>
+                                            <input type="password" class="form-control" id="password" name="password">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="confirm-password" class="col-form-label">
+                                                Confirm Password</label>
+                                            <input type="password" class="form-control" id="confirm-password"
+                                                name="confirm-password">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <a href="{% url 'users:register' %}">
+                                            <button type="submit" name="register"
+                                                class="btn btn-primary">Register</button>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end register modal -->
+
+                    <ul class="nav justify-content-end">
+                        {% if user.is_authenticated %}
+
+                        <li class="nav-item pe-1">
+                            <a href="{% url 'users:logout' %}">
+                                <button type="submit" name="logout" class="btn btn-primary">
+                                    Logout
+                                </button>
+                            </a>
+                        </li>
+
+                        {% else %}
+                        <li class="nav-item pe-1">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#login">
+                                Login
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#register">
+                                Register
+                            </button>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer id="contact" class="text-center  bg-light text-muted mt-5 pt-2">
+
+        <div class="container py-1">
+
+        </div>
+        <!-- Copyright -->
+
+        <div class="text-centerpt-0">
+            <p>© 2021 Copyright: Matthew Kirby</p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- end footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
