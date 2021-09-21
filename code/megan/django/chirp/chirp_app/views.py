@@ -20,6 +20,7 @@ def index(request):
         return redirect('chirp_app:index')
 
     chirps = Chirp.objects.all()
+    # TaskItem.objects.order_by('-created_date')
     form = ChirpForm()
 
     context = {
