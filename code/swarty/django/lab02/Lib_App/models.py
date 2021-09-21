@@ -25,7 +25,7 @@ class Author(models.Model):
     last_name = models.CharField('Last Name', max_length=40)
     pen_name=models.CharField('Pen Name', max_length=81)
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return self.pen_name
 
 class Tracking(models.Model):
     title = models.ManyToManyField(Book, related_name='state')
