@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>WPC</title>
-
+  <link rel="icon" href="{% static 'Lib_App/bones.ico' %}">
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'Lib_App/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -16,7 +16,16 @@
 <body>
   <nav class="green lighten-4" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo right grey-text text-darken-3">Login</a>
+
+
+
+		{% if user.is_authenticated %}
+		<p class="brand-logo right grey-text text-darken-3">Welcome {{ user.username }}</p>
+		<a href="{% url 'users:logout' %}">Logout</a>
+		{% else %}
+      <a href="{% url 'users:login' %}" class="right grey-text text-darken-3">Login</a>
+	  <a href="{% url 'users:register' %}" class="brand-logo right grey-text text-darken-3">Register</a>
+	  {% endif %}
       <!-- For large Screens -->
       <ul class="left hide-on-med-and-down white-text"> 
         <li><a href="#" class="grey-text text-darken-3"><i class="material-icons grey-text text-darken-3">menu</i></a></li>

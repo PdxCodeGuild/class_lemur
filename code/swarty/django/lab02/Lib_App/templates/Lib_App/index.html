@@ -19,6 +19,28 @@
     <div class="parallax"><img src="{% static 'Lib_App/Bookstack.jpg' %}" alt="Book Stack"></div>
   </div>
   <div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genres</th>
+                <th>Authorship</th>
+            </tr>
+        </thead>
+        <form action="{% url 'Lib_App:index' %}" method="POST"> {% csrf_token %}
+        <tbody>
+            {% for edition in titles %}
+            <tr>
+                <td>{{edition.title}}</td>
+                <td>{{edition.genre}}</td>
+                <td>{{edition.author}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </form>
+    </table>
+  </div>
+  <div class="container">
     <div class="section">
 
       <!--   Icon Section   -->
@@ -66,6 +88,7 @@
 
     </div>
   </div>
+  
 </main>
 {% endblock %}
   
