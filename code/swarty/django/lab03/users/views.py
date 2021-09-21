@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your views here
 def logout_user(request):
     logout(request)
-    return redirect('app_chirp:index')
+    return redirect('app_chirp:landing')
 
 def login_user(request):
     if request.method == 'POST':
@@ -15,7 +15,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            return redirect('app_chirp:index')
+            return redirect('app_chirp:landing')
 
     return render(request, 'users/login.html')
 
@@ -31,6 +31,6 @@ def register_user(request):
                 password=password1
             )
             login(request, user)
-            return redirect('app_chirp:index')
+            return redirect('app_chirp:landing')
 
     return render(request, 'users/register.html')

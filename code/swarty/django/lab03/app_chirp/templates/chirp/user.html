@@ -8,7 +8,7 @@
     {% for post in posts %}  
         <article>
             <block>
-                <a href="{% url 'app_chirp:profile' post.author.id %}" > <h3>{{ post.author }}</h3></a> 
+                <h3>{{ post.author }}</h3>
                 
                 <p id="quote">{{ post.body }}</p>
                 <p>{{ post.time }}</p>

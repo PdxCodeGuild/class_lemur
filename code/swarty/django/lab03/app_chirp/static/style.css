@@ -29,7 +29,7 @@ header {
 main {
 	/* 80% the height of the viewport */
 	height: 80vh;
-	margin-left: 130px;
+	margin-left: 30px;
 	margin-right: 30px;
 	/* display: flex makes main a flex container */
 	display: flex;
@@ -47,9 +47,7 @@ main {
 }
 article {
 	background-color: var(--peach);
-	height:450px;
 	max-width: 300px;
-	min-width: 275px;
 	margin: 15px;
 	border-radius: 15px;
 	/* flex stuff */
@@ -59,7 +57,8 @@ article {
 }
 form *{
 	width:80vw;
-	/* height: 20vh; */
+	max-width: 600px;
+	height: 20vh;
 	margin-left: 140px;
 	margin-right: 20px;
 	display: flex;
@@ -75,14 +74,17 @@ li{
 	color: #66697a;
 }
 p {
-	padding-left: 50px;
-	text-align: center;
+	padding-left: 25px;
+	text-align: left;
+	word-wrap: break-word;
 }
 #quote{
     color: var(--gray);
     font-family: 'Changa', sans-serif;
 	font-weight:400;
     font-size: 2.5em;
+	
+
 }
 #name{
     color: var(--gray);
