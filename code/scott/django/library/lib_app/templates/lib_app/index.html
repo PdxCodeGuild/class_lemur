@@ -8,53 +8,41 @@
   </head>
   <body>
     {% include 'lib_app/navbar.html' %}
-    <h3>Available Books</h3>
+    <h3>List of All Books</h3>
     <table>
       <tr>
         <th>Title</th>
         <th>Author</th>
         <th>Type</th>
-        <th>User</th>
       </tr>
-      {% for book in books %}
+      {% for book in all_books %}
       <tr>
         <td>{{book.title|title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.book_type}}</td>
-        <td>
-          <form action="{% url 'checkout' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" value="User" id="usr_input"/>
-        </td>
-        <td>
-            <input type="submit" value="Check-out" />
-          </form>
-        </td>
       </tr>
+      {% endfor %}
     </table>
-    {% endfor %}
-    <h3>Checked Out Books</h3>
+    <h3>Book Checkout</h3>
+       {% include 'lib_app/form.html' %}
+    <h3>Book Log</h3>
     <table>
       <tr>
         <th>Title</th>
         <th>Author</th>
         <th>Type</th>
+        <th>Timestamp</th>
         <th>User</th>
+        <th>Checked Out?</th>
       </tr>
-      {% for book in books %}
+      {% for book in all_checkouts %}
       <tr>
-        <td>{{book.title|title}}</td>
-        <td>{{book.author}}</td>
-        <td>{{book.book_type}}</td>
-        <td>
-    
-        </td>
-        <td>
-          <form action="" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Check-in" />
-          </form>
-        </td>
+        <td>{{book.book.title|title}}</td>
+        <td>{{book.book.author}}</td>
+        <td>{{book.book.book_type}}</td>
+        <td>{{book.timestamp}}</td>
+        <td>{{book.user}}</td>
+        <td>{{book.checkedout}}</td>
       </tr>
       {% endfor %}
     </table>

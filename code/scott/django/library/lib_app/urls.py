@@ -1,11 +1,10 @@
 from django.urls import path
 from . import views
 
-app_name = 'library'
+app_name = 'lib_app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('status/', views.status, name='status'),
-    path('<int:pk>', views.check_out, name='checkout')
+    path('check/', views.check, name='check'),
 ]
 
