@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
 from django.shortcuts import redirect, render
+from django.contrib.auth import login
 
 
 # Create your views here.
@@ -13,8 +14,9 @@ def register(request):
         if form.is_valid():
             user = form.save()
             user.save()
+            login(request, user)
             return redirect(reverse('users_app:dashboard'))
-    else:
+    elif request.method == 'GET':
         form = UserCreationForm()
         context = {
             'form':form,
