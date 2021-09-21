@@ -25,12 +25,13 @@ October 18th –– Day Off
 Capstone proposal due: TBA  
 Presentation Day: November 5th, 2021  
 
-<!-- ## JavaScript Labs Assigned:
+## JavaScript Labs Assigned:
+
+ * [Labs 01-03 Pick3](5%20JavaScript/labs/01-03%20Pick%203.md)
 
 
-
-#### Optional JavaScript Labs -->
-
+#### Optional JavaScript Labs
+[Bouncing Ball](5%20JavaScript/labs/Bouncing%20Ball.md), [Clock](5%20JavaScript/labs/Clock.md), [Hacker Typer](5%20JavaScript/labs/Hacker%20Typer.md), [Random Redirector](5%20JavaScript/labs/Random%20Redirector.md)
  
 
 ## Django Labs Assigned:
