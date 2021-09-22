@@ -22,7 +22,8 @@ def new_item(request):
 
 
 def completed_item(request, id):
-    item = request.POST['id']
+    
+    id = request.POST['id']
     completed = GroceryItem.objects.get(id=id)
     completed.complete = True
     print("You've marked this as completed")
@@ -33,7 +34,7 @@ def completed_item(request, id):
 
 	
 def delete_item(request, id):
-    item = request.POST['id']
+    id = request.POST['id']
     items = GroceryItem.objects.get(id=id)
     items.delete()
 
