@@ -8,7 +8,6 @@ let two = document.querySelector('#card2')
 let three = document.querySelector('#card3')
 
 
-
 const answer = document.querySelector('#answer')
 
 
@@ -49,17 +48,15 @@ button.addEventListener('click', function () {
     } 
 
     final = parseInt(output1) + parseInt(output2) + parseInt(output3)
-    // let final = output1 + output2 + output3
-    answer.innerText = final
 
     if (final < 17) {
-        alert(`Your total was ${final}. I think you should hit.`)
+        answer.innerText = `Your total was ${final}. I think you should hit.`
     } else if (final >= 17 && final < 21) {
-        alert(`Your total was ${final}. I think you should stay.`)
+        answer.innerText = `Your total was ${final}. I think you should stay.`
     } else if (final == 21) {
-        alert(`Your total was ${final}. Blackjack!`)
+        answer.innerText = `Your total was ${final}. Blackjack!`
     } else {
-        alert(`Your total was ${final}. Already busted!`)
+        answer.innerText = `Your total was ${final}. Already busted!`
     }
 })
 
