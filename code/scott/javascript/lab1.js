@@ -8,15 +8,15 @@ let totalNums = prompt("How many numbers do you want averaged? ");
 // Loop to get user input
 i = 1;
 while (i < totalNums) {
-  let input = prompt('Enter a number to continue: ');
+  let input = prompt("Enter a number to continue: ");
   nums.push(input);
   i++;
 }
 
 let total = 0;
-for (let i = 0; i < nums.length; i++){
-    total += nums[i]
+for (let i = 0; i < nums.length; i++) {
+  total += nums[i];
 }
-avg = total / totalNums
+avg = total / totalNums;
 
 alert(`The average is ${avg}`);
