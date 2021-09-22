@@ -14,20 +14,36 @@
 </head>
 
 <body class="text-center container">
-    <article class="row my-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav m-2">
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='clockButton'>Clock</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='stopwatchButton'>Stopwatch</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='countdownButton'>Countdown</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <article class="row my-3" id="clockSection" style="opacity: 0;">
         <h1>Clock</h1>
         <p id="clock"></p>
     </article>
-    <article class="row my-3">
+    <article class="row my-3" id="stopwatchSection" style="display: block; opacity: 0;">
         <h2>Stopwatch</h2>
         <h3 id="stopWatch"></h3>
-        <button class="btn btn-primary col mx-2" id="startStopWatch">Start</button>
-        <button class="btn btn-danger  col mx-2" id="stopStopWatch">Stop</button>
-        <button class="btn btn-info col mx-2" id="clearStopWatch">Reset</button>
-        <button class="btn btn-warning col mx-2" id="lapStopWatch">Lap</button>
+        <button class="btn btn-primary col-3 m-2" id="startStopWatch">Start</button>
+        <button class="btn btn-danger  col-3 m-2" id="stopStopWatch">Stop</button>
+        <button class="btn btn-info col-3 m-2" id="clearStopWatch">Reset</button>
+        <button class="btn btn-warning col-3 m-2" id="lapStopWatch">Lap</button>
         <ol class="list-group list-group-numbered" id="lapList"></ol>
     </article>
-    <article class="row my-3">
+    <article class="row my-3" id="countdownSection" style="opacity: 0;">
         <div class="col">
             <h2>The Final Countdown</h2>
             <div class="dropdown">
@@ -36,9 +52,9 @@
                     Enter Countdown Times
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><input type="text" id="seconds" value="0">Seconds</li>
-                    <li><input type="text" id="minutes" value="0">Minutes</li>
-                    <li><input type="text" id="hours" value="0">Hours</li>
+                    <li><input type="text" id="seconds">Seconds</li>
+                    <li><input type="text" id="minutes">Minutes</li>
+                    <li><input type="text" id="hours">Hours</li>
                 </ul>
             </div>
             <button class="btn btn-primary" id="startCountdown">Start Countdown</button>
