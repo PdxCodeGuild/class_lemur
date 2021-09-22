@@ -1,4 +1,36 @@
-<h1>Turtle</h1>
-<script src="turtle.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turtle</title>
+  </head>
+  <body>
+    <h1>Turtle</h1>
+    <canvas id="turtle" width="500" height="500" style="border: 2px;">Turtle Canvas</canvas>
+    <script src="turtle.js"></script>
+    <!-- <script>
+      var canvas = document.getElementById("turtle");
+      var ctx = canvas.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+      ctx.stroke();
+    </script> -->
 
-<canvas id="turtle" width="500" height="500" style="border: 2px;"></canvas>
+    <div id="mydiv" name="adiv" class="myclass"></div>
+<div id="thisdiv" class="myclass"></div>
+<div id="thatdiv" name="adiv"></div>
+
+<script>
+    let a = document.getElementById('mydiv');
+    let bs = document.getElementsByTagName('div');
+    console.log(bs.length); // 3
+    let cs = document.getElementsByName('adiv');
+    console.log(cs.length); // 2
+    let d = document.querySelector('#mydiv');
+    let es = document.querySelectorAll('.myclass');
+    console.log(es.length); // 2
+</script>
+  </body>
+</html>
