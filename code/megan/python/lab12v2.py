@@ -5,9 +5,8 @@ file_path_2 = '/Users/meganbradner/Desktop/pdx_code/class_lemur/code/megan/pytho
 def retrieve(userInput):
     '''Locates a user's information by their name, favorite artist, or favorite album'''
     for dict in contacts:
-    # print(dict)
+
         for el in dict:
-            # print(dict[el])
             if dict[el] == userInput:
                 return dict
 
@@ -40,7 +39,9 @@ while loop_control == True:
     if requested_action == 'retrieve':
 
         person = input("Who do you want to retrieve? ")
-        print(retrieve(person))
+        final = retrieve(person)
+
+        print(final)
 
         again = input("Do you want to do something else? yes/no: ")
 
@@ -80,8 +81,6 @@ while loop_control == True:
 
     elif requested_action == 'create':
         
-        new = []
-
         name = input("Please enter your name: ")
         artist = input("Please enter your favorite artist: ")
         album = input("Please enter your favorite album by that artist: ")
@@ -91,7 +90,7 @@ while loop_control == True:
         "artist" : artist,
         "album" : album
     })
-
+        
         again = input("Do you want to do something else? yes/no: ")
 
         if again == 'no':
@@ -99,8 +98,10 @@ while loop_control == True:
             break
 
 contacts = str(contacts)
+# print(contacts)
 
-final_list = ''.join(contacts)
+# final_list = ''.join(contacts)
+# print(final_list)
 
 with open(file_path_2, 'w') as file:
-        file.write(final_list)
+        file.write(contacts)
