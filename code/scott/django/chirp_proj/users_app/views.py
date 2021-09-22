@@ -2,11 +2,23 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login
-
+from posts_app.forms import PostForm
+from posts_app.models import Post
 
 # Create your views here.
 def dashboard(request):
-    return render(request, 'users_app/dashboard.html')
+    form = PostForm()
+    posts = Post.objects.all()
+    context = {
+        'form':form,
+        'posts':posts, 
+    }
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'users_app/dashboard.html', context)
+    return render(request, 'users_app/dashboard.html', context)
 
 def register(request):
     if request.method == "POST":
