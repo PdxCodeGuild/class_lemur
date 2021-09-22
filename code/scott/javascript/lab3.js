@@ -46,7 +46,7 @@ function isValid(a, b) {
   } else return false;
 }
 
-let valid = isValid(total,chkNum)
+let valid = isValid(total, chkNum);
 
 console.log(valid);
 if (valid == true) {
