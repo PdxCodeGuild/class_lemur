@@ -37,7 +37,7 @@ function randomTicket() {
     let i = 0
     ticket = []
     while (i < 6) {
-        ticket.push(Math.floor(Math.random() * 10))
+        ticket.push(Math.floor(Math.random() * 100))
         i++
     }
     return ticket
@@ -97,7 +97,14 @@ function ROT13() {
     encodedPhrase = ''
 
     for (let i = 0; i < phrase.value.length; i++) {
-        encodedPhrase += String.fromCharCode((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value)))
+        if ((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value)) > 122) {
+            encodedPhrase += String.fromCharCode((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value) - 26))
+
+        } else if ((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value)) >= 91 && ((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value)) <= 96)) {
+            encodedPhrase += String.fromCharCode((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value) + 6))
+        } else {
+            encodedPhrase += String.fromCharCode((parseInt(phrase.value[i].charCodeAt(0)) + parseInt(shift.value)))
+        }
     }
     encodedPhraseOutput.innerText = encodedPhrase
 }
