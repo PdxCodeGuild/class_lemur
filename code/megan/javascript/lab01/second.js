@@ -8,10 +8,9 @@ const card3 = document.querySelector('#card3')
 const answer = document.querySelector('#answer')
 
 
-
 button.addEventListener('click', function () {
     
-    faceCards = {
+    const faceCards = {
         J : 10,
         K : 10,
         Q : 10,
@@ -19,7 +18,7 @@ button.addEventListener('click', function () {
     }
 
     if (card1 in faceCards) {
-        card1 = faceCards[card1] 
+        card1 = faceCards['card1.value']
     }
     
     else if (card2 in faceCards) {
