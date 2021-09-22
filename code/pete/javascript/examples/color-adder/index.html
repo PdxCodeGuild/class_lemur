@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		main {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.color {
+			height: 100px;
+			width: 100px;
+			margin: 2rem;
+			border: 2px solid black;
+		}
+	</style>
+	<script src="main.js" defer></script>
+</head>
+<body>
+	<form id="form">
+		<input id="color-input" type="text" placeholder="type a color here">
+		<button type="submit">add color</button>
+	</form>
+	<main>
+		<div class="color" style="background-color: red;"></div>
+		<div class="color" style="background-color: blue;"></div>
+		<div class="color" style="background-color: green;"></div>
+	</main>
+</body>
+</html>
