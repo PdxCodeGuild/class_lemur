@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.utils import timezone
 from .models import Book, Checkout
 from .forms import CheckoutForm
 
