@@ -1,14 +1,23 @@
 
 const button = document.querySelector('#button')
 
-const card1 = document.querySelector('#card1')
-const card2 = document.querySelector('#card2')
-const card3 = document.querySelector('#card3')
+let one = document.querySelector('#card1')
+
+let two = document.querySelector('#card2')
+
+let three = document.querySelector('#card3')
+
+
 
 const answer = document.querySelector('#answer')
 
 
 button.addEventListener('click', function () {
+    
+    let output1 = one.value
+    let output2 = two.value
+    let output3 = three.value
+
     
     const faceCards = {
         J : 10,
@@ -16,35 +25,42 @@ button.addEventListener('click', function () {
         Q : 10,
         A : 1
     }
+    
+    // console.log(card1)
+    // console.log(card2)
+    // console.log(card3)
+    // console.log(faceCards.J)
 
-    if (card1 in faceCards) {
-        card1 = faceCards['card1.value']
+    if (output1 in faceCards) {
+        output1 = faceCards[output1]
+        console.log(output1, 'output1')
     }
     
-    else if (card2 in faceCards) {
-        card2 = faceCards[card2]
+    if (output2 in faceCards) {
+        output2 = faceCards[output2]
+        console.log(output2, 'output2')
+
     } 
     
-    else if (card3 in faceCards) {
-        card3 = faceCards[card3]
+    if (output3 in faceCards) {
+        output3 = faceCards[output3]
+        console.log(output3, 'output3')
+
     } 
 
-    console.log(card1.value)
-    console.log(card2.value)
-    console.log(card3.value)
-    
-    // answer.innerText = parseInt(card1.value) + parseInt(card2.value) + parseInt(card3.value)
-    answer.innerText = card1.value + card2.value + card3.value
+    final = parseInt(output1) + parseInt(output2) + parseInt(output3)
+    // let final = output1 + output2 + output3
+    answer.innerText = final
 
-    // if (answer.innerHTML < 17) {
-    //     console.log(`Your total was ${answer.innerHTML}. I think you should hit.`)
-    // } else if (answer.innerHTML >= 17 && answer.innerHTML < 21) {
-    //     console.log(`Your total was ${answer.innerHTML}. I think you should stay.`)
-    // } else if (answer.innerHTML == 21) {
-    //     console.log(`Your total was ${answer.innerHTML}. Blackjack!`)
-    // } else {
-    //     console.log(`Your total was ${answer.innerHTML}. Already busted!`)
-    // }
+    if (final < 17) {
+        alert(`Your total was ${final}. I think you should hit.`)
+    } else if (final >= 17 && final < 21) {
+        alert(`Your total was ${final}. I think you should stay.`)
+    } else if (final == 21) {
+        alert(`Your total was ${final}. Blackjack!`)
+    } else {
+        alert(`Your total was ${final}. Already busted!`)
+    }
 })
 
 
