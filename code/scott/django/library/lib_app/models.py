@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Book(models.Model):
-    checked = models.BooleanField(default=False)
     title = models.CharField(max_length=100)
     author = models.ForeignKey('Author', on_delete=models.PROTECT)
     FICTION = 'fiction'
@@ -24,11 +23,11 @@ class Author(models.Model):
         return self.last_name
     
 class Checkout(models.Model):
-    book = models.ForeignKey('Book', on_delete=models.PROTECT)
+    book = models.ForeignKey('Book', on_delete=models.PROTECT, null=True, blank=True)
     user = models.CharField('User', max_length=250, null=True, blank=True)
-    timestamp = models.DateTimeField(null=True, blank=True)
-    checkout = models.BooleanField('Checked In/Out', default=False)
+    timestamp = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    checkedout = models.BooleanField('Checked In/Out', default=False)
     
     def __str__(self):
-        return self.book
+        return self.user
     
