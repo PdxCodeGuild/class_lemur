@@ -1,0 +1,35 @@
+{% extends 'chirp/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<main>
+    <div>
+    {% for post in posts %}  
+        <article>
+            <block>
+                <h3>{{ post.author }}</h3>
+                
+                <p id="quote">{{ post.body }}</p>
+                <p>{{ post.time }}</p>
+                <a href="{% url 'app_chirp:delete' post.id %}">
+                    <button>Delete</button>
+                </a>
+            </block>
+        </article>
+    {% endfor %}
+    </div>
+    <div>
+        <form action="{% url 'app_chirp:landing' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="words"/>
+            <button type="submit">save</button>
+        </form>
+    </div>
+</main>
+{% else %}
+<main>
+    <h1>Please login or register</h1>
+</main>
+{% endif %}
+{% endblock %}
