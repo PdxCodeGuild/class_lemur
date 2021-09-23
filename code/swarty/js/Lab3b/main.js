@@ -1,39 +1,37 @@
 const button = document.querySelector('#button')
 
-
-const input1 = document.querySelector('#cash')
-
-
 const Output = document.getElementById('output')
-const cents = [
-	{name:"tens", value: 1000},
-    {name:"fives", value: 500},
-    {name:"ones", value:100},
-	{name:"half-dollars", value: 50},
-	{name:"quarters", value:25},
-	{name:"dimes", value: 10},
-	{name:"nickels", value: 5},
-	{name:"pennies", value: 1}
-]
-// console.log(cents.length)
-function count(x, y){
-    let div= Math.floor((x)/y)
-    // console.log(div,"counting")
-    return div
+const prizes = [0,4,7,100,50000,1000000,25000000]
+let cost=0
+let won=0
+
+function pick6(){
+    let picks=[]
+    for(let i=0; i<6;i++){
+        picks.push(Math.round(100*Math.random()))
+    }
+    return picks
 }
-function rem(x, y){
-    let rmdr=Math.round((x)%y)
-    // console.log(rmdr,"rmdr")
-    return rmdr
+function checking(ticket, pulled){
+    let matches=0
+    for(let i=0; i<6;i++){
+        if (pulled[i]==ticket[i]){
+            matches+=1
+        }
+    }
+    let cash=prizes[matches]
+    return cash
 }
 
 button.addEventListener('click', function () {
-    Output.innerText ="Your total is: \n"
-    let cash=100*input1.value
-    for (let i = 0; i< cents.length; i++){
-        const coin=cents[i]
-        let counted = count(cash,coin.value) 
-        cash= rem(cash,coin.value)
-        Output.innerText+= `${counted} ${coin.name}\n`
+    
+    for (let i=0;i<100000;i++){
+        cost+=2
+        let ticket_win=checking(pick6(),pick6())
+        won+=ticket_win
     }
+    let roi=Math.round(100*(won-cost)/cost)
+    Output.innerText =`Your total winnings are: $${won} \n`
+    Output.innerText +=`You spent:  $${cost} \n`
+    Output.innerText +=`Your ROI is: ${roi}%`
 })

@@ -34,6 +34,8 @@ button.addEventListener('click', function () {
         const coin=cents[i]
         let counted = count(cash,coin.value) 
         cash= rem(cash,coin.value)
-        Output.innerText+= `${counted} ${coin.name}\n`
+        if (counted){
+            Output.innerText+= `${counted} ${coin.name}\n`       
+        }
     }
 })
