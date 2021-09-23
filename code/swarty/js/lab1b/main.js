@@ -53,11 +53,6 @@ let value1=0
 let i=0
 const output1=""
 const faces=["10","J","Q","K"]
-const header = document.getElementById('header')
-console.log(header)
-header.innerText += ' is fun!'
-
-const subHeader = document.getElementById('sub-header')
 
 const button = document.querySelector('#button')
 console.log(button)
