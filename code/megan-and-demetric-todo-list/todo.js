@@ -25,14 +25,16 @@ form.addEventListener('submit', function(event) {
     // itemLi.addEventListener('click', function() {
 		// alert(item)
 	// })
+ 
+    completeButton.addEventListener('click', function(){
+        completedList.appendChild(itemLi)
+        itemLi.removeChild(completeButton)
+    })
     deleteButton.addEventListener('click', function() {
         todoList.removeChild(itemLi)
     }) 
-    completeButton.addEventListener('click', function(){
-        completedList.appendChild(itemLi)
-        todoList.removeChild(itemLi)
-        // completedList.removeChild(completeButton)
+    deleteButton.addEventListener('click', function() {
+        completedList.removeChild(itemLi)
     })
-
 })
 
