@@ -1,0 +1,94 @@
+{% extends 'Lib_App/base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container right">
+        <br><br>
+        <h1 class="header left green-text text-lighten-4">Wilkersonville Library</h1>
+        <div class="row center">
+          <h5 class="header col s12 light left-align">Great Literature, Caring People, Strong Community</h5>
+        </div>
+        <div class="row">
+          <a href="#" id="Search-button" class="btn-large waves-effect waves-light left grey">Find a Book</a>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'Lib_App/Bookstack.jpg' %}" alt="Book Stack"></div>
+  </div>
+  <div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genres</th>
+                <th>Authorship</th>
+            </tr>
+        </thead>
+        <form action="{% url 'Lib_App:index' %}" method="POST"> {% csrf_token %}
+        <tbody>
+            {% for edition in titles %}
+            <tr>
+                <td>{{edition.title}}</td>
+                <td>{{edition.book.genre}}</td>
+                <td>{{edition.book.author}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </form>
+    </table>
+  </div>
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text text-darken-3"><i class="material-icons">groups</i></h2>
+            <h5 class="center">Meet-ups</h5>
+
+            <p class="light center-align">Things to come do</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text text-darken-3"><i class="material-icons">local_library</i></h2>
+            <h5 class="center">Knowledge</h5>
+
+            <p class="light center-align">A resource for work, learning, or amusement</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center grey-text text-darken-3"><i class="material-icons">self_improvement</i></h2>
+            <h5 class="center">Self-Improvement</h5>
+
+            <p class="light center-align">Books, classes, and friendships that make us better</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4><a href="#" id="calendar-button" class="btn-large waves-effect waves-light grey">Calendar</a></h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+</main>
+{% endblock %}
+  

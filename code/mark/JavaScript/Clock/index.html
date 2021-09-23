@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Clock</title>
+</head>
+
+<body class="text-center container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav m-2">
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='clockButton'>Clock</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='stopwatchButton'>Stopwatch</button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary m-2" id='countdownButton'>Countdown</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <article class="row my-3" id="clockSection" style="opacity: 0;">
+        <h1>Clock</h1>
+        <p id="clock"></p>
+    </article>
+    <article class="row my-3" id="stopwatchSection" style="display: block; opacity: 0;">
+        <h2>Stopwatch</h2>
+        <h3 id="stopWatch"></h3>
+        <button class="btn btn-primary col-3 m-2" id="startStopWatch">Start</button>
+        <button class="btn btn-danger  col-3 m-2" id="stopStopWatch">Stop</button>
+        <button class="btn btn-info col-3 m-2" id="clearStopWatch">Reset</button>
+        <button class="btn btn-warning col-3 m-2" id="lapStopWatch">Lap</button>
+        <ol class="list-group list-group-numbered" id="lapList"></ol>
+    </article>
+    <article class="row my-3" id="countdownSection" style="opacity: 0;">
+        <div class="col">
+            <h2>The Final Countdown</h2>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle my-3" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Enter Countdown Times
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><input type="text" id="seconds">Seconds</li>
+                    <li><input type="text" id="minutes">Minutes</li>
+                    <li><input type="text" id="hours">Hours</li>
+                </ul>
+            </div>
+            <button class="btn btn-primary" id="startCountdown">Start Countdown</button>
+        <h3 id="countdown"></h3>
+        </div>
+    </article>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
