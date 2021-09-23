@@ -30,6 +30,6 @@ form.addEventListener("submit", function (evt) {
   nickels = Math.floor(((ttlCents % 25) % 10) / 5);
   pennies = Math.floor(ttlCents % 5);
 
-  const result = document.getElementById('result')
-  result.innerText = `The total amount of change for ${totalInput} is:\nQuarters: ${quarters}\nDimes: ${dimes}\nNickels: ${nickels}\nPennies: ${pennies}`
+  const result = document.getElementById("result");
+  result.innerText = `The total amount of change for ${totalInput} is:\nQuarters: ${quarters}\nDimes: ${dimes}\nNickels: ${nickels}\nPennies: ${pennies}`;
 });
