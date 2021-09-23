@@ -17,7 +17,7 @@ def login_user(request):
             login(request, user)
             return redirect('Poo_Talk_users/login')
 
-    return render(request, 'Poo_Talk_users/login.html')
+    return render(request, 'Poo_Talk_posts/index.html')
 
 def new_user(request):
     if request.method == 'POST':

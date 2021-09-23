@@ -1,23 +1,33 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .models import Author
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from django.db import IntegrityError
 
-class AuthorCreateView(LoginRequiredMixin, CreateView):
-    model = Author
-    fields = ['name']
+from .models import Post
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+def index(request):
+       
+    posts = Post.objects.all()
 
-class AuthorUpdateView(LoginRequiredMixin, UpdateView):
-    model = Author
-    fields = ['name']
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Poo_Talk_posts/index.html', context)
 
-    def form_valid(self, form):
-        return super().form_valid(form)
-    
-class AuthorDeleteView(LoginRequiredMixin, DeleteView):
-    model = Author
-    
-    def form_valid(self, form):
-       return super().form_valid(form)
+@login_required
+def new_post(request):
+    if request.method == 'POST':
+        post = request.POST.get('post')
+        Post.objects.create(
+            text=post,
+            created_date=timezone.now(),
+            created_by=request.user
+        )
+        return redirect('Poo_Talk_posts:index')
+
+@login_required
+def delete_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    post.delete()
+    return redirect('Poo_Talk_posts:index')

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
     'Poo_Talk_users',
     'Poo_Talk_posts',
-    'home'
 ]
 
 MIDDLEWARE = [
