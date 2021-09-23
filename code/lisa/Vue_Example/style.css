@@ -1,11 +1,24 @@
 body {
-    background-color: #fcfbfe;
+    background-color: #2a313e;
+    color: whitesmoke;
 }
 
-/* div {
-    border: solid black 1px;
-    border-style: double;
-} */
+a {
+    color: #8bc3ee;
+}
+header {
+    background-image: url(images/dark_galaxy2.jpg);
+    background-size: cover;
+    background-position: fixed;
+    color: black;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+}
+
+header-link {
+    color: black;
+}
+
 
 .modal-dialog {
     padding: 1rem;
@@ -17,14 +30,14 @@ body {
 
 .modal-body {
     background-color: #36353c;
-    color: #e8daed;
+    color: whitesmoke;
     font-family: sans-serif;
     font-size: large;
     border: .1rem solid #36353c;
     box-shadow: 
     .09rem -.09rem #36353c,
     -.09rem -.09rem #36353c;
-    
+    text-align: center;
     /* background-clip: padding-box; */
 }
 
@@ -33,26 +46,41 @@ body {
     font-family: 'Delius Unicase', cursive;
     font-size: xx-large;
     font-weight: bold;
-    color: whitesmoke;
+    color: #eddef3;
     border: .6rem solid #36353c;
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
     box-shadow: 
     .09rem -.09rem #36353c,
     -.09rem -.09rem #36353c;
+    text-align: center;
 }
 
+.modal-title {
+    width: 100%;
+}
+
+.modal-footer {
+    border: .6rem solid #36353c;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 
+    -.09rem .09rem #36353c,
+    .09rem .09rem #36353c;
+    background-color: #8774a4;
+}
 
 .btn-close {
     font-size: large;
     background: #8774a4;
-    color: whitesmoke;
+    color: #eddef3;
     margin-bottom: .08rem !important;
     opacity: 1;
 }
+
 .navbar {
-    background-color: whitesmoke !important;
-    border: .1px solid #8774a4;
+    background-color: #ccb6eee5 !important;
+    border: .01rem solid #8774a4;
     border-radius: .5rem;
 }
 
@@ -63,6 +91,53 @@ body {
     font-weight: bold;
 }
 
-a {
-    color: #8bc3ee;
+.header-nav-link {
+    font-family: 'Alumni Sans', sans-serif;
+    color: #2a313e;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-decoration: none;
+    border: .2rem solid transparent;
+    border-radius: .5rem;
+}
+
+.header-nav-link:hover {
+    border: .2rem solid #2f64c5;
+    border-radius: .5rem;
+    background-color: #2a313e;
+    color: #e8dae8;
+    font-weight: bolder;
+    font-family: 'Alumni Sans', sans-serif;
+
+}
+
+
+.btn-secondary {
+    margin: 0 auto;
+    background-color: #e8dae8;
+    border: #e8dae8;
+    color: #36353c;
+    font-family: 'Delius Unicase', cursive;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.btn-secondary:focus {
+    background-color: #2f64c5;
+    color: #e8dae8;
+}
+
+.btn-secondary:hover {
+    background-color: #2f64c5;
+    color: #e8dae8;
+}
+
+.page-title {
+    font-family: 'Alumni Sans', sans-serif;
+    font-size: 5.5rem;
+    font-weight: bolder;
+}
+
+.btn-primary {
+    margin-top: 2rem;
 }
