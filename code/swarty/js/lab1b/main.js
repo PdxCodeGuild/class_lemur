@@ -53,35 +53,51 @@ let value1=0
 let i=0
 const output1=""
 const faces=["10","J","Q","K"]
-while (true){
-    let card=prompt('put in your next card')
-    console.log(card, "card")
-    cards.push(card.toUpperCase())
-    console.log(cards, "cards")
-    if (faces.includes(cards[i])){
-        value1+=10
-    } else if (cards[i]=="A"){
-        value1+=1
-    } else {
-        value1+=parseInt(cards[i])
-    }
-    console.log(value1, "value1")
-    i+=1
-    // console.log(cards, card)
-    if (value1<17){
-        alert(`Hit   Your Cards: ${cards}`) 
-    } else if(value1>=17 && value1<=20){
-        alert(`Stay Your Cards: ${cards}`)
-        break
-    } else if (value1==21){
-        alert(`BLACKJACK!!! Your Cards: ${cards}`)
-        break
-    } else{
-        alert(`BUSTED!!! Your Cards: ${cards}`)
-        break
-    }
-    card=""
-}    
+const header = document.getElementById('header')
+console.log(header)
+header.innerText += ' is fun!'
 
+const subHeader = document.getElementById('sub-header')
+
+const button = document.querySelector('#button')
+console.log(button)
+
+const input1 = document.querySelector('#card1')
+const input2 = document.querySelector('#card2')
+const input3 = document.querySelector('#card3')
+const test1 = input1.value
+console.log(typeof input1.value)
+console.log(input1.value.toUpperCase(),"input1")
+
+const output = document.querySelector('#output')
+
+button.addEventListener('click', function () {
+    console.log(input1.value.toUpperCase(),"input1func")
+    cards.push(input1.value.toUpperCase(),input2.value.toUpperCase(),input3.value.toUpperCase())
+    while (true){
+        if (faces.includes(cards[i])){
+            value1+=10
+        } else if (cards[i]=="A"){
+            value1+=1
+        } else {
+            value1+=parseInt(cards[i])
+        }
+        console.log(value1, "value1")
+        i+=1
+        // console.log(cards, card)
+        if (value1<17){
+            output.innerText =`Hit   Your Cards: ${cards}` 
+        } else if(value1>=17 && value1<=20){
+            output.innerText =`Stay Your Cards: ${cards}`
+            break
+        } else if (value1==21){
+            output.innerText =`BLACKJACK!!! Your Cards: ${cards}`
+            break
+        } else{
+            output.innerText =`BUSTED!!! Your Cards: ${cards}`
+            break
+        }
+    }    
+})
 
 
