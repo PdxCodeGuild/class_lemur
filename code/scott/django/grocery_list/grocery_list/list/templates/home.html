@@ -19,16 +19,10 @@
         <td>{{item.item|title}}</td>
         <td>{{item.date_added}}</td>
         <td>
-          <form action="{% url 'purchased_item' item.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Purchase Item" />
-          </form>
+          <a href="{% url 'list:purchased_item' item.id %}">Purchase</a>
         </td>
         <td>
-          <form action="{% url 'delete_item' item.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Delete" />
-          </form>
+          <a href= "{% url 'list:delete_item' item.id %}">Delete</a>
         </td>
       </tr>
       {% endfor %}
@@ -44,10 +38,7 @@
         <td>{{item.item|title}}</td>
         <td>{{item.date_bought}}</td>
         <td>
-          <form action="{% url 'delete_item' item.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="Delete" />
-          </form>
+          <a href= "{% url 'list:delete_item' item.id %}">Delete</a>
         </td>
       </tr>
       {% endfor %}

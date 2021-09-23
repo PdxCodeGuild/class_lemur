@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Lab01</title>
+</head>
+
+<body class="container text-center">
+    <h1>JS Lab01</h1>
+    <hr>
+    <section class="row">
+
+        <article class="col border-end">
+            <h2>Make Change</h2>
+            <input id="dollars" type="number" value="1.19">
+            <button class="btn btn-primary my-2" id="make-change">Make Change</button>
+            <p id="change-output"></p>
+        </article>
+
+        <article class="col border-end">
+            <h2>Pick 6</h2>
+            <label for="tickets">How many tickets do you want to purchase?</label>
+            <input id="tickets" type="number" value="1">
+            <br>
+            <button class="btn btn-primary my-2" id="get-lucky">Get Lucky!</button>
+            <p id="roi"></p>
+        </article>
+
+        <article class="col">
+            <h2>ROT13</h2>
+            <label for="phrase">Enter a phrase to be encoded.</label>
+            <input class="mb-2" id="phrase" type="text">
+            <input id="shift" type="number" value="13">
+            <br>
+            <button class="btn btn-primary my-2" id="encode">Encode</button>
+            <p id="encoded-phrase"></p>
+        </article>
+    </section>
+
+    <script src="main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
