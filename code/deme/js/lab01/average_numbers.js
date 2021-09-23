@@ -10,10 +10,33 @@ console.log(sum)
 let averageNum = sum / nums.length
 console.log(averageNum)
 
-let div1 = document.querySelector('#numbers')
-div1.innerText = "Hello Worldu!"
+//                  Version2
+let numForm = document.getElementById('numForm')
+let numList = document.getElementById('numList')
+let numListForm = document.getElementById('numListForm')
+let numbers = document.getElementById('numbers')
+let numDiv = document.getElementById('numDiv')
 
+numForm.addEventListener('submit', function(event) {
+    event.preventDefault()
+    let userNum = numListForm.value
+    let numLi = document.createElement('li')
+    console.log(numLi)
+    numLi.innerHTML=userNum
+    numList.appendChild(numLi)
+    let addNum = document.createElement('button')
+    addButton.innerText = "Add Number"
 
+    
+    addButton.addEventListener('click', function(){
+        numList.appendChild(numLi)
+    })
+}
+
+    // numLi.appendChild(addButton)
+    // let completeButton = document.createElement("button")
+    // completeButton.innerText = "Complete"
+    // itemLi.appendChild(completeButton)
 // let userNums=[]
 // let userInput = prompt("Please enter a number or 'done' to exit.")
 // while(userInput != 'done'){
@@ -23,8 +46,3 @@ div1.innerText = "Hello Worldu!"
 
 // console.log(userNums)
 // console.log(userInput)
-
-
-
-
-
