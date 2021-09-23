@@ -1,0 +1,76 @@
+{% extends 'daycare/base.html' %}
+
+{% block content %}
+<main>
+	<form action="{% url 'daycare:drop_off' %}" method="POST" class="m-4">
+		{% csrf_token %}
+
+		<div class="field">
+			<label class="label">Name</label>
+			<div class="control">
+				<input class="input" type="text" placeholder="Text input" name="name">
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Owner</label>
+			<div class="control">
+				<div class="select">
+					<select name="owner">
+						{% for owner in owners %}
+						<option value="{{ owner.id }}">{{ owner.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Breed</label>
+			<div class="control">
+				<input class="input" type="text" placeholder="Text input" name="breed">
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Weight</label>
+			<div class="control">
+				<input class="input" type="number" placeholder="Text input" name="weight">
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Temperament</label>
+			<div class="control">
+				<div class="select">
+					<select name="temperament">
+						{% for temperament in temperaments %}
+						<option value="{{ temperament}}">{{ temperament }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Bio</label>
+			<div class="control">
+				<textarea class="textarea" placeholder="Textarea" name="bio"></textarea>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Photo URL</label>
+			<div class="control">
+				<input class="input" type="text" placeholder="Text input" name="photo">
+			</div>
+		</div>
+
+		<div class="field is-grouped">
+			<div class="control">
+				<button class="button is-link">Submit</button>
+			</div>
+		</div>
+	</form>
+</main>
+{% endblock %}

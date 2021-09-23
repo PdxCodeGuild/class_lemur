@@ -7,8 +7,10 @@ M-F 6:00 pm – 9:36 pm
 ![lemur](lemur.jpg)
 
 ### Holidays
- 
-September 6th -- Labor Day  
+
+August 30th –– Day Off  
+September 6th –– Labor Day  
+October 18th –– Day Off  
 
 ### Staff
 
@@ -23,28 +25,38 @@ September 6th -- Labor Day
 Capstone proposal due: TBA  
 Presentation Day: November 5th, 2021  
 
-<!-- ## JavaScript Labs Assigned:
+## JavaScript Labs Assigned:
 
+ * [Labs 01-03 Pick3](5%20JavaScript/labs/01-03%20Pick%203.md)
 
 
 #### Optional JavaScript Labs
-
+[Bouncing Ball](5%20JavaScript/labs/Bouncing%20Ball.md), [Clock](5%20JavaScript/labs/Clock.md), [Hacker Typer](5%20JavaScript/labs/Hacker%20Typer.md), [Random Redirector](5%20JavaScript/labs/Random%20Redirector.md)
  
 
 ## Django Labs Assigned:
 
- 
+ * [Lab 00 Polls](4%20Django/labs/00%20Polls.md)
+ * [Lab 01 Grocery List](4%20Django/labs/01%20Grocery%20List.md)
+ * [Lab 02 Library](4%20Django/labs/02%20Library.md)
+ * [Lab 03 Chirp](4%20Django/labs/03%20Chirp.md)
 
-#### Optional Django Labs -->
+#### Optional Django Labs  
 
-
+[URL Shortener](4%20Django/labs/02%20URL%20Shortener.md)
 
 ## HTML/CSS Labs Assigned:
+
 * [Lab 01 Bio](3%20HTML%20+%20CSS/labs/01%20Bio.md)
 * [Lab 02 Blog](3%20HTML%20+%20CSS/labs/02%20Blog.md)
+* [Lab 03 Company](3%20HTML%20+%20CSS/labs/03%20Company.md)
+* [Lab 04 Company](3%20HTML%20+%20CSS/labs/04%20Mob%20Class%20Mascot.md)
+* [Lab 05 Personal Portfolio](3%20HTML%20+%20CSS/labs/05%20Personal%20Portfolio.md)
 
 
-<!-- #### Optional HTML/CSS Labs -->
+#### Optional HTML/CSS/Flask Labs
+
+[Flask Redo](3%20HTML%20+%20CSS/labs/Optional%20Flask%20Redo.md), [Burrito Order Form](3%20HTML%20+%20CSS/labs/Optional%20Burrito%20Order%20Form.md)
 
 
 ## Flask Labs Assigned:
@@ -74,7 +86,7 @@ Presentation Day: November 5th, 2021
 * [Lab 17 Quotes API](1%20Python/labs/17%20Quotes%20API.md)
 * [Lab 18 Mini-Capstone](1%20Python/labs/../../1%20Python/labs/18%20Mini-Capstone.md)
 
-#### Suggested Optional Python Labs
+#### Optional Python Labs
 
 [Count Words](1%20Python/labs/count_words.md), [Grading](1%20Python/labs/grading.md), [Guess The Number](1%20Python/labs/guess_the_number.md), [LCR](1%20Python/labs/LCR.md), [Mad Libs](1%20Python/labs/madlib.md), [Magic 8 Ball](1%20Python/labs/magic_8_ball.md), [Rain Data](1%20Python/labs/rain_data.md), [Random Emoticon Generator](1%20Python/labs/random_emoticon_generator.md), [Random Password Generator](1%20Python/labs/random_password.md), [Road Trip](1%20Python/labs/road_trip.md), [Rock, Paper, Scissors](1%20Python/labs/rock_paper_scissors.md), [Simple Calculator](1%20Python/labs/simple_calculator.md), [Sock Sorter](1%20Python/labs/sock_sorter.md), [Stack And Linked List](1%20Python/labs/stack_and_linked_list.md), [Unit Converter](1%20Python/labs/unit_converter.md)
 

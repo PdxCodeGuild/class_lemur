@@ -1,0 +1,21 @@
+* {
+	color: #181816;
+}
+
+header, footer {
+	background-color: #3FDE74;
+}
+
+main {
+	background-color: #52DEE5;
+}
+
+article {
+	/* rgba: red green blue alpha
+	alpha is the transparency/opacity channel
+	a value of 0 is completely transparent
+	a value of 1 is completely opaque
+	https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgba() */
+	background-color: rgba(2489, 241, 255, 0.25);
+}
+

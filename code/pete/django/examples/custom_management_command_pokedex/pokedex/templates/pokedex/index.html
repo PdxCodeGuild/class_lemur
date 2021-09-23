@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokedex</title>
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+	<style>
+		* {
+			font-family: 'Raleway', sans-serif;
+		}
+	</style>
+</head>
+
+<body>
+	<article>
+		<h2 class="f3 fw4 pa3 mv0">Pokemon</h2>
+		<div class="cf pa2">
+
+			{% for poke in pokemon %}
+			<div class="fl w-50 w-25-m w-20-l pa2">
+				<a href="#" class="db link dim tc">
+					<img
+						src="{{ poke.photo_url }}"
+						alt="{{ poke.name }}" class="w-100 db outline black-10" />
+					<dl class="mt2 f6 lh-copy">
+						<dt class="clip">Name</dt>
+						<dd class="ml0 black truncate w-100">{{ poke.name.title }}</dd>
+						<dt class="clip">Types</dt>
+						<dd class="ml0 gray truncate w-100">
+						{% for type in poke.types.all %}
+							{{ type }} 
+						{% endfor %}
+						</dd>
+					</dl>
+				</a>
+			</div>
+			{% endfor %}
+
+		</div>
+	</article>
+</body>
+
+</html>
