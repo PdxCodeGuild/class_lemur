@@ -122,7 +122,7 @@ new_line = ""
 word_count = 0
 
 for word in words:
-    # print(word)
+
     new_line += word + ","
     word_count += 1
     
@@ -135,7 +135,3 @@ with open(file_path, 'w') as file:
         file.write(new_line)
 
 
-'''
-create a variable to hold the number of keys 
-insert a new line after that many number of keys to make the data match 
-'''
