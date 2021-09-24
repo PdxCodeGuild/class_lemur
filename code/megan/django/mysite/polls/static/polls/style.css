@@ -1,0 +1,7 @@
+body {
+    background: white url("images/polls.jpeg") no-repeat;
+}
+
+li a {
+    color: green;
+}
