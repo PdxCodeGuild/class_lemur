@@ -16,8 +16,6 @@ with open(file_path, 'r') as file:
 
 
 keys = lines.pop(0).split(",")
-# print(keys)
-# print(lines)
 
 contacts = []
 
@@ -87,8 +85,8 @@ while loop_control == True:
 
         contacts.append({
         "name" : name,
-        "artist" : artist,
-        "album" : album
+        "favorite_artist" : artist,
+        "favorite_album" : album
     })
         
         again = input("Do you want to do something else? yes/no: ")
@@ -97,11 +95,47 @@ while loop_control == True:
             loop_control == False
             break
 
-contacts = str(contacts)
+# contacts = str(contacts)
 # print(contacts)
 
-# final_list = ''.join(contacts)
-# print(final_list)
 
-with open(file_path_2, 'w') as file:
-        file.write(contacts)
+for contact in contacts:
+
+    keys = list(contact.keys())
+
+
+names = []
+
+for contact in contacts:
+
+    for key in keys:
+
+        names.append(contact[key])
+
+
+final = keys + names
+
+final_output = ','.join(final)
+
+words = final_output.split(',')
+new_line = ""
+word_count = 0
+
+for word in words:
+    # print(word)
+    new_line += word + " "
+    word_count += 1
+    
+    if word_count == 3: 
+        new_line += "\n"
+        word_count = 0
+
+
+with open(file_path, 'w') as file:
+        file.write(new_line)
+
+
+'''
+create a variable to hold the number of keys 
+insert a new line after that many number of keys to make the data match 
+'''
