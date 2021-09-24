@@ -22,16 +22,16 @@ def index(request):
             form.save()        
     return render(request, 'home.html', context)
 
-def indexDelete(request,pk):
-    delete_item = Groceries.objects.get(id=pk)
-    if request.method == 'POST':
-        delete_item.delete()
-        return redirect('home')
+def delete_item(request, id):
+    delete_item = Groceries.objects.get(id=id)
+    delete_item.delete()
+    delete_item.save()
+    return redirect('list:home')
 
-def indexPurchased(request,pk):
-    purchased_item = Groceries.objects.get(id=pk)
-    if request.method == 'POST':
-        purchased_item.cleared = True
-        now = timezone.now()
-        purchased_item.date_bought = now
-        return redirect('home')
+def purchased_item(request, id):
+    purchased_item = Groceries.objects.get(id=id)
+    purchased_item.cleared = True
+    now = timezone.now()
+    purchased_item.date_bought = now
+    purchased_item.save()
+    return redirect('list:home')

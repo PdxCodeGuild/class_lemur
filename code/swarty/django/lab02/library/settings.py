@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Lib_App',
+    'Lib_App.apps.LibAppConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/users/login/'

@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Page</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Changa:wght@400;700&display=swap" rel="stylesheet">
+    <!-- remove CSS CRT Border -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<nav>
+	{% if user.is_authenticated %}
+	<p>Welcome</p> <p><a href="{% url 'app_chirp:profile' user.id %}"></a> {{ user.username }}</a></p>
+	<p><a href="{% url 'users:logout' %}">Logout</a></p>
+	{% else %}
+	<a href="{% url 'users:login' %}">Login</a>
+	<a href="{% url 'users:register' %}">Register</a>
+	{% endif %}
+</nav>
+<body>
+   
+    <header>    
+            <h1>
+Here's where the fools chirp
+            </h1>
+    </header>
+    <br/>
+
+
+
+
+{% block content %}
+{% endblock %}
+
+
+
+
+</body>
+</html>
