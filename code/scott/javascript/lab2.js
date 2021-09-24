@@ -18,7 +18,7 @@
 // );
 
 //VERSION 2
-form = document.querySelector("form");
+const form = document.querySelector("form");
 
 form.addEventListener("submit", function (evt) {
   evt.preventDefault();
