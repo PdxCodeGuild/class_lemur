@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+<h1>Chirp</h1>
+
+<h2>Welcome, {{ user.username }} </h2>
+
+<h3>Create new Chirp:</h3>
+
+<form action="{% url 'posts:index' %}" method="POST">
+	{% csrf_token %}
+	<label for="text">Chirp:</label>
+	<textarea id="text" name="text"></textarea>
+	<br />
+	<button type="submit">Post Chirp</button>
+</form>
+
+<div class="container-fluid">
+
+    <h1>All Posts</h1>
+    <ul>
+        {% for post in posts %}         
+            <li>
+                <a href="{% url 'posts:user_profile' post.user.id %}"><h2>{{ post.user }} </h2></a>
+                <h3>{{ post.text }}<br></h3>
+                {{ post.created_date }}
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- post to page -->
+    
+</body>
+</html>
