@@ -7,7 +7,7 @@
 // let avg = 0;
 // let totalNums = prompt("How many numbers do you want averaged? ");
 // // Loop to get user input
-// i = 1;
+// i = 0;
 // while (i < totalNums) {
 //   let input = prompt("Enter a number to continue: ");
 //   nums.push(input);
