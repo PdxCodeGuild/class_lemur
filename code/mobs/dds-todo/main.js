@@ -20,14 +20,17 @@ form.addEventListener('submit', function (event) {
     delbutton.innerText = 'delete'
     delbutton.addEventListener('click', function (){
         itemContainer.removeChild(ItemLine)
+        list.splice(i,1)
+    })
+    const doneButton = document.createElement('button')
+    ItemLine.appendChild(doneButton)
+    doneButton.innerText = 'complete'
+    doneButton.addEventListener('click', function (){
+        // ItemLine.style.setProperty("text-decoration", "line-through")
+        ItemLine.style.textDecoration="line-through"
     })
 	itemContainer.appendChild(ItemLine)
+    itemInput.value=''
     i++
 	
 })
-// function delItem(num){
-//     let item=document.getElementById(`item${num}`)
-//     console.log(item.value)
-//     // item.remove()
-//     list.splice(num.value,1)
-// }
