@@ -123,7 +123,7 @@ word_count = 0
 
 for word in words:
     # print(word)
-    new_line += word + " "
+    new_line += word + ","
     word_count += 1
     
     if word_count == 3: 
