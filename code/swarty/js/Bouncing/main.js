@@ -19,10 +19,8 @@ function dot(){
 }
 
 function drawing() {
-    // update the ball's position
-    
-    ball.px += ball.vx
-    ball.py += ball.vy
+    dot()
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     // check if it hit a boundary
     if(ball.px + ball.vx < 0 ||ball.px + ball.vx < width ) {
         ball.vx = -ball.vx;
@@ -30,8 +28,8 @@ function drawing() {
     if(ball.py + ball.vy < 0 ||ball.py + ball.vy < height ) {
         ball.vy = -ball.vy;
     }
-    // draw the ball
-    dot()
+    ball.px += ball.vx
+    ball.py += ball.vy
     // window.requestAnimationFrame(main_loop);
 }
 // window.requestAnimationFrame(main_loop);
