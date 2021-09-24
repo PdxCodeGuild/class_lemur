@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 
-.main-header {
+header > nav {
     display: flex;
 }
 

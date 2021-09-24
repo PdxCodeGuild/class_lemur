@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- style.css -->
+    <link rel="stylesheet" href='style.css'>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Delius Unicase Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@700&display=swap" rel="stylesheet">
+    <!-- Alumni Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id='app'>
+        <header>
+            <div class="text-center">
+                <span class='page-title'>Welcome to the Vueseum!</span>
+            </div>
+            <div>
+                <div>
+                    <!-- Modal -->
+                    <div class="modal fade circle" id="thingsToKnow" tabindex="-1" aria-labelledby="thingsToKnowLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="thingsToKnowLabel">Vue Directives</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body">
+                                    <nav id="ttkNavbar" class="navbar bg-light flex-column align-items-stretch p-3">
+                                        <nav class="nav nav-pills flex-column">
+                                            <a class="nav-link" href="#vModel">v-model</a>
+                                            <a class="nav-link" href="#vBind">v-bind</a>
+                                            <a class="nav-link" href="#vFor">v-for</a>
+                                            <a class="nav-link" href="#vIf">v-if, v-else-if, v-if</a>
+                                            <a class="nav-link" href="#vShow">v-show</a>
+                                            <a class="nav-link" href="#vOn">v-on</a>
+                                            <a class="nav-link" href="#shorthand">shorthand</a>
+                                        </nav>
+                                    </nav>
+
+                                    <div data-bs-spy="scroll" data-bs-target="#ttkNavbar" data-bs-offset="0"
+                                        tabindex="0">
+                                        <h4 id="vModel" class='mt-3'>v-model</h4>
+                                        <div>
+                                            <div>
+                                                v-model is what makes your inputs work. It allows us to transfer
+                                                different types of input (text, checkboxes, select options, etc) into
+                                                the vue app.
+                                                To quote <a
+                                                    href="https://masteringjs.io/tutorials/vue/v-model#:~:text=Two%20way%20data%20binding%20is,building%20JavaScript%20forms%20with%20Vue.&text=Two%20way%20data%20binding%20means,content%20updates%20to%20match%20value%20."
+                                                    target='_blank'>
+                                                    masteringjs.io
+                                                </a>,
+                                                <div class='mt-3'>'Two way data binding is a powerful pattern for
+                                                    building
+                                                    JavaScript forms
+                                                    with Vue. For example, suppose you have an input element and a
+                                                    JavaScript variable value. Two way data binding means:
+                                                    <div>
+                                                        1. When the user types in the input, value gets updated to match
+                                                        the
+                                                        value in input.
+                                                    </div>
+                                                    <div>
+                                                        2. When you update value, the input element's content updates to
+                                                        match
+                                                        value.'
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <a href='https://v3.vuejs.org/guide/migration/v-model.html#overview'
+                                                    target='_blank'>
+                                                    Official v-model Docs
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="https://masteringjs.io/tutorials/vue/v-model#:~:text=Two%20way%20data%20binding%20is,building%20JavaScript%20forms%20with%20Vue.&text=Two%20way%20data%20binding%20means,content%20updates%20to%20match%20value%20."
+                                                    target='_blank'>
+                                                    Two Way Binding Explained by masteringjs.io
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="https://learnvue.co/2021/01/everything-you-need-to-know-about-vue-v-model/"
+                                                    target="_blank">
+                                                    Learn Vue.co
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="vBind">v-bind</h4>
+                                        <div>
+                                            <div>
+                                                v-bind will help vue communicate with your html; it doesn't add new
+                                                functionality. v-bind is used to bind an html attribute to something
+                                                created through
+                                                javascript. A good rule of thumb is to ask yourself if the vue app needs
+                                                to
+                                                be able to read the attribute; if it does, you probably need v-bind.
+                                                Some
+                                                examples of html attributes are value, href, id, style, src, alt and
+                                                key.
+                                                See 'Select and Options(Dynamic)' for a detailed example. The shorthand
+                                                for
+                                                v-bind turns v-bind:value='color' into :value='color'.
+                                                <a href="http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/tags/ref_attributes.asp.html"
+                                                    target="_blank">
+                                                    Click here
+                                                </a>
+                                                for a complete list of html attributes
+                                            </div>
+                                            <div>
+                                                <a href='https://v3.vuejs.org/api/directives.html#v-bind'
+                                                    target="_blank">Official v-bind Docs
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="https://masteringjs.io/tutorials/vue/bind"
+                                                    target="_blank">masteringjs.io
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="vFor">v-for</h4>
+                                        <div>
+                                            <div>
+                                                v-for runs a for loop using information from vue. It works just like any
+                                                other for loop, we just add v-for so that the html page can read it from
+                                                vue. As with any for loop, you
+                                                may run into issues with the keys attribute, and telerik has an article
+                                                that
+                                                dives into into it.
+                                            </div>
+                                            <div>
+                                                <a href="https://vuejs.org/v2/guide/list.html" target="_blank">
+                                                    Official v-for Docs
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="https://www.telerik.com/blogs/in-vue-when-do-i-actually-need-the-key-attribute-and-why"
+                                                    target="_blank">
+                                                    telerik.com (info on keys)
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="vIf">v-if, v-else-if, v-else</h4>
+                                        <div>
+                                            <div>
+                                                v-if statements don't work like the standard if statements from
+                                                JavaScript and Python. v-if statements are one of two ways we can
+                                                conditionally render a block of code; they're attached to the parent
+                                                element, and they will either render or not render the block of code.
+                                                We're not writing our own conditions, just checking if the vue data
+                                                variable is <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy"
+                                                    target="_blank">truthy</a> or <a
+                                                    href="https://developer.mozilla.org/en-US/docs/Glossary/Falsey"
+                                                    target="_blank">falsey</a>. A variable is considered falsey if it is
+                                                undefined, NaN (not a number), 0, or blank (such as a blank string "");
+                                                if the variable equals anything else, it's considered truthy. This
+                                                will help us control when things are rendered, and can help us style our
+                                                output. v-if and v-show are
+                                                extremely similar, and the differences will be explained in the v-show
+                                                section.
+                                            </div>
+                                            <div>
+                                                <a href="https://v3.vuejs.org/guide/conditional.html">Official v-if
+                                                    Statement Docs</a>
+                                            </div>
+                                            <div>
+                                                <a href="https://learnvue.co/2021/05/v-if-vs-v-show-vue-conditional-rendering/"
+                                                    target="_blank">v-if and v-show</a>
+                                            </div>
+                                            <div>
+                                                <a href="" target="_blank"></a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="vShow">v-show</h4>
+                                        <div>
+                                            v-show is the other way we can conditionally render code. Like v-if, v-show
+                                            is
+                                            also checking if a data variable is truthy or falsy. They work nearly
+                                            identically, and you'll only ever see a difference in performance. learnvue
+                                            explains it as such,
+                                            <div>
+                                                "Just like all choices in development, it’s important to carefully
+                                                consider
+                                                when to use v-if and when to use v-show.
+                                                As a general rule for performance, v-if has higher toggle costs
+                                                (whenever
+                                                the conditional changes) and v-show has higher initial render costs.
+                                                So if you need to toggle something frequently, use v-show.
+                                                If the conditional does not change that frequently during the runtime,
+                                                use
+                                                v-if.
+                                                Another thing to consider is that using v-if allows us to use other
+                                                logic
+                                                blocks in combination with it. Specifically, we can use v-else and
+                                                v-else-if
+                                                blocks to really build advanced logic into our app.""
+                                            </div>
+                                            <div>
+                                                <a href="https://v3.vuejs.org/guide/conditional.html"
+                                                    target="_blank">Official v-show Docs</a>
+                                            </div>
+                                            <div>
+                                                <a href="https://learnvue.co/2021/05/v-if-vs-v-show-vue-conditional-rendering/"
+                                                    target="_blank">learnvue (v-if and v-show)</a>
+                                            </div>
+
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="vOn">v-on</h4>
+                                        <div>
+                                            v-on is used for event handling. Remember the onClick event from vanilla
+                                            javascript? This is the same thing, only in vue. v-on listens for any event
+                                            you
+                                            set it to, such as submit and click. Then you pass in the method you want
+                                            performed when that event happens. That's it!
+                                        </div>
+                                        <div>
+                                            <a href="https://v3.vuejs.org/guide/events.html#event-handling"
+                                                target="_blank">Official v-on Docs</a>
+                                        </div>
+                                        <br />
+                                        <hr />
+
+                                        <h4 id="shorthand">shorthand</h4>
+                                        <div>
+                                            <div>
+                                                Vue provides shorter ways to use v-bind and v-on. Shorthand turns
+                                                v-bind:value='color' into :value='color'. v-on:click='calculate' into
+                                                @click='calculate'. It's the same thing, just a little bit shorter.
+                                            </div>
+                                            <div>
+                                                <a href="https://www.telerik.com/blogs/in-vue-when-do-i-actually-need-the-key-attribute-and-why"
+                                                    target="_blank">
+                                                    telerik.com (info on keys)
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+
+
+            <!-- setting up the html page -->
+            <!-- setting up vue (without data and methods) -->
+            <!-- 3 stations: the html doc, data, and methods; probably in another modal -->
+            <div>
+                <!-- Modal -->
+                <div class="modal fade" id="setup" tabindex="-1" aria-labelledby="setupLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h5 class="modal-title" id="setupLabel">Setting Up</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close">X</button>
+                            </div>
+                            <div class="modal-body text-center">
+
+
+                                <nav id="navbar-example3"
+                                    class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                                    <nav class="nav nav-pills flex-column">
+                                        <a class="nav-link" href="#item-1">Setting Up HTML</a>
+                                        <nav class="nav nav-pills flex-column">
+                                        </nav>
+                                        <a class="nav-link" href="#item-2">Setting Up Vue.js</a>
+                                        <a class="nav-link" href="#item-3">After Setup</a>
+                                        <nav class="nav nav-pills flex-column">
+                                            <a class="nav-link ms-3 my-1" href="#item-3-1">HTML Station</a>
+                                            <a class="nav-link ms-3 my-1" href="#item-3-2">Data Station</a>
+                                            <a class="nav-link ms-3 my-1" href="#item-3-3">Methods Station</a>
+                                        </nav>
+                                    </nav>
+                                </nav>
+
+                                <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0"
+                                    tabindex="0">
+                                    <h4 id="item-1">Setting Up HTML</h4>
+                                    <p>First we need to set up the html page by creating a div pair, and giving it an id
+                                        of 'app'. Under the closing div, add the Vue CDN,
+                                        <a href='https://v3.vuejs.org/guide/installation.html#cdn' target="_blank">
+                                            found here
+                                        </a>,
+                                        as
+                                        well as your javascript page. Order matters, so add the Vue CDN first. Vue
+                                        doesn't have anything to add to the html head, so we can leave that alone. We'll
+                                        cover CSS, Google Fonts, and Axios later, these are just the basics; the title
+                                        in the html head isn't important.
+                                    </p>
+                                    <img src='images/settingUpHtml.png' />
+                                    <br />
+                                    <br />
+                                    <hr />
+
+                                    <h4 id="item-2">Setting Up Vue.js</h4>
+                                    <p>Now we can go to our javascript file, and create a new Vue app (you can name it
+                                        script.js if you're unsure). This is Vue in
+                                        its most basic form, before we add functionality to it. </p>
+                                    <img src='images/settingUpVue.png' />
+                                    <br />
+                                    <br />
+                                    <hr />
+
+                                    <h4 id="item-3">After The Setup</h4>
+                                    <p>To make Vue and the html work together, we'll have three stations that we can
+                                        focus on initially. There will be more later on, but this is all we need to get
+                                        started. These stations are the html page, the data section of Vue, and the
+                                        methods section of Vue. You don't have to start at any particular station, and
+                                        you don't have to finish one to start another. </p>
+                                        <br />
+
+                                    <h5 id="item-3-1">HTML Station</h5>
+                                    <p>In our html station, we're building our visual display. We'll want to think about
+                                        our input types (text, number, email, radio, select, checkbox, etc.), outputs,
+                                        forms, buttons, and how we'll ultimately want them to
+                                        react to user input. Look through the 'Vue HTML' section to see the most
+                                        common Vue-specific html elements. </p>
+                                    <img src='images/CalculateHtml.png' />
+                                    <br />
+                                    <br />
+
+                                    <h5 id="item-3-2">Data Station</h5>
+                                    <p>We can think of the data station as real-time storage locker that we can access
+                                        from anywhere in our html and vue pages. The data station is an object full of
+                                        key/value pairs that will keep track of the state of all of our data. The key
+                                        will be a data variable, and just like any other variable in programming, we'll
+                                        name it based on what it's keeping track of. The value will establish both the
+                                        data type, and the current state of our key; it can be left blank, or a value
+                                        can be hard-coded into it. Here, we'll want to think about what data types we
+                                        need for our input/output (arrays, numbers, strings, objects, etc.), as well as
+                                        the initial value. </p>
+                                    <img src="images/dataStation.png" />
+                                    <br />
+                                    <br />
+
+                                    <h5 id="item-3-3">Methods Station</h5>
+                                    <p>Here at the methods station, we can start writing functions to use in our app.
+                                        None of these functions will run until they're called, and we can do that in a
+                                        few different ways. We can call one function inside another right here in the
+                                        methods, or use v-on to trigger the function after an event (such as a click).
+                                        In the advanced topics section, we'll look at Vue's lifecycle hooks, which can
+                                        also call a function from methods. We'll want to think about how data needs to
+                                        be able to move, and how we'll add that functionality to it. We can use any
+                                        variable from the data station as long as we add this. to it first. </p>
+                                    <img src='images/methodStation.png' />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <ul class="nav justify-content-evenly">
+                <li class="nav-item">
+                    <a class="header-nav-link nav-link" href='https://v3.vuejs.org/' target='_blank'>Vue Official
+                        Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="header-nav-link nav-link" href='https://github.com/lisab1993/Vueseum'
+                        target='_blank'>Vueseum Source Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="header-nav-link nav-link" data-bs-toggle="modal" data-bs-target="#thingsToKnow">
+                        Vue HTML
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="header-nav-link nav-link" data-bs-toggle="modal" data-bs-target="#setup">
+                        Setting Up
+                    </a>
+                </li>
+            </ul>
+        </header>
+
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-2'>
+                    <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link" href="#inputsAndRenderingValues">Inputs and Rendering Values</a>
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link ms-3 my-1" href="#renderingFromVue">Rendering From Vue</a>
+                                <a class="nav-link ms-3 my-1" href="#textInput">Text Input</a>
+                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsDynamic">Select and Options
+                                    (Dynamic)</a>
+                                <a class="nav-link ms-3 my-1" href="#selectAndOptionsHardCoded">Select and Options
+                                    (Hard-Coded)</a>
+                                <a class="nav-link ms-3 my-1" href="#radioButtonsDynamic">Radio Buttons (Dynamic)</a>
+                                <a class="nav-link ms-3 my-1" href="#radioButtonsHardCoded">Radio Buttons
+                                    (Hard-Coded)</a>
+                                <a class="nav-link ms-3 my-1" href="#renderingFromAListOfDictionaries">Rendering From a
+                                    List of Dictionaries</a>
+                                <a class="nav-link ms-3 my-1" href="#standardCheckboxes">Standard Checkboxes</a>
+                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesDynamic">Rendering Checkboxes
+                                    (Dynamic)</a>
+                                <a class="nav-link ms-3 my-1" href="#renderingCheckboxesHardCoded">Rendering Checkboxes
+                                    (Hard-Coded)</a>
+                            </nav>
+                            <a class="nav-link" href="#applyingMethods">Applying Methods</a>
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link ms-3 my-1" href="#calculate">Example: Calculator</a>
+                                <a class="nav-link ms-3 my-1" href="#convertTemp">Example: Convert Temperature</a>
+                            </nav>
+                        </nav>
+                    </nav>
+                </div>
+
+
+                <div class='col-10'>
+                    <h1 id="inputsAndRenderingValues">Inputs and Rendering Values</h1>
+                    <p>Vue is used to style the front end of a project, and it can play a small or large role; the
+                        options are endless! In this guide, we'll be covering how to add Vue to an HTML page using a
+                        CDN. If you're new to Vue, check out Setting Up to add a vue app. Vue also has its own
+                        directives such as v-model, v-bind, etc., and they will be covered in the Vue Directives tab.
+                    </p>
+                    <a href='https://vuejs.org/v2/guide/forms.html' target='_blank'>Official Vue Docs for Input
+                        Binding</a>
+                    <br />
+                    <br />
+
+
+                    <!-- To render data from vue, place the variable in {{double curly brackets}}. This is how we read the sayHello data variable, and render it in html. -->
+                    <div>
+                        <h2 id="renderingFromVue">Rendering from Vue</h2>
+                        This is a basic render. This shows a message that has been hard-coded into Vue.
+                    </div>
+                    <div>
+                        The message is: {{sayHello}}
+                    </div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <!-- Modals can be built from scratch, but a quick and simple way is to use bootstrap. Just copy the link in the head, the script tage from the bottom (both are available on their website), and copy and paste the code in. -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#renderingModal">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="renderingModal" tabindex="-1" aria-labelledby="renderingModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="renderingModalLabel">Rendering From Vue</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>To render data from vue, place the variable in double curly brackets. This is
+                                            how
+                                            we
+                                            read
+                                            the sayHello data variable, and render it in html.</p>
+                                        <img src='images/RenderingFromVueHtml.PNG'>
+                                        <p>The html page will render this by placing the value in double curly brackets.
+                                        </p>
+                                        <img src='images/RenderingFromVueJs.PNG'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+
+
+
+                    <!-- v-model grabs every keystroke the user makes, and updates the state of nameEntry in the vue app as the user is typing.  -->
+                    <div>
+                        <h2 id="textInput">Text Input</h2>
+                        This is a basic input in Vue:
+                        <label for='nameEntry'>Please enter your name:</label>
+                        <input v-model='userName' type='text' id='nameEntry'>
+                    </div>
+                    <!-- Here we can render userName on the page. The data passes from the user, through the v-model to the vue app, and then is brought back out on the browser -->
+                    <div>
+                        <label for='currentTyping'>This is the current state of the userName data variable. It updates
+                            everytime
+                            you
+                            type something. </label>
+                        <div id='currentTyping'>
+                            {{userName}}
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#textInputModal">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="textInputModal" tabindex="-1" aria-labelledby="textInputModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="textInputModalLabel">Text Input</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>v-model grabs every keystroke the user makes, and updates the state of
+                                            nameEntry
+                                            in
+                                            the
+                                            vue app as the user is typing. Here we can render userName on the page. The
+                                            data
+                                            passes
+                                            from the user, through the v-model to the vue app, and then is brought back
+                                            out
+                                            on
+                                            the
+                                            browser</p>
+                                        <img src='images/userNameTextHtml.png'>
+                                        <p>userName is a blank value waiting on input from the user through v-model</p>
+                                        <img src='images/userNameTextJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+
+
+
+                    <!-- Use v-model to connect the select element to chosenColorDynamic from data. In the vue app, chosenColorDynamic has been hard-coded to begin with yellow. This means that yellow will be pre-selected when the page loads. If it were a blank string, there wouldn't be a default value; this is the vue way to set an option to 'selected'. -->
+                    <!-- v-for allows us to run a for loop in html. It loops over the colors array just like regular javascript would -->
+                    <!-- We need to use v-bind to add the attribute 'value' so that vue can read the value of the selected color, and use v-model to set our chosenColorDynamic. If vue didn't need access to the value, we wouldn't v-bind it  -->
+                    <div>
+                        <h2 id="selectAndOptionsDynamic">Select and Options (Dynamic)</h2>
+                        <label for='dropDown'>Drop Downs:
+                            <select v-model='chosenColorDynamic'>
+                                <option v-for='color in colors' v-bind:value='color' id='dropDown'>
+                                    {{color}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        The color you select will appear here: {{chosenColorDynamic}}
+                    </div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#dynamicSelect">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="dynamicSelect" tabindex="-1" aria-labelledby="dynamicSelectLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="dynamicSelectLabel">Select and Options (Dynamic)
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>Use v-model to connect the select element to chosenColorDynamic from data. In
+                                            the vue app, chosenColorDynamic has been hard-coded to begin with yellow.
+                                            This
+                                            means
+                                            that
+                                            yellow
+                                            will be pre-selected when the page loads. If it were a blank string, there
+                                            wouldn't
+                                            be a
+                                            default value; this is the vue way to set an option to 'selected'. v-for
+                                            allows
+                                            us
+                                            to
+                                            run a for loop in html. It loops over the colors array just like regular
+                                            javascript
+                                            would. We need to use v-bind to add the attribute 'value' so that vue can
+                                            read
+                                            the
+                                            value
+                                            of the selected color, and use v-model to set our chosenColorDynamic. If vue
+                                            didn't
+                                            need
+                                            access to the value, we wouldn't v-bind it.</p>
+                                        <img src='images/SelectDynamicHtml.png'>
+                                        <p>Chosen color from the colors list; it can be initially set to any value from
+                                            the
+                                            colors
+                                            list like it currently is, hard-coded into the html (only recommended for a
+                                            value
+                                            that
+                                            will be disabled as soon as the select is clicked on), or left blank to
+                                            leave
+                                            the
+                                            dropdown blank until clicked on.</p>
+                                        <img src='images/SelectDynamicJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+
+
+
+                    <!-- Here's what a drop down looks like if we hard-code it instead. -->
+                    <!-- We still can't set an option to selected like we would in normal html, but we can set it in the vue app just like we did with the dynamic select.-->
+                    <!-- Alternatively, we can add a decorative option to tell the user what to do.  -->
+                    <div>
+                        <h2 id="selectAndOptionsHardCoded">Select and Options (Hard-Coded)</h2>
+                        <label>
+                            <select v-model='chosenColorStatic'>
+                                <option disabled value="">Please select one</option>
+                                <option>Cyan</option>
+                                <option>Magenta</option>
+                                <option>Maroon</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        The color you select will appear here: {{chosenColorStatic}}
+                    </div>
+                    <div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticSelect">
+                            View Source Code
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticSelect" tabindex="-1" aria-labelledby="staticSelectLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticSelectLabel">Select and Options (Hard-Coded)
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>
+                                            Here's what a drop down looks like if we hard-code it instead.
+                                            We still can't set an option to selected like we would in normal html, but
+                                            we
+                                            can
+                                            set it
+                                            in the vue app just like we did with the dynamic select.
+                                            Alternatively, we can add a decorative option to tell the user what to do.
+                                        </p>
+                                        <img src='images/SelectStaticHtml.png'>
+                                        <p>
+                                            The value for chosenColorStatic is hard-coded into the html, and will only
+                                            be
+                                            sent
+                                            here
+                                            if the user interacts with the select. If 'Please select one' wasn't
+                                            hard-coded
+                                            into
+                                            the
+                                            html list, the select would be blank until clicked on.
+                                        </p>
+                                        <img src='images/SelectStaticJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+                    <!-- To dynamically render radio buttons, we'll need to use v-bind on the value again, just like we did with the drop downs.  -->
+                    <!-- If you want your label to appear to the right of the button, set the label name after the input. For the left, set it before the input -->
+
+                    <div>
+                        <h2 id="radioButtonsDynamic">Radio Buttons (Dynamic)</h2>
+                        <label v-for='animal in animals'>
+                            <input type='radio' v-bind:value='animal' v-model='chosenRadioAnimalDynamic'
+                                v-bind:id='animal'>
+                            {{animal}}
+                        </label>
+                    </div>
+                    <div>
+                        You chose: {{chosenRadioAnimalDynamic}}
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#radioButtonsDynamic">
+                        View Source Code
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="radioButtonsDynamic" tabindex="-1"
+                        aria-labelledby="radioButtonsDynamicLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="radioButtonsDynamicLabel">Radio Buttons (Dynamic)</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        To dynamically render radio buttons, we'll need to use v-bind on the value
+                                        again,
+                                        just
+                                        like
+                                        we did with the drop downs.
+                                        If you want your label to appear to the right of the button, set the label name
+                                        after
+                                        the
+                                        input. For the left, set it before the input
+                                    </p>
+                                    <img src='images/RadioButtonsDynamicHtml.png'>
+                                    <p>
+                                        The html will use a v-for loop to iterate over the animals list, and render a
+                                        radio
+                                        button
+                                        for each one.
+                                        chosenRadioAnimalDynamic will initially check the radio button for Sugar Glider.
+                                        If
+                                        this
+                                        were left blank, none of the boxes would be check when the page loads/refreshes.
+                                    </p>
+                                    <img src='images/RadioButtonsDynamicJs.png'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+                    <!--Notice how we didn't use v-bind with the value? That's because the radio buttons are hard-coded into the html. -->
+                    <!-- Even though we made an input element for each animal, they can all have their v-model set to 'chosenRadioAnimalStatic'. In the vue app, chosenRadioAnimalStatic is a blank string waiting to be assigned a value, and it can come from any input we want. In this case, we want it to come from a radio button -->
+                    <div>
+                        <h2 id="radioButtonsHardCoded">Radio Buttons (Hard-Coded)</h2>
+                        <label for='cats'>Cats
+                            <input type='radio' id='cats' v-model='chosenRadioAnimalStatic' value='Cats'>
+                        </label>
+
+                        <label for='dogs'>Dogs
+                            <input type='radio' id='dogs' v-model='chosenRadioAnimalStatic' value='Dogs'>
+                        </label>
+
+                        <label for='velociraptor'>Velociraptor
+                            <input type='radio' id='velociraptor' v-model='chosenRadioAnimalStatic'
+                                value='Velociraptor'>
+                        </label>
+                    </div>
+                    <div>
+                        You chose: {{chosenRadioAnimalStatic}}
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#radioButtonsStatic">
+                        View Source Code
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="radioButtonsStatic" tabindex="-1"
+                        aria-labelledby="radioButtonsStaticLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="radioButtonsStaticLabel">Radio Buttons (Static)</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        Notice how we didn't use v-bind with the value? That's because the radio buttons
+                                        are
+                                        hard-coded into the html.
+                                        Even though we made an input element for each animal, they can all have their
+                                        v-model
+                                        set to
+                                        'chosenRadioAnimalStatic'. In the vue app, chosenRadioAnimalStatic is a blank
+                                        string
+                                        waiting
+                                        to be assigned a value, and it can come from any input we want. In this case, we
+                                        want it
+                                        to
+                                        come from a radio button.
+                                    </p>
+                                    <img src='images/RadioButtonsStaticHtml.png'>
+                                    <p>
+                                        Since all three radio buttons (cats, dogs, velociraptor) are hard-coded into the
+                                        html,
+                                        chosenRadioAnimalStatic is waiting for user input to be changed. Since we wrote
+                                        'Velociraptor' here, its button will already be checked when the page
+                                        loads/refreshes.
+                                    </p>
+                                    <img src='images/RadioButtonsStaticJs.png'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <!-- To pull from a list of dictionaries, loop over the dictionary and call the key; this will call the selected values from data  -->
+                    <div>
+                        <h2 id="renderingFromAListOfDictionaries">Rendering From a List of Dictionaries</h2>
+                        This is how to loop over a list of dictionaries and pull out the desired values:
+                        <div v-for='contact in contacts'>
+                            {{contact.name}}
+                            {{contact.phoneNumber}}
+                        </div>
+                        <br />
+                        <!-- To pull a specific entry, we need to first call the list by its name, in this case contacts. Since each dictionary is a list element, we can call it by its index; since Jane Doe is the second entry in the list, their dictionary is at index 1.   -->
+                        <div>
+                            <label for='wholeListOfDicts'>
+                                This is the whole list of dictionaries:
+                                <div id='wholeListOfDicts'>
+                                    {{contacts}}
+                                </div>
+                            </label>
+                            <br />
+
+                            <label for='individualDict'>
+                                This is an individual's dictionary at index 1:
+                                <div id='individualDict'>
+                                    {{contacts[1]}}
+                                </div>
+                            </label>
+                            <br />
+
+                            <label>
+                                This is the name from the dictionary at index 1:
+                                <div id='individualName'>
+                                    {{contacts[1]['name']}}
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listOfDicts">
+                        View Source Code
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="listOfDicts" tabindex="-1" aria-labelledby="listOfDictsLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="listOfDictsLabel">Rendering From a List of Dictionaries
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        To pull from a list of dictionaries, loop over the dictionary and call the key;
+                                        this
+                                        will
+                                        call the selected values from data. To pull a specific entry, we need to first
+                                        call
+                                        the
+                                        list
+                                        by its name, in this case contacts. Since each dictionary is a list element, we
+                                        can
+                                        call
+                                        it
+                                        by its index; since Jane Doe is the second entry in the list, their dictionary
+                                        is at
+                                        index
+                                        1.
+                                    </p>
+                                    <img src='images/ListOfDictsHtml.png'>
+                                    <p>
+                                        contacts holds a list of dictionaries that we can render in html.
+                                    </p>
+                                    <img src='images/ListOfDictsJs.png'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <!-- Checkboxes are boolean values (checked or unchecked, true or false) that can bound to data variables in vue just like text and radio buttons -->
+                    <div>
+                        <h2 id="standardCheckboxes">Standard Checkboxes</h2>
+                        <!-- In Vue, the checkMePlease variable is empty (which makes it falsey), so the checkbox will be unchecked -->
+                        Load Unchecked Box:
+                        <div>
+                            <label for='checkMe'> Check Me Please!
+                                <input type='checkbox' id='checkMe' v-model='checkMePlease' />
+                            </label>
+                        </div>
+                        <br />
+                        <!-- uncheckMePlease has a value other than a blank string (which makes it truthy), so the checkbox will be checked -->
+                        Load Checked Box:
+                        <div>
+                            <label for='uncheckMe'> Uncheck Me Please!
+                                <input type='checkbox' id='uncheckMe' v-model='uncheckMePlease' />
+                            </label>
+                        </div>
+                        <br />
+                        <!-- If two checkboxes are bound to the same data variable using v-model, they will both be checked/unchecked simultaneously -->
+                        Two For One:
+                        <div>
+                            <label for='checkTwo'> Checking One will check Them Both
+                                <div id='checkTwo'>
+                                    <input type='checkbox' v-model='checkTwo' />
+                                    <input type='checkbox' v-model='checkTwo' />
+                                </div>
+                            </label>
+                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#standardCheckboxes">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="standardCheckboxes" tabindex="-1"
+                            aria-labelledby="standardCheckboxesLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="standardCheckboxesLabel">Standard Checkboxes</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>
+                                            Checkboxes are boolean values (checked or unchecked, true or false) that can
+                                            bound
+                                            to
+                                            data variables in vue just like text and radio buttons.
+                                            In Vue, the checkMePlease variable is empty (which makes it falsey), so the
+                                            checkbox
+                                            will be unchecked.
+                                            uncheckMePlease has a value other than a blank string (which makes it
+                                            truthy),
+                                            so
+                                            the
+                                            checkbox will be checked.
+                                            If two checkboxes are bound to the same data variable using v-model, they
+                                            will
+                                            both
+                                            be
+                                            checked/unchecked simultaneously
+                                        </p>
+                                        <img src='images/StandardCheckboxesHtml.png'>
+                                        <p>
+                                            A checkbox is a boolean, so an empty string will leave the box unchecked,
+                                            and
+                                            anything
+                                            (including a whitespace) will check the box.
+                                            If you want the user to be able to check multiple boxes at once and grab
+                                            their
+                                            individual values, they each need their own data variable.
+                                            uncheckMePlease: 'make this truthy',
+                                            If the user checks one box, all other boxes that are bound to this variable
+                                            will
+                                            also be
+                                            checked.
+                                        </p>
+                                        <img src='images/StandardCheckboxesJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                        <!-- Just like with select inputs, we iterate over the redFruits list with a v-for, and generate our checkboxes from it. We used v-bind on the value because the list is coded in Vue -->
+                        <div>
+                            <h2 id="renderingCheckboxesDynamic">Rendering Checkboxes Dynamically</h2>
+                            <div v-for='fruit in redFruits'>
+                                <label for='redFruits'> {{ fruit }}
+                                    <input type='checkbox' id='redFruits' v-bind:value='fruit'
+                                        v-model='checkedRedFruits' />
+                                </label>
+                                <br />
+                            </div>
+                            <!-- The checkedRedFruits list holds onto everything we selected from the redFruits list. Since we used v-bind on the value attribute, the values were loaded into the checkedRedFruits list. These boxes will show up in a column because they each have their own div element.-->
+                            <div>
+                                The currently checked red fruits are:
+                                <div v-for='fruit in checkedRedFruits'>
+                                    {{fruit}}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#dynamicCheckboxes">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="dynamicCheckboxes" tabindex="-1"
+                            aria-labelledby="dynamicCheckboxesLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="dynamicCheckboxesLabel">Rendering Checkboxes
+                                            Dynamically
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>
+                                            Just like with select inputs, we iterate over the redFruits list with a
+                                            v-for,
+                                            and
+                                            generate our checkboxes from it. We used v-bind on the value because the
+                                            list is
+                                            coded
+                                            in Vue.
+                                            The checkedRedFruits list holds onto everything we selected from the
+                                            redFruits
+                                            list.
+                                            Since we used v-bind on the value attribute, the values were loaded into the
+                                            checkedRedFruits list. These boxes will show up in a column because they
+                                            each
+                                            have
+                                            their
+                                            own div element.
+                                        </p>
+                                        <img src='images/DynamicCheckboxesHtml.png'>
+                                        <p>
+                                            The redFruits list will be used to generate multiple checkboxes.
+                                            As the user checks and unchecks boxes, their values will be added and
+                                            removed
+                                            accordingly in the checkedRedFruits list.
+                                            <img src='images/DynamicCheckboxesJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <!-- These checkboxes are all bound to an empty list, so when the box is checked, its value is added to the list. We can see the state of the list as it updates below. These checkboxes will appear in a row because they're all held within the save div element.Because the checkboxes are being hard-coded into the html, we don't need to use v-bind on the value. -->
+                        <div>
+                            <h2 id="renderingCheckboxesHardCoded">Rendering Checkboxes Hard-Coded</h2>
+                            <label for='honeydew'>Honeydew
+                                <input type='checkbox' id='honeydew' value='Honeydew' v-model='checkedGreenFruits' />
+                            </label>
+                            <label for='greenGrapes'>Green Grapes
+                                <input type='checkbox' id='greenGrapes' value='Green Grapes'
+                                    v-model='checkedGreenFruits' />
+                            </label>
+                            <label for='kiwi'>Kiwi
+                                <input type='checkbox' id='kiwi' value='Kiwi' v-model='checkedGreenFruits' />
+                            </label>
+                            <!-- By iterating over the checkedGreenFruits list using v-for, we can see the values in the list as we store them. When a box is checked, it's added to the list; when it's unchecked, it's removed from the list. v-model is what does this magic for us. -->
+                            <div>
+                                The currently checked green fruits are:
+                                <div v-for='greenFruit in checkedGreenFruits'>
+                                    {{greenFruit}}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticCheckboxes">
+                            View Source Code
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticCheckboxes" tabindex="-1"
+                            aria-labelledby="staticCheckboxesLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticCheckboxesLabel">Rendering Check Boxes
+                                            Hard-Coded
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <p>
+                                            These checkboxes are all bound to an empty list, so when the box is checked,
+                                            its value is added to the list. We can see the state of the list as it
+                                            updates below. These checkboxes will appear in a row because they're all
+                                            held within the save div element.Because the checkboxes are being hard-coded
+                                            into the html, we don't need to use v-bind on the value. By iterating over
+                                            the checkedGreenFruits list using v-for, we can see the
+                                            values in the list as we store them. When a box is checked, it's added to
+                                            the list; when it's unchecked, it's removed from the list. v-model is what
+                                            does this magic for us.
+                                        </p>
+                                        <img src='images/StaticCheckboxesHtml.png'>
+                                        <p>
+                                            Because the green fruits are hard-coded into the html, we only need a blank
+                                            list to catch the selections. v-model adds and removes the green fruits as
+                                            they're selected.
+                                        </p>
+                                        <img src='images/StaticCheckboxesJs.png'>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+
+
+                    <h1 id="applyingMethods">Applying Methods</h1>
+                    <!-- We made a calculate function in the vue app, now we need to use it. It's nearly identical to onClick(), only now we say v-on:click='calculate'.  -->
+                    <!-- Since our function is in vue, we need to add v-on so it can communicate with the html. -->
+                    <div>
+                        <h2 id="calculate">Using the calculate Method</h2>
+                        <p>Enter two numbers to be added together.</p>
+                        <label for='firstNum'>first number:
+                            <input type='number' v-model='firstNum' id='firstNum'>
+                        </label>
+                        <label for='secondNum'>second number:
+                            <input type='number' v-model='secondNum' id='secondNum'>
+                        </label>
+                        <button type='button' @click='calculate'>Calculate</button>
+                    </div>
+                    <div>
+                        {{firstNum}} + {{secondNum}} = {{answer}}
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#calculate">
+                        View Source Code
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="calculate" tabindex="-1" aria-labelledby="calculateLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="calculateLabel">Using the calculate Method</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        We made a calculate function in the vue app, now we need to use it. It's nearly
+                                        identical to onClick(), only now we say v-on:click='calculate'.
+                                        Since our function is in vue, we need to add v-on so it can communicate with the
+                                        html.
+                                    </p>
+                                    <img src='images/CalculateHtml.png'>
+                                    <p>
+                                        these values act just like the others in our data. The only difference is that
+                                        these are used in methods on this particular document. Look at the functions
+                                        below to see how they work. To refer to our data variables, all we have to do is
+                                        add this. before it. Since our functions change the variables being rendered, we
+                                        don't need to return anything (Vue essentially does it for you). So to refer to
+                                        firstNum, we would say this.firstNum.
+                                    </p>
+                                    <img src='images/CalculateJs.png'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div>
+                        <h2 id="convertTemp">Using the calculateTemp Method</h2>
+                        <label for='inputTempNum'>
+                            <input type='number' id='inputTempNum' v-model='inputTempNum' placeholder="0.0" />
+                            °
+                        </label>
+                        <select v-model='startingUnit'>
+                            <option v-for='temp in tempList' v-bind:value='temp'>
+                                {{ temp }}
+                            </option>
+                        </select>
+                        Converted to:
+                        <select v-model='requestedUnit'>
+                            <option v-for='temp in tempList' v-bind:value='temp'>
+                                {{temp}}
+                            </option>
+                        </select>
+                        <button type='button' v-on:click='tempConversion'>Convert</button>
+                        {{convertedNum}}°
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#calculateTemp">
+                        View Source Code
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="calculateTemp" tabindex="-1" aria-labelledby="calculateTempLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="calculateTempLabel">Using the calculateTemp Method</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p>
+                                        Here's a more advanced version of what we did in the calculate method. The
+                                        degrees symbols are unicode characters, and we can
+                                    </p>
+                                    <img src='images/TempHtml.png'>
+                                    <p>
+
+                                    </p>
+                                    <img src='images/TempJs.png'>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Vue CDN -->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+    <!-- Axios CDN -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'
+        integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=='
+        crossorigin='anonymous'></script>
+    <!-- Page JS -->
+    <script src='vue_example.js'></script>
+</body>
+
+</html>

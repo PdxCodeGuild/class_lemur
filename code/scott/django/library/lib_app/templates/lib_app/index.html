@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library App</title>
+  </head>
+  <body>
+    {% include 'lib_app/navbar.html' %}
+    <h3>List of All Books</h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+      </tr>
+      {% for book in all_books %}
+      <tr>
+        <td>{{book.title|title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.book_type}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <h3>Book Checkout</h3>
+       {% include 'lib_app/form.html' %}
+    <h3>Book Log</h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+        <th>Timestamp</th>
+        <th>User</th>
+        <th>Checked Out?</th>
+      </tr>
+      {% for book in all_checkouts %}
+      <tr>
+        <td>{{book.book.title|title}}</td>
+        <td>{{book.book.author}}</td>
+        <td>{{book.book.book_type}}</td>
+        <td>{{book.timestamp}}</td>
+        <td>{{book.user}}</td>
+        <td>{{book.checkedout}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% include 'lib_app/footer.html' %}
+  </body>
+</html>

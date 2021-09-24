@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball</title>
+</head>
+
+<body>
+    <canvas id="ballCanvas" width="500" height="500" style="border: 1px solid black"></canvas>
+
+
+    <script src="main.js" ></script>
+    <!-- <script>
+        let ballCanvas = document.getElementById("ballCanvas")
+        let ctx = ballCanvas.getContext('2d')
+
+        let ball = {
+            radius: 4,
+            px: Math.random() * width,
+            py: Math.random() * height,
+            vx: (2 * Math.random() - 1) * 10,
+            vy: (2 * Math.random() - 1) * 10
+        }
+
+        ctx.beginPath();
+        ctx.rect(20, 20, 150, 100);
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.rect(40, 40, 150, 100);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+
+        function mainLoop() {
+            // update the ball's position
+            // ctx.moveTo(ball.px + 1, ball.py + 1)
+            // check if it hit a boundary
+            // draw the ball
+            ctx.beginPath()
+            ctx.arc(ball.px, ball.py, ball.radius, 0, 2 * Math.PI, false)
+            ctx.fillStyle = "blue"
+            ctx.fill()
+            window.requestAnimationFrame(mainLoop)
+        }
+
+        window.requestAnimationFrame(mainLoop)
+    </script> -->
+</body>
+
+</html>

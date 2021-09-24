@@ -134,4 +134,7 @@ for word in words:
 with open(file_path, 'w') as file:
         file.write(new_line)
 
+# final_list = ''.join(contacts)
 
+with open(file_path_2, 'w') as file:
+        file.write(contacts).split('\n')

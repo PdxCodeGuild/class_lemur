@@ -1,0 +1,77 @@
+{% extends 'library_app/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <h1>Inventory</h1>
+    <ul>
+        {% for book in books %} 
+            <li>
+                {{ book.title}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+<!-- Checkout book form -->
+<form action="{% url 'library_app:checkout' %}" method="POST">
+    {%csrf_token %}
+    <div class="mb-3">
+        <label for="checkout" class="form-label">Check-out Book</label>
+        <input type="text" name="title" class="form-control" id="checkout" value="">
+    </div>
+    <div class="mb-4">
+        <label for="checkout_name" class="form-label">Enter name</label>
+        <input type="text" name="user" class="form-control" id="checkout_name" value="">
+    </div>
+    <div class="col-auto">
+        <input type="date" name="time_stamp" id="checkout">
+        <button type="submit" class="btn btn-primary mb-3">Check-out</button>
+    </div>
+   
+</form>
+<form action="{% url 'library_app:checkin' %}" method="POST">
+    {%csrf_token %}
+    <div class="mb-3">
+        <label for="checkin" class="form-label">Check-in Book</label>
+        <input type="text" name="title_in" class="form-control" id="checkin" value="">
+    </div>
+    <div class="mb-4">
+        <label for="checkin_name" class="form-label">Enter name</label>
+        <input type="text" name="user_in" class="form-control" id="checkin_name" value="">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary mb-3">Check-in</button>
+    </div>    
+</form>
+<h1>Checked-out Books</h1>
+
+<ul>
+    {% for check in checkouts %}
+    <li>
+        <span>
+            {{ check.book.title }} checked-out by {{ check.user }}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<br>
+<h1>Check-in Books</h1>
+
+<ul>
+    {% for check in checkins %}
+    <li>
+        <span>
+            {{ check.book.title }} checked-in by {{ check.user }}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+{% endblock %}

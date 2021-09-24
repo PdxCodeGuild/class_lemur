@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Adder 2</title>
+
+	<style>
+		#color-container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.color-section {
+			width: 200px;
+			height: 200px;
+			margin: 2rem;
+			border-radius: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.color-section:hover {
+			box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+				0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+				0 12.5px 10px rgba(0, 0, 0, 0.06),
+				0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+				0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+				0 100px 80px rgba(0, 0, 0, 0.12);
+			cursor: crosshair;
+		}
+	</style>
+
+	
+</head>
+
+<body>
+	<main id="app">
+		<h1 @click="clickH1">Color Adder 2</h1>
+		<form @submit.prevent="submitForm">
+			<input
+				v-model="newColor"
+				type="text"
+				id="color-input"
+				placeholder="type a color"
+			/>
+			<button type="submit">add color</button>
+		</form>
+		<article id="color-container">
+			<section
+				v-for="color in colors"
+				class="color-section"
+				v-bind:style="`background-color: ${color};`"
+				@click="alertColor"
+			>
+				<span>{{ color }}</span>
+			</section>
+		</article>
+	</main>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
