@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+
+</head>
+
+<body>
+
+    <section class="hero is-warning">
+        <div class="hero-body">
+            <p class="title is-flex is-justify-content-center">
+                Library
+            </p>
+        </div>
+    </section>
+
+    <main>
+
+        <section class="section">
+            <h1 class="title is-4 p-5 mb-5 is-flex is-justify-content-center">Our books</h1>
+
+            <table class="table is-hoverable is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Author</th>
+                        {% comment %} <th></th> {% endcomment %}
+                    </tr>
+                </thead>
+
+
+                {% for book in books %}
+                {% if book.available == True %}
+
+                <tr>
+                    <td>
+                        {{ book.name }}
+                    </td>
+                    <td>
+                        {{ book.author }}
+                    </td>
+
+                </tr>
+                {% endif%}
+                {% endfor %}
+
+            </table>
+
+
+        </section>
+
+        <section class="section">
+            <h1 class="title is-3 p-5 mb-5 is-flex is-justify-content-center">Checked out</h1>
+
+            <table class="table is-hoverable is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Author</th>
+                        <th>Checked out by</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+
+                {% for item in checked %}
+
+
+                <tr>
+                    {% if item.checked_out == True %}
+
+                    <td>
+                        {{ item.book }}
+                    </td>
+                    <td>
+                        {{ item.book.author }}
+                    </td>
+                    <td>
+                        {{ item.user_name }}
+                    </td>
+                    <td>
+                        <form action="{% url 'library_app:returning' item.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ item.id }}">
+                            <button type="submit" id="id" >Check back in</button>
+                        </form> 
+                    </td>
+                </tr>
+        
+                {% endif %}
+                {% endfor %}
+                
+            </table>
+
+        </section>
+
+            <a class="is-flex is-justify-content-center" href="{% url 'library_app:form' %}">Click here to check out a book</a>
+
+    </main>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                &copy; Megan Bradner 2021
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

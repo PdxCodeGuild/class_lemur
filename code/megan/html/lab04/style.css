@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(156, 116, 116);
+    color: black;
+}
+
+input {
+    padding: 5px;
+    margin: 10px;
+}
