@@ -14,9 +14,19 @@
 </head>
 
 <body id="everything" class=" bg-dark">
-    <textarea class="bg-dark" name="hack" id="hack" cols="1" rows="1"></textarea>
-    <pre class="text-danger" id="hackery">f</pre>
+    <textarea class="form-control bg-dark text-danger" name="hack" id="hack" cols="100" rows="100"
+        style="height: 100vh; width: 100vw;"></textarea>
+    <textarea style="position: absolute; top: 100px; left: 20vw; font-size: 40px;" name="access" id="access" cols="30"
+        rows="1" class="bg-dark visually-hidden text-danger text-center border border-danger">Access Denied</textarea>
 
+    <textarea style="position: absolute; top: 40vh; left: 5vw; font-size: 40px;" name="danger" id="danger" cols="30"
+        rows="1" class="bg-dark visually-hidden text-danger text-center border border-danger">Danger</textarea>
+
+    <textarea style="position: absolute; top: 60vh; left: 40vw; font-size: 40px;" name="error" id="error" cols="30"
+        rows="1" class="bg-dark visually-hidden text-danger text-center border border-danger">Error</textarea>
+
+    <textarea style="position: absolute; top: 20vh; left: 35vw; font-size: 40px;" name="stop" id="stop" cols="30"
+        rows="1" class="bg-dark visually-hidden text-danger text-center border border-danger">Stop</textarea>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="main.js"></script>

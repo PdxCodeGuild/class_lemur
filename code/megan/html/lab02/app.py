@@ -14,6 +14,7 @@ def read_posts():
 def index():
 
     posts = read_posts()
+
     return render_template('index.html', posts=posts)
 
 app.run(debug=True)
