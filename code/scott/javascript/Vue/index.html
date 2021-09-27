@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js" defer></script>
+    <title>Vue Todo List</title>
+  </head>
+  <body>
+    <h1>Dollar Store Todo List</h1>
+    <div id="todoapp">
+      <form name="todoForm" method="post" v-on:submit.prevent="addTodo">
+        <label for="usrInput">Enter your task:</label>
+        <input type="text" name="usrInput" v-model="addTodoInput" />
+        <input type="submit" value="Add Todo" />
+      </form>
+      <ul>
+        <li v-for="todo in tdList" :key="tdList.id">
+            <input
+              type="checkbox"
+              v-on:change="todoComplete(tdList)"
+              v-bind:checked="tdList.idComplete"
+            />
+          {{ todo.title }}
+          <span v-on:click="todoRemove(tdList)">X</span>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
