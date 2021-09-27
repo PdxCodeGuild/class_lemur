@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Todo list</title>
+	
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="js/main.js" defer></script>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+	<div id="app">
+		<h2>{{ message }}</h2>
+		<form @submit.prevent="submitForm">
+			<input type="text" v-model="inputText">
+			<input type="submit" value="add to list">
+		</form>
+		<ul>
+			<li v-for="item in list">{{ item }}</li>
+		</ul>
+	</div>
+</body>
+</html>
