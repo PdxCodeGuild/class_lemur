@@ -19,9 +19,9 @@
 		</form>
 		<ul>
 			<li v-for="item in list">
-				<v-checkbox: label="item.title" v-model="item.status"></v-checkbox>
+				<input type="checkbox"></input>
 				{{ item }}&emsp; 
-				<v-button @click="deleteItem" id=`${{item}}`>Delete</v-button>
+				<button type="button" v-on:click="deleteItem(item)" >Delete</button>
 				</p>
 			
 			</li>

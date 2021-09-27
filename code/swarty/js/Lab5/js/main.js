@@ -11,13 +11,14 @@ const App = {
         submitForm() {
             this.list.push(this.inputText)
             this.inputText=""
-            count=length(list) 
         },
-        completeItem() {
-            
-        },
-        deleteItem(){
-            alert()
+        deleteItem(item){
+            console.log(item, "item")
+            // let index=this.list.index(item)
+            // console.log(index, "index")
+            this.list.splice(function(value){
+                return value != item
+            },1)
         }
     },
     
