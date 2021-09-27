@@ -13,7 +13,12 @@ const App = {
             this.inputText=""
             count=length(list) 
         },
-        
+        completeItem() {
+            
+        },
+        deleteItem(){
+            alert()
+        }
     },
     
     // created() {

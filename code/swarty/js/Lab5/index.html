@@ -18,7 +18,13 @@
 			<input type="submit" value="add to list">
 		</form>
 		<ul>
-			<li v-for="item in list">{{ item }}</li>
+			<li v-for="item in list">
+				<v-checkbox: label="item.title" v-model="item.status"></v-checkbox>
+				{{ item }}&emsp; 
+				<v-button @click="deleteItem" id=`${{item}}`>Delete</v-button>
+				</p>
+			
+			</li>
 		</ul>
 	</div>
 </body>
