@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My Todo list</title>
-	
+	<title>Quoted</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/vue@next"></script>
 	<script src="js/main.js" defer></script>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -13,12 +13,10 @@
 <body>
 	<div id="app">
 		<h2>{{ message }}</h2>
-		<form @submit.prevent="submitForm">
-			<input type="text" v-model="inputText">
-			<input type="submit" value="add to list">
-		</form>
+		<h3>'{{qotdQuote}}'</h3>
+		<strong>-{{qotdAuthor}}</strong>
 		<ul>
-			<li v-for="item in list">
+			<li v-for="quote in results">
 				<input type="checkbox"></input>
 				{{ item }}&emsp; 
 				<button type="button" v-on:click="deleteItem(item)" >Delete</button>
@@ -26,6 +24,10 @@
 			
 			</li>
 		</ul>
+		<form @submit.prevent="submitForm">
+			<input type="text" v-model="inputText">
+			<input type="submit" value="Search">
+		</form>
 	</div>
 </body>
 </html>
