@@ -13,12 +13,12 @@ const App = {
             this.inputText=""
         },
         deleteItem(item){
+            let i=0
             console.log(item, "item")
-            // let index=this.list.index(item)
-            // console.log(index, "index")
-            this.list.splice(function(value){
-                return value != item
-            },1)
+            i=this.list.indexOf(item)
+            console.log(i, "index" , this.list)
+            this.list.splice(i,1)
+            console.log(this.list,"new")
         }
     },
     
