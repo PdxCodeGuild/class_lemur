@@ -28,7 +28,8 @@ Presentation Day: November 5th, 2021
 ## JavaScript Labs Assigned:
 
  * [Labs 01-03 Pick3](5%20JavaScript/labs/01-03%20Pick%203.md)
-
+ * [Lab 04 Mob Todo List](5%20JavaScript/labs/04%20Todo%20List.md)
+ * [Lab 05 Vue Todos](5%20JavaScript/labs/05%20Vue%20Todos.md)
 
 #### Optional JavaScript Labs
 [Bouncing Ball](5%20JavaScript/labs/Bouncing%20Ball.md), [Clock](5%20JavaScript/labs/Clock.md), [Hacker Typer](5%20JavaScript/labs/Hacker%20Typer.md), [Random Redirector](5%20JavaScript/labs/Random%20Redirector.md)

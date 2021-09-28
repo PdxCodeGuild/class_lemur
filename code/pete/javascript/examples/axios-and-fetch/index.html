@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Axios & Fetch</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<script>
+		axios({
+			method: 'get',
+			url: 'https://icanhazdadjoke.com/',
+			headers: {
+				Accept: 'application/json',
+				'User-Agent': 'Class Lemur (https://github.com/PdxCodeGuild/class_lemur)'
+			}
+		}).then(response => alert(response.data.joke))
+
+		alert('this is after the axios call')
+
+		fetch('https://icanhazdadjoke.com/', {
+			method: 'get',
+			headers: {
+				Accept: 'application/json',
+				'User-Agent': 'Class Lemur (https://github.com/PdxCodeGuild/class_lemur)'
+			}
+		}).then(response => response.json())
+		.then(data => alert(data.joke))
+
+		alert('this is after the fetch call')
+	</script>
+</body>
+</html>
