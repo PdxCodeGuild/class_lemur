@@ -9,22 +9,17 @@ const App = {
             info: {},
             infoByKeyword: null,
             page: 1,
-            lastPage: false
+            lastPage: false,
         }
     },
     methods: {
         search() {
             if (this.searchSelection == 'keyword') {
-                if (this.searchTerm != this.searchTerm) {
-                    console.log(searchTerm)
-                    console.log(this.searchTerm)
-                    this.page = 1
-                }
                 axios({
                     method: 'get',
                     url: url,
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        Authorization: `Token ${token}`
                     },
                     params: {
                         filter: this.searchTerm,
@@ -40,7 +35,7 @@ const App = {
                     method: 'get',
                     url: url,
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        Authorization: `Token ${token}`
                     },
                     params: {
                         filter: this.searchTerm,
@@ -56,7 +51,7 @@ const App = {
                     method: 'get',
                     url: url,
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        Authorization: `Token ${token}`
                     },
                     params: {
                         filter: this.searchTerm,
@@ -79,16 +74,19 @@ const App = {
         },
         resetPage() {
             this.page = 1
-        }
+        },
     },
     created() {
-        axios
-            .get(url, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
+        axios({
+            method: 'get',
+            url: url,
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
             .then(response => (this.info = response.data.quotes))
+
     }
 }
+
 Vue.createApp(App).mount('#app')
