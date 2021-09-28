@@ -39,7 +39,7 @@ const App = {
             item.isComplete = true
         },
 
-        removeItem: function (index) {
+        removeItem: function (item) {
             
             this.items.splice(this.items.indexOf(item), 1)  
             // ^ removes the last item of the list 
