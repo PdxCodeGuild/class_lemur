@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FavQs in Vue</title>
+    <link rel="stylesheet" href="./css/site.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Quotes</h1>
+        <h2>{{ quote.body }} <br> - {{ quote.author }}</h2>
+
+        <form @submit.prevent="searchQuote">
+            <input type="text" v-model="keyword">
+            <input type="submit" value="search">
+        </form>
+
+        <ul>
+            <li v-for="quote in quoteResults">{{ quote.body }} {{ quote.author}}</li>
+        </ul>
+    
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./js/site.js"></script>
+    
+</body>
+</html>
