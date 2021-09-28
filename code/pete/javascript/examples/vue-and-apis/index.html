@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue and APIs</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>Dad Jokes</h1>
+		<p>Random Dad Joke:</p>
+		<p>{{ dadJoke }}</p>
+		<form @submit.prevent="searchDadJoke">
+			<input type="text" v-model="searchTerm">
+			<input type="submit" value="search">
+		</form>
+		<p>Search Results</p>
+		<ul>
+			<li v-for="result in searchResults">{{ result.joke }}</li>
+		</ul>
+	</div>
+	<script>
+		const App = {
+			data() {
+				return {
+					dadJoke: '',
+					searchTerm: '',
+					searchResults: []
+				}
+			},
+
+			methods: {
+				randomDadJoke() {
+					axios({
+						method: 'get',
+						url: 'https://icanhazdadjoke.com/',
+						headers: {
+							Accept: 'application/json',
+							'User-Agent': 'Class Lemur (https://github.com/PdxCodeGuild/class_lemur)'
+						}
+					}).then(response => {
+						console.log(response)
+						this.dadJoke = response.data.joke
+					})
+				},
+
+				searchDadJoke() {
+					console.log(this.searchTerm)
+					axios({
+						method: 'get',
+						url: 'https://icanhazdadjoke.com/search',
+						headers: {
+							Accept: 'application/json',
+							'User-Agent': 'Class Lemur (https://github.com/PdxCodeGuild/class_lemur)'			
+						},
+						params: {
+							term: this.searchTerm
+						}
+					}).then(response => {
+						this.searchResults = response.data.results
+					})
+				}
+			},
+
+			created() {
+				this.randomDadJoke()
+			}
+		}
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+</html>
