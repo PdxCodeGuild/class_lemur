@@ -19,7 +19,7 @@
 <body class="container">
     <div id="app">
         <h1 class="text-center">FavQ</h1>
-        <div class="row">
+        <div class="row my-1">
             <p class="text-center">Select how you would like to search and enter the name, keyword, or tag you want to
                 search for.</p>
             <div class="col-4">
@@ -35,29 +35,28 @@
             </div>
 
             <div class="col-4">
-                <button class="btn btn-dark" @click="search">Search</button>
+                <button class="btn btn-dark" @click="search();resetPage()" @click>Search</button>
             </div>
         </div>
-        <div v-if="infoByKeyword" v-for="quote in infoByKeyword">
-            <p>
+
+        <ol class="list-group list-group-numbered" v-if="infoByKeyword">
+
+            <li class="list-group-item my-1" v-for="quote in infoByKeyword">
                 {{quote.author}}: "{{ quote.body }}"
-            </p>
-        </div>
-        <div v-else-if="infoByKeyword" v-for="quote in infoByKeyword">
-            <p>
+
+            </li>
+            <span class="text-center">
+                <button class="btn btn-dark" v-if="page > 1" @click="previousPage">Previous</button>
+                <span class="m-2 fw-bold">{{page}}</span>
+                <button class="btn btn-dark" v-if="lastPage === false" @click="nextPage">Next</button>
+            </span>
+        </ol>
+
+        <ol class="list-group list-group-numbered" v-else>
+            <li class="list-group-item" v-for="quote in info">
                 {{quote.author}}: "{{ quote.body }}"
-            </p>
-        </div>
-        <div v-else-if="infoByKeyword" v-for="quote in infoByKeyword">
-            <p>
-                {{quote.author}}: "{{ quote.body }}"
-            </p>
-        </div>
-        <div v-else v-for="quote in info">
-            <p>
-                {{quote.author}}: "{{ quote.body }}"
-            </p>
-        </div>
+            </li>
+        </ol>
     </div>
 
     <script src="js/site.js"></script>

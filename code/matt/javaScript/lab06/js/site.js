@@ -1,5 +1,4 @@
-const url = 'https://favqs.com/api/quotes'
-const urlByKeyword = "https://favqs.com/api/quotes/?filter="
+const url = 'https://favqs.com/api/quotes/'
 token = "855df50978dc9afd6bf86579913c9f8b"
 
 const App = {
@@ -9,42 +8,78 @@ const App = {
             searchSelection: '',
             info: {},
             infoByKeyword: null,
-            infoByAuthor: null,
-            infoByTag: null,
+            page: 1,
+            lastPage: false
         }
     },
     methods: {
         search() {
             if (this.searchSelection == 'keyword') {
-                axios
-                    .get(`${urlByKeyword}${this.searchTerm}`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-
-                    })
-                    .then(response => (this.infoByKeyword = response.data.quotes))
+                if (this.searchTerm != this.searchTerm) {
+                    console.log(searchTerm)
+                    console.log(this.searchTerm)
+                    this.page = 1
+                }
+                axios({
+                    method: 'get',
+                    url: url,
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    params: {
+                        filter: this.searchTerm,
+                        page: this.page
+                    }
+                }).then((response) => {
+                    this.infoByKeyword = response.data.quotes
+                    this.lastPage = response.data.last_page
+                })
             } else if (this.searchSelection == 'author') {
-                axios
-                    .get(`${urlByKeyword}${this.searchTerm}&type=author`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-
-                    })
-                    .then(response => (this.infoByKeyword = response.data.quotes))
+                // title(this.searchTerm)
+                axios({
+                    method: 'get',
+                    url: url,
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    params: {
+                        filter: this.searchTerm,
+                        type: 'author',
+                        page: this.page
+                    }
+                }).then((response) => {
+                    this.infoByKeyword = response.data.quotes
+                    this.lastPage = response.data.last_page
+                })
             } else if (this.searchSelection == 'tag') {
-                axios
-                    .get(`${urlByKeyword}${this.searchTerm}&type=tag`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-
-                    })
-                    .then(response => (this.infoByKeyword = response.data.quotes))
+                axios({
+                    method: 'get',
+                    url: url,
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    params: {
+                        filter: this.searchTerm,
+                        type: 'tag',
+                        page: this.page
+                    }
+                }).then((response) => {
+                    this.infoByKeyword = response.data.quotes
+                    this.lastPage = response.data.last_page
+                })
             }
+        },
+        nextPage() {
+            this.page++
+            this.search()
+        },
+        previousPage() {
+            this.page--
+            this.search()
+        },
+        resetPage() {
+            this.page = 1
         }
-
     },
     created() {
         axios
