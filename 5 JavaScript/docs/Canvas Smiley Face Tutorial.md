@@ -1,6 +1,11 @@
 
 # Canvas Tutorial: Draw a Picture
 
+ - [Canvas Tutorial: Draw a Picture](#canvas-tutorial-draw-a-picture)
+   - [Canvas in HTML](#canvas-in-html)
+   - [Canvas in JavaScript](#canvas-in-javascript)
+ - [Simple Shapes: Rectangles and Lines](#simple-shapes-rectanges-and-lines)
+   - 
 ## Canvas in HTML
 
 In this tutorial, you'll be using HTML5 `canvas` to draw images onto the screen.  Here's what a `canvas element` looks like in the html:
