@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="script.js" defer></script>
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+</head>
+
+<body>
+	<div id="app">
+		<nav class="pa3 pa4-ns">
+			<a @click="clearSelectedPost" class="link dim black b f6 f5-ns dib mr3" href="#" title="Home">Home</a>
+		</nav>
+		<article v-if="selectedPost" data-name="article-full-bleed-background">
+			<div class="cf" :style="`background: url(${selectedPost.image}) no-repeat center center fixed; background-size: cover;`">
+				<div class="fl pa3 pa4-ns bg-white black-70 measure-narrow f3 times">
+					<header class="bb b--black-70 pv4">
+						<h3 class="f2 fw7 ttu tracked lh-title mt0 mb3 avenir">{{ selectedPost.title }}</h3>
+						<h4 class="f3 fw4 i lh-title mt0">by {{ selectedPost.author }}</h4>
+					</header>
+					<section class="pt5 pb4">
+						<p class="times lh-copy measure f4 mt0">
+							{{ selectedPost.body }}
+						</p>
+					</section>
+				</div>
+			</div>
+		</article>
+		<section v-else class="mw7 center avenir">
+			<h2 class="baskerville fw1 ph3 ph0-l">News</h2>
+
+			<article class="bt bb b--black-10" v-for="post in posts">
+				<a @click="selectPost(post)" class="db pv4 ph3 ph0-l no-underline black dim" href="#0">
+					<div class="flex flex-column flex-row-ns">
+						<div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+							<img :src="post.image" class="db"
+								alt="Photo of a dimly lit room with a computer interface terminal.">
+						</div>
+						<div class="w-100 w-60-ns pl3-ns">
+							<h1 class="f3 fw1 baskerville mt0 lh-title">{{ post.title }}</h1>
+							<p class="f6 f5-l lh-copy">
+								{{ post.body }}
+							</p>
+							<p class="f6 lh-copy mv0">By {{ post.author }}</p>
+						</div>
+					</div>
+				</a>
+			</article>
+
+
+		</section>
+	</div>
+</body>
+
+</html>
