@@ -20,10 +20,7 @@ const todos = {
         }
       ],
       toDones: [],
-      newTodo: {
-        title: '', 
-        isCompleted: false,
-      }
+      newTodo: ""
     }
   },
   methods: {
@@ -43,9 +40,9 @@ const todos = {
       todone.isCompleted= false
       this.toDones.splice(index, 1)
     },
-    addTodo (event) {
+    addTodo() {
       this.todos.push(
-        this.newTodo
+        { title: this.newTodo, isCompleted: false }
       )
     }
   }
