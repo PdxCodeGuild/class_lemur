@@ -38,7 +38,7 @@
             <li class="list-group-item my-1" v-for="result in searchResults">{{ result.body }}</li>
         </ul>
     
-    <nav aria-label="Page navigation example" v-if="searchResults.length > 25">
+    <nav aria-label="Page navigation example" v-if="last_page=== false || searchResults.length > 1">
         <ul class="pagination justify-content-center">
           <li class="page-item">
             <button type="button" class="btn btn-primary" @click="previousPage" v-if="page > 1">Previous</button>
