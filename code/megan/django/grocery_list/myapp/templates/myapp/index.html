@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery List</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+  </head>
+  <body>
+    <main class="m-5">
+    <h1 class="container title is-2">Grocery List</h1>
+    
+    
+    <section class="section">
+        <table class="table is-hoverable is-fullwidth is-striped">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+
+            {% for grocery_item in all_items %}
+                <tr>
+                    <td>
+                        {% if grocery_item.complete == True %}
+                            <span style="text-decoration: line-through">{{ grocery_item.item }}</span>
+                        {% else %}
+                            {{ grocery_item.item }}
+                        {% endif %}
+                    </td> 
+                    <td> 
+                        {% if grocery_item.complete == True %}
+                        <!-- Yes -->
+                        {% else %}
+                            <form action="{% url 'myapp:completed_item' grocery_item.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" id="id" name="id" class="has-background-black-ter has-text-light">Mark as completed</button>
+                            </form>
+
+                        {% endif %}  
+                       
+                    </td>
+                    <td>
+                        <form action="{% url 'myapp:delete_item' grocery_item.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" id="id" name="id" class="has-background-black-ter has-text-light">Remove item</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        </section>
+        
+    <section class="container mt-5">
+
+        <h3>Add item:</h3>
+        <form action="{% url 'myapp:new_item' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="item" /> 
+            <button type="submit">Submit</button>
+        </form>
+
+    </section>
+    </main>
+  </body>
+</html>
