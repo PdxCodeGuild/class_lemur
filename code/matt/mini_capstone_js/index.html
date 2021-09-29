@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Mini-captone-js</title>
+</head>
+
+<body class="container">
+
+    <div id="app">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="stats.html">Stats</a>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="row">
+                <div class="col-3">
+                    <label for="raceSelection">Select Race</label>
+                    <select class="form-select" v-model="raceSelection" @change="getSubRace" name="" id="raceSelection">
+                        <option v-for="race in races">{{race.name}}</option>
+                    </select>
+                </div>
+                <div class="col-3" v-if="subRaces">
+                    <label for="subraceSelection">Select Subrace</label>
+                    <select class="form-select" v-model="subraceSelection" name="" id="subraceSelection">
+                        <option v-for="subRace in subRaces">{{subRace.name}}</option>
+                    </select>
+                </div>
+                <div class="col-3" v-else-if="dragonAncestory">
+                    <label for="subraceSelection">Select Dragon Ancestory</label>
+                    <select class="form-select" v-model="subraceSelection" name="" id="subraceSelection">
+                        <option v-for="dragon in dragonAncestory">{{dragon.name}}</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label for="classSelection">Select Class</label>
+                    <select class="form-select" v-model="classSelection" @change="getSubClass" name="" id="">
+                        <option v-for="clas in classes">{{clas.name}}</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label for="subclassSelection">Select SubClass</label>
+                    <select class="form-select" v-model="subclassSelection" name="" id="">
+                        <option v-for="subClass in subClasses" value="subClass">{{subClass.name}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="col">
+                <input type="text" v-model="spell">
+            </div>
+            <div class="col">
+                <button @click="findSpell">Find</button>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <span v-for="stat in stats" class="col-2">{{stat.name}}</span>
+            <span v-for="stat in stats" class="col-2">
+                <input @change="setStats(stat)" v-model="stat.value" type="number" name="" id="">
+            </span>
+        </div>
+
+        <div v-if="spellDesc">
+            {{spellDesc}}
+        </div>
+    </div>
+
+    <script src="js/site.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
