@@ -41,8 +41,10 @@ const App = {
 
         removeItem: function (item) {
             
-            this.items.splice(this.items.indexOf(item), 1)  
-            // ^ removes the last item of the list 
+            let index = this.items.indexOf(item)
+            this.items.splice(index, 1)
+
+            // this.items.splice(this.items.indexOf(item), 1)  
 
         }
 

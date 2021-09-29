@@ -3,7 +3,7 @@ const App = {
         return {
             favQuote: '',
             userInput: '',
-            search: []
+            foundQuotes: []
         }
     },
 
@@ -26,16 +26,16 @@ const App = {
             console.log(this.userInput)  
             axios({
                 method: 'get',
-                url: 'https://favqs.com/api/quotes/search',
+                url: 'https://favqs.com/api/search/',
                 headers: {
                     'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
                 },
                 params: {
-                    term: this.userInput
+                    filter: this.userInput
                 },
             }).then(response => {
                 console.log(response)
-                this.search = response.data.results
+                this.foundQuotes = response.data.quotes
             })
         }
     }, // closes methods 

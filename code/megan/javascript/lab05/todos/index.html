@@ -33,7 +33,7 @@
         <ul>
                 <li v-for="item in itemTrue">
                 {{ item.title }}
-                <button @click="removeItem">Remove</button>
+                <button @click="removeItem(item)">Remove</button>
             </li>
         </ul>
 
