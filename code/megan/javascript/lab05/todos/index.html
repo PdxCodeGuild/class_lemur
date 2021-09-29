@@ -34,6 +34,7 @@
                 <li v-for="item in itemTrue">
                 {{ item.title }}
                 <button @click="removeItem(item)">Remove</button>
+                <button @click="markIncomplete(item)">Mark incomplete</button>
             </li>
         </ul>
 

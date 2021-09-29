@@ -46,6 +46,11 @@ const App = {
 
             // this.items.splice(this.items.indexOf(item), 1)  
 
+        },
+
+        markIncomplete: function (item) {
+
+            item.isComplete = false
         }
 
     }

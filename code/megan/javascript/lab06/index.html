@@ -32,7 +32,7 @@
         <h1 style="text-align: center;">FavQs</h1>
 
         <h3>Random quotes</h3>
-        <!-- <p v-for="quote in favQuote">"{{ quote.body }}" - {{ quote.author }} </p> -->
+        <p v-for="quote in favQuote">"{{ quote.body }}" - {{ quote.author }} </p>
 
         <h3 id="searching">Search for a quote</h3>
         <form @submit.prevent="findKeyword">
