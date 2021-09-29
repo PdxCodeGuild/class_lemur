@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dollar Store Quotes</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>Dollar Store Quotes</h1>
+        <h3>Random Quote:</h3>
+		<p>{{ quote }}</p>
+		<form @submit.prevent="searchQuote">
+			<input type="text" v-model="searchTerm">
+			<input type="submit" value="Search">
+		</form>
+		<p>Search Results</p>
+		<ul>
+			<li v-for="result in searchResults">{{ result.quote.body }}</li>
+		</ul>
+	</div>
+	<script>
+		const App = {
+			data() {
+				return {
+					quote: '',
+					searchTerm: '',
+					searchResults: []
+				}
+			},
+
+			methods: {
+				randomQuote() {
+					axios({
+						method: 'get',
+						url: 'https://favqs.com/api/quotes/',
+						headers: {
+							Authorization: token='9ecb9bcc0aaac8e9d8ab9e20455ab648',
+                            'Content-Type': 'application/json',
+						}
+					})
+				},
+
+				searchQuote() {
+					console.log(this.searchTerm)
+					axios({
+						method: 'get',
+						url: 'https://icanhazdadjoke.com/search',
+						headers: {
+							Authorization: token="9ecb9bcc0aaac8e9d8ab9e20455ab648",
+                            "Content-Type": "application/json"			
+						},
+						params: {
+							term: this.searchTerm
+						}
+					}).then(response => {
+						this.searchResults = response.data.results
+					})
+				}
+			},
+
+			created() {
+				this.randomQuote()
+			}
+		}
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+</html>
