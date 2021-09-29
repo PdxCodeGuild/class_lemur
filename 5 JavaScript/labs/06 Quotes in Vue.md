@@ -8,7 +8,7 @@ Requirements:
 - Let the user enter a search term and select whether to search by keyword, author, or tag.
 - Implement pagination buttons when the search returns more than 25 quotes.
 - When the page first loads, show the user a set of completely random quotes.
-- You must have at least one Vue component in your app.
+- ~~You must have at least one Vue component in your app.~~
 
 Resources:
 - [FavQs API](https://favqs.com/api)
