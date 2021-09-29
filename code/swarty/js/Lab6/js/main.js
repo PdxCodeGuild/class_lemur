@@ -12,37 +12,54 @@
 // Read the API documentation!
 // Remember to use your Vue app data as your single source of truth.
 // You'll need to set the Authorization header for the FavQs API to work.
-const token='6ac53ed6f4ae6184e6b11a7c9998a5b9'
+const mytoken='6ac53ed6f4ae6184e6b11a7c9998a5b9'
 const App = {
     data() {
         return {
             message: "It is known:",
-            jotdQuote: '',
-            jotdAuthor:'',
+            qotdQuote: '',
+            qotdAuthor:'',
             inputText: '',
-            results: [],
+            searchResults: [],
         }        
     },
     methods: {
-        jotd(){
+        qotd(){
             axios({
                 method:'get',
                 url: 'https://favqs.com/api/qotd',
                 headers:{
                     'Content-Type': 'application/json',
-                    // Authorization: 'Token token'=data.token
+                    Authorization: 'Token token=mytoken'
                 },
             }).then(response => {
                 console.log(response)
-                this.jotdQuote= response.data.quote.body
-                this.jotdAuthor= response.data.quote.author
-                console.log(this.jotdQuote, this.jotdAuthor)
+                this.qotdQuote= response.data.quote.body
+                this.qotdAuthor= response.data.quote.author
+                console.log(this.qotdQuote, this.qotdAuthor)
             })
+        },
+        jokes(){
+            axios({
+                method:'get',
+                url: 'https://favqs.com/api/quotes',
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token token'=mytoken
+                },
+                params: {
+                    filter: this.inputText
+                }
+        }).then(response => {
+            console.log(response)
+            this.searchResults= response.data.quote
+            console.log(this.searchResults)
+        })
         }
 
     },
     created() {
-        this.jotd()
+        this.qotd()
     }
         
 }
