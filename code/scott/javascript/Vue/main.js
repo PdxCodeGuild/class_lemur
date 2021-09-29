@@ -1,27 +1,45 @@
-const App = {
+const todoApp = {
   data() {
     return {
-      addTodoInput: "",
-      tdList: [],
+      newTodo: "",
+      completeItems: [
+        {
+          id: 1,
+          name: "test",
+          completed: true,
+        },
+      ],
+      items: [
+        {
+          id: 1,
+          name: "test",
+          completed: false,
+        },
+      ],
     };
   },
   methods: {
     addTodo: function () {
-      this.tdList.push({
-        id: this.tdList.length + 1,
-        title: this.addTodoInput,
-        isComplete: false,
+      this.items.push({
+        id: this.items.length + 1,
+        name: this.newTodo,
+        completed: false,
       });
-      this.usrInput = "";
+      this.newTodo = "";
+    },
+    toggleCompleted: function (item) {
+      item.completed = true;
+      this.completeItems.push({
+        id: this.length + 1,
+        name: item.name,
+        completed: item.completed,
+      });
+      this.items = this.items.filter((newItem) => newItem.name !== item.name);
+    },
+    removeTodo: function (item) {
+      this.items = this.items.filter((newItem) => newItem.name !== item.name);
     },
   },
-  todoComplete: function (tdList) {
-    tdList.isComplete = !tdList.isComplete;
-    
-  },
-  todoRemove: function(tdList) {
-      let index = this.tdList.id
-  }
 };
 
-Vue.createApp(App).mount("#todoapp");
+Vue.createApp(todoApp).mount("#app");
