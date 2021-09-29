@@ -1,46 +1,93 @@
-const quotesApp = {
-    data() {
-      return {
-        newTodo: "",
-        completeItems: [
-          {
-            id: 1,
-            name: "test",
-            completed: true,
-          },
-        ],
-        items: [
-          {
-            id: 1,
-            name: "test",
-            completed: false,
-          },
-        ],
-      };
+const App = {
+  data() {
+    return {
+      quotes: [],
+      searchTerm: "",
+      searchResults: [],
+      pageCounter: 0,
+      newHeader: "Random Quotes",
+    };
+  },
+
+  methods: {
+    randomQuotes() {
+      axios({
+        method: "get",
+        url: "https://favqs.com/api/quotes/",
+        headers: {
+          Authorization: 'Token token="9ecb9bcc0aaac8e9d8ab9e20455ab648"',
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        console.log(response.data.quotes);
+        this.quotes = response.data.quotes;
+      });
     },
-    methods: {
-      addTodo: function () {
-        this.items.push({
-          id: this.items.length + 1,
-          name: this.newTodo,
-          completed: false,
-        });
-        this.newTodo = "";
-      },
-      toggleCompleted: function (item) {
-        item.completed = true;
-        this.completeItems.push({
-          id: this.length + 1,
-          name: item.name,
-          completed: item.completed,
-        });
-        this.items = this.items.filter((newItem) => newItem.name !== item.name);
-      },
-      removeTodo: function (item) {
-        this.items = this.items.filter((newItem) => newItem.name !== item.name);
-      },
+
+    searchQuote() {
+      console.log(this.searchTerm);
+      this.newHeader = "Search Results:";
+      this.quotes = [];
+      this.pageCounter = 0;
+      this.pageCounter++;
+      axios({
+        method: "get",
+        url: "https://favqs.com/api/quotes/",
+        headers: {
+          Authorization: 'Token token="9ecb9bcc0aaac8e9d8ab9e20455ab648"',
+          "Content-Type": "application/json",
+        },
+        params: {
+          filter: this.searchTerm,
+          type: this.searchType,
+          page: this.pageCounter,
+        },
+      }).then((response) => {
+        console.log(response.data.quotes);
+        this.searchResults = response.data.quotes;
+      });
     },
-  };
-  
-  Vue.createApp(todoApp).mount("#app");
-  
+    pageLow() {
+      this.pageCounter--;
+      axios({
+        method: "get",
+        url: "https://favqs.com/api/quotes/",
+        headers: {
+          Authorization: 'Token token="9ecb9bcc0aaac8e9d8ab9e20455ab648"',
+          "Content-Type": "application/json",
+        },
+        params: {
+          filter: this.searchTerm,
+          type: this.searchType,
+          page: this.pageCounter,
+        },
+      }).then((response) => {
+        console.log(response.data.quotes);
+        this.searchResults = response.data.quotes;
+      });
+    },
+    pageHigh() {
+      this.pageCounter++;
+      axios({
+        method: "get",
+        url: "https://favqs.com/api/quotes/",
+        headers: {
+          Authorization: 'Token token="9ecb9bcc0aaac8e9d8ab9e20455ab648"',
+          "Content-Type": "application/json",
+        },
+        params: {
+          filter: this.searchTerm,
+          type: this.searchType,
+          page: this.pageCounter,
+        },
+      }).then((response) => {
+        console.log(response.data.quotes);
+        this.searchResults = response.data.quotes;
+      });
+    },
+  },
+  created() {
+    this.randomQuotes();
+  },
+};
+Vue.createApp(App).mount("#app");
