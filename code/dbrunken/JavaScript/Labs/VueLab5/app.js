@@ -1,15 +1,34 @@
-const App = {
+Vue.createApp({
     data() {
         return {
-            items: ''
+            message: 'Got things to do? Add em to the list: ',
+            todos: [],
+            doneDo: [],
+            inputText: ''
         }
     },
     methods: {
-        submitForm(event) {
-            console.log(this.items)
-            this.items.push(this.items)
+        clickEvent() {
+            console.log('item added')
+        },
+        submitForm() {
+            // console.log(this.item)
+            this.todos.push({
+                item: this.inputText,
+                isComplete: false
+            })
+        },
+        doneItem (todo) {
+            this.doneDo.push(todo)
+            todo.isComplete = true
+            let index = this.todos.indexOf(todo)
+            console.log(index)
+            this.todos.splice(index, 1)
+        },
+        deleteItem (done) {
+            let item = this.doneDo.indexOf(done)
+            console.log(item)
+            this.doneDo.splice(item, 1)
         }
     }
-}
-
-Vue.createApp(App).mount('#app')
+}).mount('#app')

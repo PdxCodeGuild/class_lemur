@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do Vue</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
     <div id="app">
@@ -14,31 +15,17 @@
             <input type="text" v-model="inputText">
             <input type="submit" value="add to list">
         </form>
+        <ul v-if="todos">
+            <h3>To-Do Tasks</h3>
+            <li v-for="todo in todos" @click="doneItem(todo)" >{{ todo.item }}</li>
+        </ul>
         <ul>
-            <li v-for="item in items">{{ item }}</li>
+            <h3>Done Tasks</h3>
+            <li v-for="done in doneDo" >{{ done.item }}
+                <button v-if="doneDo" class="btn-dark btn-sm" @click="deleteItem(done)">Delete</button>
+            </li>
         </ul>
     </div>
-    <script>
-        const App = {
-            data() {
-                return {
-                    message: "Got things to do? Add em to the list: ",
-                    inputText: '',
-                    items: [],
-                }
-            },
-            methods: {
-                clickEvent() {
-                    console.log('did this work?')
-                },
-                submitForm() {
-                    console.log(this.inputText),
-                    this.clickEvent()
-                    this.items.push(this.inputText)
-                }
-            }
-        }
-        Vue.createApp(App).mount('#app')
-    </script>
+    
 </body>
 </html>
