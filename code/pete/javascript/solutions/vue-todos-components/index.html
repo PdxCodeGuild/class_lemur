@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue Todos</title>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="todo-item.js"></script>
+	<script src="todo-form.js"></script>
+</head>
+<body>
+	<div id="todo-list">
+		<h1>Todo List</h1>
+		<todo-form @handle-add-todo="addTodo"></todo-form>
+		<h2>Todos</h2>
+		<ul>
+			<todo-item v-for="todo in todos" :todo="todo"></todo-item>
+		</ul>
+	</div>
+	<script>
+		const App = {
+
+			data() {
+				return {
+					todos: [
+						{ text: 'wash the car', completed: false },
+						{ text: 'walk the dog', completed: true },
+						{ text: 'butter the cat', completed: false },
+					],
+				}
+			},
+
+			methods: {
+				addTodo(newTodo) {
+					this.todos.push({ text: newTodo, completed: false })
+				},
+			}
+		}
+
+		const app = Vue.createApp(App)
+		app.component('todo-item', TodoItem)
+		app.component('todo-form', TodoForm)
+		app.mount('#todo-list')
+	</script>
+</body>
+</html>
