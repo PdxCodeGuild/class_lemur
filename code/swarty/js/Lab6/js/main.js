@@ -20,7 +20,10 @@ const App = {
             qotdQuote: '',
             qotdAuthor:'',
             inputText: '',
+            searchType:'',
             searchResults: [],
+            pages:"More quotes",
+            counter:0,
         }        
     },
     methods: {
@@ -39,24 +42,53 @@ const App = {
                 console.log(this.qotdQuote, this.qotdAuthor)
             })
         },
-        jokes(){
+        quotes(){      
+            counter=0    
+            axios({
+                
+                method:'get',
+                url: 'https://favqs.com/api/quotes',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Token token=${mytoken}`,
+                },
+                params: {
+                    filter: this.inputText,
+                    type:this.searchType                    
+                }
+            }).then(response => {
+            console.log(response)            
+            this.searchResults= response.data.quotes
+            console.log(this.searchResults)
+            if (response.data.last_page) {
+                this.pages="End of quotes"
+            }
+            }),
+            this.counter++
+        },
+        next() {
+            this.counter++
             axios({
                 method:'get',
                 url: 'https://favqs.com/api/quotes',
-                headers:{
+                headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Token token'=mytoken
+                    Authorization: `Token token=${mytoken}`
                 },
                 params: {
-                    filter: this.inputText
+                    filter: this.inputText,
+                    type:this.searchType,
+                    page: this.counter
                 }
-        }).then(response => {
-            console.log(response)
-            this.searchResults= response.data.quote
+            }).then(response => {
+            console.log(response.data)            
+            this.searchResults= response.data.quotes
             console.log(this.searchResults)
-        })
+            if (response.data.last_page) {
+                this.pages="End of quotes"
+            }
+            })
         }
-
     },
     created() {
         this.qotd()

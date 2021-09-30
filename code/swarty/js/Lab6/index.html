@@ -15,16 +15,24 @@
 		<h2>{{ message }}</h2>
 		<h3>'{{ qotdQuote }}'</h3>
 		<strong>-{{ qotdAuthor }}</strong>
-		<form @submit.prevent="jokes">
-			<input type="text" v-model="inputText">
+		<form @submit.prevent="quotes">
+			<input type="text" v-model="inputText" required>
+			<select id="type" v-model="searchType" required>
+				<option value="keyword">Keyword</option>
+				<option value="author">Author</option>
+				<option value="tag">Tag</option>
+			</select>
 			<input type="submit" value="Search">
 		</form>
 		<div>
-			<div v-for="quote in searchResults">
-				<div>{{ quote.quote }}</div>
-				<div>{{ quote.author }}</div>			
-			</div>
+			<span v-for="quote in searchResults">				
+				<h2>{{ quote.body }}</h2>
+				<strong>-{{ quote.author }}</strong>				
+			</span>
 		</div>
+		<span v-if="counter">
+			<button v-on:click=next>{{pages}}</button>
+		</span>
 	</div>
 </body>
 </html>
