@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Promises: .then() and .catch()</title>
+</head>
+<body>
+	<script>
+		fetch('https://favqs.com/api/quotes/', {
+			method: 'get',
+			headers: {
+				Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+			}
+		}).then(response => response.json())
+		.then(data => alert(data.quotes[0].body))
+		.catch(err => alert('sorry something went wrong'))
+	</script>
+</body>
+</html>
