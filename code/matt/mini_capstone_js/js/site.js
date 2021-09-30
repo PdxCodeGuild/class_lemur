@@ -17,7 +17,15 @@ const App = {
             subraceSelection: '',
             dragonAncestory: null,
             subclassSelection: '',
+            alignments: null,
+            alignmentSelection: null,
             stats: null,
+            charName: null,
+            charLvl: 1,
+            proficiencyChoices: null,
+            amountOfProficiencies: [],
+            numberOfProficiencies: 1,
+            chosenProficiencies: [],
             charStats: {
                 cha: 0,
                 con: 0,
@@ -26,9 +34,9 @@ const App = {
                 str: 0,
                 wis: 0,
             },
-            stated: 0
-
-
+            spellsKnown: [],
+            spellsKnownAtlvl: null,
+            spellsAtCharLvl: null,
         }
     },
     methods: {
@@ -51,8 +59,6 @@ const App = {
             })
         },
         getSubClass() {
-            console.log(this.classSelection)
-            console.log(this.raceSelection)
             axios({
                 method: 'get',
                 url: url + 'classes/' + this.classSelection.toLowerCase()
@@ -68,7 +74,6 @@ const App = {
                     url: url + 'traits/draconic-ancestry'
                 }).then((response) => {
                     this.dragonAncestory = response.data.trait_specific.subtrait_options.from
-                    console.log(this.dragonAncestory)
                     if (this.dragonAncestory.length < 1) {
                         this.dragonAncestory = null
                     }
@@ -86,37 +91,80 @@ const App = {
                 })
             }
         },
+        getAlignment() {
+            axios({
+                method: 'get',
+                url: url + 'alignments'
+            }).then((response) => {
+                this.alignments = response.data.results
+            })
+        },
+        getProficiencyChoices() {
+            this.amountOfProficiencies = []
+            axios({
+                method: 'get',
+                url: url + 'classes/' + this.classSelection.toLowerCase()
+            }).then((response) => {
+                if (this.classSelection === 'Monk') {
+                    this.proficiencyChoices = response.data.proficiency_choices[2].from
+                    this.amountOfProficiencies = response.data.proficiency_choices[2].choose
+                } else {
+                    this.proficiencyChoices = response.data.proficiency_choices[0].from
+                    this.amountOfProficiencies = response.data.proficiency_choices[0].choose
+                }
+            })
+        },
         setStats(stat) {
             if (stat.name.toLowerCase() === 'cha') {
                 this.charStats.cha = stat.value
-                console.log(this.charStats.cha)
             }
             if (stat.name.toLowerCase() === 'con') {
                 this.charStats.con = stat.value
-                console.log(this.charStats.con)
             }
             if (stat.name.toLowerCase() === 'dex') {
                 this.charStats.dex = stat.value
-                console.log(this.charStats.dex)
             }
             if (stat.name.toLowerCase() === 'int') {
                 this.charStats.int = stat.value
-                console.log(this.charStats.int)
             }
             if (stat.name.toLowerCase() === 'str') {
                 this.charStats.str = stat.value
-                console.log(this.charStats.str)
             }
             if (stat.name.toLowerCase() === 'wis') {
                 this.charStats.wis = stat.value
-                console.log(this.charStats.wis)
             }
 
         },
+        getSpellsKnown() {
+            console.log(this.classSelection.toLowerCase())
+            axios({
+                method: 'get',
+                url: url + 'classes/' + this.classSelection.toLowerCase() + '/spells'
+            }).then((response) => {
+                this.spellsKnown = response.data.results
+            })
+            console.log(this.spellsKnown)
+            axios({
+                method: 'get',
+                url: url + 'spells',
+                params: {
+                    level: this.charLvl
+                }
+            }).then((response) => {
+                this.spellsKnownAtlvl = response.data.results
+            })
+            for (spellK in this.spellsKnown) {
+                for (spellA in this.spellsKnownAtlvl) {
+                    if (spellA.name === spellK.name) {
+                        this.spellsAtCharLvl.push(spellA)
+                    }
+                }
+            }
+        },
         createCharacter() {
+        },
 
 
-        }
     },
     created() {
         axios({
@@ -136,6 +184,12 @@ const App = {
             url: url + 'ability-scores'
         }).then((response) => {
             this.stats = response.data.results
+        })
+        axios({
+            method: 'get',
+            url: url + 'alignments'
+        }).then((response) => {
+            this.alignments = response.data.results
         })
     }
 }

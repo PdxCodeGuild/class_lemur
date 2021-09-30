@@ -27,6 +27,12 @@
                 <a class="nav-link" href="stats.html">Stats</a>
             </li>
         </ul>
+        <div>
+            <label for="charName">Character Name: </label>
+            <input class="ms-1" type="text" id="charName" v-model="charName">
+            <label for="charLevel">Character Level: </label>
+            <input class="ms-1" type="number" id="charLevel" v-model="charLvl">
+        </div>
         <div class="row">
             <div class="row">
                 <div class="col-3">
@@ -49,7 +55,8 @@
                 </div>
                 <div class="col-3">
                     <label for="classSelection">Select Class</label>
-                    <select class="form-select" v-model="classSelection" @change="getSubClass" name="" id="">
+                    <select class="form-select" v-model="classSelection"
+                        @change="getSubClass(); getProficiencyChoices(); getSpellsKnown()" name="" id="">
                         <option v-for="clas in classes">{{clas.name}}</option>
                     </select>
                 </div>
@@ -59,14 +66,14 @@
                         <option v-for="subClass in subClasses" value="subClass">{{subClass.name}}</option>
                     </select>
                 </div>
+            </div>
+        </div>
 
-            </div>
-            <div class="col">
-                <input type="text" v-model="spell">
-            </div>
-            <div class="col">
-                <button @click="findSpell">Find</button>
-            </div>
+        <div>
+            <label for="alignmentSelection">Select Alignment</label>
+            <select class="form-select" v-model="alignmentSelection">
+                <option v-for="alignment in alignments" value="alignment">{{alignment.name}}</option>
+            </select>
         </div>
 
         <div class="row text-center">
@@ -76,9 +83,39 @@
             </span>
         </div>
 
+        <div>
+            <p v-if="proficiencyChoices">Select {{amountOfProficiencies}} Proficiencies</p>
+            <span v-for="proficiency in proficiencyChoices">
+                <input class="mx-2" @change="setProficiencyChoices(proficiency)" type="checkbox"
+                    v-bind:value="proficiency.name.substr(7)" v-model="chosenProficiencies"
+                    v-bind:disabled="chosenProficiencies.length === amountOfProficiencies && chosenProficiencies.indexOf(proficiency.name.substr(7)) == -1">
+                <label for="proficiency.name">{{proficiency.name.substr(7)}}</label>
+            </span>
+        </div>
+
+        <div class="text-center">
+            <button @click="createCharacter">Create Character</button>
+        </div>
+        <div class="col">
+            <input type="text" v-model="spell">
+        </div>
+        <div class="col">
+            <button @click="findSpell">Find</button>
+        </div>
         <div v-if="spellDesc">
             {{spellDesc}}
         </div>
+
+        <div v-if="spellsKnownAtlvl">
+            <p>Spells at character level</p>
+
+            <p v-for="spell in spellsKnownAtlvl">{{spell.name}}</p>
+            <hr>
+            <p v-for="spel in spellsKnown">{{spel.name}}</p>
+            <hr>
+            <p v-for="spelll in spellsAtCharLvl">{{spel.name}}</p>
+        </div>
+    </div>
     </div>
 
     <script src="js/site.js"></script>
