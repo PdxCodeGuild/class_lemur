@@ -1,0 +1,57 @@
+:root {
+    --olive: #6B8E23;
+    --forest: #003314;
+    --earth: #674422;
+    --stonebrown: #947352;
+}
+
+body {
+    background-image: linear-gradient(#6B8E23, #f5f5f5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: whitesmoke;
+    /* border: 5px dashed black; */
+}
+
+header {
+    padding: 5rem;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+}
+
+#carousel_container {
+    width: 35px;
+}
+.carousel-inner .item {
+    min-height: 225px !important;
+}
+
+main {
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+article {
+    height: 225px;
+    width: 350px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* border: 5px dashed black; */
+
+}
+
+article, p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    /* border: 5px dashed black; */
+    padding: 5px;
+}

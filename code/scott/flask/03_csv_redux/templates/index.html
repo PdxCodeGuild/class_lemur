@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Smite Characters</title>
+    </head>
+    <body>
+        <h1>Smite Characters</h1>
+        {% for character in characters %}
+        <h2>{{character['name']|title}}</h2>
+        <h3>Pantheon:{{character['pantheon']|title}} || Attack:{{character['attack']|title}} || Damage:{{character['damage']|title}} || Class:{{character['class']|title}}</h3>
+        <br>
+        {% endfor %}
+    </body>
+</html>

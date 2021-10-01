@@ -1,0 +1,29 @@
+
+<body>
+
+    <h1>Grading</h1>
+
+    <p>Please enter your percent grade in the url bar (i.e. /grading/88)</p>
+   
+    {% if html_grade >= '90': %}
+    <p>You got an A!</p>
+    
+    {% elif html_grade >= '80': %}
+    <p>You got a B!</p>
+    
+    {% elif html_grade >= '70': %}
+    <p>You got a C.</p>
+    
+    {% elif html_grade >= '60': %}
+    <p>You got a D.</p>
+    
+    {% elif html_grade <= '59': %}
+    <p>You got an F.</p>
+
+    {% endif %}
+
+
+    <p><a href="/">Home</a></p>
+
+
+</body>

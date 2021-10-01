@@ -1,0 +1,7 @@
+{
+    "\"What is a list?": "A Python data type that holds an ordered collection of values, which can be of any type. This is equivalant to an array in many other languages. Python lists are mutable implying that they can be changed once created.\"",
+    "\"How do you slice a list?": "A pythonic way of extracting slices of a list using a special bracket notation that specifies the start and end of the section of the list you wish to extract. Leaving the beginning value blank indicates you wish to start at the beginning of the list, leaving the ending value blank indicates you wish to go to the end of the list. Using a negative value references the end of the list (so that in a list of 4 elements, -1 means the 4th element). Slicing always yields another list, even when extracting a single value.\"",
+    "\"What is a dictionary?": "Dictionaries, like sets, contain unique but unordered items. The big difference is the concept of keys to retrieve values; keys can be strings, integers or tuples (or anything else hashable), but the values that they map to can be any data type.\"",
+    "\"What are strings?": "Strings store characters and have many built-in convenience methods that let you modify their content.\"",
+    "\"How do you check the length of an object?": "Using the len() function.  len(list)\""
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito Order Form</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Burrito Order Form</h1>
+
+<form>
+    <p>Name: <br>
+    <input type="text" name="name" placeholder="Enter your name" /> 
+    </p>
+
+    <p>Password: <br>
+    <input type="password" name="password" placeholder="Enter your password"/> 
+    </p>
+
+    <h3>Ingredients</h3>
+
+    <p>Tortilla: <br>
+    <input type="radio" id="white_flour" name="tortilla" value="White Flour" />
+    <label for="tortilla">White Flour</label>
+
+    <input type="radio" id="wheat_flour" name="tortilla" value="Wheat Flour" />
+    <label for="tortilla">Wheat Flour</label>
+
+    <input type="radio" id="spinach" name="tortilla" value="Spinach" />
+    <label for="tortilla">Spinach</label>
+
+    <input type="radio" id="corn" name="tortilla" value="Corn" />
+    <label for="tortilla">Corn</label> 
+    
+    </p> 
+
+
+    <p>Rice: <br>
+    <input type="radio" id="white_rice" name="rice" value="White Rice" method="POST" />
+    <label for="rice">White Rice</label>
+
+    <input type="radio" id="brown_rice" name="rice" value="Brown Rice" method="POST" />
+    <label for="rice">Brown Rice</label>
+    </p>
+
+    <p>Beans: <br>  
+    <input type="radio" id="black_beans" name="beans" value="Black Beans" method="POST"  />
+    <label for="beans">Black Beans</label>
+
+    <input type="radio" id="pinto_beans" name="beans" value="Pinto Beans" method="POST" />
+    <label for="beans">Pinto Beans</label>
+    </p>  
+
+    <p>Protein: <br>
+    <input type="radio" id="carnitas" name="protein" value="Carnitas" method="POST" />
+    <label for="protein">Carnitas</label>
+
+    <input type="radio" id="chicken" name="protein" value="Chicken" method="POST" />
+    <label for="protein">Chicken</label> 
+
+    <input type="radio" id="sofritas" name="protein" value="Sofritas" method="POST"  />
+    <label for="protein">Sofritas</label> 
+
+    <input type="radio" id="none" name="protein" value="none" method="POST"  />
+    <label for="protein">None</label> <br>
+    </p>
+
+    <p>Additional: <br>
+    <input type="checkbox" id="cheese" name="additional" value="cheese" method="POST" />
+    <label for="additional">Cheese</label>
+
+    <input type="checkbox" id="sour_cream" name="additional" value="sour_cream" method="POST" />
+    <label for="additional">Sour Cream</label> <br>
+    </p>
+
+    <h3>Delivery Instructions:</h3>
+    <input type="textarea" method="POST" >
+    <input type="submit" />
+
+    
+</form>
+    
+</body>
+</html>

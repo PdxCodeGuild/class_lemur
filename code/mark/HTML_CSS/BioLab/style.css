@@ -1,0 +1,53 @@
+@font-face {
+    font-family: Triforce;
+    src: url("Triforce.ttf");
+}
+@font-face {
+    font-family: Sherwood;
+    src: url("SherwoodRegular.ttf");
+}
+
+body {
+    text-align: center;
+    background-image: url("BotW_Hyrule_Sunset_Artwork.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size:x-large;
+    font-family: Sherwood;
+}
+
+h1 {
+    font-family: Triforce;
+}
+
+ul {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    list-style-type: none;
+    padding: 20px;
+
+}
+
+li::before{
+    content: "\2694";
+}
+
+p {
+    text-align: left;
+    background: rgba(212, 206, 70,.25);
+    padding: 20px;
+}
+
+a {
+    color: #0e5135;
+}
+
+a:visited {
+    color: #0d9263;
+}
+
+
+

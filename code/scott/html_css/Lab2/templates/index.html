@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrophotography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Sorts+Mill+Goudy&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <nav class="bg" id="titlebar">
+        <section id="title">
+            Astrophotography
+        </section>
+        <section id="titlenav">
+            <article><a href="/">HOME</a></article>
+            <article><a href="/about/">ABOUT</a></article>
+            <article><a href="/posts/">POSTS</a></article>
+            <article><a href="/photos/">PHOTOS</a></article>
+        </section>
+    </nav>
+    <hr>
+    <nav id="picturebar">
+        <article><img class="picturebar" src="https://usercontent2.hubstatic.com/7831615_f520.jpg" alt="Space Pic 1">
+        </article>
+        <article><img class="picturebar" src="https://www.extremetech.com/wp-content/uploads/2015/04/heic0515a.jpg"
+                alt="Space Pic 2"></article>
+        <article><img class="picturebar"
+                src="https://th.bing.com/th/id/R.d72936a839315927d8386c5e9b309d9c?rik=MFBbom79iCMSaA&riu=http%3a%2f%2fd.ibtimes.co.uk%2fen%2ffull%2f1434828%2fhubble-space-telescope-best-pictures.jpg&ehk=XZLnvkqmpoXgxGNovdXs2VIzlJqLj5ZZFyotpMjyaoA%3d&risl=&pid=ImgRaw&r=0"
+                alt="Space Pic 3"></article>
+        <article><img class="picturebar"
+                src="https://th.bing.com/th/id/R.193ef771516873fc619d7e240d81c563?rik=1SDVs1hW1yFQWA&pid=ImgRaw&r=0"
+                alt="Space Pic 4"></article>
+    </nav>
+    <hr>
+    <main class="bg">
+        {% for post in posts %}
+        <article>
+            <h1>{{ post["title"]}}</h1>
+            <h2>{{ post["date"] }}</h2>
+            {{ post["body"] }}
+        </article>
+        {% endfor %}
+    </main>
+    <footer class="bg">
+        <article id="socials">
+            <a href="https://www.facebook.com">
+                <img src="/static/facebook.png" alt="Facebook Link">
+            </a>
+            <a href="https://www.pinterest.com">
+                <img src="/static/pinterest.png" alt="Pinterest Link">
+            </a>
+            <a href="https://www.twitter.com">
+                <img src="/static/twitter.png" alt="Twitter Link">
+            </a>
+            <a href="https://www.youtube.com">
+                <img src="/static/youtube.png" alt="YouTube Link">
+            </a>
+        </article>
+        <article id="fttitle">
+            Astrophotography<br>
+            by<br>
+            Scott Cormack
+        </article>
+    </footer>
+</body>
+
+</html>

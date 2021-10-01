@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/site.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Quotes</title>
+  </head>
+  <body class="container bg-light">
+    <h1>Quotes</h1>
+    <div id="app">
+        <h4 class="text-center">Search Quotes</h4>
+        <h5 class="my-3">Quote of the Day:</h5>
+		<p class="mb-5">{{ qotd.body }}</p>
+		<form @submit.prevent="searchQuotes">
+            <div class="row">
+            <div class="col-3">
+            <select class="form-select" v-model="searchType">
+                <option selected>Search Option</option>
+                <option value="tag">Tag</option>
+                <option value="author">Author</option>
+                <option value="keyword">Keyword</option>
+              </select>
+            </div>
+            <div class="col-9">
+			<input type="text" v-model="searchTerm" class="m-1">
+			<input type="submit" value="search" class="btn btn-primary">
+            </div>
+        </div>
+		</form>
+        <ul class="list-group mt-5">
+            <li class="list-group-item my-1" v-for="result in searchResults">{{ result.body }}</li>
+        </ul>
+    
+    <nav aria-label="Page navigation example" v-if="last_page=== false || searchResults.length > 1">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <button type="button" class="btn btn-primary" @click="previousPage" v-if="page > 1">Previous</button>
+          </li>
+          <li class="page-item">
+            <button type="button" class="btn btn-primary" @click='nextPage'>Next</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./js/site.js"></script>
+</body>
+</html>

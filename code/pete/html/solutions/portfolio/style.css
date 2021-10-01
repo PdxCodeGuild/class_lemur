@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro:wght@200&display=swap');
+
+.font-sans {
+	font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+	font-family: 'Source Code Pro', monospace;
+}
+
+.link {
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+	.link {
+		margin-left: 5rem;
+		margin-right: 5rem;
+	}
+}
+
+@media (min-width: 1280px) {
+	.link {
+		margin-left: 6rem;
+		margin-right: 6rem;
+	}
+}

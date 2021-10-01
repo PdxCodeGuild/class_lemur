@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quoted</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="js/main.js" defer></script>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+	<div id="app">
+		<h2>{{ message }}</h2>
+		<h3>'{{ qotdQuote }}'</h3>
+		<strong>-{{ qotdAuthor }}</strong>
+		<form @submit.prevent="quotes">
+			<input type="text" v-model="inputText" required>
+			<select id="type" v-model="searchType" required>
+				<option value="keyword">Keyword</option>
+				<option value="author">Author</option>
+				<option value="tag">Tag</option>
+			</select>
+			<input type="submit" value="Search">
+		</form>
+		<div>
+			<span v-for="quote in searchResults">				
+				<h2>{{ quote.body }}</h2>
+				<strong>-{{ quote.author }}</strong>				
+			</span>
+		</div>
+		<span v-if="counter">
+			<button v-on:click=next>{{pages}}</button>
+		</span>
+	</div>
+</body>
+</html>

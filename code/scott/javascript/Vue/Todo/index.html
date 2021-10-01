@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dollar Store Todo App</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="">Dollar Store Todo List</h1>
+      <input v-model="newTodo" name="newTodo" />
+      <button v-on:click="addTodo">
+        Add Todo
+      </button>
+      <h2>List</h2>
+      <ul>
+        <li v-for="item in items">
+          <button v-on:click="toggleCompleted(item)">Complete</button>
+          <button v-on:click="removeTodo(item)">Del</button>
+          <span> {{item.name}} </span>
+        </li>
+      </ul>
+      <h2>Completed List</h2>
+      <ul>
+        <li v-for="item in completeItems">
+          <div> {{item.name}} </div>
+        </li>
+      </ul>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

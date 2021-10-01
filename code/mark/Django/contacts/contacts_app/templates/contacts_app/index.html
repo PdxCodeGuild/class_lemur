@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Contacts</title>
+</head>
+
+<body class="container">
+    <h1>Contacts</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Favorite Fruit</th>
+                <th scope="col">Favorite Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <th scope="row">{{ contact.id }}</th>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.favorite_fruit }}</td>
+                <td>{{ contact.favorite_color }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="favorite_fruit" class="form-label">Favorite Fruit</label>
+            <input type="text" class="form-control" id="favorite_fruit" name="favorite_fruit">
+        </div>
+        <div class="mb-3">
+            <label class="form-check-label" for="favorite_color">Favorite Color</label>
+            <input type="text" class="form-control" id="favorite_color" name="favorite_color">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

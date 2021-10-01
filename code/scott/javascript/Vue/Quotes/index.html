@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dollar Store Quotes</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Dollar Store Quotes</h1>
+      <form @submit.prevent="searchQuote">
+        <input type="text" v-model="searchTerm" />
+        <select name="searchType" id="searchType">
+          <option value="keyword">Keyword</option>
+          <option value="author">Author</option>
+          <option value="tag">Tag</option>
+        </select>
+        <input type="submit" value="Search" />
+      </form>
+      <h3 id="mainHeader">{{ newHeader }}</h3>
+      <p id="randomList" v-for="quote in quotes">{{ quote.body }} -by- {{quote.author}}</p>
+      <p v-for="result in searchResults">
+        {{ result.body }} -by- {{result.author}}
+      </p>
+      <button @click="pageLow"><-- Prev. Page</button>
+      <button @click="pageHigh">--> Next Page</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
