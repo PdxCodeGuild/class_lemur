@@ -22,7 +22,7 @@ October 18th –– Day Off
 
 ## Capstone Dates:
 
-Capstone proposal due: TBA  
+Capstone proposal due: October 11th, 2021 End of Class  
 Presentation Day: November 5th, 2021  
 
 ## JavaScript Labs Assigned:
@@ -30,6 +30,7 @@ Presentation Day: November 5th, 2021
  * [Labs 01-03 Pick3](5%20JavaScript/labs/01-03%20Pick%203.md)
  * [Lab 04 Mob Todo List](5%20JavaScript/labs/04%20Todo%20List.md)
  * [Lab 05 Vue Todos](5%20JavaScript/labs/05%20Vue%20Todos.md)
+ * [Lab 06 JavaScript Mini-Capstone](5%20JavaScript/labs/07%20Mini-Capstone.md)
 
 #### Optional JavaScript Labs
 [Bouncing Ball](5%20JavaScript/labs/Bouncing%20Ball.md), [Clock](5%20JavaScript/labs/Clock.md), [Hacker Typer](5%20JavaScript/labs/Hacker%20Typer.md), [Random Redirector](5%20JavaScript/labs/Random%20Redirector.md)
