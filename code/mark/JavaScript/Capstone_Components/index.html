@@ -66,7 +66,8 @@
         </article>
         <article v-else>
             <div class="row">
-                <game-component v-for="game in FilteredGames" :game='game' class="m-3"  @promo-select="promoSelect"></game-component>
+                <game-component v-for="game in FilteredGames" :game='game' class="m-3" @promo-select="promoSelect" @not-interested="notInterested">
+                </game-component>
             </div>
         </article>
     </div>

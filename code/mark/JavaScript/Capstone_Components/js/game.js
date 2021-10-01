@@ -17,13 +17,18 @@ const GameComponent = {
         </div>`,
     data(){
         return {
-            selectedPromo: ''
+            selectedPromo: '',
+            removeGame: ''
         }
     },
     methods: {
         selectPromo(game){
            this.selectedPromo = game
            this.$emit('promo-select', this.selectedPromo)
+        },
+        notInterested(game){
+            this.removeGame = game
+            this.$emit('not-interested', this.removeGame)
         }
     }
 }
