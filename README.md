@@ -11,6 +11,8 @@ M-F 6:00 pm – 9:36 pm
 August 30th –– Day Off  
 September 6th –– Labor Day  
 October 18th –– Day Off  
+October 25th –– Day Off  
+November 1st –– Day Off  
 
 ### Staff
 
