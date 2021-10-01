@@ -1,0 +1,38 @@
+#app{
+width: 400px;
+height: 100vh;
+margin: auto;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+}
+
+button {
+    background: #333;
+    color: white;
+    font-size: 15px;
+  }
+
+button:hover {
+    transform: scale(0.95);
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    background-color:aliceblue
+}
+
+input {
+    font-size: 20px;
+    font-weight: bolder
+}
+
+li {
+    list-style: none
+}
+

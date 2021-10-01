@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Todo List</title>
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+    <div id="app">
+       <h1> {{ message }} </h1>
+        <form @submit.prevent="addToListForm">
+            <input type="text" v-model="addNewItem">
+            <input type="submit" value="Add Item to List">
+            <br>
+            <br>
+
+            <h2>Todo</h2>
+            <ul>
+                <li v-for="item in todo">{{ item.newItem }}
+                    <button v-on:click="Remove">Remove</button>
+                    <button v-on:click="Complete">Mark as Completed</button>
+                </li>
+            </ul>
+            <br>
+            <br>
+
+            <h2>Completed</h2>
+            <ul>
+                <li v-for="item in completed">{{ item.newItem }}
+                    <button v-on:click="Remove">Remove</button>
+            </ul>
+
+
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="site.js"></script>
+</body>
+</html>
