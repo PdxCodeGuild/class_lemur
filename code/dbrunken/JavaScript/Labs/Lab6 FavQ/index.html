@@ -15,14 +15,14 @@
     <div id="app">
         <h1>Favorite Quotes</h1>
         <h2>said by famous people</h2>
-        <p v-for="quote in dailyQuote">{{ quote }}</p>
+        <p v-for="quote in randomQuotes.slice(0,1)">{{ quote.body }} -by- {{ quote.author}}</p>
         <form @submit.prevent="searchFavQ">
             <input type="text" v-model="searchTerm">
             <input type="submit" value="search">
         </form>
         <h4>Search Results</h4>
         <ul>
-            <li v-for="result in searchResults">{{ result.quote}}</li>
+            <li v-for="result in searchResults">{{ result.body }} -by- {{ result.author}}</li>
         </ul>
     </div>
 </body>
