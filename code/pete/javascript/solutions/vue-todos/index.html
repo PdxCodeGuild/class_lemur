@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue Todos</title>
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<div id="todo-list">
+		<h1>Todo List</h1>
+		<form @submit.prevent="addTodo">
+			<input type="text" v-model="newTodo">
+			<button type="submit">add todo</button>
+		</form>
+		<h2>Todos</h2>
+		<ul>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+				<button @click="completeTodo(todo)">complete</button>
+				<button @click="deleteTodo(todo)">delete</button>
+			</li>
+		</ul>
+		<h2>Todones</h2>
+		<ul>
+			<li v-for="todone in todones">
+				{{ todone.text }}
+				<button @click="deleteTodo(todo)">delete</button>
+			</li>
+		</ul>
+	</div>
+	<script>
+		const App = {
+
+			data() {
+				return {
+					allTodos: [
+						{ text: 'wash the car', completed: false },
+						{ text: 'walk the dog', completed: true },
+						{ text: 'butter the cat', completed: false },
+					],
+					newTodo: '',
+				}
+			},
+
+			computed: {
+				todos() {
+					return this.allTodos.filter(todo => todo.completed === false)
+				},
+				todones() {
+					return this.allTodos.filter(todo => todo.completed === true)
+				}
+			},
+
+			methods: {
+				addTodo() {
+					this.allTodos.push({ text: this.newTodo, completed: false })
+					this.newTodo = ''
+				},
+				completeTodo(todo) {
+					const index = this.allTodos.indexOf(todo)
+					this.allTodos[index].completed = true
+				},
+				deleteTodo(todo) {
+					const index = this.allTodos.indexOf(todo)
+					this.allTodos.splice(index, 1)
+				}
+			}
+		}
+		Vue.createApp(App).mount('#todo-list')
+	</script>
+</body>
+</html>
