@@ -16,11 +16,11 @@
 <body class="container bg-dark text-light">
   <h1 class="text-center my-5">Todo</h1>
   <div id="todos" class="row">
-    <form @submit.prevent="addTodo()" class="col text-center h3">
+    <div class="col text-center h3">
 
-      <input v-model="newTodo.title" type="text" placeholder="Add a new Todo">
-      <button class=" btn-warning">Add ToDo</button>
-    </form>
+      <input v-model="newTodo" type="text" placeholder="Add a new Todo">
+      <button type="submit" @click="addTodo()" class=" btn-warning">Add ToDo</button>
+    </div>
     <h2 class="my-4 text-center">ToDo Items</h2>
     <ul class="list-group mb-5">
       <li class="list-group-item" v-for="(todo, index) in todos">
