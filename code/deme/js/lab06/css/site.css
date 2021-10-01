@@ -1,5 +1,48 @@
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: red;
-    font-weight: bolder;
+
+  
+  #app, body {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: aliceblue;
+    padding: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  h1{
+      color: red;
+      font-style: oblique;
+  }
+  ul{
+    text-align: left;
+    font-family:monospace;
+    font-weight: bold;
+    font-size: large;
+  }
+  li:hover{
+      font-size: larger;
+      font-weight: bolder;
+      color: rgb(85, 184, 184);
+  }
+
+input[type=submit] {
+    background-color: red;
+    border: 2px;
+    border-color: white;
+    color: white;
+    font-size: large;
+    padding: 16px 32px;
+    text-decoration: none;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+}
+
+input[type=text]{
+    padding: 16px 32px;
+    font-size: large;
+
 }

@@ -7,6 +7,7 @@
     <title>FavQs in Vue</title>
     <link rel="stylesheet" href="./css/site.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 
 </head>
 <body>
     <div id="app">
@@ -14,18 +15,27 @@
         <h2>{{ quote.body }} <br> - {{ quote.author }}</h2>
 
         <form @submit.prevent="searchQuote">
-            <input type="text" v-model="keyword">
+            <input type="text" placeholder="Search by keyword" v-model="keyword">
             <input type="submit" value="search">
         </form>
+        <br>
 
+        <form @submit.prevent="searchAuthor">
+            <input type="text" placeholder="Search by author"  v-model="author">
+            <input type="submit" value="search">
+        </form>
+        
         <ul>
-            <li v-for="quote in quoteResults">{{ quote.body }} {{ quote.author}}</li>
+            <li v-for="quote in quoteResults">{{ quote.body }} | {{ quote.author}}</li>
         </ul>
-    
+
+        
+        <button id="next">Next</button>
+        
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./js/site.js"></script>
-    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script> -->
 </body>
 </html>

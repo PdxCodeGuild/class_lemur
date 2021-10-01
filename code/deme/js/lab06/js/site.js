@@ -38,12 +38,33 @@ const app = Vue.createApp({
                             console.log(response)
 
                         })
+                    },
+
+                    searchAuthor() {
+                        console.log(this.author)
+                        axios({
+                            method: 'get',
+                            url: 'https://favqs.com/api/quotes',
+                            headers: {
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                            },
+                            params: {
+                                filter: this.author,
+                                type: 'author'
+                            }
+                        }).then(response => {
+                            this.quoteResults = response.data.quotes
+                            console.log(response)
+
+                        })
                     }
                 },
 
     created() {
         this.getQuote()
     }
+    
 })
 
 app.mount('#app')
