@@ -11,7 +11,8 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/site.css">
     <script src="https://unpkg.com/vue@next"></script>
-
+    <script src="./js/selectedGame.js"></script>
+    <script src="./js/game.js"></script>
     <title>Free Games for the People!</title>
 </head>
 
@@ -61,52 +62,11 @@
     </div>
     <div class="container text-light">
         <article v-if="selectedPromo">
-            <img :src="selectedPromo.image" alt="..." class="img-fluid w-100">
-            <div class="row my-3">
-                <h1 class="col bold">{{selectedPromo.title}}</h1>
-                    <h2 class="fw-bold text-success col border text-center bg-light">{{selectedPromo.status}}</h2>
-
-            </div>
-            <div class="row fs-2 border-primary border-top border-bottom border-4 text-center">
-                <p class="col">Value: {{selectedPromo.worth}}</p>
-                <p class="col">Deal Activated <b>{{selectedPromo.users}}</b> times!</p>
-            </div>
-            <div class="row fs-2">
-                <label for="description" class="fw-bold my-2">Description:</label>
-                <p id='description' class="border p-3">{{selectedPromo.description}}</p>
-                <label for='instructions' class="fw-bold my-2">Instructions</label>
-                <p id='instructions' class="border p-3">{{selectedPromo.instructions}}</p>
-                <div class="row my-4 border-warning border-top border-bottom border-4 text-center">
-                    <p class="col"><b>Start Date:</b> {{selectedPromo.published_date}}</p>
-                    <p class="col"><b>End Date:</b> {{selectedPromo.end_date}}</p>
-                </div>
-                <div class="row">
-                    <p class="col text-center"><b>Type:</b> {{selectedPromo.type}}</p>
-                    <p class="col text-center"><b>Platform(s):</b> {{selectedPromo.platforms}}</p>
-                </div>
-            </div>
-            <div class="row justify-content-center my-5">
-                <a :href="selectedPromo.open_giveaway_url" class="btn btn-primary btn-lg col-6">Get this Deal</a>
-            </div>
+            <selected-game :promo="selectedPromo"></selected-game>
         </article>
         <article v-else>
             <div class="row">
-                <div v-for="(game, index) in ByPlatform" class="col mb-3">
-                    <div class="card d-flex img-zoom-container" style="width: 18rem;">
-                        <img :src="game.image" @click="selectPromo(game)" class="card-img-top" alt="...">
-                        <div class="card-body panel-body text-dark">
-                            <h5 class="card-title">{{ game.title }}</h5>
-                            <h6 class="card-subtitle my-1">End Date: {{ game.end_date }}</h6>
-                            <h6 class="card-subtitle my-1">Value: {{ game.worth }}</h6>
-                            <h6 class="card-subtitle my-1">Times Deal Activated: {{ game.users }}</h6>
-                            <p class="card-text ">{{ game.description }}</p>
-                            <div class="row"></div>
-                                <a :href="game.open_giveaway_url" class="btn btn-primary col-6">Grab this Deal!</a>
-                                <a class="btn btn-danger col-6" @click="notInterested(game)">Not Interested</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <game-component v-for="game in FilteredGames" :game='game' class="m-3"  @promo-select="promoSelect"></game-component>
             </div>
         </article>
     </div>
@@ -123,6 +83,7 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <script src="./js/site.js"></script>
+
 </body>
 
 </html>
