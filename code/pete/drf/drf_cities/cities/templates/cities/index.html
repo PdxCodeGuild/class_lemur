@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cities</title>
+	<script src="https://unpkg.com/vue@next"></script>
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+</head>
+<body>
+	<div id="app">
+		<nav class="pa3 pa4-ns">
+			<a class="link dim black b f1 f-headline-ns tc db mb3 mb4-ns" href="#" title="Home">Cities</a>
+		</nav>
+		<div class="pa4">
+			<div class="overflow-auto">
+				<table class="f6 w-100 mw8 center" cellspacing="0">
+					<thead>
+						<tr class="stripe-dark">
+							<th class="fw6 tl pa3 bg-white">ID</th>
+							<th class="fw6 tl pa3 bg-white">Name</th>
+							<th class="fw6 tl pa3 bg-white">Country</th>
+							<th class="fw6 tl pa3 bg-white">Cuisine</th>
+							<th class="fw6 tl pa3 bg-white">Population</th>
+						</tr>
+					</thead>
+					<tbody class="lh-copy">
+						<tr v-for="city in cities" class="stripe-dark">
+							<td class="pa3">d( city.id )b</td>
+							<td class="pa3">d( city.name )b</td>
+							<td class="pa3">d( city.country )b</td>
+							<td class="pa3">d( city.cuisine )b</td>
+							<td class="pa3">d( city.population )b</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script>
+		const App = {
+			delimiters: ['d(', ')b'],
+			data() {
+				return {
+					cities: []
+				}
+			},
+			created() {
+				fetch('/api/', {
+					method: 'get'
+				}).then(response => response.json())
+				.then(data => this.cities = data)
+				.catch(err => console.log(err))
+			}
+		}
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+</html>
