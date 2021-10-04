@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue Demo</title>
+	
+	<script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+	<div id="app">
+		<h2 v-on:click="clickEvent">{{ message }}</h2>
+		<form @submit.prevent="submitForm">
+			<input type="text" v-model="inputText">
+			<input type="submit" value="add to list">
+		</form>
+		<ul>
+			<li v-for="thing in things">{{ thing }}</li>
+			<!-- {% for thing in things %}
+			<li>{{ thing }}</li>
+			{% endfor %} -->
+		</ul>
+		<!-- <h1>{{ inputText }}</h1> -->
+		<ul>
+			<li v-for="color in colors" v-bind:style="`color: ${color};`">{{ color }}</li>
+		</ul>
+	</div>
+	<script>
+		const App = {
+			data() {
+				return {
+					message: 'welcome to vue',
+					things: [
+					'rain',
+					'coffee',
+					'programming'
+					],
+					inputText: '',
+					colors: [
+						'chartreuse',
+						'lemonchiffon',
+						'papayawhip',
+						'olivedrab'
+					],
+				}
+			},
+			methods: {
+				clickEvent() {
+					console.log('you clicked it')
+				},
+				submitForm() {
+					// console.log('you submitted it')
+					console.log(this.inputText) // reference data object properties with this.propertyName
+					this.clickEvent() // call other methods with this.methodName()
+
+					this.things.push(this.inputText)
+				},
+			},
+			created() {
+				alert('the vue app has been created')
+			}
+		}
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+</html>
