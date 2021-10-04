@@ -49,6 +49,7 @@ function hackeythings() {
     random = randomWords[Math.floor(Math.random() * randomWords.length)]
     hack.value += random
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     // if (hack.value.length > 500) {
@@ -84,6 +85,9 @@ function hackeythings() {
     //     danger.className = "bg-dark text-danger text-center border border-danger"
     // }
 >>>>>>> e485949251029307b59eb3c3f047f49a1b6dc934
+=======
+
+>>>>>>> 2238b7d6bdeab066b7b07bbf3b245d9fed5469f8
     if (hack.value.length > 3200) {
         clearInterval(aS)
         clearInterval(dS)

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import logout, login, authenticate
@@ -45,10 +44,3 @@ def register_user(request):
 
     return render(request, 'users/register.html')
 
-=======
-from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
-def index(request):
-    return HttpResponse("Users")
->>>>>>> e485949251029307b59eb3c3f047f49a1b6dc934
