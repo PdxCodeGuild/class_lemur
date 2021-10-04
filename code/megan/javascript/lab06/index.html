@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FavQs</title>
+
+	<script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="main.js" defer></script>
+
+    <style>
+        input {
+
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #searching {
+            margin-left: 175px;
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <div id="app">
+
+        <h1 style="text-align: center;">FavQs</h1>
+
+        <h3>Random quotes</h3>
+        <p v-for="quote in favQuote">"{{ quote.body }}" - {{ quote.author }} </p>
+
+        <h3 id="searching">Search for a quote</h3>
+        <form @submit.prevent="findKeyword">
+            <input type="text" placeholder="Enter keyword" v-model="userKeyword">
+            <button type="submit">Search</button>
+        </form>
+
+        <form @submit.prevent="findTag">
+            <input type="text" placeholder="Enter tag" v-model="userTag">
+            <button type="submit">Search</button>
+        </form>
+
+        <form @submit.prevent="findAuthor">
+            <input type="text" placeholder="Enter author" v-model="userAuthor">
+            <button type="submit">Search</button>
+        </form>
+
+        <p v-for="found in foundQuotes">"{{ found.body }}" - {{ found.author }}</p>
+
+        <div>
+        <button @click="nextPage">Next page</button>
+        <button @click="previousPage">Previous page</button>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
