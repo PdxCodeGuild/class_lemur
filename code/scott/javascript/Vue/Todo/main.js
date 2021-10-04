@@ -36,6 +36,15 @@ const todoApp = {
       });
       this.items = this.items.filter((newItem) => newItem.name !== item.name);
     },
+    toggleIncomplete: function (item) {
+      item.completed = false;
+      this.items.push({
+        id: this.length + 1,
+        name: item.name,
+        completed: item.completed,
+      });
+      this.completeItems = this.completeItems.filter((newItem) => newItem.name !== item.name);
+    },
     removeTodo: function (item) {
       this.items = this.items.filter((newItem) => newItem.name !== item.name);
     },

@@ -24,7 +24,8 @@
       <h2>Completed List</h2>
       <ul>
         <li v-for="item in completeItems">
-          <div> {{item.name}} </div>
+          <button v-on:click="toggleIncomplete(item)">Incomplete</button>
+          <span> {{item.name}} </span>
         </li>
       </ul>
     </div>
