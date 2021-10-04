@@ -48,7 +48,42 @@ function hackeythings() {
     let randomWords = ["Code ", " print() ", " hack ", "\r\n", " access ", " denied ", " error ", " granted "]
     random = randomWords[Math.floor(Math.random() * randomWords.length)]
     hack.value += random
+<<<<<<< HEAD
 
+=======
+    // if (hack.value.length > 500) {
+    //     access.className = "bg-dark text-danger text-center border border-danger"
+    // }
+    // if (hack.value.length > 750) {
+    //     access.className = "bg-dark visually-hidden text-danger text-center border-0"
+    // }
+    // if (hack.value.length > 1000) {
+    //     danger.className = "bg-dark text-danger text-center border border-danger"
+    // }
+    // if (hack.value.length > 1250) {
+    //     access.className = "bg-dark text-danger text-center border-0"
+    //     error.className = "bg-dark text-danger text-center border border-danger"
+    // }
+    // if (hack.value.length > 1500) {
+    //     access.className = "bg-dark visually-hidden text-danger text-center border-0"
+    //     error.className = "bg-dark visually-hidden text-danger text-center border border-danger"
+    //     stopNow.className = "bg-dark text-danger text-center border border-danger"
+    // }
+    // if (hack.value.length > 1750) {
+    //     access.className = "bg-dark visually-hidden text-danger text-center border-0"
+    //     danger.className = "bg-dark visually-hidden text-danger text-center border border-danger"
+    // }
+    // if (hack.value.length > 2000) {
+    //     access.className = "bg-dark visually-hidden text-danger text-center border-0"
+    //     stopNow.className = "bg-dark visually-hidden text-danger text-center border-0"
+    // }
+    // if (hack.value.length > 2500) {
+    //     access.className = "bg-dark text-danger text-center border border-danger"
+    //     error.className = "bg-dark text-danger text-center border border-danger"
+    //     stopNow.className = "bg-dark text-danger text-center border border-danger"
+    //     danger.className = "bg-dark text-danger text-center border border-danger"
+    // }
+>>>>>>> e485949251029307b59eb3c3f047f49a1b6dc934
     if (hack.value.length > 3200) {
         clearInterval(aS)
         clearInterval(dS)
