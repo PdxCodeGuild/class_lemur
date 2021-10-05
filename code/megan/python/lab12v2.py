@@ -80,13 +80,13 @@ while loop_control == True:
     elif requested_action == 'create':
         
         name = input("Please enter your name: ")
-        artist = input("Please enter your favorite artist: ")
-        album = input("Please enter your favorite album by that artist: ")
+        favorite_artist = input("Please enter your favorite artist: ")
+        favorite_album = input("Please enter your favorite album by that artist: ")
 
         contacts.append({
         "name" : name,
-        "favorite_artist" : artist,
-        "favorite_album" : album
+        "favorite_artist" : favorite_artist,
+        "favorite_album" : favorite_album
     })
         
         again = input("Do you want to do something else? yes/no: ")
@@ -98,19 +98,20 @@ while loop_control == True:
 # contacts = str(contacts)
 # print(contacts)
 
+names = []
 
 for contact in contacts:
 
     keys = list(contact.keys())
 
-
-names = []
-
-for contact in contacts:
+# for contact in contacts:
 
     for key in keys:
 
-        names.append(contact[key])
+        # print(key)
+        if contact[key] != '':
+
+            names.append(contact[key])
 
 
 final = keys + names
@@ -118,6 +119,10 @@ final = keys + names
 final_output = ','.join(final)
 
 words = final_output.split(',')
+# print(words)
+# print(keys, 'keys')
+# print(names, 'name')
+
 new_line = ""
 word_count = 0
 
@@ -130,11 +135,16 @@ for word in words:
         new_line += "\n"
         word_count = 0
 
+print(new_line)
+
 
 with open(file_path, 'w') as file:
         file.write(new_line)
 
+
+
+
 # final_list = ''.join(contacts)
 
-with open(file_path_2, 'w') as file:
-        file.write(contacts).split('\n')
+# with open(file_path_2, 'w') as file:
+#         file.write(contacts).split('\n')
