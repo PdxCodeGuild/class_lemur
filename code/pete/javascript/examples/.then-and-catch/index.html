@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Promises: .then() and .catch()</title>
+</head>
+<body>
+	<script>
+		// a .catch chained on to a promise will run if any error occurs
+		
+		// this request is successful
+		fetch('https://favqs.com/api/quotes/', {
+			method: 'get',
+			headers: {
+				Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+			}
+		}).then(response => response.json())
+		.then(data => alert(data.quotes[0].body)) // the page alerts the first quote
+		.catch(err => alert('sorry something went wrong'))
+		
+		// this request is not, there is a typo in the auth token
+		fetch('https://favqs.com/api/quotes/', {
+			method: 'get',
+			headers: {
+				Authorization: 'Tokentoken="855df50978dc9afd6bf86579913c9f8b"' // missing space
+			}
+		}).then(response => response.json())
+		.then(data => alert(data.quotes[0].body))
+		.catch(err => alert('sorry something went wrong')) // the page alerts this generic error message
+		// you can also console.log(err) or console.log(err.message) for additional info
+		
+		// it doesn't have to be an alert
+		// you can do whatever you want to handle
+		// a failed request using .catch
+		
+	</script>
+</body>
+</html>

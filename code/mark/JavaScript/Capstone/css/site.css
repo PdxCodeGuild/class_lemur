@@ -1,0 +1,15 @@
+.panel-body p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+ }
+
+ .img-zoom-container {
+     display: inline-block;
+     overflow: hidden;
+ }
+
+ .img-zoom-container:hover img {
+     transform: scale(1.1);
+     transition: .3s;
+ }

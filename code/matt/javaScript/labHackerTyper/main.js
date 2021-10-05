@@ -48,6 +48,10 @@ function hackeythings() {
     let randomWords = ["Code ", " print() ", " hack ", "\r\n", " access ", " denied ", " error ", " granted "]
     random = randomWords[Math.floor(Math.random() * randomWords.length)]
     hack.value += random
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
     // if (hack.value.length > 500) {
     //     access.className = "bg-dark text-danger text-center border border-danger"
     // }
@@ -80,6 +84,10 @@ function hackeythings() {
     //     stopNow.className = "bg-dark text-danger text-center border border-danger"
     //     danger.className = "bg-dark text-danger text-center border border-danger"
     // }
+>>>>>>> e485949251029307b59eb3c3f047f49a1b6dc934
+=======
+
+>>>>>>> 2238b7d6bdeab066b7b07bbf3b245d9fed5469f8
     if (hack.value.length > 3200) {
         clearInterval(aS)
         clearInterval(dS)

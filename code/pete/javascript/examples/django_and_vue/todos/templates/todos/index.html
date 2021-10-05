@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Todos</title>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>Todos</h1>
+		<form @submit.prevent="addTodo">
+			<input type="text" placeholder="add todo here" v-model="newTodo">
+			<input type="submit" value="add new todo">
+		</form>
+		<ul>
+			<li v-for="todo in todos">[[ todo.description ]]</li>
+		</ul>
+	</div>
+	{% csrf_token %}
+	<script>
+		const App = {
+			delimiters: ['[[', ']]'],
+
+			data() {
+				return {
+					todos: [],
+					newTodo: '',
+					csrfmiddlewaretoken: ''
+				}
+			},
+
+			methods: {
+				getTodos() {
+					axios({
+						method: 'get',
+						url: '/get-todos/',
+					}).then(response => {
+						this.todos = response.data.todos
+					})
+					.catch(err => console.log(err))
+				},
+
+				addTodo() {
+					axios({
+						method: 'post',
+						url: '/add-todo/',
+						data: {
+							description: this.newTodo,
+						},
+						headers: {
+							'X-CSRFToken': this.csrfmiddlewaretoken
+						}
+					}).then(response => this.getTodos())
+					.catch(err => console.log(err))
+				}
+			},
+
+			created() {
+				this.getTodos()
+			},
+
+			mounted() {
+				this.csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+			}
+
+		}
+		Vue.createApp(App).mount('#app')
+	</script>
+</body>
+</html>

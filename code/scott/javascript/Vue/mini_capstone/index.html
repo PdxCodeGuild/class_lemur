@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js" defer></script>
+    <title>Dollar Store Government Information Verifier</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Dollar Store Government Information Verifier</h1>
+      <hr>
+      <form>
+        <input type="text" v-model="searchTerm" />
+        <select name="searchType" id="searchType">
+          <option value="all">All</option>
+          <option value="agency">Agency</option>
+          <option value="mobileApp">Mobile Application</option>
+          <option value="socialMedia">Social Media</option>
+        </select>
+        <input type="submit" value="Verify" />
+      </form>
+      <h3>Results</h3>
+    </div>
+    <hr />
+    <h3>Made by Jank Studios</h3>
+    <h4>Handing you the jankest of apps since August, 2021</h4>
+  </body>
+</html>
