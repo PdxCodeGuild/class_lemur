@@ -8,15 +8,15 @@ const App = {
             userPerson: '',
             crewId: '',
             episodeId: '',
-            actorCast: '',
-            actorCrew: '',
+            // actorCast: '',
+            // actorCrew: '',
             tvShow: null, 
             castMembers: [],
             crewMembers: [],
             episodeList: [],
             famousPerson: [],
-            allCast: [],
-            allCrew: [],
+            // allCast: [],
+            // allCrew: [],
         }
     },
 
@@ -78,28 +78,7 @@ const App = {
                 this.episodeList = response.data
             })
         },
-
-
-        castCredits() {    
-            axios({
-                method: 'get',
-                url: `https://api.tvmaze.com/people/${this.actorCast}/castcredits`,
-            }).then(response => {
-                console.log(response.data)
-                this.allCast = response.data
-            })
-        },
-
-        crewCredits() {    
-            axios({
-                method: 'get',
-                url: `https://api.tvmaze.com/people/${this.actorCrew}/crewcredits`,
-            }).then(response => {
-                console.log(response)
-                this.allCrew = response.data
-            })
-        },
-        
+    
 
         }
     }

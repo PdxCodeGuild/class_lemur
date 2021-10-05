@@ -101,25 +101,6 @@
 
       <p class="py-5">Now that we have the show's id, we can use it to find some specific information about the show and the people who work on it!</p>
 
-  
-      <!-- <div class="columns">
-         <div class="column is-full">
-          Enter the id to see the cast list...
-          <form @submit.prevent="showCast">
-            <input class="input is-primary mt-3" type="text" v-model="showId">
-            <button class="button is-primary is-light mt-3" type="submit">Submit</button>
-          </form>
-
-          <div class="py-2 is-justify-content-center is-align-content-space-between" v-for="cast in castMembers">
-
-            <img v-bind:src="cast.character.image.medium">
-            <br> 
-            <a v-bind:href="cast.person.url" target="_blank">{{ cast.person.name }}</a> - {{ cast.character.name }}
-          </div>
-
-        </div>   -->
-
-        <!-- testing out div above -->
 
         <div class="columns">
 
@@ -199,33 +180,6 @@
         </div>
 
       </div>
-
-      <!-- <p class="py-5">Using the id from above, enter it in the bar below to see their cast/crew credits!</p>
-
-      <div class="columns">
-
-        <div class="column">
-          Cast credits 
-          <form @submit.prevent="castCredits">
-            <input class="input is-primary mt-3" type="text" v-model="actorCast">
-            <button class="button is-primary is-light mt-3" type="submit">Submit</button>
-          </form>
-          <p v-for="actor in allCast">{{ actor }} </p> 
-          <p v-for="actor in allCast">
-            {{ actor }} 
-          </p>
-
-
-        </div> -->
-
-        <!-- <div class="column">
-          Crew credits
-          <form @submit.prevent="crewCredits">
-            <input class="input is-primary mt-3" type="text" v-model="actorCrew">
-            <button class="button is-primary is-light mt-3" type="submit">Submit</button>
-          </form>
-          <p v-for="crew in allCrew">{{ crew.type }} - {{ crew._links.show.href }} </p>
-        </div> -->
 
       </div>
 
