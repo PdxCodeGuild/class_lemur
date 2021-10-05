@@ -15,9 +15,10 @@ def dashboard(request):
     }
     if request.method == 'POST':
         form = PostForm(request.POST)
-        form.instance.user = request.user
-        if form.is_valid():
-            form.save()
+        if form.is_valid():          
+            post = form.save(commit=False)
+            post.poster = request.user
+            post.save()
             return render(request, 'users_app/dashboard.html', context)
     return render(request, 'users_app/dashboard.html', context)
 
