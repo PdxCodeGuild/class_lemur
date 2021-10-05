@@ -7,21 +7,15 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="main.js" defer></script>
-    <title>Dollar Store Government Information Verifier</title>
+    <title>Dollar Store Anime Search</title>
   </head>
   <body>
     <div id="app">
-      <h1>Dollar Store Government Information Verifier</h1>
+      <h1>Dollar Store Anime Search</h1>
       <hr>
-      <form>
-        <input type="text" v-model="searchTerm" />
-        <select name="searchType" id="searchType">
-          <option value="all">All</option>
-          <option value="agency">Agency</option>
-          <option value="mobileApp">Mobile Application</option>
-          <option value="socialMedia">Social Media</option>
-        </select>
-        <input type="submit" value="Verify" />
+      <form @submit.prevent="searchAnime">
+        <input type="text" v-model="searchTerm"/>
+        <input type="submit" value="Search" />
       </form>
       <h3>Results</h3>
     </div>

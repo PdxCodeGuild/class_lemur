@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap" rel="stylesheet">
     <title>Echo Chamber</title>
-</head>
-<body>
     <style>
-        background-color: grey;
-        font-family: 'Anton', sans-serif;
-        label, input {display:block;}
-        span.helptext {display:none}
+      body {
+        background-color: #6ea9d1;
+        color: rgba(255, 255, 255, 1);
+        font-family: 'Gemunu Libre', sans-serif;
+      }
     </style>
+  </head>
+  <body>
     <h1>Dollar Store Echo Chamber App</h1>
-    <hr>
-    {% block content %}
-    {% endblock %}
+    <hr />
+    {% block content %} {% endblock %}
     <footer>
-        <hr />
-        <h3>Made by Jank Studios</h3>
-        <h4>Handing you the jankest of apps since August, 2021</h4>
-      </footer>
-</body>
+      <hr />
+      <h3>Made by Jank Studios</h3>
+      <h4>Handing you the jankest of apps since August, 2021</h4>
+    </footer>
+  </body>
 </html>
