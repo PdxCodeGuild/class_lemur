@@ -17,8 +17,6 @@ const App = {
             famousPerson: [],
             allCast: [],
             allCrew: [],
-            // imageSearch: '',
-            // imageList: []
         }
     },
 
@@ -81,15 +79,6 @@ const App = {
             })
         },
 
-        // showImages() {    
-        //     axios({
-        //         method: 'get',
-        //         url: `https://api.tvmaze.com/shows/${this.imageSearch}/images`,
-        //     }).then(response => {
-        //         console.log(response)
-        //         this.imageList = response.data
-        //     })
-        // },
 
         castCredits() {    
             axios({

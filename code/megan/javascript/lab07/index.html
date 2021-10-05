@@ -11,8 +11,8 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
   <script src="main.js" defer></script>
@@ -36,9 +36,9 @@
                 <a class="navbar-item" href="#show">
                   Show search
                 </a>
-                <!-- <a class="navbar-item" href="#actor">
+                <a class="navbar-item" href="#actor">
                   Person search
-                </a> -->
+                </a>
                 <!-- <a class="navbar-item">
               Documentation
             </a> -->
@@ -51,10 +51,11 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <p class="title">
-            TVmaze API
+            TVmaze API <i class="fas fa-tv"></i>
           </p>
           <p class="subtitle pt-3">
-            Welcome to the TVmaze API! Here you'll find answers to all things tv, including the name of that episode you really loved, the name of the actress that plays your favorite character, and more!
+            Welcome to the TVmaze API! Here you'll find answers to all things tv, including the name of that episode you
+            really loved, the name of the actress that plays your favorite character, and more!
           </p>
         </div>
       </div>
@@ -63,10 +64,10 @@
 
     <div class="container" id="showstyles">
 
-      <i class="fas fa-tv"></i><h1 class="title is-3 has-text-centered">Let's do some searching!</h1><i class="fas fa-tv"></i>
+      <h1 class="title is-3 has-text-centered">Let's do some searching!</h1>
 
-      <p class="py-5">Using this API, you'll be able to find out some specific information about your favorite tv shows! In order to access any information, we will first need to grab a specific ID. This section will allow you to look for information regrarding tv shows.</p>
-      
+      <p class="py-5 has-text-centered">Using this API, you'll be able to find out some specific information about your favorite tv shows and the people who make them possible! In order to access any information, we will first need to grab a specific ID.</p>
+
       <br>
 
       <div class="columns">
@@ -79,17 +80,17 @@
           </form>
 
           <div class="has-text-centered">
-          <p class="py-2" v-if="tvShow">
-          <img v-bind:src="tvShow.image.medium">
-          <br>
-          {{ tvShow.name }} - Show id: {{ tvShow.id }} 
-          <br>
-          <br>
-          <a v-bind:href="tvShow.url" target="_blank">Click here to visit the show's page on the TVmaze website</a>
+            <p class="py-2" v-if="tvShow">
+              <img v-bind:src="tvShow.image.medium">
+              <br>
+              {{ tvShow.name }} - Show id: {{ tvShow.id }}
+              <br>
+              <br>
+              <a v-bind:href="tvShow.url" target="_blank">Click here to visit the show's page on the TVmaze website</a>
 
           </div>
 
-            <br>
+          <br>
 
           </p>
 
@@ -100,7 +101,27 @@
 
       <p class="py-5">Now that we have the show's id, we can use it to find some specific information about the show and the people who work on it!</p>
 
-      <div class="columns">
+  
+      <!-- <div class="columns">
+         <div class="column is-full">
+          Enter the id to see the cast list...
+          <form @submit.prevent="showCast">
+            <input class="input is-primary mt-3" type="text" v-model="showId">
+            <button class="button is-primary is-light mt-3" type="submit">Submit</button>
+          </form>
+
+          <div class="py-2 is-justify-content-center is-align-content-space-between" v-for="cast in castMembers">
+
+            <img v-bind:src="cast.character.image.medium">
+            <br> 
+            <a v-bind:href="cast.person.url" target="_blank">{{ cast.person.name }}</a> - {{ cast.character.name }}
+          </div>
+
+        </div>   -->
+
+        <!-- testing out div above -->
+
+        <div class="columns">
 
         <div class="column is-one-third">
           Enter the id to see the cast list...
@@ -110,12 +131,10 @@
           </form>
           <p class="py-2" v-for="cast in castMembers">
 
-          <img v-bind:src="cast.character.image.medium">
-          <br>
-          <!-- {{ cast.person.name }} - {{ cast.character.name }}  -->
-          <a v-bind:href="cast.person.url" target="_blank">{{ cast.person.name }}</a> - {{ cast.character.name }} 
-        </p>
-
+            <img v-bind:src="cast.character.image.medium">
+            <br>
+            <a v-bind:href="cast.person.url" target="_blank">{{ cast.person.name }}</a> - {{ cast.character.name }}
+          </p>
         </div>
 
         <div class="column is-one-third">
@@ -134,57 +153,54 @@
             <input class="input is-primary mt-3" type="text" v-model="episodeId">
             <button class="button is-primary is-light mt-3" type="submit">Submit</button>
           </form>
-          <p class="py-2" v-for="episodes in episodeList">Episode #{{ episodes.number }}: {{ episodes.name }} - Season {{ episodes.season }} </p>
-          
+          <p class="py-2" v-for="episodes in episodeList">Episode #{{ episodes.number }}: {{ episodes.name }} - Season
+            {{ episodes.season }} </p>
+
           <div class="container">
 
-            
+
           </div>
-          
-          
-          <!-- <div class="column">
-  
-            <p>Images baby!</p>
-            <form @submit.prevent="showImages">
-              <input class="input is-primary mt-3" type="text" v-model="imageSearch">
-              <button class="button is-primary is-light mt-3" type="submit">Submit</button>
-            </form>
-  
-            <p class="py-2" v-for="found in imageList">
-              
-            <img v-bind:src="found.resolutions.original.url"alt="photos"></p>
-  
-          </div> -->
 
         </div>
 
-      <hr>
 
       <!-- ACTOR STUFF -->
 
-      <!-- <p class="py-5">This section is all about people!</p>
+      </div>
+
+      <hr>
+
+      <p class="py-5 has-text-centered">Looking to watch something else the actor who plays your favorite character has been in? Here, you'll be able to search for an actor and be linked direcly to the TVmaze profile, where you will be able to see some basic information, what else they've done, and more!</p> 
 
       <div class="columns">
 
-        <div class="column">
+        <div class="column py-3">
 
-          <p id="actor">Please enter the name of the person you'd like to search for in the bar below:</p>
+          <p id="actor" class="mt-4">Please enter the name of the person you'd like to search for in the bar below:</p>
 
           <form @submit.prevent="findPerson">
             <input class="input is-primary mt-3" type="text" v-model="userPerson">
             <button class="button is-primary is-light mt-3" type="submit">Submit</button>
           </form>
 
+          <div class="has-text-centered">
           <p v-for="actor in famousPerson">
-            {{ actor.person.name }} - {{ actor.person.id }} 
-            <a href="{{ actor.person.url}}">Link to their TVmaze page</a>
+
+            <img v-bind:src="actor.person.image.medium">
+            <br>
+            {{ actor.person.name }} 
+            <!-- - {{ actor.person.id }}  -->
+            <a v-bind:href="actor.person.url" target="_blank">
+              <br>
+              Link to their TVmaze page</a>
           </p>
+        </div>
 
         </div>
 
       </div>
 
-      <p class="py-5">Using the id from above, enter it in the bar below to see their cast/crew credits!</p>
+      <!-- <p class="py-5">Using the id from above, enter it in the bar below to see their cast/crew credits!</p>
 
       <div class="columns">
 
@@ -194,32 +210,35 @@
             <input class="input is-primary mt-3" type="text" v-model="actorCast">
             <button class="button is-primary is-light mt-3" type="submit">Submit</button>
           </form>
-          <p v-for="actor in allCast">{{ actor }} </p>
+          <p v-for="actor in allCast">{{ actor }} </p> 
+          <p v-for="actor in allCast">
+            {{ actor }} 
+          </p>
 
-        </div>
 
-        <div class="column">
+        </div> -->
+
+        <!-- <div class="column">
           Crew credits
           <form @submit.prevent="crewCredits">
             <input class="input is-primary mt-3" type="text" v-model="actorCrew">
             <button class="button is-primary is-light mt-3" type="submit">Submit</button>
           </form>
-          <p v-for="crew in allCrew">{{ crew.type }} - {{ crew._links.show.href }} </p> -->
-
-        </div>
+          <p v-for="crew in allCrew">{{ crew.type }} - {{ crew._links.show.href }} </p>
+        </div> -->
 
       </div>
 
-        <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              <strong>TVmaze API</strong> &copy; 2021 Megan Bradner</a>.
-            </p>
-          </div>
-        </footer>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>TVmaze API</strong> &copy; 2021 Megan Bradner</a>
+          </p>
+        </div>
+      </footer>
 
     </div>
-
+  </div>
 </body>
 
 </html>
