@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Quoted</title>
+	<title>GBooks</title>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/vue@next"></script>
+	<script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+	<script src="js/secrets.js" ></script>
 	<script src="js/main.js" defer></script>
 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+	
+<div id="app">
+<header>
+<h1>{{ message }}</h1>
+	<form @submit.prevent="first">
+		<input type="text" v-model="inputText" required>
+		<select id="type" v-model="searchType">
+			<option value="inAuthor">Author</option>
+			<option value="inTitle">Title</option>
+			<option value="ISBN">ISBN</option>
+			<option value="subject">Subject</option>
+		</select>
+		<input type="submit" value="Search">
+	</form>
+</header>	
+<nav>
+	<span v-if="inputText">
+	<span v-if="counter">	
+		<button v-on:click=previous>Previous</button>
+	</span>
+	<span>
+		<button v-on:click=next>Next</button>
+	</span>	
+	</span>
+</nav>
 <body>
-	<div id="app">
-		<h2>{{ message }}</h2>
-		<h3>'{{ qotdQuote }}'</h3>
-		<strong>-{{ qotdAuthor }}</strong>
-		<form @submit.prevent="quotes">
-			<input type="text" v-model="inputText" required>
-			<select id="type" v-model="searchType" required>
-				<option value="keyword">Keyword</option>
-				<option value="author">Author</option>
-				<option value="tag">Tag</option>
-			</select>
-			<input type="submit" value="Search">
-		</form>
-		<div>
-			<span v-for="quote in searchResults">				
-				<h2>{{ quote.body }}</h2>
-				<strong>-{{ quote.author }}</strong>				
-			</span>
-		</div>
-		<span v-if="counter">
-			<button v-on:click=next>{{pages}}</button>
-		</span>
+<main>
+	<!-- <div id="viewerCanvas" style="width: 600px; height: 500px"></div> -->
+		<article v-for="volume in searchResults">
+			<div >							
+				<h2>{{ volume.volumeInfo.title }}</h2>
+				<a><img :src="volume.volumeInfo.imageLinks.thumbnail" :alt="volume.volumeInfo.title"></a><br>
+				<strong v-for="authors in volume.volumeInfo.authors">-{{ authors  }}<br></strong>									
+			</div>
+		</article>
 	</div>
+</main>
 </body>
 </html>

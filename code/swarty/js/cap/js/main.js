@@ -1,98 +1,74 @@
-// Build a Vue application that allows a user to search for quotes on FavQs.
 
-// Requirements:
+const api=gLogin.api_key
+console.log(api)
 
-// Your app must use Vue to fetch data and interact with the results.
-// Let the user enter a search term and select whether to search by keyword, author, or tag.
-// Implement pagination buttons when the search returns more than 25 quotes.
-// When the page first loads, show the user a set of completely random quotes.
-// You must have at least one Vue component in your app.
-// Resources:
 
-// Read the API documentation!
-// Remember to use your Vue app data as your single source of truth.
-// You'll need to set the Authorization header for the FavQs API to work.
-const mytoken='6ac53ed6f4ae6184e6b11a7c9998a5b9'
+
+
 const App = {
+    
     data() {
         return {
-            message: "It is known:",
-            qotdQuote: '',
-            qotdAuthor:'',
-            inputText: '',
-            searchType:'',
-            searchResults: [],
-            pages:"More quotes",
-            counter:0,
+            ISBN:"", //test ISBN remove later
+            inAuthor:"",
+            inAll:"",//test search remove later
+            inTitle:"",
+            subject:"",
+            inputText:"",
+            searchType:"",
+            searchResults:[],
+            message:"Ebook search",
+            counter:0
         }        
     },
     methods: {
-        qotd(){
-            axios({
-                method:'get',
-                url: 'https://favqs.com/api/qotd',
-                headers:{
-                    'Content-Type': 'application/json',
-                    Authorization: 'Token token=mytoken'
-                },
-            }).then(response => {
-                console.log(response)
-                this.qotdQuote= response.data.quote.body
-                this.qotdAuthor= response.data.quote.author
-                console.log(this.qotdQuote, this.qotdAuthor)
-            })
+        readbooks(){
+            google.books.load();
+            function initialize() {
+                var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+                viewer.load(`ISBN:${this.ISBN}`);
+            }
+            google.books.setOnLoadCallback(initialize)
         },
-        quotes(){      
-            counter=0    
+        volumes(){         
             axios({
                 
                 method:'get',
-                url: 'https://favqs.com/api/quotes',
+                url: 'https://www.googleapis.com/books/v1/volumes',
                 headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Token token=${mytoken}`,
+                    accept: 'applicatio/json',
+                    
                 },
                 params: {
-                    filter: this.inputText,
-                    type:this.searchType                    
+                    q: this.inputText,
+                    projection:'lite',
+                    key:gLogin.api_key,
+                    startIndex:this.counter                              
                 }
             }).then(response => {
             console.log(response)            
-            this.searchResults= response.data.quotes
-            console.log(this.searchResults)
-            if (response.data.last_page) {
-                this.pages="End of quotes"
-            }
-            }),
-            this.counter++
-        },
-        next() {
-            this.counter++
-            axios({
-                method:'get',
-                url: 'https://favqs.com/api/quotes',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Token token=${mytoken}`
-                },
-                params: {
-                    filter: this.inputText,
-                    type:this.searchType,
-                    page: this.counter
-                }
-            }).then(response => {
-            console.log(response.data)            
-            this.searchResults= response.data.quotes
-            console.log(this.searchResults)
+            this.searchResults= response.data.items
             if (response.data.last_page) {
                 this.pages="End of quotes"
             }
             })
-        }
+        },
+        first() {
+            counter=0
+            this.volumes()
+
+        },
+        next() {
+            this.counter+=10
+            this.volumes()
+        },
+        previous() {
+            this.counter-=10
+            this.volumes()
+        }        
     },
-    created() {
-        this.qotd()
-    }
-        
+    beforeCreated() {
+        this.readbooks()
+    }        
 }
 Vue.createApp(App).mount('#app')
