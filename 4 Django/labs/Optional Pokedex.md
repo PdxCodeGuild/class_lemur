@@ -1,4 +1,4 @@
-# Lab 05 - Pokedex with Django REST Framework and Vue
+# Optional: Pokedex with Django REST Framework and Vue
 
 I built a Django app. It's got a basic user framework with a custom user model, `Pokemon` and `Type` models, and a database full of Pokemon. Let's build it an API, and then use that API to build a single page Vue application.
 
