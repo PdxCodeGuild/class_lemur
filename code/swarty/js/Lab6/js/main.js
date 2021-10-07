@@ -17,7 +17,7 @@ const App = {
     data() {
         return {
             message: "It is known:",
-            qotdQuote: '',
+            qotdQuote: [],
             qotdAuthor:'',
             inputText: '',
             searchType:'',
@@ -28,18 +28,26 @@ const App = {
     },
     methods: {
         qotd(){
+            counter=0    
             axios({
+                
                 method:'get',
-                url: 'https://favqs.com/api/qotd',
-                headers:{
+                url: 'https://favqs.com/api/quotes',
+                headers: {
                     'Content-Type': 'application/json',
-                    Authorization: 'Token token=mytoken'
+                    Authorization: `Token token=${mytoken}`,
                 },
+                params: {
+                    // filter: this.inputText,
+                    // type:this.searchType                    
+                }
             }).then(response => {
-                console.log(response)
-                this.qotdQuote= response.data.quote.body
-                this.qotdAuthor= response.data.quote.author
-                console.log(this.qotdQuote, this.qotdAuthor)
+            console.log(response)            
+            this.searchResults= response.data.quotes
+            console.log(this.searchResults)
+            if (response.data.last_page) {
+                this.pages="End of quotes"
+            }
             })
         },
         quotes(){      
