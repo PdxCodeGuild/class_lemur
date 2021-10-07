@@ -5,7 +5,6 @@ const App = {
             list: [],
             inputText: '',
             checkedNames:[],
-            incomplete:[],
         }
     },
     methods: {
@@ -17,9 +16,10 @@ const App = {
         deleteItem(item){
             i=0
             j=0
-            i=this.list.indexOf(item)
-            this.list.splice(i,1) 
-            console.log(this.checkedNames.indexOf(item))
+            if (this.list.indexOf(item)>=0){
+                i=this.list.indexOf(item)
+                this.list.splice(i,1)
+            }
             if (this.checkedNames.indexOf(item)>=0){
                 j=this.checkedNames.indexOf(item)
                 this.checkedNames.splice(j,1)
@@ -27,6 +27,17 @@ const App = {
 
             console.log(this.checkedNames, this.list)
         },
+        complete(item){
+            i=0
+            i=this.list.indexOf(item)
+            this.list.splice(i,1)
+        },
+        incomplete(item){
+            i=0
+            i=this.checkedNames.indexOf(item)
+            this.checkedNames.splice(i,1)
+            this.list.push(item)
+        }
     },
     
     // created() {
