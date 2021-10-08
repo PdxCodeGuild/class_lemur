@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+h2, form {
+    padding: 10px;
+    margin: 10px;
+}
+
+li {
+    padding: 5px;
+}

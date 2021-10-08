@@ -1,0 +1,11 @@
+body {
+    background-color: darkslategray ;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.q {
+    text-decoration: none;
+}
