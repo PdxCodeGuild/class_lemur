@@ -7,25 +7,21 @@ const App = {
     },
   
     methods: {
-      searchValid() {
+      searchAnime() {
         console.log(this.searchTerm);
-        this.newHeader = "Search Results:";
-        this.quotes = [];
         axios({
-          method: "get",
-          url: "https://api.gsa.gov/technology/digital-registry/v1/agencies",
+          method: "POST",
+          url: "https://graphql.anilist.co/",
           headers: {
-            Authorization: 'VIuNIA5XU3PoRj8jK8cViP8LAWRACLml1Put4DbU',
-            "Content-Type": "application/json",
+            Accept: 'application/vnd.api+json',
+            'Content-Type': 'application/vnd.api+json',
           },
           params: {
-            description: this.searchTerm,
-            type: this.searchType,
-            page: this.pageCounter,
+            query: this.searchTerm,
+            variables: {page: 1, perPage: 10},
           },
         }).then((response) => {
-          console.log(response.data.quotes);
-          this.searchResults = response.data.quotes;
+          console.log(response.data);
         });
       },
     },
