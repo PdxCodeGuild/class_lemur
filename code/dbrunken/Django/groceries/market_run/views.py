@@ -12,7 +12,7 @@ def index(request):
         'grocery_items': items,
         'bought_groceries': bought_groceries,
         'missed_items': missed_items,
-        # 'added_item':added_item
+        'added_item':added_item
     }
     return render(request, 'market_run/index.html', context)
 

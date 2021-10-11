@@ -1,16 +1,17 @@
-
-<form action="{% url 'Poo_Talk_users:login' %}" method="POST">
+{% extends 'Poo_Talk_posts/base.html' %}
+{% block content %}
+<form action="{% url 'Poo_Talk_users:login_user' %}" method="POST">
     {%csrf_token%}
     <div>
         <div class="mb-3">
             <label for="username">Enter username</label>
-            <input type="email" class="form-control" id="username" name="username">
+            <input type="text" class="form-control" id="username" name="username">
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Enter password</label>
-            <input class="form-control" id="password"></input>
+            <input class="form-control" id="password" name="password"></input>
           </div>
           <button type="submit">Login</button>
     </div>
 </form>
-
+{% endblock %}
