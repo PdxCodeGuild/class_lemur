@@ -82,6 +82,7 @@ button.addEventListener('click', function () {
         // console.log(cards, card)
         if (value1<17){
             output.innerText =`Hit   Your Cards: ${cards}` 
+            break
         } else if(value1>=17 && value1<=20){
             output.innerText =`Stay Your Cards: ${cards}`
             break

@@ -19,12 +19,19 @@
 		</form>
 		<ul>
 			<li v-for="item in list">
-				<input type="checkbox"></input>
+				<input type="checkbox" v-bind:value=item v-model="checkedNames" @change="complete(item)" ></input>
 				{{ item }}&emsp; 
 				<button type="button" v-on:click="deleteItem(item)" >Delete</button>
-				</p>
-			
-			</li>
+				<br>			
+			</li>			
+		</ul>
+		<ul v-if="checkedNames">Completed
+			<li v-for="item in checkedNames">
+				<input type="checkbox" v-bind:value=item v-model="checkedNames" @change="incomplete(item)" ></input>
+				{{ item }}&emsp; 
+				<button type="button" v-on:click="deleteItem(item)" >Delete</button>
+				<br>			
+			</li>			
 		</ul>
 	</div>
 </body>
