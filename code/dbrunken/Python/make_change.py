@@ -5,7 +5,7 @@ from typing import Counter
 
 
 coins = [
-    ("ha' dollar", .5),
+    ("half dollar", .5),
     ('quarter', .25),
     ('dime', .10),
     ('nickle', .05),
@@ -25,13 +25,15 @@ def make_change(user_in):
     count = 0
     for coin in coins:
         coinConvert = coin[1] * 100 # convert to pennies
-        # print(pennies)
+        print(pennies)
         coinCount =  int(pennies) // int(coinConvert) # floor divide to determine how many pennies there are
         pennies -= coinCount * coinConvert # subtract remaining pennies from total
         # print(count)
         print(coinCount, coins[count][0])
         count +=1
     total = print(f'\n is what you have when {user_in} is converted to pennies. {coinCount} pennies is the remainder you will have with {coins[0][0]}.')
+
+    return total
     
 
 

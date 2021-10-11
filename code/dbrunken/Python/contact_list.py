@@ -30,13 +30,14 @@ for contact in contacts:
     # print(contact)
     contact_dict = dict(zip(headers, contact))
     contact_list.append(contact_dict)
-print(contact_list)
+# print(contact_list)
 
 # contacts = list(contacts)
 # print(contacts)
 
 
 while True:
+    # print(contact_list)no
     user_in = input('Add, Retrieve, Update, or Delete from the list? ')
     no = 'no'
     add = 'add'
@@ -53,21 +54,39 @@ while True:
         user_number = input("\nWhat's their number? ")
         user_city= input("\nWhere do they live? ")
         user_occ= input("\nWhat do they do? ")
-        user_dict = dict(zip(headers, [user_name, user_number, user_city, user_occ]))
+        user_dict = dict(zip(headers, [user_name.title(), user_number, user_city, user_occ]))
+        print(user_dict, 'user_dict')
         contact_list.append(user_dict)
-        print('\n', contact_list)
+        print('\n', contact_list, 'contact list')
   
     #----------Retrieve Contact---------#
     elif user_in == retrieve:
         fetch_name = input("\n Who's contact info do you want to see? ")
         for contact in contact_list:
+            # print(contact[name], 'contact')
             if contact['name'] == fetch_name.title():
-                print(contact)
-    
+                print('\n', contact, '\n')
+            else:
+                print('something went wrong')
     #----------Update Contact-----------#
     elif user_in == update:
-        
-        pass
+        fetch_name = input("\n Who's contact needs to be updated? ")
+        for contact in contact_list:
+            if contact['name'] == fetch_name.title():
+                print(contact)
+                new_update = input('\n What needs to be updated? name, numbers, city, or occupation: ')
+                contact[new_update] = input('\n Enter new information: ')
+                updated_contact = contact
+                print(updated_contact)
+
+        '''
+        ask user who needs to be updated with a for contact in contacts loop
+        ask what part of contact needs to be updated .get()
+            what needs to be updated? numbers
+            enter new info: 8749874
+            "print(updated_contact)"
+        reassign
+        '''
     
     #---------Delete Contact----------#
     elif user_in == delete:
@@ -79,6 +98,4 @@ while True:
                 print(contact_list)
 
     else:
-        print("don't recognize that command")
-
-    
+        print("don't recognize that command")  

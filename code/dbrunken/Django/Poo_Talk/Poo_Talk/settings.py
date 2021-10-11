@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     # 'users.apps.UsersConfig',
 
-    'Poo_Talk'
+    'Poo_Talk_users',
+    'Poo_Talk_posts',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 

@@ -1,34 +1,8 @@
 '''
 convert numbers to words
 '''
-nums_100s = {
-    1 : 'one', 
-    2 : 'two',
-    3 : 'three',
-    4 : 'four',
-    5 : 'five',
-    6 : 'six',
-    7 : 'seven',
-    8 : 'eight',
-    9 : 'nine'
-}
-
-#number structures (10s)
-nums_10s = {
-    2:"twenty",
-    3:"thirty",
-    4:"fourty",
-    5:"fifty",
-    6:"sixty",
-    7:"seventy",
-    8:"eighty",
-    9:"ninety"
-}
-# teens
-
-#number structures (singles)
 nums_1s = {
-    0 : 'zero',
+    0 : '',
     1 : 'one', 
     2 : 'two',
     3 : 'three',
@@ -40,22 +14,55 @@ nums_1s = {
     9 : 'nine'
 }
 
+teens = {
+    0: 'ten',
+    1: 'eleven',
+    2: 'twelve',
+    3: 'thirteen',
+    4: 'fourteen',
+    5: 'fifteen',
+    6: 'sixteen',
+    7: 'seventeen',
+    8: 'eighteen',
+    9: 'nineteen'
+}
+
+nums_10s = {
+    0: '',
+    1: '',
+    2: 'twenty',
+    3: 'thirty',
+    4: 'forty',
+    5: 'fifty',
+    6: 'sixty',
+    7: 'seventy',
+    8: 'eighty',
+    9: 'ninety'
+}
 x = int(input("give a number: "))
-place100 = x //100
-print(place100)
-place10 = x // 10
-print(place10)
-place1 = x % 10
-print(place1)
 
-def num_phrase(hundreds, tens, singles,):
-    if hundreds > 0:
-        return nums_100s.get(hundreds) + 'hundred' + nums_10s.get(tens) + '-' + nums_1s.get(singles)
-    if tens > 0:
-        return nums_10s.get(tens) + '-' + nums_1s.get(singles)
-    if singles >= 0:
-        return nums_1s.get(singles)
+def convert(num):
+    
+    if x == 0:
+        return 'zero'
+    
+    place1 = num % 10
+    place10 = num % 100 // 10
+    place100 = num // 100
 
+    ones = nums_1s[place1]
+    tens = nums_10s[place10]
+    hundreds = nums_1s[place100]
 
-phrase = num_phrase(place100, place10, place1)
-print(phrase)
+    if num < 100:
+        if tens == 1:
+            tens = teens[place1]
+            return tens
+        return tens + '-' + ones
+    
+    if place10 == 1:
+        tens = teens[place1]
+        return hundreds + ' hundred ' + tens
+    return hundreds + ' hundred ' + tens + '-' + ones
+
+print(convert(x))
