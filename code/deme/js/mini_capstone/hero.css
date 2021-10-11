@@ -1,0 +1,79 @@
+
+  
+  #app, body {
+    /* background-image: url("background.jpg"); */
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    padding: auto;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+
+  }
+  body {
+    background-image: url("https://thumbs.dreamstime.com/z/comic-book-explosion-superhero-pop-art-style-radial-lines-background-manga-anime-speed-frame-78153186.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover;
+    
+    
+
+  }
+  h1{
+      color:white ;
+      text-shadow: 2px 5px red;
+      background-color: black;
+      font-size: 400%;
+      text-align: center;
+      
+  }
+  .info{
+      color:white ;
+      text-shadow: 2px 2px red;
+      background-color: black;
+      text-align: center;
+      inline-size: 500px; 
+      overflow: hidden;
+      /* margin-left: 100px;
+      margin-right: 100px; */
+  }
+  
+  ul{
+    text-align: left;
+    font-family:monospace;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  li {
+    color: red;
+    font-size: large;
+    list-style: none;
+   
+  }
+
+
+input[type=submit] {
+    background-color: white;
+    color: red;
+    font-size: large;
+    padding: 12px 28px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=text]{
+    padding: 16px 32px;
+    font-size: large;
+
+}
+
+
+
