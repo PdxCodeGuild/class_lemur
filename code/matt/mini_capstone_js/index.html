@@ -19,51 +19,59 @@
 <body class="container">
 
     <div id="app">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="stats.html">Stats</a>
-            </li>
-        </ul>
+        <h1 class="text-center">Character Creation</h1>
+
         <div>
-            <label for="charName">Character Name: </label>
-            <input class="ms-1" type="text" id="charName" v-model="charName">
-            <label for="charLevel">Character Level: </label>
-            <input class="ms-1" type="number" id="charLevel" v-model="charLvl">
+            <label class="pe-2" for="charName">Character Name: </label>
+            <input type="text" id="charName" v-model="charName">
+            <label class="px-2" for="charLevel">Character Level: </label>
+            <input type="number" id="charLevel" v-model="charLvl">
         </div>
+
         <div class="row">
             <div class="row">
-                <div class="col-3">
+                <div class="">
                     <label for="raceSelection">Select Race</label>
-                    <select class="form-select" v-model="raceSelection" @change="getSubRace" name="" id="raceSelection">
+                    <select class="form-select" v-model="raceSelection" @change="getSubRace" id="raceSelection">
                         <option v-for="race in races">{{race.name}}</option>
                     </select>
                 </div>
-                <div class="col-3" v-if="subRaces">
+
+                <div v-if="raceSelection === 'Half-Elf'">
+                    <p>Select 2 abilities</p>
+                    <span v-for="stat in stats">
+                        <input class="mx-2" type="checkbox" v-bind:value="stat.index" v-model="halfelfAbilities"
+                            v-bind:disabled="halfelfAbilities.length === 2 && halfelfAbilities.indexOf(stat.index) == -1">
+                        <label for="stat.name">{{stat.name}}</label>
+                    </span>
+                </div>
+
+                <div class="" v-if="subRaces">
                     <label for="subraceSelection">Select Subrace</label>
-                    <select class="form-select" v-model="subraceSelection" name="" id="subraceSelection">
+                    <select class="form-select" v-model="subraceSelection" id="subraceSelection">
                         <option v-for="subRace in subRaces">{{subRace.name}}</option>
                     </select>
                 </div>
-                <div class="col-3" v-else-if="dragonAncestory">
+
+                <div class="" v-else-if="dragonAncestory">
                     <label for="subraceSelection">Select Dragon Ancestory</label>
-                    <select class="form-select" v-model="subraceSelection" name="" id="subraceSelection">
+                    <select class="form-select" v-model="subraceSelection" id="subraceSelection">
                         <option v-for="dragon in dragonAncestory">{{dragon.name}}</option>
                     </select>
                 </div>
-                <div class="col-3">
+
+                <div class="">
                     <label for="classSelection">Select Class</label>
                     <select class="form-select" v-model="classSelection"
-                        @change="getSubClass(); getProficiencyChoices(); getSpellsKnown()" name="" id="">
+                        @change="getSubClass(); getProficiencyChoices(); getSpellsKnown();">
                         <option v-for="clas in classes">{{clas.name}}</option>
                     </select>
                 </div>
-                <div class="col-3">
+
+                <div class="">
                     <label for="subclassSelection">Select SubClass</label>
-                    <select class="form-select" v-model="subclassSelection" name="" id="">
-                        <option v-for="subClass in subClasses" value="subClass">{{subClass.name}}</option>
+                    <select class="form-select" v-model="subclassSelection" id="subclassSelection">
+                        <option v-for="subClass in subClasses">{{subClass.name}}</option>
                     </select>
                 </div>
             </div>
@@ -72,56 +80,134 @@
         <div>
             <label for="alignmentSelection">Select Alignment</label>
             <select class="form-select" v-model="alignmentSelection">
-                <option v-for="alignment in alignments" value="alignment">{{alignment.name}}</option>
+                <option v-for="alignment in alignments">{{alignment.name}}</option>
             </select>
         </div>
 
         <div class="row text-center">
             <span v-for="stat in stats" class="col-2">{{stat.name}}</span>
             <span v-for="stat in stats" class="col-2">
-                <input @change="setStats(stat)" v-model="stat.value" type="number" name="" id="">
+                <input @change="setStats(stat)" v-model="stat.value" type="number">
             </span>
         </div>
 
         <div>
             <p v-if="proficiencyChoices">Select {{amountOfProficiencies}} Proficiencies</p>
             <span v-for="proficiency in proficiencyChoices">
-                <input class="mx-2" @change="setProficiencyChoices(proficiency)" type="checkbox"
-                    v-bind:value="proficiency.name.substr(7)" v-model="chosenProficiencies"
+                <input class="mx-2" type="checkbox" v-bind:value="proficiency.name.substr(7)"
+                    v-model="chosenProficiencies"
                     v-bind:disabled="chosenProficiencies.length === amountOfProficiencies && chosenProficiencies.indexOf(proficiency.name.substr(7)) == -1">
                 <label for="proficiency.name">{{proficiency.name.substr(7)}}</label>
             </span>
         </div>
 
+        <div class="text-center m-2">
+            <button class="btn btn-dark" @click="createCharacter(); raceBonus(); proficiencyBonus();">Create
+                Character</button>
+        </div>
+
+        <div class="" v-if="character">
+            <div class="text-center">
+                <p class="fs-2">{{charName}} Level:{{charLvl}}</p>
+                <p class="fs-4">Race: {{raceSelection}} SubRace: {{subraceSelection}}</p>
+                <p class="fs-4">Class: {{classSelection}} SubClass: {{subclassSelection}}</p>
+                <p class="fs-4">Alignment: {{alignmentSelection}}</p>
+            </div>
+
+            <div class="row text-center">
+                <div class="col border">
+                    <p>CHA: {{charStats.cha}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.cha)}}</p>
+                    <div v-for="skill in proficiencies.cha">
+                        <p v-for="[skillDesc, skillValue] of Object.entries(skill)">
+                            {{skillDesc}}: {{skillValue + savingThrows(charStats.cha)}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class=" col border">
+                    <p>CON: {{charStats.con}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.con)}}</p>
+                </div>
+
+                <div class="col border">
+                    <p>DEX: {{charStats.dex}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.dex)}}</p>
+                    <div v-for="skill in proficiencies.dex">
+                        <p v-for="[skillDesc, skillValue] of Object.entries(skill)">
+                            {{skillDesc}}: {{skillValue + savingThrows(charStats.dex)}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col border">
+                    <p>INT: {{charStats.int}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.int)}}</p>
+                    <div v-for="skill in proficiencies.int">
+                        <p v-for="[skillDesc, skillValue] of Object.entries(skill)">
+                            {{skillDesc}}: {{skillValue + savingThrows(charStats.int)}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col border">
+                    <p>STR: {{charStats.str}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.str)}}</p>
+                    <div v-for="skill in proficiencies.str">
+                        <p v-for="[skillDesc, skillValue] of Object.entries(skill)">
+                            {{skillDesc}}: {{skillValue + savingThrows(charStats.str)}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col border">
+                    <p>WIS: {{charStats.wis}}</p>
+                    <p>Saving Throw: {{savingThrows(charStats.wis)}}</p>
+                    <div v-for="skill in proficiencies.wis">
+                        <p v-for="[skillDesc, skillValue] of Object.entries(skill)">
+                            {{skillDesc}}: {{skillValue + savingThrows(charStats.wis)}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="text-center">
-            <button @click="createCharacter">Create Character</button>
-        </div>
-        <div class="col">
             <input type="text" v-model="spell">
-        </div>
-        <div class="col">
-            <button @click="findSpell">Find</button>
-        </div>
-        <div v-if="spellDesc">
-            {{spellDesc}}
+            <button class="ms-2 btn btn-dark" @click="findSpell">Find</button>
         </div>
 
-        <div v-if="spellsKnownAtlvl">
-            <p>Spells at character level</p>
-
-            <p v-for="spell in spellsKnownAtlvl">{{spell.name}}</p>
-            <hr>
-            <p v-for="spel in spellsKnown">{{spel.name}}</p>
-            <hr>
-            <p v-for="spelll in spellsAtCharLvl">{{spel.name}}</p>
+        <div v-if="spellDesc" class="text-center">
+            <h3>Spell Description</h3>
+            <p>
+                {{spellDesc.desc[0]}}
+            </p>
+            <h3>Spell usage at higher level</h3>
+            <p>
+                {{spellDesc.higher_level[0]}}
+            </p>
+            <h3>Range</h3>
+            <p>
+                {{spellDesc.range}}
+            </p>
         </div>
-    </div>
-    </div>
 
-    <script src="js/site.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+        <div class="text-center" v-if="spellsAtCharLvl">
+            <span>Spell level</span>
+            <input type="number" @change="getSpellsKnown" v-model="spellLevel">
+            <div v-for="spell in spellsAtCharLvl" class="accordion" id="accordionExample">
+                <p>{{spell.name}}</p>
+            </div>
+        </div>
+
+
+        <script src="js/site.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

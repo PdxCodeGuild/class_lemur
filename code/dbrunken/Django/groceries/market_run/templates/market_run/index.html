@@ -17,9 +17,10 @@
             {% for grocery_item in grocery_items%}
               <tr>
                 <td>
+                  {% if item.bought %}                  
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check_label" for="flexCheckDefault">
+                    <input class="form-check-input" type="checkbox" value="" id="materialUnchecked">
+                    <label class="form-check_label" for="materialUnchecked">
                     </div>
                   </td>
                   <th scope="row">{{grocery_item.id}}</th>
