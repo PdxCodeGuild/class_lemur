@@ -13,8 +13,6 @@
 <body>
 	<div id="app">
 		<h2>{{ message }}</h2>
-		<h3>'{{ qotdQuote }}'</h3>
-		<strong>-{{ qotdAuthor }}</strong>
 		<form @submit.prevent="quotes">
 			<input type="text" v-model="inputText" required>
 			<select id="type" v-model="searchType" required>
