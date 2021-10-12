@@ -1,0 +1,34 @@
+{% extends 'Poo_Talk_posts/base.html' %}
+<!-- visit https://wireframe.cc/8UeETC for how this page would eventually look -->
+
+{% block content%}
+<form action="{% url 'Poo_Talk_posts:new_post' %}" method="POST">
+    {%csrf_token %}
+    <div class="mb-3 row">
+        <label for="user" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext" id="user" value="{{ user }}">
+        </div>
+        <div class="mb-3 row">
+          <a href="{%  url 'Poo_Talk_users:login_user' %}">Login</a>
+          <a href="{% url 'Poo_Talk_users:new_user' %}">New User?</a>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="post" class="col-sm-2 col-form-label">Have to Poo to Talk?</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="post" id="post">
+        </div>
+        <div class="mb-3 row">
+            <button type="submit" class="btn btn-primary">Talk Poo</button>
+        </div>
+      </div>
+</form>
+
+<div class="container-fluid" >
+    {% for post in posts %}
+    <div>{{ post }}</div>        
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+
+<form action="{% url 'Poo_Talk_users:new_user' %}" method="POST">
+    {%csrf_token%}
+    <div class="mb-3">
+        <label for="new_user">Enter new username</label>
+        <input type="text" id="new_user" name="username"/>
+    </div>
+    <div class="mb-3">
+        <label for="password1">Enter password</label>
+        <input type="password" id="password1" rows="3" name="password1"></input>
+    </div>
+    <div class="mb-3">
+        <label for="password2">Re-enter password</label>
+        <input type="password" id="password2" rows="3" name="password2"></input>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </div>
+</form>
