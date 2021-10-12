@@ -31,7 +31,13 @@
             <h1>
 Here's where the fools chirp
             </h1>
-    </header>
+			
+				<form action="{% url 'app_chirp:landing' %}" method="post">
+					{% csrf_token %}
+					<input type="text" name="words"/>
+					<button type="submit">save</button>
+				</form>
+	</header>
     <br/>
 
 
