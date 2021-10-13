@@ -8,46 +8,135 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Teko:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Teko", sans-serif;
+      }
+      h1 {
+        font-family: "Caveat", cursive;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js" defer></script>
     <script src="https://unpkg.com/vue@next"></script>
     <title>Country Information</title>
   </head>
-  <body class="bg-gray-100 m-12">
+  <body class="bg-gray-300 m-12">
     <div id="app">
-      <h1 class="text-center m-12">Dollar Store Country Information</h1>
+      <h1 class="text-center text-4xl m-12">
+        Dollar Store Country Information
+      </h1>
       <hr />
-      <span class="h-1/6 m-12 justify-center">
+      <span class="flex h-1/6 m-12 flex-col justify-center items-center">
         <form @submit.prevent="searchCountry">
-          <input type="text" v-model="searchTerm" />
-          <input type="submit" value="Search" />
+          <input
+            type="text"
+            v-model="searchTerm"
+            placeholder="Input Search Country"
+            class="
+              py-3
+              text-lg text-center
+              rounded-full
+              border-solid border-4 border-black
+            "
+          />
+          <input
+            type="submit"
+            value="Search"
+            class="
+              bg-black
+              hover:bg-gray-500
+              ml-4
+              text-lg text-white
+              py-4
+              px-6
+              font-bold
+              rounded-full
+            "
+          />
         </form>
-      </>
-      <div v-if="searchResults.length > 1">
-        <h3>Select the country:</h3>
+      </span>
+      <div
+        v-if="searchResults.length > 1"
+        class="flex flex-col justify-center items-center"
+      >
+        <h3 class="text-2xl text-center mt-12">Select the country:</h3>
         <p v-for="result in searchResults">
-          <button @click="searchSingle">{{ result.name.official }}</button>
+          <button
+            @click="searchSingle(result.name.official)"
+            class="
+              text-center text-xl text-white
+              bg-black
+              text-center
+              rounded-full
+              border-solid
+              py-1
+              px-2
+              m-2
+              hover:bg-gray-500
+            "
+          >
+            {{ result.name.official }}
+          </button>
         </p>
       </div>
       <div v-if="searchResults === []">
         <h3>Check your spelling and try again</h3>
       </div>
       <div v-if="searchResults.length == 1" class="">
-        <h3 class="text-center">Country Details</h3>
-        <table class="table-auto shadow-2xl justify-center">
+        <h3 class="text-2xl text-center mt-12">Country Details</h3>
+        <table
+          class="
+            flex flex-col
+            justify-center
+            items-center
+            rounded-full
+            border-solid border-4 border-black
+            shadow-2xl
+            bg-gray-100
+          "
+        >
           <thead>
             <tr>
-              <th colspan="2">{{searchResults[0].name.official}}</th>
+              <th colspan="2" class="text-2xl">
+                {{searchResults[0].name.official}}
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Area:</td>
-              <td>{{searchResults[0].area}} sq kilometers</td>
+              <td>{{searchResults[0].area}} sq km</td>
             </tr>
             <tr>
               <td>Capital City:</td>
-              <td>{{searchResults[0].capital[0]}}</td>
+              <td>
+                {{searchResults[0].capital[0]}}
+                <span>
+                  <button
+                    @click="searchGoogle(searchResults[0].capital[0])"
+                    class="
+                      text-center text-xl text-white
+                      bg-black
+                      text-center
+                      rounded-full
+                      border-solid
+                      py-1
+                      px-2
+                      m-2
+                      hover:bg-gray-500
+                    "
+                  >
+                    GOOGLE
+                  </button>
+                </span>
+              </td>
             </tr>
             <tr>
               <td>Population:</td>
@@ -69,8 +158,12 @@
             </tr>
           </tbody>
         </table>
-        <div v-for="flag in searchResults[0].flags">
-          <img src="{{flag}}" alt="Country Flag" />
+        <div class="flex flex-col justify-center items-center m-12">
+          <img
+            :src="flagLink"
+            alt="Country Flag"
+            class="m-1 w-2/6 border-solid border-4 border-black shadow-2xl"
+          />
         </div>
       </div>
     </div>

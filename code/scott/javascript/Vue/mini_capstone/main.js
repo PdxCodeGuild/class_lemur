@@ -3,6 +3,7 @@ const App = {
     return {
       searchTerm: "",
       singleTerm: "",
+      googleLink:"https://www.google.com/search?q=",
       searchResults: [],
     };
   },
@@ -17,11 +18,16 @@ const App = {
         console.log(response.data);
         this.searchResults = response.data;
         this.searchTerm = "";
+        this.flagLink = this.searchResults[0].flags[0];
       });
     },
-    searchSingle() {
-      console.log(this.searchTerm);
+    searchSingle(newSearch) {
+      this.searchTerm = newSearch;
+      this.searchCountry();
     },
+    searchGoogle(city) {
+      window.open(this.googleLink + city)
+    }
   },
 };
 Vue.createApp(App).mount("#app");
