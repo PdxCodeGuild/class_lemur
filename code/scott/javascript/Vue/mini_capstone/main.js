@@ -1,30 +1,27 @@
 const App = {
-    data() {
-      return {
-        searchTerm: "",
-        searchResults: [],
-      };
+  data() {
+    return {
+      searchTerm: "",
+      singleTerm: "",
+      searchResults: [],
+    };
+  },
+
+  methods: {
+    searchCountry() {
+      console.log(this.searchTerm);
+      axios({
+        method: "GET",
+        url: "https://restcountries.com/v3/name/" + this.searchTerm,
+      }).then((response) => {
+        console.log(response.data);
+        this.searchResults = response.data;
+        this.searchTerm = "";
+      });
     },
-  
-    methods: {
-      searchAnime() {
-        console.log(this.searchTerm);
-        axios({
-          method: "POST",
-          url: "https://graphql.anilist.co/",
-          headers: {
-            Accept: 'application/vnd.api+json',
-            'Content-Type': 'application/vnd.api+json',
-          },
-          params: {
-            query: this.searchTerm,
-            variables: {page: 1, perPage: 10},
-          },
-        }).then((response) => {
-          console.log(response.data);
-        });
-      },
+    searchSingle() {
+      console.log(this.searchTerm);
     },
-  };
-  Vue.createApp(App).mount("#app");
-  
+  },
+};
+Vue.createApp(App).mount("#app");

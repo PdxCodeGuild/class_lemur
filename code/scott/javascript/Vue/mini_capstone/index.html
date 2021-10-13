@@ -4,20 +4,75 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@next"></script>
     <script src="main.js" defer></script>
-    <title>Dollar Store Anime Search</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Country Information</title>
   </head>
-  <body>
+  <body class="bg-gray-100 m-12">
     <div id="app">
-      <h1>Dollar Store Anime Search</h1>
-      <hr>
-      <form @submit.prevent="searchAnime">
-        <input type="text" v-model="searchTerm"/>
-        <input type="submit" value="Search" />
-      </form>
-      <h3>Results</h3>
+      <h1 class="text-center m-12">Dollar Store Country Information</h1>
+      <hr />
+      <span class="h-1/6 m-12 justify-center">
+        <form @submit.prevent="searchCountry">
+          <input type="text" v-model="searchTerm" />
+          <input type="submit" value="Search" />
+        </form>
+      </>
+      <div v-if="searchResults.length > 1">
+        <h3>Select the country:</h3>
+        <p v-for="result in searchResults">
+          <button @click="searchSingle">{{ result.name.official }}</button>
+        </p>
+      </div>
+      <div v-if="searchResults === []">
+        <h3>Check your spelling and try again</h3>
+      </div>
+      <div v-if="searchResults.length == 1" class="">
+        <h3 class="text-center">Country Details</h3>
+        <table class="table-auto shadow-2xl justify-center">
+          <thead>
+            <tr>
+              <th colspan="2">{{searchResults[0].name.official}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Area:</td>
+              <td>{{searchResults[0].area}} sq kilometers</td>
+            </tr>
+            <tr>
+              <td>Capital City:</td>
+              <td>{{searchResults[0].capital[0]}}</td>
+            </tr>
+            <tr>
+              <td>Population:</td>
+              <td>{{searchResults[0].population}}</td>
+            </tr>
+            <tr>
+              <td>Official Language(s):</td>
+              <td>
+                <div v-for="language in searchResults[0].languages">
+                  {{language}}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Bordering Nations:</td>
+              <td>
+                <div v-for="nation in searchResults[0].borders">{{nation}}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-for="flag in searchResults[0].flags">
+          <img src="{{flag}}" alt="Country Flag" />
+        </div>
+      </div>
     </div>
     <hr />
     <h3>Made by Jank Studios</h3>
