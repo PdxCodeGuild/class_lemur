@@ -17,6 +17,7 @@
 </head>
 <nav>
 	{% if user.is_authenticated %}
+	<a href="/"><strong>Home</strong></a>
 	<p>Welcome</p> <p><a href="{% url 'app_chirp:profile' user.id %}"></a> {{ user.username }}</a></p>
 	<p><a href="{% url 'users:logout' %}">Logout</a></p>
 	{% else %}
@@ -30,7 +31,13 @@
             <h1>
 Here's where the fools chirp
             </h1>
-    </header>
+			
+				<form action="{% url 'app_chirp:landing' %}" method="post">
+					{% csrf_token %}
+					<input type="text" name="words"/>
+					<button type="submit">save</button>
+				</form>
+	</header>
     <br/>
 
 
