@@ -3,6 +3,7 @@ from datetime import datetime
 from .models import Book, Genre, Tracking, Author, User
 from django.template import loader
 from django.urls import reverse
+from pprint import pprint as pp
 
 def index(request):
     if request.method == 'POST':
@@ -15,6 +16,6 @@ def index(request):
     books = {
         'titles':Book.objects.all(), # get all the Books 
     }
-    print(books)
+    print(books["titles"])
     return render(request, 'Lib_App/index.html', books)
     

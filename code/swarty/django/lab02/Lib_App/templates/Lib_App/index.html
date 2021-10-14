@@ -25,15 +25,27 @@
                 <th>Title</th>
                 <th>Genres</th>
                 <th>Authorship</th>
+                <th>Copies Available</th>
+                               
             </tr>
         </thead>
         <form action="{% url 'Lib_App:index' %}" method="POST"> {% csrf_token %}
         <tbody>
             {% for edition in titles %}
             <tr>
-                <td>{{edition.title}}</td>
-                <td>{{edition.book.genre}}</td>
-                <td>{{edition.book.author}}</td>
+                <td><a href="#">{{edition.title}}</a></td>
+                <td><dl>{% for genre in edition.genre.all %}
+                  <dt>{{genre}}</dt>
+                {% endfor %}</dl></td>
+                <td><dl>{% for author in edition.author.all %}
+                  <dt>{{author}}</dt>
+                {% endfor %}</dl></td>
+                <td>
+                  <dt>{{edition.copies}}</dt>
+                </td>
+                <td>
+                  <button>Checkout</button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
