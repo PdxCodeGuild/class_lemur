@@ -1,7 +1,9 @@
+let info = document.getElementsByClassName("info")
+let photo = document.getElementsByClassName("photo")
 const app = Vue.createApp({
     data() {
         return {
-                character: '',
+                selectedCharacter: null,
                 keyword: '',
                 searchResults: []
                 }
@@ -12,20 +14,21 @@ const app = Vue.createApp({
                         console.log(this.keyword)
                         axios({
                             method: 'get',
-                            url: 'https://superheroapi.com/api/5012545612091958/search/name',
-                            // headers: {
-                            //     'Authorization' : Bearer {{ 5012545612091958 }}
-                            // },
-                            // params: {
-                            //     filter: this.keyword,
-                            //     type: 'name'
-                            // }
+                            url: `https://superheroapi.com/api/5012545612091958/search/${this.keyword}`,
+                          
                         }).then(response => {
+                            this.selectedCharacter = null
                             this.searchResults = response.data.results
                             console.log(response)
 
                         })
                     },
+                    selectCharacter(character){
+                        console.log(character)
+                        this.selectedCharacter = character
+                        // photo.replace(info)
+
+                    }
                 },
 
     created() {

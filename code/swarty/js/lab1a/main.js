@@ -70,6 +70,7 @@ while (true){
     // console.log(cards, card)
     if (value1<17){
         alert(`Hit   Your Cards: ${cards}`) 
+        break
     } else if(value1>=17 && value1<=20){
         alert(`Stay Your Cards: ${cards}`)
         break

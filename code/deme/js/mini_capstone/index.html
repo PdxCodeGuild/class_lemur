@@ -4,25 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <link rel="stylesheet" href="./css/hero.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="hero.css">
+
     <title>Hero</title>
 </head>
 <body>
     <div id="app">
-        <h1>Character Search</h1>
+        <h1>CHARACTER SEARCH</h1>
 
         <form @submit.prevent="searchCharacter">
             <input type="text" placeholder="Search Character" v-model = "keyword">
             <input type="submit" value="search">
 
         </form>
-        <ul>
-            <li v-for="character in searchResults">{{ character.name }} </li>
+        <ul v-if="selectedCharacter===null">
+            <li v-for="character in searchResults" @click="selectCharacter(character)">
+                <h1>{{ character.name }}</h1>
+                <br> <img class ="photo" :src="character.image.url" alt="">
+                
+            </li>
+           
         </ul>
 
+        
+        <div class="info" v-if=selectedCharacter>
+            <p class="description">
+            <h2>Background</h2>
+            Name: {{ selectedCharacter.biography["full-name"] }} <br>
+            Alter-Ego: {{ selectedCharacter.biography["alter-ego"] }} <br>
+            First Appearance: {{ selectedCharacter.biography["first-appearance"] }} <br>
+            Publisher: {{ selectedCharacter.biography.publisher }} <br>
+
+            <h2>Appearance</h2>
+            Gender: {{ selectedCharacter.appearance.gender }} <br>
+            Race: {{ selectedCharacter.appearance.race }} <br>
+            Height: {{ selectedCharacter.appearance.height[0] }} <br>
+            Weight: {{ selectedCharacter.appearance.weight[0] }} <br>
+
+            <h2>Daytime Job</h2>
+            {{ selectedCharacter.work.occupation }} 
+
+            <h2>Base(s)</h2>
+            {{ selectedCharacter.work.base }},
+
+            <h2>Affiliation</h2>
+            {{ selectedCharacter.connections["group-affiliation"] }}  <br>
+
+        
+        </div>
     </div>
+   
+    
     <script src="https://unpkg.com/vue@next"></script>
     <script src="./js/hero.js"></script>
 </body>

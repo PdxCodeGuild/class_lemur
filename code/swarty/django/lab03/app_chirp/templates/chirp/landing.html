@@ -12,20 +12,16 @@
                 
                 <p id="quote">{{ post.body }}</p>
                 <p>{{ post.time }}</p>
+                {% if user.id == post.author.id %}
                 <a href="{% url 'app_chirp:delete' post.id %}">
-                    <button>Delete</button>
+                    <button>Delete</button>                
                 </a>
+                {% endif %}
             </block>
         </article>
     {% endfor %}
     </div>
-    <div>
-        <form action="{% url 'app_chirp:landing' %}" method="post">
-            {% csrf_token %}
-            <input type="text" name="words"/>
-            <button type="submit">save</button>
-        </form>
-    </div>
+    
 </main>
 {% else %}
 <main>
