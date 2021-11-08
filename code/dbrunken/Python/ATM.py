@@ -4,7 +4,7 @@ using a <class>, create an ATM
 '''
 
 class ATM:
-    def __init__(self, balance = 0, interest_rate= .1, transactions = []):
+    def __init__(self, balance = 0, interest_rate= .001, transactions = []):
         self.balance = balance
         self.interest_rate = interest_rate
         self.transactions = transactions
@@ -15,7 +15,7 @@ class ATM:
     def deposit(self, amount):
         self.balance += amount
         # self.transactions.append(+)
-        self.transactions.append(amount)
+        self.transactions.append(f'User deposited {amount}')
         # print()
         
     def check_withdrawl(self, amount):
@@ -29,16 +29,15 @@ class ATM:
     def withdrawl(self, amount):
         self.balance -= amount
         # self.transactions.append(-)
-        self.transactions.append(amount)
+        self.transactions.append(f'User withdrew {amount}')
         return self.balance
 
     def calc_interest(self):
-        interest = self.balance * self.interest_rate
-        self.balance += interest
-        return self.balance
+        return self.balance * self.interest_rate
     
     def call_transactions(self):
-        print(self.transactions)
+        for transaction in self.transactions:
+            print(transaction)
 
 atm = ATM()
 print("\n Welcome to Bank ATM")
@@ -72,11 +71,11 @@ while True:
     
     elif command == 'interest':
         amount = atm.calc_interest()
-        # atm.deposit(amount)
-        print(f"New balance is ${amount} from interest owed")
+        atm.deposit(amount)
+        print(f"Earned ${amount} through interest")
     
     elif command == 'transactions':
-        print(atm.call_transactions())
+        atm.call_transactions()
 
     elif command == 'exit':
         break
