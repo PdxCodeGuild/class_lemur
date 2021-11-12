@@ -16,15 +16,14 @@
 <body>
   <nav class="green lighten-4" role="navigation">
     <div class="nav-wrapper container">
-
-
-
 		{% if user.is_authenticated %}
-		<p class="brand-logo right grey-text text-darken-3">Welcome {{ user.username }}</p>
-		<a href="{% url 'users:logout' %}">Logout</a>
+		<p class="brand-logo center grey-text text-darken-3">Welcome {{ user.username }}</p>
+		<a href="{% url 'users:logout' %}" class="right grey-text text-darken-3">Logout</a>
 		{% else %}
-      <a href="{% url 'users:login' %}" class="right grey-text text-darken-3">Login</a>
-	  <a href="{% url 'users:register' %}" class="brand-logo right grey-text text-darken-3">Register</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="{% url 'users:login' %}" class="right grey-text text-darken-3">Login   </a></li>
+      <li><a href="{% url 'users:register' %}" class="right grey-text text-darken-3">Register</a></li>
+    </ul>
 	  {% endif %}
       <!-- For large Screens -->
       <ul class="left hide-on-med-and-down white-text"> 
