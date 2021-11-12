@@ -30,9 +30,9 @@ def register(request):
             user.save()
             login(request, user)
             return redirect(reverse('users_app:dashboard'))
-    elif request.method == 'GET':
-        form = UserCreationForm()
-        context = {
-            'form':form,
+    request.method == 'GET'
+    form = UserCreationForm()
+    context = {
+        'form':form,
         }
-        return render(request, 'users_app/register.html', context)
+    return render(request, 'users_app/register.html', context)
