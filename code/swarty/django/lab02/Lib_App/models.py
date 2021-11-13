@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from datetime import date, datetime, timedelta
 from django.contrib.auth.models import User
+import uuid
+from django.urls import reverse
 
 
 def get_due_date():
@@ -13,11 +15,12 @@ class Book(models.Model):
     pubdate=models.DateField()
     genre=models.ManyToManyField('Genre', 'title')
     author=models.ManyToManyField('Author', 'title')
-    CHOICES = [(i,str(i)) for i in range(1,11)]
-    copies=models.SmallIntegerField(choices=CHOICES, default=1)
-
-    def __str__(self):
-        return self.title
+    # CHOICES = [(i,str(i)) for i in range(1,11)]
+    # copies=models.SmallIntegerField(choices=CHOICES, default=1)
+    checked_out=models.BooleanField(default=False)
+    
+    def get_absolute_url(self):
+        return reverse('book-detail', args=[str(self.id)])
 
 class Author(models.Model):
     first_name = models.CharField('First Name', max_length=40)
@@ -27,12 +30,19 @@ class Author(models.Model):
         return self.pen_name
 
 class Tracking(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique ID for this particular book across whole library')
     title = models.ManyToManyField(Book, related_name='state')
     date_out =models.DateField('Date Checkout Out', default=date.today())
     due=models.DateField('Due Date',default= get_due_date)
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, related_name='patron')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='patron')
     def __str__(self):
         return f'{self.user}; checked: {self.title}'
+    
+    @property
+    def is_overdue(self):
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
 class Genre(models.Model):
     name=models.CharField('Genre', max_length=20)
     def __str__(self):

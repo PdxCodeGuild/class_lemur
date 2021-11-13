@@ -25,7 +25,7 @@
                 <th>Title</th>
                 <th>Genres</th>
                 <th>Authorship</th>
-                <th>Copies Available</th>
+                <th>Availability</th>
                                
             </tr>
         </thead>
@@ -33,7 +33,7 @@
         <tbody>
             {% for edition in titles %}
             <tr>
-                <td><a href="#">{{edition.title}}</a></td>
+                <td><a href=#>{{ edition.title }}</a></td>
                 <td><dl>{% for genre in edition.genre.all %}
                   <dt>{{genre}}</dt>
                 {% endfor %}</dl></td>
@@ -44,7 +44,14 @@
                   <dt>{{edition.copies}}</dt>
                 </td>
                 <td>
-                  <button>Checkout</button>
+                  {% if user.is_authenticated %}
+                    {% if edition.checked_out == False %}
+                      <button type="submit" value={{edition.id}},{{user.id}}>Check-out</button>
+                    {% endif %}
+                    {% if edition.checked_out == True %}
+                      <button type ="submit" value={{edition.id}},{{user.id}}>Check-in</button>
+                    {% endif %}
+                  {% endif %}
                 </td>
             </tr>
             {% endfor %}
