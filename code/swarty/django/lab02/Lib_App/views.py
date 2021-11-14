@@ -7,11 +7,13 @@ from django.views import generic
 
 def index(request):
     if request.method == 'POST':
-        
-        if Book.checked_out == True:
-            Book.checked_out == False
-        if Book.checked_out == False:
-            Book.checked_out == True
+        bookid=Book.objects.get(pk=request.POST['checkout'])
+        print(bookid.checked_out)
+        if bookid.checked_out == True:
+            bookid.checked_out=False
+        else:
+            bookid.checked_out = True
+        bookid.save()
 
     num_books = Book.objects.all().count()
     num_authors = Author.objects.count()

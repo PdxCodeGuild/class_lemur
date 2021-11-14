@@ -46,10 +46,10 @@
                 <td>
                   {% if user.is_authenticated %}
                     {% if edition.checked_out == False %}
-                      <button type="submit" value={{edition.id}},{{user.id}}>Check-out</button>
+                      <button type="submit" name="checkout" value={{edition.id}}>Check-out</button>
                     {% endif %}
                     {% if edition.checked_out == True %}
-                      <button type ="submit" value={{edition.id}},{{user.id}}>Check-in</button>
+                      <button type ="submit" name="checkout" value={{edition.id}}>Check-in</button>
                     {% endif %}
                   {% endif %}
                 </td>
