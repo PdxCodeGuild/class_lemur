@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dollar Store Todo App</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <div id="app">
@@ -25,6 +25,7 @@
       <h2>Completed List</h2>
       <ul>
         <li v-for="item in completeItems">
+          <ul> {{item.name}} </ul>
         </li>
       </div>
   </body>
