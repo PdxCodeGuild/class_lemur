@@ -14,14 +14,15 @@
             </tr>
           </thead>
           <tbody>
-            {% for grocery_item in grocery_items%}
+            {% for grocery_item in grocery_items %}
               <tr>
                 <td>
                   {% if item.bought %}                  
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="materialUnchecked">
                     <label class="form-check_label" for="materialUnchecked">
-                    </div>
+                  </div>
+                  {% endif %}
                   </td>
                   <th scope="row">{{grocery_item.id}}</th>
                     <td>{{ grocery_item.item }}</td>
