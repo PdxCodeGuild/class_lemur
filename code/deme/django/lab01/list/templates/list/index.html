@@ -2,7 +2,7 @@
 
 {% block body %}
 <h1>Grocery List</h1>
-<p>{{ grocery_list }}</p>
+<!-- <p>{{ grocery_list }}</p> -->
 {% for item in grocery_list %}
     <li>
 		<span {% if item.completed %} class="completed" {% endif %}>

@@ -1,12 +1,21 @@
 import requests
 import json
-response = requests.get('https://icanhazdadjoke.com', headers = {'accept': 'application/json'})
+# response = requests.get('https://icanhazdadjoke.com', headers = {'accept': 'application/json'})
+# data = response.json()
+# print(data['joke'])
+
+# headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+
+search = input("Search for a joke\n")
+response = requests.get('https://icanhazdadjoke.com/search', headers = {'Accept': 'application/json'}, params={'term' : search})
 data = response.json()
-print(data['joke'])
+print(data)
+# data = data['results']
 
-headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+# for joke in data:
+#     print(joke['joke'])
 
-search = input("Search for a joke")
+################ end point
 
 
 

@@ -14,6 +14,7 @@ version1.appendChild(averageNum)
 //                  Version2
 let numForm = document.getElementById('numForm')
 let numList = document.getElementById('numList')
+let resultDiv = document.getElementById('resultDiv')
 let numListForm = document.getElementById('numListForm')
 let numbers = document.getElementById('numbers')
 let nums = []
@@ -36,7 +37,8 @@ doneForm.addEventListener('submit', function(event) {
         sum = sum + +nums[i]
     }
     sum = sum/nums.length
-    alert(`The average number is ${sum}`)
+    resultDiv.innerText = `The average number is ${sum}.`;
+    
 })
 
 

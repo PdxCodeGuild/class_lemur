@@ -1,8 +1,19 @@
 <h1>Anagram</h1>
 
 <form action="/anagram/" method="post">
-    <input type="text" placeholder="first word" name="first_word"> 
-    <input type="text" placeholder="second word" name="second_word">
+    <input type="first_word" placeholder="first word" name="first_word"> 
+    <input type="second_word" placeholder="second word" name="second_word">
     <input type="submit" value="convert">
     
 </form>
+
+
+{% if first_word and second_word %}
+
+<p>{{ first_word }} and {{ second_word}} are {{ anagram }}</p>
+
+{% else %}
+
+<p>{{ first_word }} and {{ second_word}} are {{ anagram }}</p>
+
+{% endif %}

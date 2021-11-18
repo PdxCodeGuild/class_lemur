@@ -1,10 +1,13 @@
 <h1>Unit Converter</h1>
 
 <form action="/unit-converter/" method="post">
-    <input type="text" placeholder="Distance" name="Distance"> 
-    <input type="text" placeholder="Unit of Measurement" name="Units">
+    <input type="distance1" placeholder="Distance" name="Distance"> 
+    <input type="unit1" placeholder="Unit of Measurement" name="Units">
+    <input type="distance2" placeholder="Conversion Distance" name="Conversion Distance"> 
+    <input type="unit2" placeholder="Conversion Unit of Measurement" name="Conversion Units">
+
     <input type="submit" value="convert">
     
 </form>
-<h2>{{conversion}}</h2>
+<h2>{{ conversion }}</h2>
 

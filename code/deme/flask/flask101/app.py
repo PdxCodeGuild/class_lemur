@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index(): #this is the index view
     return render_template('index.html')
 
-@app.route('/emoticon_generator/')
+@app.route('/emoticon-generator/')
 def emoticon_generator():
     emoticon='???'
     eyes  = [':', ';', '8', '=']
@@ -25,3 +25,4 @@ def guess_the_number_guess(guess):
         guess_result = 'low'
         return render_template('guess-the-number-guess.html', guess_result=guess_result)
 app.run(debug=True)
+

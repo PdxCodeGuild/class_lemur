@@ -12,14 +12,14 @@ new Vue({
             this.todo.push({newItem: this.addNewItem })
         },
         Remove () {
-            this.todo.pop({newItem: this.addNewItem })
-            this.completed.pop({newItem: this.addNewItem })
+            this.todo({newItem: this.addNewItem})
+            this.completed({newItem: this.addNewItem})
 
           },
         Complete () {
             this.completed.push({newItem: this.addNewItem })
-            this.todo.pop({newItem: this.addNewItem })
+            this.todo.splice({newItem: this.addNewItem })
         },
     }
- 
+ //index for splice
 })
