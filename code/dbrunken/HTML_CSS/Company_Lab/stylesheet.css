@@ -11,6 +11,16 @@ main {
     background-color: cadetblue;
 }
 
+just_landed {
+    display: flex;
+    align-items: center;
+}
+
+en_route {
+    display: flex;
+    align-items: center;
+}
+
 #h1 {
     display: flex;
     justify-content: center;

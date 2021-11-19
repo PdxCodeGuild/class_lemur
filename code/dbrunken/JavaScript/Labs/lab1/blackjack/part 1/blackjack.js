@@ -25,8 +25,17 @@ const hand = [card1, card2, card3]
 let total = 0
 
 for (let i=0; i<3; ++i) {
-    alert(hand[i])
     total += deck[hand[i]]
 }
 
 alert('your total is: ' + total)
+
+if (total < 17) {
+    alert('hit')
+} else if (total < 21) {
+    alert('stay')
+} else if (total === 21) {
+    alert('blackjack')
+} else {
+    alert('bust')
+}
