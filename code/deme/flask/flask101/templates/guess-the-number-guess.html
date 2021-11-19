@@ -1,8 +1,13 @@
 <h1>Guess the Number Results</h1>
 <p>
-<a href="/guess-the-number/<int:guess>"></a>
+<!-- <a href="/guess-the-number/<int:guess>"></a>
 <h3>Your number is: {{guess}}</h3>
-<h3>{{ guess_result }}</h3>
+<h3>{{ guess_result }}</h3> -->
+<form action = "/unit-converter/" method = "POST">
+    <input name = "guess" placeholder = "Guess number: " type = "number">
+    <input type="submit" value="submit">
+</form>
 
+{{guess_result}}
 
 </p>

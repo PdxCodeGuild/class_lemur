@@ -6,14 +6,21 @@ import json
 
 # headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 
-search = input("Search for a joke\n")
-response = requests.get('https://icanhazdadjoke.com/search', headers = {'Accept': 'application/json'}, params={'term' : search})
-data = response.json()
-print(data)
-# data = data['results']
+search = input("Search for a joke or enter 'done' to exit:\n ")
+repeat = True
+while repeat == True: 
+    if search != "done":
+        response = requests.get('https://icanhazdadjoke.com/search', headers = {'Accept': 'application/json'}, params={'limit' : 25, 'term' : search })
+        data = response.json()
+        # print(data)
+        # data = data['results']
 
-# for joke in data:
-#     print(joke['joke'])
+        for joke in data['results']:
+            print(joke['joke'])
+    else:
+        break
+    
+
 
 ################ end point
 

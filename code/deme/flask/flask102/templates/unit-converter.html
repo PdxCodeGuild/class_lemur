@@ -1,13 +1,10 @@
 <h1>Unit Converter</h1>
 
-<form action="/unit-converter/" method="post">
-    <input type="distance1" placeholder="Distance" name="Distance"> 
-    <input type="unit1" placeholder="Unit of Measurement" name="Units">
-    <input type="distance2" placeholder="Conversion Distance" name="Conversion Distance"> 
-    <input type="unit2" placeholder="Conversion Unit of Measurement" name="Conversion Units">
+<h2>Feet to Meters</h3>
 
-    <input type="submit" value="convert">
-    
+<form action = "/unit-converter/" method = "POST">
+    <input name = "feet" placeholder = "Number of feet: " type = "number">
+    <input type="submit" value="submit">
 </form>
-<h2>{{ conversion }}</h2>
 
+<h3>{{ meters }} meters</h3>

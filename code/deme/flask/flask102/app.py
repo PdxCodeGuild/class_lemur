@@ -6,32 +6,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/unit-converter/', methods=['GET', 'POST'])
+@app.route('/unit-converter/', methods=['GET','POST'])
 def unit_converter():
-    mea = {
-        'feet': 0.3048,
-        'meter': 1,
-        'mi': 1609.34,
-        'km': 1000,
-        'yard': 0.0254,
-        'inch': 0.0254
-        }
-    if request.method=='POST':
-        print(request.form)
-        # data = dict(request.form)
-        distance1 = int(request.form.get("distance1"))
-        distance2 = int(request.form.get("distance2"))
-        unit1 = request.form.get("unit1")
-        unit2 = request.form.get("unit2")
-        distance2 = distance1 * mea[unit1]
-        conversion = distance2 / mea[unit2]
-        
-
-        # if units in mea:
-        #     conversion = mea[units] * int(distance)
-        #     print(conversion)
-
-        return render_template('unit-converter.html', distance1 = distance1, distance2 = distance2, unit1 = unit1, unit2 = unit2, conversion = conversion)
+    if request.method == 'POST':
+        meters = float(request.form.get('feet')) * 0.3048
+        return render_template('unit-converter.html',  meters = meters)
     return render_template('unit-converter.html')
 
     ## different return lines for post and get
