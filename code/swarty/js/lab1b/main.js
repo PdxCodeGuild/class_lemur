@@ -67,9 +67,11 @@ console.log(input1.value.toUpperCase(),"input1")
 const output = document.querySelector('#output')
 
 button.addEventListener('click', function () {
+    value1=0
+    cards=[]
     console.log(input1.value.toUpperCase(),"input1func")
     cards.push(input1.value.toUpperCase(),input2.value.toUpperCase(),input3.value.toUpperCase())
-    while (true){
+    while (cards[i]){
         if (faces.includes(cards[i])){
             value1+=10
         } else if (cards[i]=="A"){
@@ -77,23 +79,15 @@ button.addEventListener('click', function () {
         } else {
             value1+=parseInt(cards[i])
         }
-        console.log(value1, "value1")
         i+=1
-        // console.log(cards, card)
-        if (value1<17){
-            output.innerText =`Hit   Your Cards: ${cards}` 
-            break
-        } else if(value1>=17 && value1<=20){
-            output.innerText =`Stay Your Cards: ${cards}`
-            break
-        } else if (value1==21){
-            output.innerText =`BLACKJACK!!! Your Cards: ${cards}`
-            break
-        } else{
-            output.innerText =`BUSTED!!! Your Cards: ${cards}`
-            break
-        }
-    }    
+    } 
+    if (value1<17){
+        output.innerText =`Hit   Your Cards: ${cards}` 
+    } else if(value1>=17 && value1<=20){
+        output.innerText =`Stay Your Cards: ${cards}`
+    } else if (value1==21){
+        output.innerText =`BLACKJACK!!! Your Cards: ${cards}`
+    } else{
+        output.innerText =`BUSTED!!! Your Cards: ${cards}`
+    }
 })
-
-
