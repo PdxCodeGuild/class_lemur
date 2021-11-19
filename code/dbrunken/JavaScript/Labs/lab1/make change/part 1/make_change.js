@@ -35,10 +35,10 @@ function change(userChange) {
     return {quarters, dimes, nickels, pennies}
 }
 const changeData = change(usersChange)
-alert(`${changeData.quarters}` + " are your remaining quarters.")
-alert(`${changeData.dimes}` + " are your remaining quarters.")
-alert(`${changeData.nickels}` + " are your remaining quarters.")
-alert(`${changeData.pennies}` + " are your remaining quarters.")
+alert(`${changeData.quarters}` + " quarters remain.")
+alert(`${changeData.dimes}` + " dimes remain.")
+alert(`${changeData.nickels}` + " nickles remain.")
+alert(`${changeData.pennies}` + " pennies remain.")
 
 
 
