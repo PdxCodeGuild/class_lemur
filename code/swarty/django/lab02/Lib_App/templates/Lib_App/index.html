@@ -43,13 +43,19 @@
                 <td>
                   <dt>{{edition.copies}}</dt>
                 </td>
+                <!-- <td>
+                  <dt>
+                    {% for trace in traces %}
+                    {{ trace.title.title }}
+                    {% endfor %}
+                  </dt>
+                </td> -->
                 <td>
                   {% if user.is_authenticated %}
                     {% if edition.checked_out == False %}
-                      <button type="submit" name="checkout" value={{edition.id}}>Check-out</button>
-                    {% endif %}
-                    {% if edition.checked_out == True %}
-                      <button type ="submit" name="checkout" value={{edition.id}}>Check-in</button>
+                      <a href= "{% url 'Lib_App:checkout' edition.id %}">Check-out</a>
+                    {% else %}
+                      <a href= "{% url 'Lib_App:checkin' edition.id %}">Check-in</a>
                     {% endif %}
                   {% endif %}
                 </td>

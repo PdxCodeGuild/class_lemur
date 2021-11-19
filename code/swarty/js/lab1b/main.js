@@ -90,5 +90,4 @@ button.addEventListener('click', function () {
     } else{
         output.innerText =`BUSTED!!! Your Cards: ${cards}`
     }
-    
 })
