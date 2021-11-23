@@ -18,6 +18,13 @@ Vue.createApp({
                 isComplete: false
             })
         },
+        incompleteItem (todo) {
+            this.todos.push(todo)
+            todo.isComplete = false
+            let index = this.doneDo.indexOf(todo)
+            console.log(index)
+            this.doneDo.splice(index, 1)
+        },
         doneItem (todo) {
             this.doneDo.push(todo)
             todo.isComplete = true

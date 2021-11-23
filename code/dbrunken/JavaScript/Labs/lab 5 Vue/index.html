@@ -21,7 +21,8 @@
         </ul>
         <ul>
             <h3>Done Tasks</h3>
-            <li v-for="done in doneDo" >{{ done.item }}
+            <li v-for="done in doneDo">{{ done.item }}
+                <button v-if="doneDo" class="btn-primary btn-sm" @click="incompleteItem(done)">Incomplete</button>
                 <button v-if="doneDo" class="btn-dark btn-sm" @click="deleteItem(done)">Delete</button>
             </li>
         </ul>
