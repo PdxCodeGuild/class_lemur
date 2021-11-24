@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/index.css">
+    <title>HTML Lab 2</title>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>War Words</h1>
+  </div>
+
+  {% for blogs in blog %}
+
+        <div class="card">
+                <h3>Title: {{ blogs['title'] }}</h3>
+                <p>Author: {{ blogs['author'] }}</p>
+                <p>Date: {{ blogs['date'] }}</p>
+                <img src="{{ blogs['image'] }}" alt="" />
+                <p>{{ blogs['body'] }}</p>
+            
+          </div>
+
+        {% endfor %}
+
+<div class = "footerdiv">
+    <p> Author: Demetric Simmons</p>
+    <p><a href="name@blogname.com">Blog Email</a></p>
+    <p>555-555-2345</p>
+    <p>2021 Copyright</p>
+</div>
+</body>
+</html>

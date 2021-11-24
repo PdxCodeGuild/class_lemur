@@ -12,10 +12,16 @@
 <body>
     <div id="app">
         <h1>Quotes</h1>
-        <h2>{{ quote.body }} <br> - {{ quote.author }}</h2>
+        <h2 v-for="quotes in quote">"{{ quote.body }}" - {{ quote.author }} </h2>
 
         <form @submit.prevent="searchQuote">
             <input type="text" placeholder="Search by keyword" v-model="keyword">
+            <input type="submit" value="search">
+        </form>
+        <br>
+
+        <form @submit.prevent="searchTag">
+            <input type="text" placeholder="Search by tag" v-model="tag">
             <input type="submit" value="search">
         </form>
         <br>
@@ -29,8 +35,9 @@
             <li v-for="quote in quoteResults">{{ quote.body }} | {{ quote.author}}</li>
         </ul>
 
-        
-        <button id="next">Next</button>
+        <button @click="prevPage">Back</button>
+        <br>
+        <button @click="nextPage">Next</button>
         
     </div>
 

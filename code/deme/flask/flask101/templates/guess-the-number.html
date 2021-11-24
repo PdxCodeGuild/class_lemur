@@ -1,6 +1,19 @@
-<h1>Guess The Number</h1>
-<p>
-<a href="/guess-the-number">Guess the Number</a>
-<h3>{{ guess }}</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+<body>
+    <h1>Guess The Number</h1>
+<form action = "/guess-the-number/" method = "POST">
+    <input name = "guess" placeholder = "Guess number: " type = "number">
+    <input type="submit" value="submit">
+</form>
 
-</p>
+{{guess_result}}
+    
+</body>
+</html>
