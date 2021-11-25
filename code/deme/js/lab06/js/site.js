@@ -7,8 +7,6 @@ const app = Vue.createApp({
                 tag: '',
                 author: '',
                 pageNum: 1,
-                nextPage:'',
-                prevPage: '',
                 type: ''
                 }
             },
@@ -82,80 +80,46 @@ const app = Vue.createApp({
 
 
                         })
+                        
                     },
-
-                    prevPage: function() {
-
-                        this.pageNum -= 1
             
-                        if (this.keyword != '') {
-                            this.prevPage = 'https://favqs.com/api/quotes/?'
-                            this.type = this.keyword
-                        } 
-                        else if (this.tag != '') {
-                            this.prevPage = 'https://favqs.com/api/quotes/?filter=filter&type=tag'
-                            this.type = this.tag
-                        }
-                        else if (this.author != '') {
-                            this.prevPage = 'https://favqs.com/api/quotes/?filter=filter&type=author'
-                            this.type = this.author
-                        }
-            
-            
-            
+                    prevPage() {
+                        this.pageNum--
+                        this.type = type
                         axios({
-                            method: 'get',
-                            url: this.nextPage,
-                            headers: {
-                                Accept: 'application/json',
-                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
-                            },
-                            params: {
-                                filter: this.type,
-                                page: this.pageNum
-                            },
-                        }).then(response => {
-                            console.log(response.data)
-                            this.quoteResults = response.data.quotes
-                            this.pageNum = response.data.page
-            
-                        })
-            
-                    },
-                    nextPage: function() {
-    
-                        this.pageNum += 1
-                        if (this.keyword != '') {
-                            this.nextPage = 'https://favqs.com/api/quotes/?'
-                            this.type = this.keyword
-                        } 
-                        else if (this.tag != '') {
-                            this.nextPage = 'https://favqs.com/api/quotes/?filter=filter&type=tag'
-                            this.type = this.tag
-                        }
-                        else if (this.author != '') {
-                            this.nextPage = 'https://favqs.com/api/quotes/?filter=filter&type=author'
-                            this.filter = this.author
-                        }
-            
+                          method: "get",
+                          url: "https://favqs.com/api/quotes/",
+                          headers: {
+                            Accept: 'application/json',
+                            Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                          },
+                          params: {
+                            filter: this.keyword,
+                            type: this.type,
+                            page: this.pageNum,
+                          },
+                        }).then((response) => {
+                          this.quoteResults = response.data.quotes
+                        });
+                      },
+                      nextPage() {
+                        this.pageNum++
                         axios({
-                            method: 'get',
-                            url: this.nextPage,
-                            headers: {
-                                Accept: 'application/json',
-                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
-                            },
-                            params: {
-                                filter: this.type,
-                                page: this.pageNum
-                            },
-                        }).then(response => {
-                            console.log(response.data)
-                            this.quoteResults = response.data.quotes
-                            this.pageNum = response.data.page
-            
-                        })
-                    }
+                          method: "get",
+                          url: "https://favqs.com/api/quotes/",
+                          headers: {
+                            Accept: 'application/json',
+                            Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                          },
+                          params: {
+                            filter: this.keyword,
+                            type: this.type,
+                            page: this.pageNum,
+                          },
+                        }).then((response) => {
+                          this.quoteResults = response.data.quotes
+                        });
+                      },
                 },
 
     created() {

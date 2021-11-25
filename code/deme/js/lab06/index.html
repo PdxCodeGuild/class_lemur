@@ -35,9 +35,9 @@
             <li v-for="quote in quoteResults">{{ quote.body }} | {{ quote.author}}</li>
         </ul>
 
-        <button @click="prevPage">Back</button>
+        <button @click="prevPage">{{ pageNum }} | Back</button>
         <br>
-        <button @click="nextPage">Next</button>
+        <button @click="nextPage">{{ pageNum }} | Next</button>
         
     </div>
 
