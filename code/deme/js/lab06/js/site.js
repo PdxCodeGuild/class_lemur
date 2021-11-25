@@ -28,7 +28,6 @@ const app = Vue.createApp({
                     },
 
                     searchQuote() {
-                        console.log(this.keyword)
                         axios({
                             method: 'get',
                             url: 'https://favqs.com/api/quotes',
@@ -50,26 +49,25 @@ const app = Vue.createApp({
                     searchTag() {    
                         axios({
                             method: 'get',
-                            url: 'https://favqs.com/api/quote_id/tag',
+                            url: 'https://favqs.com/api/quotes/?filter=filter&type=tag',
                             headers: {
-                                'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
                             },
                             params: {
                                 filter: this.tag,
                                 type: 'tag'
                             },
                         }).then(response => {
-                            console.log(response.data)
-                            this.foundQuotes = response.data.quotes
-                            this.pageNumber = response.data.page
+                            this.quoteResults = response.data.quotes
+                            this.pageNum = response.data.page
                         })
                     },
 
                     searchAuthor() {
-                        console.log(this.author)
                         axios({
                             method: 'get',
-                            url: 'https://favqs.com/api/quote_id/author',
+                            url: 'https://favqs.com/api/quotes/?filter=filter&type=author',
                             headers: {
                                 Accept: 'application/json',
                                 Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
@@ -80,7 +78,8 @@ const app = Vue.createApp({
                             }
                         }).then(response => {
                             this.quoteResults = response.data.quotes
-                            console.log(response)
+                            this.pageNum = response.data.page
+
 
                         })
                     },
@@ -108,7 +107,8 @@ const app = Vue.createApp({
                             method: 'get',
                             url: this.nextPage,
                             headers: {
-                                'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
                             },
                             params: {
                                 filter: this.type,
@@ -142,7 +142,8 @@ const app = Vue.createApp({
                             method: 'get',
                             url: this.nextPage,
                             headers: {
-                                'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"',
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
                             },
                             params: {
                                 filter: this.type,

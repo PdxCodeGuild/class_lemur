@@ -4,12 +4,13 @@ new Vue({
         message: 'Todo List',
         todo: [],
         completed: [],
-        addNewItem: ''
+        addNewItem: '',
+
     },
     methods: {
-
+        i=0,
         addToListForm() {
-            this.todo.push({newItem: this.addNewItem })
+            this.todo.push({newItem: this.addNewItem})
         },
         Remove () {
             this.todo.splice({newItem: this.addNewItem}, 1)

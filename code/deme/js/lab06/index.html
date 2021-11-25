@@ -12,7 +12,7 @@
 <body>
     <div id="app">
         <h1>Quotes</h1>
-        <h2 v-for="quotes in quote">"{{ quote.body }}" - {{ quote.author }} </h2>
+        <h2 v-for="quotes in quote">"{{ quotes.body }}" - {{ quotes.author }} </h2>
 
         <form @submit.prevent="searchQuote">
             <input type="text" placeholder="Search by keyword" v-model="keyword">
