@@ -38,12 +38,13 @@ let nums10s = {
     9:'ninety'
 }
 
-let x = prompt('give a number: ')
-function convert (num) {
-    
-    let place100 = Math.floor(x)
-    let place10 = Math.floor(x % 100)
-    let place1 = x % 10
+
+function convert () {
+    let num = document.getElementById('userInput').value
+  
+    let place100 = Math.floor(num)
+    let place10 = Math.floor(num % 100)
+    let place1 = num % 10
 
     const ones =  nums01s[place1]
     const tens = nums10s[place10]
@@ -51,18 +52,17 @@ function convert (num) {
 
     // console.log(x.length)
     if (num.length == 1) {
-       alert(nums01s[num])
-        // alert('hi')
+       document.getElementById('answer').innerHTML = nums01s[num]
+       
+        // alert('hi')101
     } else if (num.length == 2) {
         console.log('work', num[0])
         if (num > 9 && num < 20  ) {
-           alert(teens[num])
            document.getElementById('answer').innerHTML = teens[num]
         } else if (num > 19 && num < 100) {
             let x = num[0]
             let y = num[1]
             console.log(x,y)
-           alert(nums10s[x] + nums01s[y])
            document.getElementById('answer').innerHTML =nums10s[x] + nums01s[y]
         }
     } else if (num.length == 3){
@@ -74,21 +74,14 @@ function convert (num) {
         if (num > 99) {
             console.log(b)
             if (b > 1 && b != 0) {
-                alert(nums01s[a] + ' hundred ' + nums10s[b] + nums01s[c])
                 document.getElementById('answer').innerHTML = nums01s[a] + ' hundred ' + nums10s[b] + nums01s[c]
             }
             if (b == 0){
-                alert(nums01s[a] + ' hundred and ' +  nums01s[c])
-                alert('test2')
                 document.getElementById('answer').innerHTML = nums01s[a] + ' hundred and ' +  nums01s[c]
             }
             if (b < 2  && b != 0) {
-                alert(nums01s[a] + ' hundred ' +  teens[teen_num])
-                alert('test3')
                 document.getElementById('answer').innerHTML = nums01s[a] + ' hundred ' +  teens[teen_num]
             }
         }
     }
 }
-
-convert(x)
