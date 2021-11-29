@@ -32,3 +32,8 @@ h3, a {
 a:visited {
     color: #ec2d01;
 }
+
+li {
+    list-style: lower-greek;
+    color: yellowgreen;
+}

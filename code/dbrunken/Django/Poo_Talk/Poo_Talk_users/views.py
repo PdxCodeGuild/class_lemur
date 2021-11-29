@@ -30,10 +30,11 @@ def new_user(request):
 
         if password1 == password2:
             user = User.objects.create_user(
-                username, password1
+                username=username,
+                password=password1
             )
 
             login(request, user)
-            return redirect('Poo_Talk_users:login_user')
+            return redirect('Poo_Talk_posts:index')
     
     return render(request, 'Poo_Talk_users/new_user.html')

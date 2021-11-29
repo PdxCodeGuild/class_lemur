@@ -15,7 +15,7 @@ contact_list = [
 from os import name
 
 
-with open('contact_list.csv', 'r') as file:
+with open('code\dbrunken\Python\contact_list.csv', 'r') as file:
     contacts = file.read().split('\n')
     # print(contacts)
 
@@ -30,24 +30,35 @@ for contact in contacts:
     # print(contact)
     contact_dict = dict(zip(headers, contact))
     contact_list.append(contact_dict)
-# print(contact_list)
 
-# contacts = list(contacts)
-# print(contacts)
-
+unlisted_contacts = ','.join(headers)
+for contact in contact_list:
+    unlisted_contacts += '\n'
+    values = list(contact)
+    unlisted_contacts == ','.join(values)
 
 while True:
-    # print(contact_list)no
-    user_in = input('Add, Retrieve, Update, or Delete from the list? ')
+    user_in = input('Add, Retrieve, Update, Delete or View from the list? ')
     no = 'no'
     add = 'add'
     update = 'update'
     retrieve = 'retrieve'
     delete = 'delete'
+    view = 'view'
+
+
+    #save contacts to list
     if user_in == 'no':
-        print('goodbye')
+        with open('code\dbrunken\Python\contact_list2.csv', 'w') as file:
+            file.write(','.join(headers))
+            file.write('\n')
+            for i in range(len(contact_list)):
+                person = contact_list[i].values()
+                output = ','.join(person)
+                file.write(output)
+                file.write('\n')
         break
-    
+
     #----------Add Contact-------------#
     elif user_in == add:
         user_name = input("\nWho would you like to add? ")
@@ -55,9 +66,9 @@ while True:
         user_city= input("\nWhere do they live? ")
         user_occ= input("\nWhat do they do? ")
         user_dict = dict(zip(headers, [user_name.title(), user_number, user_city, user_occ]))
-        print(user_dict, 'user_dict')
+        print(user_dict)
         contact_list.append(user_dict)
-        print('\n', contact_list, 'contact list')
+        # print('\n', contact_list)
   
     #----------Retrieve Contact---------#
     elif user_in == retrieve:
@@ -66,8 +77,6 @@ while True:
             # print(contact[name], 'contact')
             if contact['name'] == fetch_name.title():
                 print('\n', contact, '\n')
-            else:
-                print('something went wrong')
     #----------Update Contact-----------#
     elif user_in == update:
         fetch_name = input("\n Who's contact needs to be updated? ")
@@ -75,7 +84,7 @@ while True:
             if contact['name'] == fetch_name.title():
                 print(contact)
                 new_update = input('\n What needs to be updated? name, numbers, city, or occupation: ')
-                contact[new_update] = input('\n Enter new information: ')
+                
                 updated_contact = contact
                 print(updated_contact)
 
@@ -97,5 +106,10 @@ while True:
                 contact_list.remove(contact)
                 print(contact_list)
 
+    elif user_in == view:
+        print(contact_list)
+        print(unlisted_contacts)
+        print(contact_dict)
+    
     else:
         print("don't recognize that command")  

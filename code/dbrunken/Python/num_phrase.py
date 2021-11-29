@@ -55,9 +55,9 @@ def convert(num):
     hundreds = nums_1s[place100]
 
     if num < 100:
-        if tens == 1:
-            tens = teens[place1]
-            return tens
+        if place10 == 1:
+            teen = teens[place1]
+            return teen
         return tens + '-' + ones
     
     if place10 == 1:
