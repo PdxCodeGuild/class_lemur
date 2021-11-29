@@ -11,25 +11,33 @@
               <th scope="col">Item</th>
               <th scope="col">Date Added</th>
               <th scope="col">Date bought</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             {% for grocery_item in grocery_items %}
               <tr>
-                <td>
-                  {% if item.bought %}                  
+                <td>                
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="materialUnchecked">
-                    <label class="form-check_label" for="materialUnchecked">
+                    <form action="{% url 'market_run:bought' grocery_item.id %}">
+                      {% csrf_token %}
+                      <input type="submit" class="btn btn-primary" value="Bought" id="bought">
+                    </form>
                   </div>
-                  {% endif %}
-                  </td>
                   <th scope="row">{{grocery_item.id}}</th>
                     <td>{{ grocery_item.item }}</td>
                     <td>{{ grocery_item.date_added }}</td>
                     <td>{{ grocery_item.date_bought }}</td>
+                    <td>{{ grocery_item.id }}</td>
+                    <td>
+                      <form action="{% url 'market_run:delete_item' grocery_item.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-primary" value="Remove" id="delete_item">
+                      </form>                      
+                    </td>
                   </label>
-            </tr>
+                </td>
+              </tr>
             {% endfor %}
           </tbody>
     </table>

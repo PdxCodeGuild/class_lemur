@@ -15,7 +15,7 @@ contact_list = [
 from os import name
 
 
-with open('contact_list.csv', 'r') as file:
+with open('code\dbrunken\Python\contact_list.csv', 'r') as file:
     contacts = file.read().split('\n')
     # print(contacts)
 
@@ -49,12 +49,16 @@ while True:
 
     #save contacts to list
     if user_in == 'no':
-        print(unlisted_contacts)
-        with open('contact_list2.csv', 'w') as file:
-            file.write(unlisted_contacts)
-        # print(','.join(contact_list))
+        with open('code\dbrunken\Python\contact_list2.csv', 'w') as file:
+            file.write(','.join(headers))
+            file.write('\n')
+            for i in range(len(contact_list)):
+                person = contact_list[i].values()
+                output = ','.join(person)
+                file.write(output)
+                file.write('\n')
         break
-    
+
     #----------Add Contact-------------#
     elif user_in == add:
         user_name = input("\nWho would you like to add? ")
@@ -80,7 +84,7 @@ while True:
             if contact['name'] == fetch_name.title():
                 print(contact)
                 new_update = input('\n What needs to be updated? name, numbers, city, or occupation: ')
-                contact[new_update] = input('\n Enter new information: ')
+                
                 updated_contact = contact
                 print(updated_contact)
 

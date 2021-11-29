@@ -34,5 +34,6 @@ a:visited {
 }
 
 li {
+    list-style: lower-greek;
     color: yellowgreen;
 }
