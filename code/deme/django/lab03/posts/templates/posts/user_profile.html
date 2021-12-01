@@ -74,6 +74,13 @@
             </li>
         {% endfor %}
     </ul>
+
+    
+<form action="{% url 'posts:index' %}" method="GET">
+	{% csrf_token %}
+	<button type="submit">Home</button>
+</form>
+
 </div>
 <div class="container-fluid">
 
