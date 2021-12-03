@@ -1,0 +1,45 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial;
+padding: 20px;
+background: black;
+}
+
+.header {
+padding: 30px;
+font-size: 40px;
+text-align: center;
+background: white;
+}
+
+
+
+.img {
+background-color: black;
+width: 200%;
+padding: 20px;
+}
+
+.card {
+background-color: green;
+padding: 20px;
+margin-top: 20px;
+margin-bottom: 50px
+}
+
+
+
+.footerdiv{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+align-items: center;
+text-align:left;
+color: green;
+background: rgba(168, 54, 0, 0.37);
+}
+
+

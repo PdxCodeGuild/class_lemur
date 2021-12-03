@@ -3,7 +3,11 @@ const app = Vue.createApp({
         return {
                 quote: '',
                 keyword: '',
-                quoteResults: []
+                quoteResults: [],
+                tag: '',
+                author: '',
+                pageNum: 1,
+                type: ''
                 }
             },
 
@@ -11,17 +15,17 @@ const app = Vue.createApp({
                     getQuote() {
                         axios({
                             method: 'get',
-                            url: 'https://favqs.com/api/qotd',
+                            url: 'https://favqs.com/api/quotes',
                             headers: {
-                                Accept: 'application/json'
-                            }
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"',
+                            },
                         }).then(response => {
-                            this.quote = response.data.quote    
+                            this.quote = response.data.quotes    
                         })
                     },
 
                     searchQuote() {
-                        console.log(this.keyword)
                         axios({
                             method: 'get',
                             url: 'https://favqs.com/api/quotes',
@@ -31,7 +35,7 @@ const app = Vue.createApp({
                             },
                             params: {
                                 filter: this.keyword,
-                                type: 'tag'
+                                type: 'keyword'
                             }
                         }).then(response => {
                             this.quoteResults = response.data.quotes
@@ -40,11 +44,28 @@ const app = Vue.createApp({
                         })
                     },
 
-                    searchAuthor() {
-                        console.log(this.author)
+                    searchTag() {    
                         axios({
                             method: 'get',
-                            url: 'https://favqs.com/api/quotes',
+                            url: 'https://favqs.com/api/quotes/?filter=filter&type=tag',
+                            headers: {
+                                Accept: 'application/json',
+                                Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                            },
+                            params: {
+                                filter: this.tag,
+                                type: 'tag'
+                            },
+                        }).then(response => {
+                            this.quoteResults = response.data.quotes
+                            this.pageNum = response.data.page
+                        })
+                    },
+
+                    searchAuthor() {
+                        axios({
+                            method: 'get',
+                            url: 'https://favqs.com/api/quotes/?filter=filter&type=author',
                             headers: {
                                 Accept: 'application/json',
                                 Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
@@ -55,15 +76,56 @@ const app = Vue.createApp({
                             }
                         }).then(response => {
                             this.quoteResults = response.data.quotes
-                            console.log(response)
+                            this.pageNum = response.data.page
+
 
                         })
-                    }
+                        
+                    },
+            
+                    prevPage() {
+                        this.pageNum--
+                        this.type = type
+                        axios({
+                          method: "get",
+                          url: "https://favqs.com/api/quotes/",
+                          headers: {
+                            Accept: 'application/json',
+                            Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                          },
+                          params: {
+                            filter: this.keyword,
+                            type: this.type,
+                            page: this.pageNum,
+                          },
+                        }).then((response) => {
+                          this.quoteResults = response.data.quotes
+                        });
+                      },
+                      nextPage() {
+                        this.pageNum++
+                        axios({
+                          method: "get",
+                          url: "https://favqs.com/api/quotes/",
+                          headers: {
+                            Accept: 'application/json',
+                            Authorization: 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                          },
+                          params: {
+                            filter: this.keyword,
+                            type: this.type,
+                            page: this.pageNum,
+                          },
+                        }).then((response) => {
+                          this.quoteResults = response.data.quotes
+                        });
+                      },
                 },
 
     created() {
         this.getQuote()
-    }
+    },
+    
     
 })
 

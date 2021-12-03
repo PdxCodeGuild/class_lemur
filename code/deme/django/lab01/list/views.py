@@ -20,15 +20,16 @@ def index(request):
 		print(data) # into a plain Python dictionary
 
 
-	grocery_list = GroceryItem.objects.all() # get all the GroceryItems
+	list = GroceryItem.objects.all() # get all the GroceryItems
 	completed_list = GroceryItem.objects.filter(completed=True) # get the completed GroceryItems
 	incomplete_list = GroceryItem.objects.filter(completed=False) # get the completed GroceryItems
 
 	form = GroceryItemForm()
 
-	context = {"grocery_list" : grocery_list, "grocery_item_form" : form} # the context dictionary will have all the objects
-	# you want to render in your template
-	# the return line will render the template
+	context = {"list" : list, "grocery_item_form" : form,
+	"completed_list" :completed_list,
+	"incomplete_list" : incomplete_list
+	} 
 	return render(request, 'list/index.html', context)
 
 def complete(request, id):

@@ -11,16 +11,16 @@
     <div id="app">
        <h1> {{ message }} </h1>
         <form @submit.prevent="addToListForm">
-            <input type="text" v-model="addNewItem">
+            <input type="text" v-model="addNewItem" name="addNewItem">
             <input type="submit" value="Add Item to List">
             <br>
             <br>
 
             <h2>Todo</h2>
             <ul>
-                <li v-for="item in todo">{{ item.newItem }}
-                    <button v-on:click="Remove">Remove</button>
-                    <button v-on:click="Complete">Mark as Completed</button>
+                <li v-for="item in todo">{{item.name}}
+                    <button v-on:click="Remove(item)">Remove</button>
+                    <button v-on:click="Complete(item)">Mark as Completed</button>
                 </li>
             </ul>
             <br>
@@ -28,8 +28,7 @@
 
             <h2>Completed</h2>
             <ul>
-                <li v-for="item in completed">{{ item.newItem }}
-                    <button v-on:click="Remove">Remove</button>
+                <li v-for="item in completed">{{item.name}}
             </ul>
 
 

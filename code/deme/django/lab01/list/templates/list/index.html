@@ -2,41 +2,42 @@
 
 {% block body %}
 <h1>Grocery List</h1>
-<p>{{ grocery_list }}</p>
-{% for item in grocery_list %}
+<!-- <p>{{ grocery_list }}</p> -->
+<form method="POST" action="/">{% csrf_token %}
+    {{ grocery_item_form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+<h3>Need</h3>
+<!-- <ul> -->
+<!-- {% for item in list %}
     <li>
 		<span {% if item.completed %} class="completed" {% endif %}>
 			{{ item.description }}
 		</span>
-		<a href="{% url 'list:delete' %}">
+		<a href="{% url 'list:delete' item.id %}">
 			<button>Delete</button>
 		</a>
 		{% if item.completed == False %}
-		<a href="{% url 'list:complete' %}">
+		<a href="{% url 'list:complete' item.id %}">
 			<button>Complete</button>
 		</a>
 		{% endif %}
 	</li>
 {% endfor %}
+</ul> -->
 
-
-
-<form method="POST" action="/list/">{% csrf_token %}
-    {{ grocery_item_form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
-</form>
 
 <ul>
-	{% for item in incomplete_groceries %}
+	{% for item in incomplete_list %} 
 	<li>
 		<span>
-			{{ item.description }} #name of item
+			{{ item.description }}
 		</span>
-		<a href="{% url 'list:delete' %}">
+		<a href="{% url 'list:delete' item.id %}">
 			<button>Delete</button>
 		</a>
 		{% if item.completed == False %}
-		<a href="{% url 'list:complete' %}">
+		<a href="{% url 'list:complete' item.id %}">
 			<button>Complete</button>
 		</a>
 		{% endif %}
@@ -46,16 +47,16 @@
 
 <h3>Bought</h3>
 <ul>
-	{% for item in completed_groceries %}
+	{% for item in completed_list %}
 	<li>
 		<span>
 			{{ item.description }}
 		</span>
-		<a href="{% url 'grocery_list:delete' item.id %}">
+		<a href="{% url 'list:delete' item.id %}">
 			<button>Delete</button>
 		</a>
 		{% if item.completed == False %}
-		<a href="{% url 'grocery_list:complete' item.id %}">
+		<a href="{% url 'list:complete' item.id %}">
 			<button>Complete</button>
 		</a>
 		{% endif %}

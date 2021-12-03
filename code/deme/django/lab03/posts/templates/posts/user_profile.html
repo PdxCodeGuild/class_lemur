@@ -7,6 +7,57 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
+<style>
+    body {
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        padding: auto;
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+    
+      h1{
+          color: grey ;
+          font-size: 300%;
+          text-align: center;
+          
+      }
+    
+      h2{
+          color: blue ;
+          font-size: 200%;
+          text-align: center;
+      }
+    
+      h3{
+          color: blueviolet ;
+          font-size: 150%;
+          text-align: center;
+          
+      }
+      
+      ul{
+        text-align: center;
+        font-family:monospace;
+        font-weight: bold;
+        font-size: large;
+        margin-left: 150px;
+        margin-right: 150px;
+      }
+      li {
+        color: rgb(107, 10, 131);
+        font-size: large;
+        list-style: none;
+       
+      }
+    
+    
+    </style>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
@@ -23,6 +74,13 @@
             </li>
         {% endfor %}
     </ul>
+
+    
+<form action="{% url 'posts:index' %}" method="GET">
+	{% csrf_token %}
+	<button type="submit">Home</button>
+</form>
+
 </div>
 <div class="container-fluid">
 
